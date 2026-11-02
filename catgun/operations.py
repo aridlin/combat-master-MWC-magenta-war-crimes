@@ -10,11 +10,12 @@ from halftone.pipeline import build_id
 from deploy_halftone import close_game,replace_verified
 from .geometry import make_cat,palette_image
 from .bundle import verify_geometry
+from .source_model import load_cat
 
 
 def verify(config,cat_config):
     manifest=json.loads((Path(cat_config['output'])/'manifest.json').read_text());build_id(config)
-    mesh=make_cat(cat_config['scale']);counts=[]
+    mesh,coat_image=load_cat(cat_config);counts=[]
     for b in manifest['files']:
         if digest(Path(b['backup']))!=b['source_sha256'] or digest(Path(b['output']))!=b['output_sha256']:
             raise ValueError('Cat artifact or baseline hash mismatch')
@@ -54,7 +55,7 @@ def verify(config,cat_config):
             elif obj.type.name=='Mesh' and tree['m_VertexData']['m_VertexCount']!=0:raise ValueError('Visual masking mesh is not empty')
             if obj.type.name=='Texture2D' and tree['m_Name']=='MWC_CatPalette':
                 import numpy as np
-                if not np.array_equal(np.asarray(obj.read().image.convert('RGB')),np.asarray(palette_image())):
+                if not np.array_equal(np.asarray(obj.read().image.convert('RGB')),np.asarray(coat_image)):
                     raise ValueError('Cat palette did not round-trip')
         counts.append({'bundle':b['bundle'],'hidden_render_bindings':len(b['hidden_render_bindings']),
                        'new_objects':len(added),'cat_geometry_verified':cat_found if b['bundle'].endswith('/weapons') else 'not-applicable',

@@ -1,4 +1,8 @@
-# Native offline validation — November 2, 2026
+# Historical procedural-cat validation — November 2, 2026
+
+This records the earlier gray procedural prototype. It predates the M1A0
+full-tail import, sight, helicopter and cat-audio modules. Consult
+[verification.json](verification.json) for the current installed/tested state.
 
 Steam build 24397779, Unity 6000.3.19f1, native Linux IL2CPP, KDE Wayland,
 RTX 4060 Ti. The game ran windowed at 1920×1080 for inspection, using its

@@ -1,7 +1,7 @@
 # Combat Master MWC (Magenta War Crimes)
 
 Native Linux visual-asset experiments for **Combat Master**: deterministic
-halftone retextures and an experimental Lynx cat gun.
+halftone retextures, an M1A0 ginger Lynx cat gun, and offline sight customization.
 
 ![MWC gameplay: magenta arms, orange weapon and simplified world surfaces](docs/screenshots/ship-deck.jpg)
 
@@ -16,11 +16,15 @@ retexture work, not the cat prototype. More captures are in
 | Fine / Quiet Light-Dot Halftone | Implemented and applied locally; gameplay captures available |
 | Shared albedo separation | Implemented with category-specific copies and verified material bindings |
 | Map texture arrays | Implemented for the four inspected BC7 albedo arrays, 50 layers |
-| Lynx cat geometry | Original mesh exported as OBJ and self-contained GLB |
-| Lynx bundle prototype | Installed locally; cat rendered in offline armory and showcase preview |
-| Cat orientation and original receiver/magazine hiding | Verified in offline showcase after two visual corrections |
+| Lynx cat geometry | Actual M1A0 ginger cat imported locally; original tail and full body preserved |
+| Lynx bundle prototype | M1A0 v5 installed and file-verified; current first-person testing pending |
+| Procedural fallback | Earlier gray-cat showcase verified; source OBJ/GLB remains available |
 | Cat firing, reload, ADS and muzzle alignment | **Not verified**; isolated guest profile has the weapon locked |
 | Bright blue CombatZone loot crates | Three materials installed and file-verified; world appearance not yet tested |
+| Steg Spikes visual replacement | Conventional notch and post installed; game-visible alignment unverified |
+| Reticle pictures | 38 changed to Sun; seven requested names preserved |
+| Helicopter glass | Little Bird window material cleared across 21 render bindings; file-verified, visual testing pending |
+| Lynx cat audio | Seven shot/reload/bolt samples replaced with addon cat noises; exact PCM/FMOD round-trip, in-game audition pending |
 | FOV management / crosshair overlay | Not implemented in this repository |
 
 The inspected build is Steam **2281730**, build **24397779**, native Linux
@@ -70,7 +74,7 @@ Review the classification and staged output before installing:
 Installation closes the identified game process, snapshots the installed
 files, replaces verified bundles, and records hashes in a deployment journal.
 It does not launch the game. Unknown installed hashes are rejected. The cat
-prototype and blue crate module must be restored before replacing the underlying halftone stack.
+prototype, sights and blue crate module must be restored before replacing the underlying halftone stack.
 
 ## Exact visual preset
 
@@ -108,7 +112,54 @@ filtering and lighting introduce colors beyond the two exact source RGBs.
 RGBA array conversion preserves every decoded alpha mip but adds about
 176 MiB of texture storage. Frame-time/VRAM behavior has not been measured.
 
-## Experimental Lynx cat
+## Actual M1A0 ginger Lynx
+
+The current local model is the actual M1A0 ginger cat, imported from the
+user's Steam addon. Its full original body and tail are retained. The
+third-party source assets are kept local. See [local import instructions and
+credits](docs/m1a0-local-import.md). Current v5 hipfire, ADS and reload placement
+remain unverified; the earlier gray-cat screenshot below is a fallback test.
+
+## Sight customization
+
+Steg Spikes receives a conventional rear notch/front post at its existing aim
+point. Thirty-eight reticle pictures use Sun; Red Dot, Red Arrow, Toxic Tris,
+Blue Dot, Circle Dot, Sun and Pulse are preserved. See [build, installation,
+verification and layered rollback](docs/sight-customization.md). Both sight
+features are installed and file-verified, with game-visible testing pending.
+
+## Lynx cat audio
+
+The independent [audio module](docs/cat-audio.md) replaces only the Lynx's
+seven existing shot/reload/bolt samples with cat sounds from the local M1A0
+addon. Slot durations, event references, pitch and spatial settings remain
+unchanged. No animation, weapon stats, firing or reload logic is modified.
+
+## Helicopter windows
+
+The Little Bird glass material contributes zero visible color/opacity across
+21 render bindings, while body materials, frames, collision and scripts remain
+unchanged. The separate module builds on the installed blue-crate baseline:
+
+```sh
+.venv/bin/python helicopter_windows.py prepare
+.venv/bin/python helicopter_windows.py build
+.venv/bin/python helicopter_windows.py verify
+.venv/bin/python helicopter_windows.py install
+.venv/bin/python helicopter_windows.py restore
+```
+
+Actual in-game window visibility is still unverified. Restore helicopter
+windows before the blue crate module. Full layer order is recorded in
+[the current rollback guide](docs/restoration.md).
+
+## Other weapon concepts
+
+[The model shortlist](docs/weapon-model-ideas.md) proposes a scorpion for the
+Scorpion Evo, a fishing rod for Kar98k, and nail-gun, toaster, goose and other
+visual themes. These are ideas, not implemented weapon replacements.
+
+## Original procedural fallback cat
 
 ![Original procedural cat mesh preview, not an in-game screenshot](assets/cat/preview.png)
 
@@ -136,7 +187,7 @@ for a new variant. File-level verification checks the new vertex/normal/UV/
 index data after reopening, all new local asset references, exact original
 object bytes, and the narrow set of permitted visual changes.
 
-The cat now renders in the actual native Linux armory and showcase preview.
+The earlier procedural fallback rendered in the actual native Linux armory and showcase preview.
 The first test caught a perpendicular cat and visible receiver/magazine;
 subsequent builds corrected orientation and disabled runtime-populated visual
 renderers. The shared scope intentionally remains.

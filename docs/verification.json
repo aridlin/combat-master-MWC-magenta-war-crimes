@@ -10,6 +10,34 @@
     "gameplay_captures_provided": true
   },
   "cat": {
+    "variant": "M1A0 v5 full original tail",
+    "vertices": 2084,
+    "triangles": 3128,
+    "bundles": 2,
+    "installed": true,
+    "mesh_positions_normals_uv_indices_roundtrip": true,
+    "ginger_diffuse_pixels_roundtrip": true,
+    "source_archive_crc_checked": true,
+    "source_model_file_checksums_match": true,
+    "original_tail_and_rump_retained": true,
+    "in_game_tested": false,
+    "firing_tested": false,
+    "reload_tested": false,
+    "ads_tested": false
+  },
+  "tests": {
+    "workspace": "22 passed",
+    "source_only_repository": "21 passed, 1 game-data-dependent rollback test skipped"
+  },
+  "blue_crates": {
+    "color": "#008CFF",
+    "materials": 3,
+    "dedicated_albedos": 3,
+    "installed": true,
+    "file_verified": true,
+    "in_game_tested": false
+  },
+  "historical_procedural_cat": {
     "vertices": 3690,
     "triangles": 7106,
     "render_bindings_hidden": 111,
@@ -29,16 +57,37 @@
     "ads_tested": false,
     "equip_blocker": "Locked on isolated guest profile"
   },
-  "tests": {
-    "workspace": "22 passed",
-    "source_only_repository": "21 passed, 1 game-data-dependent rollback test skipped"
-  },
-  "blue_crates": {
-    "color": "#008CFF",
-    "materials": 3,
-    "dedicated_albedos": 3,
+  "sights": {
+    "reticles_replaced": 38,
+    "preserved_names": [
+      "Red Dot",
+      "Red Arrow",
+      "Toxic Tris",
+      "Blue Dot",
+      "Circle Dot",
+      "Sun",
+      "Pulse"
+    ],
+    "steg_spikes_mesh": "rear notch and front post, three LODs",
     "installed": true,
     "file_verified": true,
     "in_game_tested": false
+  },
+  "helicopter_windows": {
+    "material": "MH6LittleBird_Glass",
+    "glass_render_bindings": 21,
+    "opacity": 0,
+    "installed": true,
+    "file_verified": true,
+    "body_frames_collision_loot_scripts_textures_byte_exact": true,
+    "in_game_tested": false
+  },
+  "cat_audio": {
+    "replaced_clips": 7,
+    "installed": true,
+    "fmod_pcm_roundtrip_exact": true,
+    "original_slot_durations_event_refs_spatial_settings_preserved": true,
+    "unrelated_original_audio_bytes_unchanged": true,
+    "in_game_auditioned": false
   }
 }

@@ -26,3 +26,11 @@ game process using the normal weapon showcase UI. This verifies preview
 rendering, upright forward orientation, and receiver/magazine hiding. It does
 not verify firing, reload, ADS, multiplayer behavior or performance. The game
 window decoration was cropped; colors were not edited.
+
+## M1A0 software preview
+
+![Actual M1A0 geometry, software preview](m1a0-import-preview.png)
+
+This preview uses the full locally imported M1A0 mesh and ginger diffuse,
+including its original tail. It is not an in-game capture. Source assets and
+credits are described in [the import guide](../m1a0-local-import.md).

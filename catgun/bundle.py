@@ -12,6 +12,7 @@ from halftone.assets import key,pointer,dump
 from halftone.pipeline import build_id,safe_output
 from bundle_utils import digest,inventory
 from .geometry import make_cat,export,palette_image
+from .source_model import load_cat
 
 
 def new_object(template,label,objects):
@@ -29,6 +30,14 @@ def write(obj,tree):
 
 def mesh_tree(template,mesh,name):
     d=copy.deepcopy(template);v,n,uv,f=mesh.arrays()
+    # A donor may retain packed data even with m_MeshCompression == 0.
+    # New geometry must not inherit any of those old vertex/index streams.
+    def empty_packed(value):
+        if isinstance(value,dict):return {k:empty_packed(v) for k,v in value.items()}
+        if isinstance(value,list):return []
+        if isinstance(value,bytes):return b''
+        return type(value)(0)
+    d['m_CompressedMesh']=empty_packed(d['m_CompressedMesh'])
     interleaved=np.zeros((len(v),12),dtype='<f4');interleaved[:,:3]=v;interleaved[:,3:6]=n
     interleaved[:,6]=1;interleaved[:,9]=1;interleaved[:,10:12]=uv
     channels=[{'stream':0,'offset':0,'format':0,'dimension':0} for _ in range(14)]
@@ -54,7 +63,8 @@ def verify_geometry(obj,mesh):
 def build(config,cat_config):
     version=build_id(config);out=safe_output(cat_config['output'],config);report=out/'manifest.json'
     if report.exists(): raise ValueError('Existing cat build: choose a new output directory for a new variant')
-    mesh=make_cat(cat_config['scale']);export(mesh,Path(cat_config['asset_output']))
+    mesh,coat_image=load_cat(cat_config)
+    if cat_config.get('model','procedural')=='procedural':export(mesh,Path(cat_config['asset_output']))
     full_path=Path(config['paths']['reports'])/'modifications.json'
     baseline={b['bundle']:b for b in json.loads(full_path.read_text())['bundles']} if full_path.exists() else {}
     result={'build_id':version,'name':'MWC Lynx cat prototype','files':[],'geometry':{'vertices':len(mesh.vertices),'triangles':len(mesh.faces)},
@@ -132,7 +142,7 @@ def build(config,cat_config):
             cat_mesh_id=key(cat_mesh.assets_file.name,cat_mesh.path_id);added.append(cat_mesh_id)
             texture_template=next(o for o in original_objects if o.type.name=='Texture2D')
             texture_obj=new_object(texture_template,'MWC-cat-palette',objects);texture=texture_obj.read()
-            image=palette_image();image_data,_=image_to_texture2d(image,4)
+            image=coat_image;image_data,_=image_to_texture2d(image,4)
             texture.m_Name='MWC_CatPalette';texture.m_Width,texture.m_Height=image.size
             texture.image_data=image_data;texture.m_TextureFormat=4;texture.m_CompleteImageSize=len(image_data);texture.m_MipCount=1
             if texture.m_MipMap is not None: texture.m_MipMap=False

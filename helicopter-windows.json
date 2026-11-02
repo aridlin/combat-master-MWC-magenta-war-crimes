@@ -1,0 +1,5 @@
+{
+  "base_config": "halftone.json",
+  "output": "experiments/helicopter-windows",
+  "backups": "backups/helicopter-windows"
+}

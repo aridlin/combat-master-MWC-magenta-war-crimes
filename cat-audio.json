@@ -1,0 +1,6 @@
+{
+  "base_config": "halftone.json",
+  "source_assets": "external-assets/m1a0",
+  "output": "experiments/cat-audio",
+  "backups": "backups/cat-audio"
+}

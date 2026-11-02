@@ -1,3 +1,5 @@
 UnityPy==1.25.4
 numpy>=2.0,<3
 Pillow>=11,<14
+
+texture2ddecoder==1.0.6

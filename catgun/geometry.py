@@ -140,7 +140,7 @@ def export(mesh,directory):
     return stats
 
 
-def render(mesh,path,eye=(.9,.8,.45),width=1000,height=700):
+def render(mesh,path,eye=(.9,.8,.45),width=1000,height=700,texture=None,label=None):
     """Small deterministic shaded preview, explicitly not a game screenshot."""
     v,n,uv,faces=mesh.arrays(); eye=np.asarray(eye,dtype=float);target=np.array([0,.17,.025])
     forward=target-eye;forward/=np.linalg.norm(forward);right=np.cross(forward,[0,0,1]);right/=np.linalg.norm(right);up=np.cross(right,forward)
@@ -164,9 +164,17 @@ def render(mesh,path,eye=(.9,.8,.45),width=1000,height=700):
         mask=(w0>=0)&(w1>=0)&(w2>=0)&(depth<region)
         normal=w0[...,None]*ns[0]+w1[...,None]*ns[1]+w2[...,None]*ns[2];normal/=np.maximum(np.linalg.norm(normal,axis=-1,keepdims=True),1e-8)
         diffuse=.23+.77*np.maximum(0,normal@light)
-        base=np.array(PALETTE[min(len(PALETTE)-1,int(uv[face[0],0]*len(PALETTE)))])/255
-        shade=np.rint(np.clip(base[None,None,:]*diffuse[...,None],0,1)*255).astype(np.uint8)
+        if texture is None:
+            base=np.array(PALETTE[min(len(PALETTE)-1,int(uv[face[0],0]*len(PALETTE)))])/255
+            base=base[None,None,:]
+        else:
+            pixels_uv=w0[...,None]*uv[face[0]]+w1[...,None]*uv[face[1]]+w2[...,None]*uv[face[2]]
+            tex=np.asarray(texture.convert('RGB'))
+            tx=np.clip((pixels_uv[...,0]*tex.shape[1]).astype(int),0,tex.shape[1]-1)
+            ty=np.clip(((1-pixels_uv[...,1])*tex.shape[0]).astype(int),0,tex.shape[0]-1)
+            base=tex[ty,tx]/255
+        shade=np.rint(np.clip(base*diffuse[...,None],0,1)*255).astype(np.uint8)
         pixels[y0:y1+1,x0:x1+1][mask]=shade[mask];region[mask]=depth[mask]
     image=Image.fromarray(pixels);d=ImageDraw.Draw(image)
-    d.text((20,18),'MWC Lynx cat | generated mesh preview — not in-game',fill='white')
+    d.text((20,18),label or 'MWC Lynx cat | generated mesh preview — not in-game',fill='white')
     image.save(path)

@@ -1,0 +1,530 @@
+[
+  {
+    "id": 256,
+    "label": "Red Dot",
+    "guid": "02e99acdd542a42a2b71316ffaa80155",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 273681861269742711,
+      "name": "reticle_reflex_0"
+    }
+  },
+  {
+    "id": 257,
+    "label": "Red Arrow",
+    "guid": "387922fe7d9a047c68415047d44d39eb",
+    "type": "reticle",
+    "bundle": "root/root",
+    "texture": {
+      "id": 8259225437512983509,
+      "name": "reticle_reflex_1"
+    }
+  },
+  {
+    "id": 266,
+    "label": "Jet Fighter",
+    "guid": "06a54c27ed99c47b89e75a4f653bbbbf",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 3697321890083927401,
+      "name": "reticle_reflex_10"
+    }
+  },
+  {
+    "id": 267,
+    "label": "Nuke",
+    "guid": "c7787b714379048a1871e87a568c201c",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": -2673897041740562861,
+      "name": "reticle_reflex_11"
+    }
+  },
+  {
+    "id": 268,
+    "label": "Sigil",
+    "guid": "ab15f10c94c1540958d19e5b5c1d334d",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 7093295534400582607,
+      "name": "reticle_reflex_12"
+    }
+  },
+  {
+    "id": 269,
+    "label": "Diamond",
+    "guid": "31d1db2915c30439cb163eb7f72afc16",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 1943763201865797268,
+      "name": "reticle_reflex_13_diamond"
+    }
+  },
+  {
+    "id": 270,
+    "label": "Rising Star",
+    "guid": "5288651629cf243dc8a802b70db60272",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 2877129762659429592,
+      "name": "reticle_reflex_14_star"
+    }
+  },
+  {
+    "id": 271,
+    "label": "Excalibur",
+    "guid": "fb52e487f480548cb951b751be5d6eb6",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": -2174736056205165449,
+      "name": "reticle_reflex_15_sword"
+    }
+  },
+  {
+    "id": 272,
+    "label": "Acquisition",
+    "guid": "af0086e6fd71a4898ad4f62b1a12d70d",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": -9178044513078536141,
+      "name": "reticle_reflex_16_pilot"
+    }
+  },
+  {
+    "id": 273,
+    "label": "Pulse",
+    "guid": "f60700f33a10b53418fa370e88c3d2c8",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": -8690776359727800483,
+      "name": "reticle_reflex_18_S5"
+    }
+  },
+  {
+    "id": 258,
+    "label": "Green Cross",
+    "guid": "63b18409c770b476c8c856b1b7b31b7c",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 558312030376843046,
+      "name": "reticle_reflex_2"
+    }
+  },
+  {
+    "id": 259,
+    "label": "Toxic Tris",
+    "guid": "4dfd22adf8a73479e99c8acdf866e734",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": -2284832714199255196,
+      "name": "reticle_reflex_3"
+    }
+  },
+  {
+    "id": 260,
+    "label": "Blue Dot",
+    "guid": "eed914c90a9ef446a8b183895b909a62",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 6911144677467355011,
+      "name": "reticle_reflex_4"
+    }
+  },
+  {
+    "id": 261,
+    "label": "Circle Dot",
+    "guid": "d55534252f1994d0a8ed25700c72e25a",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": -722129977837469011,
+      "name": "reticle_reflex_5"
+    }
+  },
+  {
+    "id": 262,
+    "label": "Rise",
+    "guid": "b27d542bc4e3b4c23970fef6e09fee2d",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": -9122733319711843258,
+      "name": "reticle_reflex_6"
+    }
+  },
+  {
+    "id": 263,
+    "label": "Purple Horizon",
+    "guid": "53f2ab8c230c9478eb52d0841f784f6d",
+    "type": "reticle",
+    "bundle": "root/root",
+    "texture": {
+      "id": 1918348325138447793,
+      "name": "reticle_reflex_7"
+    }
+  },
+  {
+    "id": 264,
+    "label": "Sun",
+    "guid": "448e5d1d21a3a455080e11c3bc546a20",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": -8088483875246208084,
+      "name": "reticle_reflex_8"
+    }
+  },
+  {
+    "id": 265,
+    "label": "Open Cross",
+    "guid": "36775fc6fa1844cb4bb8629d4dd7ebe0",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 5758108081716417957,
+      "name": "reticle_reflex_9"
+    }
+  },
+  {
+    "id": 512,
+    "label": "Red Dot",
+    "guid": "544e455d13cf74b04a4340b4938835a4",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": -899705743484054493,
+      "name": "reticle_acog_0"
+    }
+  },
+  {
+    "id": 513,
+    "label": "Blue Arrow",
+    "guid": "9b59670b1daea4b84a9e0ae7120600eb",
+    "type": "reticle",
+    "bundle": "src/weapons/weapons",
+    "texture": {
+      "id": -2931201211756256256,
+      "name": "reticle_acog_1"
+    }
+  },
+  {
+    "id": 522,
+    "label": "Hex",
+    "guid": "d7b3b44410c014787a086922d2a1bfcc",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 6907321034700859174,
+      "name": "reticle_acog_10"
+    }
+  },
+  {
+    "id": 523,
+    "label": "Dogfight",
+    "guid": "c865728bcef0b4bf5b5888a852900e06",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 7745547197233120295,
+      "name": "reticle_acog_11_aviator"
+    }
+  },
+  {
+    "id": 524,
+    "label": "Rangefinder",
+    "guid": "fcbc6efcccda0462584587a10a4447fc",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 604463207441189774,
+      "name": "reticle_acog_12_pilot"
+    }
+  },
+  {
+    "id": 525,
+    "label": "Spectra",
+    "guid": "f63697266a564a9419835455e8f3a7dd",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 4521659969285092965,
+      "name": "reticle_acog_14_S5"
+    }
+  },
+  {
+    "id": 514,
+    "label": "Jet Fighter",
+    "guid": "eac98d95b76bf435fb54da433e36ddf0",
+    "type": "reticle",
+    "bundle": "src/weapons/weapons",
+    "texture": {
+      "id": 1582952539349044705,
+      "name": "reticle_acog_2"
+    }
+  },
+  {
+    "id": 515,
+    "label": "Blue Dot",
+    "guid": "9704106f564b642339eafb60e4523eef",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": -7300889033850788411,
+      "name": "reticle_acog_3"
+    }
+  },
+  {
+    "id": 516,
+    "label": "Red Cross",
+    "guid": "45ad6a13fc2044c9397c7881cf413f68",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 2725217768291441605,
+      "name": "reticle_acog_4"
+    }
+  },
+  {
+    "id": 517,
+    "label": "Semi-Circle Dot",
+    "guid": "d3fd6cacbc6d34809b0fe45bf9d32f14",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": -1101200173974901622,
+      "name": "reticle_acog_5"
+    }
+  },
+  {
+    "id": 518,
+    "label": "Sun",
+    "guid": "6cc55fb73edb543a58e4ddfe1a1a3bca",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": -7517483879656086324,
+      "name": "reticle_acog_6"
+    }
+  },
+  {
+    "id": 519,
+    "label": "Open Cross",
+    "guid": "2d99f8fdcd6bc4e7ba4cc31ee9dcc974",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 855788783611086185,
+      "name": "reticle_acog_7"
+    }
+  },
+  {
+    "id": 520,
+    "label": "Purple Cross",
+    "guid": "df68e8d8dc8184ca2852d2b5063ffe42",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 4961909660034929725,
+      "name": "reticle_acog_8"
+    }
+  },
+  {
+    "id": 521,
+    "label": "Orion",
+    "guid": "2d720fba2dad24b0a9a1f7e3190b26e8",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 9112231569109527974,
+      "name": "reticle_acog_9"
+    }
+  },
+  {
+    "id": 768,
+    "label": "Hunter",
+    "guid": "f89db7ced6bf84b3e898e8b795c96ce1",
+    "type": "reticle",
+    "bundle": "src/weapons/weapons",
+    "texture": {
+      "id": 7768021218555211969,
+      "name": "reticle_sniper_0"
+    }
+  },
+  {
+    "id": 769,
+    "label": "Duplex",
+    "guid": "a25d2c6b2a8744b77bc495098936f9b6",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": -5334049299506957359,
+      "name": "reticle_sniper_1"
+    }
+  },
+  {
+    "id": 778,
+    "label": "Arcanum",
+    "guid": "3e76e494d97f346a1a20927a6a1c3d98",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 7994797360486068609,
+      "name": "reticle_sniper_11"
+    }
+  },
+  {
+    "id": 779,
+    "label": "Coronette",
+    "guid": "cc4e08666fd6148b8992bdec2a54a6e1",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 4216064013365355487,
+      "name": "reticle_sniper_12_crown"
+    }
+  },
+  {
+    "id": 780,
+    "label": "Ace of Spades",
+    "guid": "71e6a83253319498d90e4040f687a916",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": -7223036065487907757,
+      "name": "reticle_sniper_13_spades"
+    }
+  },
+  {
+    "id": 781,
+    "label": "Golden Tint",
+    "guid": "956e6c41da967403daf2a1c45b5d2b06",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 2521278361497963256,
+      "name": "reticle_sniper_14_gold_tris"
+    }
+  },
+  {
+    "id": 782,
+    "label": "Azimuth",
+    "guid": "81aa388a211c9489098c1269415b82f4",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 1046327986205236586,
+      "name": "reticle_sniper_15_Pilot"
+    }
+  },
+  {
+    "id": 783,
+    "label": "Orbit",
+    "guid": "3e6b71024eb94ec41b1e2364fe1d46d2",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 681912784133300773,
+      "name": "reticle_sniper_17_S5"
+    }
+  },
+  {
+    "id": 770,
+    "label": "ASVAL",
+    "guid": "f81f33c53a4c546b2a6f89d588dbcb47",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 8185212447119899435,
+      "name": "reticle_sniper_2"
+    }
+  },
+  {
+    "id": 771,
+    "label": "Red Circle",
+    "guid": "a403fe493821fc24f83edf4e86129344",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": -3883384246594863,
+      "name": "reticle_sniper_3"
+    }
+  },
+  {
+    "id": 772,
+    "label": "Rise",
+    "guid": "b81148a96e77c4a449e1ccc754e038ea",
+    "type": "reticle",
+    "bundle": "root/root",
+    "texture": {
+      "id": -7021809894601767918,
+      "name": "reticle_sniper_4"
+    }
+  },
+  {
+    "id": 773,
+    "label": "Flickshot",
+    "guid": "5fb0a3cdfb9df46f7985da503a176453",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 8945007826131218743,
+      "name": "reticle_sniper_5"
+    }
+  },
+  {
+    "id": 774,
+    "label": "Mil Dot",
+    "guid": "d2a5e2c62278c4364bd651292ba35768",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": -7757082467776865411,
+      "name": "reticle_sniper_6"
+    }
+  },
+  {
+    "id": 775,
+    "label": "Spear",
+    "guid": "cb4ed06f403584642842a861493e381d",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 7932690614460116933,
+      "name": "reticle_sniper_7"
+    }
+  },
+  {
+    "id": 776,
+    "label": "Orion Prescision",
+    "guid": "e8ea12c0cec2e4304861cad809b0d9f7",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 7744829358464516554,
+      "name": "reticle_sniper_8"
+    }
+  },
+  {
+    "id": 777,
+    "label": "Grin",
+    "guid": "ba1e14044b323452c920916db892c028",
+    "type": "reticle",
+    "bundle": "src/weapons/attachments",
+    "texture": {
+      "id": 5406375358512094429,
+      "name": "reticle_sniper_10"
+    }
+  }
+]

@@ -25,3 +25,14 @@ GameAssembly.*
 UnityPlayer.*
 *.dll
 *.so
+
+/external-assets/
+/sights.local.json
+*.gma
+*_legacy.bin
+*.mdl
+*.vvd
+*.vtx
+*.vtf
+
+*.wav
