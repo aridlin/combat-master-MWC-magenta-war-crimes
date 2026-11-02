@@ -109,6 +109,21 @@ def build(config,cat_config):
             write(obj,tree);oid=key(obj.assets_file.name,obj.path_id)
             allowed[oid]={'kind':'visual_mesh_binding','old':old,'new':tree['m_Mesh']}
             hidden.append({'name':name,'object':oid,'original_mesh':source_id})
+        # Runtime assembly can populate initially empty skinned renderers.
+        # Disable every Lynx-specific renderer, including those with null meshes;
+        # leave transforms, bones and original mesh assets intact.
+        disabled=[]
+        for obj in original_objects:
+            if obj.type.name not in ('MeshRenderer','SkinnedMeshRenderer'):continue
+            tree=copy.deepcopy(obj.read_typetree())
+            go=pointer(obj.read().m_GameObject,obj.assets_file);name=names.get(go,'')
+            if not name.startswith('GM6_Lynx_') or name=='GM6_Lynx_Empty':continue
+            oid=key(obj.assets_file.name,obj.path_id)
+            if oid in allowed:tree['m_Mesh']=allowed[oid]['new']
+            tree['m_Enabled']=False;write(obj,tree)
+            if oid in allowed:allowed[oid]['disabled']=True
+            else:allowed[oid]={'kind':'visual_renderer_disabled'}
+            disabled.append({'name':name,'object':oid})
         cat_mesh_id=None
         if relative.endswith('/weapons'):
             cat_mesh=new_object(empty_obj,'MWC-cat-mesh',objects);write(cat_mesh,mesh_tree(empty_tree,mesh,'MWC_CatMesh'))
@@ -155,7 +170,7 @@ def build(config,cat_config):
                 write(new_go,go_tree)
                 td=old_t;td['m_GameObject']={'m_FileID':0,'m_PathID':new_go.path_id};td['m_Children']=[]
                 td['m_LocalPosition']=dict(zip('xyz',map(float,cat_config['position'])))
-                td['m_LocalRotation']={'x':0.,'y':0.,'z':0.,'w':1.};td['m_LocalScale']={'x':1.,'y':1.,'z':1.};write(new_t,td)
+                td['m_LocalRotation']=dict(zip('xyzw',map(float,cat_config.get('rotation',[0,2**-.5,2**-.5,0]))));td['m_LocalScale']={'x':1.,'y':1.,'z':1.};write(new_t,td)
                 rd=parts['MeshRenderer'].read_typetree();rd['m_GameObject']={'m_FileID':0,'m_PathID':new_go.path_id};rd['m_Enabled']=True
                 rd['m_Materials']=[{'m_FileID':0,'m_PathID':material_obj.path_id}];write(new_r,rd)
                 fd=parts['MeshFilter'].read_typetree();fd['m_GameObject']={'m_FileID':0,'m_PathID':new_go.path_id};fd['m_Mesh']={'m_FileID':0,'m_PathID':cat_mesh.path_id};write(new_f,fd)
@@ -178,7 +193,10 @@ def build(config,cat_config):
         original_env=UnityPy.load(str(backup));original_objects={key(o.assets_file.name,o.path_id):o for o in original_env.objects}
         for oid,change in allowed.items():
             a=original_objects[oid].read_typetree();b=checked_objects[oid].read_typetree()
-            if change['kind']=='visual_mesh_binding':a['m_Mesh']=change['new']
+            if change['kind']=='visual_mesh_binding':
+                a['m_Mesh']=change['new']
+                if change.get('disabled'):a['m_Enabled']=False
+            elif change['kind']=='visual_renderer_disabled':a['m_Enabled']=False
             else:a['m_Children'].append({'m_FileID':0,'m_PathID':change['child']})
             if a!=b:raise ValueError('Nonvisual fields changed on an existing object')
         for oid in added:
@@ -189,7 +207,7 @@ def build(config,cat_config):
         temp.replace(path)
         result['files'].append({'bundle':relative,'source':str(source.resolve()),'backup':str(backup.resolve()),
             'source_sha256':digest(backup),'output':str(path.resolve()),'output_sha256':digest(path),
-            'hidden_render_bindings':hidden,'existing_object_changes':allowed,'added_objects':added,
+            'hidden_render_bindings':hidden,'disabled_renderers':disabled,'existing_object_changes':allowed,'added_objects':added,
             'checks':{'reopened':True,'all_other_original_objects_byte_exact':True,'only_render_bindings_and_child_links_changed':True,
                       'original_meshes_colliders_scripts_animations_audio_unchanged':True,'cat_geometry_exact_roundtrip':bool(cat_mesh_id)}})
         dump(report,result);print('Cat visual bundle verified:',relative,'render bindings',len(hidden),flush=True)

@@ -1,7 +1,7 @@
 {
   "base_config": "halftone.json",
-  "output": "experiments/lynx-cat-v1",
-  "backups": "backups/lynx-cat-v1",
+  "output": "experiments/lynx-cat-v3",
+  "backups": "backups/lynx-cat-v3",
   "asset_output": "assets/cat",
   "scale": 1.0,
   "position": [
@@ -9,5 +9,11 @@
     0.0,
     0.0
   ],
-  "notes": "Original rigid cat child on both Lynx visual roots; Lynx-specific graphics get separate empty render copies. Shared optics retained. Existing rig/animation/muzzle/collision/script/audio data preserved. Offline prototype; placement needs game-visible validation."
+  "notes": "Rigid original cat: +Y mesh forward maps to +Z weapon forward, +Z mesh up maps to +Y weapon up. Original Lynx renderers disabled; shared optics retained. Offline preview validation required for each build.",
+  "rotation": [
+    0,
+    0.7071067811865476,
+    0.7071067811865476,
+    0
+  ]
 }

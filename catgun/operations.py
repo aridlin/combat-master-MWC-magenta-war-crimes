@@ -30,7 +30,10 @@ def verify(config,cat_config):
                 if before[k]!=after[k]:raise ValueError('Nonvisual original data changed: '+oid)
             else:
                 a=obj.read_typetree();z=modified[oid].read_typetree();change=allowed[oid]
-                if change['kind']=='visual_mesh_binding':a['m_Mesh']=change['new']
+                if change['kind']=='visual_mesh_binding':
+                    a['m_Mesh']=change['new']
+                    if change.get('disabled'):a['m_Enabled']=False
+                elif change['kind']=='visual_renderer_disabled':a['m_Enabled']=False
                 elif change['kind']=='cat_child_link':a['m_Children'].append({'m_FileID':0,'m_PathID':change['child']})
                 else:raise ValueError('Unknown permitted edit')
                 if a!=z:raise ValueError('Changed fields outside visual binding/child list')

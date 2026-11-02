@@ -66,5 +66,21 @@
     ],
     "color_editing": false,
     "caption": "User-recorded Combat Master gameplay showing MWC retextures; not a cat-gun demonstration."
+  },
+  {
+    "file": "lynx-cat-showcase.png",
+    "source": "Native Combat Master offline Showcase Preview, prototype v3, 2026-11-02",
+    "capture_size": [
+      2115,
+      1317
+    ],
+    "crop_xywh": [
+      97,
+      122,
+      1920,
+      1080
+    ],
+    "color_editing": false,
+    "caption": "Actual game preview; firing, reload and ADS untested."
   }
 ]

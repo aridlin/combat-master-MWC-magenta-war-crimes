@@ -16,3 +16,13 @@ These show the retexture work. They are not controlled before/after
 comparisons, do not establish performance, and do not show the Lynx cat
 prototype. Frame timestamps and crop coordinates are recorded in
 [provenance.json](provenance.json).
+
+## Native offline Lynx preview
+
+![Actual native-game Lynx cat showcase](lynx-cat-showcase.png)
+
+Captured by Codex on November 2, 2026, from a network-isolated native Linux
+game process using the normal weapon showcase UI. This verifies preview
+rendering, upright forward orientation, and receiver/magazine hiding. It does
+not verify firing, reload, ADS, multiplayer behavior or performance. The game
+window decoration was cropped; colors were not edited.

@@ -17,8 +17,10 @@ retexture work, not the cat prototype. More captures are in
 | Shared albedo separation | Implemented with category-specific copies and verified material bindings |
 | Map texture arrays | Implemented for the four inspected BC7 albedo arrays, 50 layers |
 | Lynx cat geometry | Original mesh exported as OBJ and self-contained GLB |
-| Lynx bundle prototype | Built and reopened; geometry and asset references verified |
-| Cat placement, reload appearance and muzzle alignment | **Not yet verified in-game** |
+| Lynx bundle prototype | Installed locally; cat rendered in offline armory and showcase preview |
+| Cat orientation and original receiver/magazine hiding | Verified in offline showcase after two visual corrections |
+| Cat firing, reload, ADS and muzzle alignment | **Not verified**; isolated guest profile has the weapon locked |
+| Bright blue CombatZone loot crates | Three materials installed and file-verified; world appearance not yet tested |
 | FOV management / crosshair overlay | Not implemented in this repository |
 
 The inspected build is Steam **2281730**, build **24397779**, native Linux
@@ -68,7 +70,7 @@ Review the classification and staged output before installing:
 Installation closes the identified game process, snapshots the installed
 files, replaces verified bundles, and records hashes in a deployment journal.
 It does not launch the game. Unknown installed hashes are rejected. The cat
-prototype must be restored before replacing the underlying halftone stack.
+prototype and blue crate module must be restored before replacing the underlying halftone stack.
 
 ## Exact visual preset
 
@@ -112,7 +114,9 @@ RGBA array conversion preserves every decoded alpha mip but adds about
 
 The original cat has **3,690 vertices and 7,106 triangles**. It is attached
 as a separate rigid visual child to both inspected Lynx roots. Dedicated
-empty render-mesh copies hide 111 Lynx-specific render bindings; the original
+empty render-mesh copies replace 111 Lynx-specific render bindings, and all
+Lynx-specific renderers are disabled, including initially empty renderers
+that the game populates at runtime. The original
 meshes remain available to collision and other references. Shared optics
 remain. Existing weapon bones, transforms, animations, sounds, scripts and
 muzzle nodes keep their original data.
@@ -121,22 +125,52 @@ muzzle nodes keep their original data.
 .venv/bin/python catgun_cli.py model
 .venv/bin/python catgun_cli.py build
 .venv/bin/python catgun_cli.py verify
-# Explicitly opt into the untested offline prototype:
+# Explicitly opt into the offline prototype:
 .venv/bin/python catgun_cli.py install --dry-run
 .venv/bin/python catgun_cli.py install
 .venv/bin/python catgun_cli.py restore
 ```
 
-`catgun.json` controls position and scale. Use a fresh output/backup directory
+`catgun.json` controls position, quaternion rotation (x, y, z, w), and scale. Use a fresh output/backup directory
 for a new variant. File-level verification checks the new vertex/normal/UV/
 index data after reopening, all new local asset references, exact original
 object bytes, and the narrow set of permitted visual changes.
 
-**This is a prototype, not a demonstrated working in-game cat gun.** Mouth
-alignment, scope/ADS clearance, animation appearance, first/third-person
-behavior and LOD transitions need an offline game test. The preview above
-is a software render of the generated mesh. The supplied gameplay clips
-contain the retextures, not this cat.
+The cat now renders in the actual native Linux armory and showcase preview.
+The first test caught a perpendicular cat and visible receiver/magazine;
+subsequent builds corrected orientation and disabled runtime-populated visual
+renderers. The shared scope intentionally remains.
+
+![Actual offline Lynx showcase screenshot](docs/screenshots/lynx-cat-showcase.png)
+
+**This remains a prototype.** Firing, reload, mouth/muzzle alignment,
+scope/ADS clearance, first/third-person behavior and LOD transitions are
+unverified. The network-isolated guest profile could preview the Lynx but
+could not equip it because it is locked. No unlock/profile edits were made.
+See [the native test record](docs/native-validation.md).
+
+## Bright blue CombatZone crates
+
+`crate-colors.json` selects bright blue `#008CFF` with the existing quiet dots.
+The module gives the three `Box-1`, `Box-2`, and `Box-3` MilitaryCrate loot
+materials dedicated albedo copies. Other users of the old textures retain
+their existing colors. Alpha, normal maps, lighting, geometry, interaction
+and loot data remain unchanged. Generic decorative boxes and store crates
+are outside this selection.
+
+Build the full halftone baseline first, then:
+
+```sh
+.venv/bin/python crate_colors.py build
+.venv/bin/python crate_colors.py verify
+.venv/bin/python crate_colors.py install --dry-run
+.venv/bin/python crate_colors.py install
+.venv/bin/python crate_colors.py restore
+```
+
+The three materials are installed and hash-verified locally. Their actual
+appearance in the CombatZone map has not been visually tested. Restore both
+crate and cat modules before restoring the underlying halftone installation.
 
 ## Layout
 

@@ -17,11 +17,28 @@
     "mesh_positions_normals_uv_indices_roundtrip": true,
     "new_local_references_resolve": true,
     "original_animation_audio_scripts_collision_data_byte_exact": true,
-    "in_game_tested": false,
-    "installed": true
+    "in_game_tested": true,
+    "installed": true,
+    "variant": "v3",
+    "preview_rendering_verified": true,
+    "forward_upright_orientation_verified": true,
+    "receiver_and_magazine_hidden_in_preview": true,
+    "shared_optic_retained": true,
+    "firing_tested": false,
+    "reload_tested": false,
+    "ads_tested": false,
+    "equip_blocker": "Locked on isolated guest profile"
   },
   "tests": {
     "workspace": "22 passed",
     "source_only_repository": "21 passed, 1 game-data-dependent rollback test skipped"
+  },
+  "blue_crates": {
+    "color": "#008CFF",
+    "materials": 3,
+    "dedicated_albedos": 3,
+    "installed": true,
+    "file_verified": true,
+    "in_game_tested": false
   }
 }

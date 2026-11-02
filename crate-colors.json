@@ -1,0 +1,7 @@
+{
+  "base_config": "halftone.json",
+  "color": "#008CFF",
+  "output": "experiments/blue-crates-v1",
+  "backups": "backups/blue-crates-v1",
+  "notes": "Dedicated albedo copies for Box-1/Box-2/Box-3 interactive MilitaryCrate loot prefabs. Existing light-dot preset, original alpha and normal maps retained. No emission/depth/interaction or loot logic edits."
+}
