@@ -14,6 +14,7 @@ retexture work, not the cat prototype. More captures are in
 | Feature | State |
 | --- | --- |
 | Fine / Quiet Light-Dot Halftone | Implemented and applied locally; gameplay captures available |
+| Four original weapon models | Scorpion, fishing rod, nail gun and toaster built/installed; file-verified, in-game testing pending |
 | Shared albedo separation | Implemented with category-specific copies and verified material bindings |
 | Map texture arrays | Implemented for the four inspected BC7 albedo arrays, 50 layers |
 | Lynx cat geometry | Actual M1A0 ginger cat imported locally; original tail and full body preserved |
@@ -153,11 +154,23 @@ Actual in-game window visibility is still unverified. Restore helicopter
 windows before the blue crate module. Full layer order is recorded in
 [the current rollback guide](docs/restoration.md).
 
+## Four original weapon models
+
+The Scorpion Evo now has a scorpion model, Kar98k a fishing rod, MP7 a nail gun,
+and P90 a toaster. These original rigid visual prototypes are installed and
+file-verified. Their geometry and palettes are exported as OBJ and standalone
+GLB. See [previews, build instructions and rollback](docs/weapon-models.md).
+
+Actual hipfire/ADS placement, animation appearance and first/third-person/LOD
+transitions remain unverified. Shared sights are retained; original game
+meshes, collision, scripts, animations, audio and weapon stats stay intact.
+Each model can be independently selected when building a fresh variant.
+
 ## Other weapon concepts
 
-[The model shortlist](docs/weapon-model-ideas.md) proposes a scorpion for the
-Scorpion Evo, a fishing rod for Kar98k, and nail-gun, toaster, goose and other
-visual themes. These are ideas, not implemented weapon replacements.
+[The model shortlist](docs/weapon-model-ideas.md) records the implemented four
+prototypes plus remaining goose, plunger and other visual concepts. Those
+remaining concepts are not implemented.
 
 ## Original procedural fallback cat
 

@@ -1,0 +1,5 @@
+newmtl CatCoat
+Kd 1 1 1
+Ks 0.08 0.08 0.08
+Ns 12
+map_Kd fishing_rod-palette.png

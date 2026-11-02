@@ -26,8 +26,8 @@
     "ads_tested": false
   },
   "tests": {
-    "workspace": "22 passed",
-    "source_only_repository": "21 passed, 1 game-data-dependent rollback test skipped"
+    "workspace": "24 passed",
+    "source_only_repository": "23 passed, 1 game-data-dependent rollback test skipped"
   },
   "blue_crates": {
     "color": "#008CFF",
@@ -89,5 +89,35 @@
     "original_slot_durations_event_refs_spatial_settings_preserved": true,
     "unrelated_original_audio_bytes_unchanged": true,
     "in_game_auditioned": false
+  },
+  "weapon_models": {
+    "installed": true,
+    "in_game_tested": false,
+    "models": {
+      "Scorpion Evo": {
+        "model": "scorpion",
+        "vertices": 3014,
+        "triangles": 5572
+      },
+      "Kar98k": {
+        "model": "fishing rod",
+        "vertices": 4140,
+        "triangles": 7676
+      },
+      "MP7": {
+        "model": "nail gun",
+        "vertices": 1260,
+        "triangles": 1068
+      },
+      "P90": {
+        "model": "toaster",
+        "vertices": 1404,
+        "triangles": 2104
+      }
+    },
+    "geometry_and_palette_roundtrip_exact": true,
+    "new_local_references_resolve": true,
+    "unrelated_original_objects_byte_exact": true,
+    "original_meshes_collision_scripts_animation_audio_unchanged": true
   }
 }

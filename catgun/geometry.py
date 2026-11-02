@@ -102,26 +102,26 @@ def palette_image():
     return image
 
 
-def export(mesh,directory):
+def export(mesh,directory,texture=None,prefix="cat",description="Original MWC cat mesh, Z up, +Y muzzle direction"):
     directory=Path(directory);directory.mkdir(parents=True,exist_ok=True)
-    v,n,uv,f=mesh.arrays(); palette_image().save(directory/'cat-palette.png')
-    with (directory/'cat.obj').open('w') as stream:
-        stream.write('# Original MWC cat mesh, Z up, +Y muzzle direction\nmtllib cat.mtl\nusemtl CatCoat\n')
+    v,n,uv,f=mesh.arrays(); coat=texture if texture is not None else palette_image();coat.save(directory/(prefix+'-palette.png'))
+    with (directory/(prefix+'.obj')).open('w') as stream:
+        stream.write('# '+description+'\nmtllib '+prefix+'.mtl\nusemtl CatCoat\n')
         for p in v: stream.write('v '+' '.join(map(str,p))+'\n')
         for p in uv: stream.write('vt '+' '.join(map(str,p))+'\n')
         for p in n: stream.write('vn '+' '.join(map(str,p))+'\n')
         for face in f: stream.write('f '+' '.join(f'{int(i)+1}/{int(i)+1}/{int(i)+1}' for i in face)+'\n')
-    (directory/'cat.mtl').write_text('newmtl CatCoat\nKd 1 1 1\nKs 0.08 0.08 0.08\nNs 12\nmap_Kd cat-palette.png\n')
+    (directory/(prefix+'.mtl')).write_text('newmtl CatCoat\nKd 1 1 1\nKs 0.08 0.08 0.08\nNs 12\nmap_Kd '+prefix+'-palette.png\n')
     # GLB uses standard Y-up coordinates; the Unity-native OBJ remains Z-up.
     gv=v[:,[0,2,1]].copy();gv[:,2]*=-1;gn=n[:,[0,2,1]].copy();gn[:,2]*=-1
-    image_io=io.BytesIO();palette_image().save(image_io,format='PNG')
+    image_io=io.BytesIO();coat.save(image_io,format='PNG')
     blobs=[gv.tobytes(),gn.tobytes(),uv.tobytes(),f.tobytes(),image_io.getvalue()]
     binary=bytearray(); views=[]
     for blob in blobs:
         while len(binary)%4: binary.append(0)
         views.append({'buffer':0,'byteOffset':len(binary),'byteLength':len(blob)})
         binary.extend(blob)
-    document={'asset':{'version':'2.0','generator':'Combat Master MWC original procedural cat'},
+    document={'asset':{'version':'2.0','generator':'Combat Master MWC original procedural '+prefix},
         'buffers':[{'byteLength':len(binary)}],'bufferViews':views,
         'accessors':[{'bufferView':0,'componentType':5126,'count':len(v),'type':'VEC3','min':gv.min(axis=0).tolist(),'max':gv.max(axis=0).tolist()},
                      {'bufferView':1,'componentType':5126,'count':len(n),'type':'VEC3'},
@@ -131,10 +131,10 @@ def export(mesh,directory):
         'textures':[{'source':0,'sampler':0}],
         'materials':[{'name':'CatCoat','pbrMetallicRoughness':{'baseColorTexture':{'index':0},'metallicFactor':0,'roughnessFactor':.8}}],
         'meshes':[{'primitives':[{'attributes':{'POSITION':0,'NORMAL':1,'TEXCOORD_0':2},'indices':3,'material':0}]}],
-        'nodes':[{'mesh':0,'name':'MWC_Cat'}],'scenes':[{'nodes':[0]}],'scene':0}
+        'nodes':[{'mesh':0,'name':'MWC_'+prefix}],'scenes':[{'nodes':[0]}],'scene':0}
     js=json.dumps(document,separators=(',',':')).encode();js+=b' '*((-len(js))%4);binary+=b'\0'*((-len(binary))%4)
     glb=struct.pack('<III',0x46546c67,2,12+8+len(js)+8+len(binary))+struct.pack('<I4s',len(js),b'JSON')+js+struct.pack('<I4s',len(binary),b'BIN\0')+binary
-    (directory/'cat.glb').write_bytes(glb)
+    (directory/(prefix+'.glb')).write_bytes(glb)
     stats={'vertices':len(v),'triangles':len(f),'bounds_min':v.min(axis=0).tolist(),'bounds_max':v.max(axis=0).tolist(),'parts':mesh.parts,'source':'Original procedural geometry; no game or downloaded meshes.'}
     (directory/'mesh-info.json').write_text(json.dumps(stats,indent=2)+'\n')
     return stats
@@ -146,7 +146,8 @@ def render(mesh,path,eye=(.9,.8,.45),width=1000,height=700,texture=None,label=No
     forward=target-eye;forward/=np.linalg.norm(forward);right=np.cross(forward,[0,0,1]);right/=np.linalg.norm(right);up=np.cross(right,forward)
     projected=np.stack([(v-target)@right,(v-target)@up,(v-eye)@forward],axis=1)
     scale=min((width-80)/np.ptp(projected[:,0]),(height-100)/np.ptp(projected[:,1]))
-    p=projected.copy();p[:,0]=width/2+p[:,0]*scale;p[:,1]=height/2-p[:,1]*scale
+    p=projected.copy();center_xy=(projected[:,:2].min(axis=0)+projected[:,:2].max(axis=0))/2
+    p[:,0]=width/2+(p[:,0]-center_xy[0])*scale;p[:,1]=height/2-(p[:,1]-center_xy[1])*scale
     zbuffer=np.full((height,width),np.inf);pixels=np.full((height,width,3),(28,34,42),dtype=np.uint8)
     light=np.array([.25,.1,.96]);light/=np.linalg.norm(light)
     for face in faces:

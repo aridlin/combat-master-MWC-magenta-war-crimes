@@ -8,6 +8,7 @@ Restore in this order, using the configurations and output directories from
 the installed builds:
 
 ```sh
+.venv/bin/python weapon_models_cli.py restore
 .venv/bin/python cat_audio.py restore
 .venv/bin/python sight_customization.py restore
 .venv/bin/python catgun_cli.py restore --config catgun.local.json
@@ -25,3 +26,7 @@ A lower-layer restoration may intentionally refuse while an upper layer is
 installed. Remove the upper layer first, rather than editing hashes or forcing
 replacement. Steam file verification is the independent way to restore original
 Steam-delivered assets; these tools do not override integrity checks.
+
+The four-model layer shares the weapon bundles with sights and the Lynx.
+Restore weapon models before sights or the cat, so each layer sees its exact
+expected baseline.

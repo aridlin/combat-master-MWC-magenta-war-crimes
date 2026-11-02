@@ -1,0 +1,232 @@
+{
+  "vertices": 1260,
+  "triangles": 1068,
+  "bounds_min": [
+    -0.04500000178813934,
+    -0.054999999701976776,
+    -0.14249999821186066
+  ],
+  "bounds_max": [
+    0.041999999433755875,
+    0.2411654144525528,
+    0.023000000044703484
+  ],
+  "parts": [
+    {
+      "name": "yellow_housing",
+      "first_vertex": 0,
+      "vertex_count": 24
+    },
+    {
+      "name": "rear_motor_cap",
+      "first_vertex": 24,
+      "vertex_count": 182
+    },
+    {
+      "name": "motor_panel",
+      "first_vertex": 206,
+      "vertex_count": 24
+    },
+    {
+      "name": "top_vent",
+      "first_vertex": 230,
+      "vertex_count": 24
+    },
+    {
+      "name": "top_vent",
+      "first_vertex": 254,
+      "vertex_count": 24
+    },
+    {
+      "name": "top_vent",
+      "first_vertex": 278,
+      "vertex_count": 24
+    },
+    {
+      "name": "top_vent",
+      "first_vertex": 302,
+      "vertex_count": 24
+    },
+    {
+      "name": "top_vent",
+      "first_vertex": 326,
+      "vertex_count": 24
+    },
+    {
+      "name": "top_vent",
+      "first_vertex": 350,
+      "vertex_count": 24
+    },
+    {
+      "name": "top_vent",
+      "first_vertex": 374,
+      "vertex_count": 24
+    },
+    {
+      "name": "top_vent",
+      "first_vertex": 398,
+      "vertex_count": 24
+    },
+    {
+      "name": "steel_nozzle",
+      "first_vertex": 422,
+      "vertex_count": 40
+    },
+    {
+      "name": "nose_tip",
+      "first_vertex": 462,
+      "vertex_count": 40
+    },
+    {
+      "name": "contact_safety",
+      "first_vertex": 502,
+      "vertex_count": 24
+    },
+    {
+      "name": "contact_safety",
+      "first_vertex": 526,
+      "vertex_count": 24
+    },
+    {
+      "name": "rubber_grip",
+      "first_vertex": 550,
+      "vertex_count": 24
+    },
+    {
+      "name": "grip_rib",
+      "first_vertex": 574,
+      "vertex_count": 24
+    },
+    {
+      "name": "grip_rib",
+      "first_vertex": 598,
+      "vertex_count": 24
+    },
+    {
+      "name": "grip_rib",
+      "first_vertex": 622,
+      "vertex_count": 24
+    },
+    {
+      "name": "grip_rib",
+      "first_vertex": 646,
+      "vertex_count": 24
+    },
+    {
+      "name": "grip_rib",
+      "first_vertex": 670,
+      "vertex_count": 24
+    },
+    {
+      "name": "grip_rib",
+      "first_vertex": 694,
+      "vertex_count": 24
+    },
+    {
+      "name": "trigger",
+      "first_vertex": 718,
+      "vertex_count": 24
+    },
+    {
+      "name": "nail_magazine",
+      "first_vertex": 742,
+      "vertex_count": 24
+    },
+    {
+      "name": "magazine_bottom",
+      "first_vertex": 766,
+      "vertex_count": 24
+    },
+    {
+      "name": "nail_strip",
+      "first_vertex": 790,
+      "vertex_count": 24
+    },
+    {
+      "name": "nail_strip",
+      "first_vertex": 814,
+      "vertex_count": 24
+    },
+    {
+      "name": "nail_strip",
+      "first_vertex": 838,
+      "vertex_count": 24
+    },
+    {
+      "name": "nail_strip",
+      "first_vertex": 862,
+      "vertex_count": 24
+    },
+    {
+      "name": "nail_strip",
+      "first_vertex": 886,
+      "vertex_count": 24
+    },
+    {
+      "name": "nail_strip",
+      "first_vertex": 910,
+      "vertex_count": 24
+    },
+    {
+      "name": "nail_strip",
+      "first_vertex": 934,
+      "vertex_count": 24
+    },
+    {
+      "name": "nail_strip",
+      "first_vertex": 958,
+      "vertex_count": 24
+    },
+    {
+      "name": "nail_strip",
+      "first_vertex": 982,
+      "vertex_count": 24
+    },
+    {
+      "name": "nail_strip",
+      "first_vertex": 1006,
+      "vertex_count": 24
+    },
+    {
+      "name": "nail_strip",
+      "first_vertex": 1030,
+      "vertex_count": 24
+    },
+    {
+      "name": "nail_strip",
+      "first_vertex": 1054,
+      "vertex_count": 24
+    },
+    {
+      "name": "nail_strip",
+      "first_vertex": 1078,
+      "vertex_count": 24
+    },
+    {
+      "name": "brand_plate",
+      "first_vertex": 1102,
+      "vertex_count": 24
+    },
+    {
+      "name": "plate_mark",
+      "first_vertex": 1126,
+      "vertex_count": 24
+    },
+    {
+      "name": "plate_mark",
+      "first_vertex": 1150,
+      "vertex_count": 24
+    },
+    {
+      "name": "plate_mark",
+      "first_vertex": 1174,
+      "vertex_count": 24
+    },
+    {
+      "name": "mode_button",
+      "first_vertex": 1198,
+      "vertex_count": 62
+    }
+  ],
+  "source": "Original procedural geometry; no game or downloaded meshes."
+}

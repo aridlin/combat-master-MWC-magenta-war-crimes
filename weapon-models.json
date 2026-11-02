@@ -1,0 +1,21 @@
+{
+  "base_config": "halftone.json",
+  "output": "experiments/weapon-models",
+  "backups": "backups/weapon-models",
+  "asset_output": "assets/weapon-models",
+  "models": {
+    "scorpion": {
+      "enabled": true
+    },
+    "fishing_rod": {
+      "enabled": true
+    },
+    "nail_gun": {
+      "enabled": true
+    },
+    "toaster": {
+      "enabled": true
+    }
+  },
+  "sources": {}
+}

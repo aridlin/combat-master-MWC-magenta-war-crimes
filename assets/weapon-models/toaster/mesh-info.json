@@ -1,0 +1,197 @@
+{
+  "vertices": 1404,
+  "triangles": 2104,
+  "bounds_min": [
+    -0.06700000166893005,
+    -0.05649999901652336,
+    -0.1120000034570694
+  ],
+  "bounds_max": [
+    0.0860000029206276,
+    0.20800000429153442,
+    0.03999999910593033
+  ],
+  "parts": [
+    {
+      "name": "toaster_body",
+      "first_vertex": 0,
+      "vertex_count": 24
+    },
+    {
+      "name": "rounded_side",
+      "first_vertex": 24,
+      "vertex_count": 182
+    },
+    {
+      "name": "rubber_foot",
+      "first_vertex": 206,
+      "vertex_count": 24
+    },
+    {
+      "name": "rubber_foot",
+      "first_vertex": 230,
+      "vertex_count": 24
+    },
+    {
+      "name": "rounded_side",
+      "first_vertex": 254,
+      "vertex_count": 182
+    },
+    {
+      "name": "rubber_foot",
+      "first_vertex": 436,
+      "vertex_count": 24
+    },
+    {
+      "name": "rubber_foot",
+      "first_vertex": 460,
+      "vertex_count": 24
+    },
+    {
+      "name": "top_panel",
+      "first_vertex": 484,
+      "vertex_count": 24
+    },
+    {
+      "name": "bread_slot",
+      "first_vertex": 508,
+      "vertex_count": 24
+    },
+    {
+      "name": "toast_crust",
+      "first_vertex": 532,
+      "vertex_count": 24
+    },
+    {
+      "name": "bread_crumb",
+      "first_vertex": 556,
+      "vertex_count": 24
+    },
+    {
+      "name": "toast_pore",
+      "first_vertex": 580,
+      "vertex_count": 34
+    },
+    {
+      "name": "toast_pore",
+      "first_vertex": 614,
+      "vertex_count": 34
+    },
+    {
+      "name": "toast_pore",
+      "first_vertex": 648,
+      "vertex_count": 34
+    },
+    {
+      "name": "toast_pore",
+      "first_vertex": 682,
+      "vertex_count": 34
+    },
+    {
+      "name": "toast_pore",
+      "first_vertex": 716,
+      "vertex_count": 34
+    },
+    {
+      "name": "toast_pore",
+      "first_vertex": 750,
+      "vertex_count": 34
+    },
+    {
+      "name": "toast_pore",
+      "first_vertex": 784,
+      "vertex_count": 34
+    },
+    {
+      "name": "bread_slot",
+      "first_vertex": 818,
+      "vertex_count": 24
+    },
+    {
+      "name": "toast_crust",
+      "first_vertex": 842,
+      "vertex_count": 24
+    },
+    {
+      "name": "bread_crumb",
+      "first_vertex": 866,
+      "vertex_count": 24
+    },
+    {
+      "name": "toast_pore",
+      "first_vertex": 890,
+      "vertex_count": 34
+    },
+    {
+      "name": "toast_pore",
+      "first_vertex": 924,
+      "vertex_count": 34
+    },
+    {
+      "name": "toast_pore",
+      "first_vertex": 958,
+      "vertex_count": 34
+    },
+    {
+      "name": "toast_pore",
+      "first_vertex": 992,
+      "vertex_count": 34
+    },
+    {
+      "name": "toast_pore",
+      "first_vertex": 1026,
+      "vertex_count": 34
+    },
+    {
+      "name": "toast_pore",
+      "first_vertex": 1060,
+      "vertex_count": 34
+    },
+    {
+      "name": "toast_pore",
+      "first_vertex": 1094,
+      "vertex_count": 34
+    },
+    {
+      "name": "lever_track",
+      "first_vertex": 1128,
+      "vertex_count": 24
+    },
+    {
+      "name": "red_lever",
+      "first_vertex": 1152,
+      "vertex_count": 24
+    },
+    {
+      "name": "browning_dial",
+      "first_vertex": 1176,
+      "vertex_count": 40
+    },
+    {
+      "name": "dial_pointer",
+      "first_vertex": 1216,
+      "vertex_count": 16
+    },
+    {
+      "name": "control_button",
+      "first_vertex": 1232,
+      "vertex_count": 62
+    },
+    {
+      "name": "control_button",
+      "first_vertex": 1294,
+      "vertex_count": 62
+    },
+    {
+      "name": "front_outlet",
+      "first_vertex": 1356,
+      "vertex_count": 24
+    },
+    {
+      "name": "front_trim",
+      "first_vertex": 1380,
+      "vertex_count": 24
+    }
+  ],
+  "source": "Original procedural geometry; no game or downloaded meshes."
+}

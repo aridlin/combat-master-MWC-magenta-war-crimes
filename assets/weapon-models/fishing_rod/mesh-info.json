@@ -1,0 +1,167 @@
+{
+  "vertices": 4140,
+  "triangles": 7676,
+  "bounds_min": [
+    -0.01720000058412552,
+    -0.210999995470047,
+    -0.07500000298023224
+  ],
+  "bounds_max": [
+    0.11400000005960464,
+    0.7601878046989441,
+    0.005200000014156103
+  ],
+  "parts": [
+    {
+      "name": "cork_grip",
+      "first_vertex": 0,
+      "vertex_count": 80
+    },
+    {
+      "name": "grip_wrap",
+      "first_vertex": 80,
+      "vertex_count": 168
+    },
+    {
+      "name": "grip_wrap",
+      "first_vertex": 248,
+      "vertex_count": 168
+    },
+    {
+      "name": "grip_wrap",
+      "first_vertex": 416,
+      "vertex_count": 168
+    },
+    {
+      "name": "grip_wrap",
+      "first_vertex": 584,
+      "vertex_count": 168
+    },
+    {
+      "name": "grip_wrap",
+      "first_vertex": 752,
+      "vertex_count": 168
+    },
+    {
+      "name": "grip_wrap",
+      "first_vertex": 920,
+      "vertex_count": 168
+    },
+    {
+      "name": "grip_wrap",
+      "first_vertex": 1088,
+      "vertex_count": 168
+    },
+    {
+      "name": "grip_wrap",
+      "first_vertex": 1256,
+      "vertex_count": 168
+    },
+    {
+      "name": "grip_wrap",
+      "first_vertex": 1424,
+      "vertex_count": 168
+    },
+    {
+      "name": "carbon_rod",
+      "first_vertex": 1592,
+      "vertex_count": 96
+    },
+    {
+      "name": "guide_mount",
+      "first_vertex": 1688,
+      "vertex_count": 136
+    },
+    {
+      "name": "line_guide",
+      "first_vertex": 1824,
+      "vertex_count": 168
+    },
+    {
+      "name": "guide_mount",
+      "first_vertex": 1992,
+      "vertex_count": 136
+    },
+    {
+      "name": "line_guide",
+      "first_vertex": 2128,
+      "vertex_count": 168
+    },
+    {
+      "name": "guide_mount",
+      "first_vertex": 2296,
+      "vertex_count": 136
+    },
+    {
+      "name": "line_guide",
+      "first_vertex": 2432,
+      "vertex_count": 168
+    },
+    {
+      "name": "guide_mount",
+      "first_vertex": 2600,
+      "vertex_count": 136
+    },
+    {
+      "name": "line_guide",
+      "first_vertex": 2736,
+      "vertex_count": 168
+    },
+    {
+      "name": "guide_mount",
+      "first_vertex": 2904,
+      "vertex_count": 136
+    },
+    {
+      "name": "line_guide",
+      "first_vertex": 3040,
+      "vertex_count": 168
+    },
+    {
+      "name": "fishing_line",
+      "first_vertex": 3208,
+      "vertex_count": 42
+    },
+    {
+      "name": "reel_seat",
+      "first_vertex": 3250,
+      "vertex_count": 24
+    },
+    {
+      "name": "reel_axle",
+      "first_vertex": 3274,
+      "vertex_count": 32
+    },
+    {
+      "name": "reel_flange",
+      "first_vertex": 3306,
+      "vertex_count": 264
+    },
+    {
+      "name": "reel_flange",
+      "first_vertex": 3570,
+      "vertex_count": 264
+    },
+    {
+      "name": "reel_spool",
+      "first_vertex": 3834,
+      "vertex_count": 48
+    },
+    {
+      "name": "crank",
+      "first_vertex": 3882,
+      "vertex_count": 36
+    },
+    {
+      "name": "crank_knob",
+      "first_vertex": 3918,
+      "vertex_count": 182
+    },
+    {
+      "name": "butt_cap",
+      "first_vertex": 4100,
+      "vertex_count": 40
+    }
+  ],
+  "source": "Original procedural geometry; no game or downloaded meshes."
+}

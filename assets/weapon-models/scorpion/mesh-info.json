@@ -1,0 +1,222 @@
+{
+  "vertices": 3014,
+  "triangles": 5572,
+  "bounds_min": [
+    -0.14616093039512634,
+    -0.13899999856948853,
+    -0.09138520061969757
+  ],
+  "bounds_max": [
+    0.14616093039512634,
+    0.365586519241333,
+    0.009999999776482582
+  ],
+  "parts": [
+    {
+      "name": "armored_body",
+      "first_vertex": 0,
+      "vertex_count": 266
+    },
+    {
+      "name": "head",
+      "first_vertex": 266,
+      "vertex_count": 182
+    },
+    {
+      "name": "segmented_carapace",
+      "first_vertex": 448,
+      "vertex_count": 142
+    },
+    {
+      "name": "segmented_carapace",
+      "first_vertex": 590,
+      "vertex_count": 142
+    },
+    {
+      "name": "segmented_carapace",
+      "first_vertex": 732,
+      "vertex_count": 142
+    },
+    {
+      "name": "segmented_carapace",
+      "first_vertex": 874,
+      "vertex_count": 142
+    },
+    {
+      "name": "segmented_carapace",
+      "first_vertex": 1016,
+      "vertex_count": 142
+    },
+    {
+      "name": "walking_leg",
+      "first_vertex": 1158,
+      "vertex_count": 40
+    },
+    {
+      "name": "leg_joint",
+      "first_vertex": 1198,
+      "vertex_count": 52
+    },
+    {
+      "name": "walking_leg",
+      "first_vertex": 1250,
+      "vertex_count": 40
+    },
+    {
+      "name": "leg_joint",
+      "first_vertex": 1290,
+      "vertex_count": 52
+    },
+    {
+      "name": "walking_leg",
+      "first_vertex": 1342,
+      "vertex_count": 40
+    },
+    {
+      "name": "leg_joint",
+      "first_vertex": 1382,
+      "vertex_count": 52
+    },
+    {
+      "name": "walking_leg",
+      "first_vertex": 1434,
+      "vertex_count": 40
+    },
+    {
+      "name": "leg_joint",
+      "first_vertex": 1474,
+      "vertex_count": 52
+    },
+    {
+      "name": "pincer_arm",
+      "first_vertex": 1526,
+      "vertex_count": 36
+    },
+    {
+      "name": "claw_palm",
+      "first_vertex": 1562,
+      "vertex_count": 182
+    },
+    {
+      "name": "outer_pincer",
+      "first_vertex": 1744,
+      "vertex_count": 36
+    },
+    {
+      "name": "inner_pincer",
+      "first_vertex": 1780,
+      "vertex_count": 36
+    },
+    {
+      "name": "eye",
+      "first_vertex": 1816,
+      "vertex_count": 52
+    },
+    {
+      "name": "eye_glint",
+      "first_vertex": 1868,
+      "vertex_count": 34
+    },
+    {
+      "name": "walking_leg",
+      "first_vertex": 1902,
+      "vertex_count": 40
+    },
+    {
+      "name": "leg_joint",
+      "first_vertex": 1942,
+      "vertex_count": 52
+    },
+    {
+      "name": "walking_leg",
+      "first_vertex": 1994,
+      "vertex_count": 40
+    },
+    {
+      "name": "leg_joint",
+      "first_vertex": 2034,
+      "vertex_count": 52
+    },
+    {
+      "name": "walking_leg",
+      "first_vertex": 2086,
+      "vertex_count": 40
+    },
+    {
+      "name": "leg_joint",
+      "first_vertex": 2126,
+      "vertex_count": 52
+    },
+    {
+      "name": "walking_leg",
+      "first_vertex": 2178,
+      "vertex_count": 40
+    },
+    {
+      "name": "leg_joint",
+      "first_vertex": 2218,
+      "vertex_count": 52
+    },
+    {
+      "name": "pincer_arm",
+      "first_vertex": 2270,
+      "vertex_count": 36
+    },
+    {
+      "name": "claw_palm",
+      "first_vertex": 2306,
+      "vertex_count": 182
+    },
+    {
+      "name": "outer_pincer",
+      "first_vertex": 2488,
+      "vertex_count": 36
+    },
+    {
+      "name": "inner_pincer",
+      "first_vertex": 2524,
+      "vertex_count": 36
+    },
+    {
+      "name": "eye",
+      "first_vertex": 2560,
+      "vertex_count": 52
+    },
+    {
+      "name": "eye_glint",
+      "first_vertex": 2612,
+      "vertex_count": 34
+    },
+    {
+      "name": "low_curled_tail",
+      "first_vertex": 2646,
+      "vertex_count": 84
+    },
+    {
+      "name": "tail_segment",
+      "first_vertex": 2730,
+      "vertex_count": 62
+    },
+    {
+      "name": "tail_segment",
+      "first_vertex": 2792,
+      "vertex_count": 62
+    },
+    {
+      "name": "tail_segment",
+      "first_vertex": 2854,
+      "vertex_count": 62
+    },
+    {
+      "name": "tail_segment",
+      "first_vertex": 2916,
+      "vertex_count": 62
+    },
+    {
+      "name": "stinger",
+      "first_vertex": 2978,
+      "vertex_count": 36
+    }
+  ],
+  "source": "Original procedural geometry; no game or downloaded meshes."
+}

@@ -1,6 +1,8 @@
 # Weapon model ideas
 
-These are concepts, not implemented replacements. Keep the existing weapon's
+The Scorpion, Kar98k, MP7 and P90 concepts now have installed original rigid
+prototypes; see [the implementation](weapon-models.md). The remaining rows are
+ideas only. Keep the existing weapon's
 fire rate, damage, recoil, spread, reload timing, ADS behavior and collision.
 
 | Weapon | Preferred visual | Alternatives | Fit and clearance |
