@@ -1,0 +1,27 @@
+{
+  "game_build": "24397779",
+  "unity": "6000.3.19f1",
+  "runtime": "native Linux IL2CPP",
+  "halftone": {
+    "ordinary_albedos": 5234,
+    "category_copies": 11,
+    "array_layers": 50,
+    "bundles": 76,
+    "gameplay_captures_provided": true
+  },
+  "cat": {
+    "vertices": 3690,
+    "triangles": 7106,
+    "render_bindings_hidden": 111,
+    "bundles": 2,
+    "mesh_positions_normals_uv_indices_roundtrip": true,
+    "new_local_references_resolve": true,
+    "original_animation_audio_scripts_collision_data_byte_exact": true,
+    "in_game_tested": false,
+    "installed": false
+  },
+  "tests": {
+    "workspace": "22 passed",
+    "source_only_repository": "21 passed, 1 game-data-dependent rollback test skipped"
+  }
+}

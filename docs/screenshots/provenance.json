@@ -1,0 +1,70 @@
+[
+  {
+    "file": "ship-reload.jpg",
+    "source_clip": "Replay_2026-11-02_09-42-20.mp4",
+    "time_seconds": 35,
+    "crop": [
+      320,
+      260,
+      3200,
+      1600
+    ],
+    "resize": [
+      1600,
+      800
+    ],
+    "color_editing": false,
+    "caption": "User-recorded Combat Master gameplay showing MWC retextures; not a cat-gun demonstration."
+  },
+  {
+    "file": "ship-deck.jpg",
+    "source_clip": "Replay_2026-11-02_09-44-22.mp4",
+    "time_seconds": 5,
+    "crop": [
+      320,
+      260,
+      3200,
+      1600
+    ],
+    "resize": [
+      1600,
+      800
+    ],
+    "color_editing": false,
+    "caption": "User-recorded Combat Master gameplay showing MWC retextures; not a cat-gun demonstration."
+  },
+  {
+    "file": "interior-weapon.jpg",
+    "source_clip": "Replay_2026-11-02_09-51-06.mp4",
+    "time_seconds": 5,
+    "crop": [
+      320,
+      260,
+      3200,
+      1600
+    ],
+    "resize": [
+      1600,
+      800
+    ],
+    "color_editing": false,
+    "caption": "User-recorded Combat Master gameplay showing MWC retextures; not a cat-gun demonstration."
+  },
+  {
+    "file": "magenta-reload.jpg",
+    "source_clip": "Replay_2026-11-02_09-52-15.mp4",
+    "time_seconds": 35,
+    "crop": [
+      320,
+      260,
+      3200,
+      1600
+    ],
+    "resize": [
+      1600,
+      800
+    ],
+    "color_editing": false,
+    "caption": "User-recorded Combat Master gameplay showing MWC retextures; not a cat-gun demonstration."
+  }
+]

@@ -1,0 +1,233 @@
+{
+  "preset": "Fine / Quiet Light-Dot Halftone",
+  "bundle_root": "",
+  "app_manifest": "",
+  "expected_build_id": "24397779",
+  "expected_unity_version": "6000.3.19f1",
+  "source_overrides": {},
+  "paths": {
+    "canonical": "light_dot_textures",
+    "reports": "reports/mwc",
+    "output": "experiments/mwc/bundles",
+    "backups": "backups/mwc"
+  },
+  "backup": {
+    "enabled": true,
+    "verify_sha256": true
+  },
+  "generation": {
+    "size": 512,
+    "pitch": 32,
+    "radius": 3,
+    "white_blend": 0.18
+  },
+  "mapping": {
+    "tile_meters": 1.28,
+    "mode": "preserve_uv_and_material_tiling",
+    "wrap": "repeat",
+    "filter": "trilinear"
+  },
+  "texture_encoding": "preserve_dxt_alpha",
+  "bundles": {
+    "include": [
+      "root/*",
+      "src/*"
+    ],
+    "exclude": [
+      "root/audio"
+    ]
+  },
+  "unclassified": "neutral_fallback_for_supported_surface_albedo",
+  "categories": {
+    "characters": {
+      "color": "#FF00FF",
+      "enabled": true
+    },
+    "weapons": {
+      "color": "#FF8500",
+      "enabled": true
+    },
+    "vegetation": {
+      "color": "#439B45",
+      "enabled": true
+    },
+    "sheet_metal": {
+      "color": "#87939B",
+      "enabled": true
+    },
+    "concrete": {
+      "color": "#B5ADA0",
+      "enabled": true
+    },
+    "wood": {
+      "color": "#98663D",
+      "enabled": true
+    },
+    "dirt": {
+      "color": "#796B50",
+      "enabled": true
+    },
+    "glass": {
+      "color": "#65C9D6",
+      "enabled": true
+    }
+  },
+  "color_slots": [
+    "_BaseMap",
+    "_MainTex",
+    "_Albedo",
+    "_AlbedoMap",
+    "_Diffuse",
+    "_DiffuseMap",
+    "_BaseColorMap",
+    "Albedo",
+    "Base_Map"
+  ],
+  "excluded_name_regex": "(?i)(?:lightmap|splatmap|controlmap|reticle|crosshair|scope.?mask|scope.?lens|ui_|icon|font|sprite|gradient|noise|particle|trail|flare|blood|muzzle.?flash|\\bSDF\\b)",
+  "material_rules": [
+    {
+      "category": "characters",
+      "regex": "(?i)(?:soldier|watch|dog.?tags|parashut|parachut|pouch|nails|female|girl|glove|armor|gas.?mask|gp21|gp_21|sleeve|forearm|helmet|jacket|pants|vest|backpack|harnet|bandit|frogman|ghillie|underwear|hair|beret|angel|devil|trex|stalker|pilot|kruger|racer.*mat|puh|eye|glasses)"
+    },
+    {
+      "category": "vegetation",
+      "regex": "(?i)(?:grass|foliage|leaves|leaf|bush|(?:^|[_\\W])tree(?:[_\\W]|$)|palm|fern|plant|vegetation|hedge|flower)"
+    },
+    {
+      "category": "sheet_metal",
+      "regex": "(?i)(?:metal(?!lic)|corrugat|container|steel|iron|alumini|tin_roof|chain|tank|electrical|conductor|cabinet)"
+    },
+    {
+      "category": "concrete",
+      "regex": "(?i)(?:concrete|cement|beton|plaster|stucco|brick|stone|pillar|column|floor.?tile|pool.?floor|wall.?tile|stairs|pedestal|statue)"
+    },
+    {
+      "category": "wood",
+      "regex": "(?i)(?:(?<![a-z])wood|timber|plywood|plank|lumber|pallet|bark)"
+    },
+    {
+      "category": "dirt",
+      "regex": "(?i)(?:\\bdirt\\b|(?:^|_)dirt|asphalt|gravel|soil|ground.?sand|sand.?ground|earth|\\bmud\\b|muddy)"
+    },
+    {
+      "category": "glass",
+      "regex": "(?i)(?:glass|window.?pane)"
+    }
+  ],
+  "filename_rules": [],
+  "asset_overrides": {
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-9132558078815909478": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-9130000545179456543": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-9043771425059638979": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-8911717140358362061": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-8867467424445781941": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-8550080274037066394": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-8412292999396663910": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-8175214261102208109": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-8045115865483302427": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-7980284657596501157": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-7880161821100685677": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-7860806314648897403": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-7784618070917288811": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-7301742804293187000": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-7293010608505688096": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-7225057346766539183": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-6694523217028829552": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-6353882618016357255": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-6133946906256067096": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-5986943355049669240": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-5954062158644277332": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-5906056319720821424": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-5783677342043629778": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-5494357690474517537": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-5436949675117096968": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-5431200209671215525": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-5081564829131650478": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-4975378400045801913": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-4944708754587923475": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-4892509022303607447": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-4884936945047007984": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-4770774468877425783": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-4431078349374984805": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-4099065241957699075": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-4009582461375573592": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-3976864555031562961": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-3459436531760564188": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-3303519119289656036": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-3068638279647357528": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-2815482767291206632": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-2621052451829753560": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-2484793145153085431": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-2309639327918783513": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-2147897642056817338": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-2075373706955120731": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-1634856753271085352": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-1472127632960232563": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-993226004317448045": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-931172705354846062": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-836562692050782748": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-819528656341096094": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-803731253932191873": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-734708051087717378": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-692538997839163623": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-591497692625129527": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-483914297564675732": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-328286188470607882": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-148665931278308770": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-131368470015020644": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:-51864104007510262": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:24465980107914592": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:181632758933119330": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:419316958990451001": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:563219537179219395": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:1198749707752022180": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:1619064274241188611": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:1772801177768988797": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:1904511296552772616": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:2304754963461452709": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:2488869514832316617": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:2649852418175043822": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:2829472012755557955": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:3374217670348263597": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:3395757438540421739": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:3871187629585989366": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:3990706579605442770": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:4017461715120821398": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:4018845582983957745": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:4132604389127523932": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:4170015711260303556": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:4434195078499286327": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:4596625140616013369": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:4667147707586783914": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:4673469635715703018": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:4784984504430345040": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:5131904683149518780": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:5272091229155290476": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:5338532568522767533": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:5359736377101568550": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:5886206389378642488": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:5957215046964915838": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:6393962414841679366": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:6552058363683933665": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:7202092533585401435": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:7351069592108336478": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:7386364993617638311": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:7663399889133300119": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:7755368332786057560": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:7998962486699396698": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:8209905928121300694": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:8266665453553563639": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:8687843084434544155": "characters",
+    "CAB-f5b1fcb5e8e08a186e43bbfcd0a12077:8741560573634393843": "characters"
+  },
+  "material_overrides": {
+    "CAB-1202e3a50aee6588564708882f50af6b:-2142077520139213228": "characters",
+    "CAB-1202e3a50aee6588564708882f50af6b:-238922052392041114": "characters",
+    "CAB-1202e3a50aee6588564708882f50af6b:3970056884204189994": "characters",
+    "CAB-1202e3a50aee6588564708882f50af6b:7213317379028215640": "characters"
+  },
+  "notes": "Run configure.py to create an ignored local halftone.json. Review new game versions before changing build guards.",
+  "weapon_name_regex": "(?i)(?:^|_)(?:AK|AR|AS_VAL|AWM|Barrett|BenelliM2|ButterflyKnife|ButterflySilver|CZ|DE|GM6|GL|GunSM|Kar98K|Katana|M48|M67|MAC10|MP5|MP7|P320|P320XV|P90|PM|SG|SIG|Sig|SNR|SM|SSA|Vector|r700|1911|karambit|Knife|Scope|Suppressor|Handguard|Receiver|Sniper|Minigun|PunchDaggers|GladiatorKnife|ThrowAxe|Shuriken|Thermite)(?:_|\\b|[0-9])",
+  "coverage_mode": "all_surface_albedo",
+  "fallback_category": "concrete"
+}

@@ -1,0 +1,252 @@
+{
+  "vertices": 3690,
+  "triangles": 7106,
+  "bounds_min": [
+    -0.13710641860961914,
+    -0.2156892865896225,
+    -0.14800000190734863
+  ],
+  "bounds_max": [
+    0.13710641860961914,
+    0.5149999856948853,
+    0.2150000035762787
+  ],
+  "parts": [
+    {
+      "name": "torso",
+      "first_vertex": 0,
+      "vertex_count": 266
+    },
+    {
+      "name": "cream_belly",
+      "first_vertex": 266,
+      "vertex_count": 182
+    },
+    {
+      "name": "dark_saddle",
+      "first_vertex": 448,
+      "vertex_count": 182
+    },
+    {
+      "name": "neck",
+      "first_vertex": 630,
+      "vertex_count": 182
+    },
+    {
+      "name": "head",
+      "first_vertex": 812,
+      "vertex_count": 266
+    },
+    {
+      "name": "cheek",
+      "first_vertex": 1078,
+      "vertex_count": 182
+    },
+    {
+      "name": "eye",
+      "first_vertex": 1260,
+      "vertex_count": 114
+    },
+    {
+      "name": "vertical_pupil",
+      "first_vertex": 1374,
+      "vertex_count": 86
+    },
+    {
+      "name": "eye_highlight",
+      "first_vertex": 1460,
+      "vertex_count": 42
+    },
+    {
+      "name": "leg",
+      "first_vertex": 1502,
+      "vertex_count": 182
+    },
+    {
+      "name": "paw",
+      "first_vertex": 1684,
+      "vertex_count": 182
+    },
+    {
+      "name": "leg",
+      "first_vertex": 1866,
+      "vertex_count": 182
+    },
+    {
+      "name": "paw",
+      "first_vertex": 2048,
+      "vertex_count": 182
+    },
+    {
+      "name": "ear_front",
+      "first_vertex": 2230,
+      "vertex_count": 3
+    },
+    {
+      "name": "ear_back",
+      "first_vertex": 2233,
+      "vertex_count": 3
+    },
+    {
+      "name": "ear_edge",
+      "first_vertex": 2236,
+      "vertex_count": 3
+    },
+    {
+      "name": "ear_edge",
+      "first_vertex": 2239,
+      "vertex_count": 3
+    },
+    {
+      "name": "ear_edge",
+      "first_vertex": 2242,
+      "vertex_count": 3
+    },
+    {
+      "name": "ear_edge",
+      "first_vertex": 2245,
+      "vertex_count": 3
+    },
+    {
+      "name": "ear_edge",
+      "first_vertex": 2248,
+      "vertex_count": 3
+    },
+    {
+      "name": "ear_edge",
+      "first_vertex": 2251,
+      "vertex_count": 3
+    },
+    {
+      "name": "ear_pink",
+      "first_vertex": 2254,
+      "vertex_count": 3
+    },
+    {
+      "name": "whisker",
+      "first_vertex": 2257,
+      "vertex_count": 18
+    },
+    {
+      "name": "whisker",
+      "first_vertex": 2275,
+      "vertex_count": 18
+    },
+    {
+      "name": "whisker",
+      "first_vertex": 2293,
+      "vertex_count": 18
+    },
+    {
+      "name": "cheek",
+      "first_vertex": 2311,
+      "vertex_count": 182
+    },
+    {
+      "name": "eye",
+      "first_vertex": 2493,
+      "vertex_count": 114
+    },
+    {
+      "name": "vertical_pupil",
+      "first_vertex": 2607,
+      "vertex_count": 86
+    },
+    {
+      "name": "eye_highlight",
+      "first_vertex": 2693,
+      "vertex_count": 42
+    },
+    {
+      "name": "leg",
+      "first_vertex": 2735,
+      "vertex_count": 182
+    },
+    {
+      "name": "paw",
+      "first_vertex": 2917,
+      "vertex_count": 182
+    },
+    {
+      "name": "leg",
+      "first_vertex": 3099,
+      "vertex_count": 182
+    },
+    {
+      "name": "paw",
+      "first_vertex": 3281,
+      "vertex_count": 182
+    },
+    {
+      "name": "ear_front",
+      "first_vertex": 3463,
+      "vertex_count": 3
+    },
+    {
+      "name": "ear_back",
+      "first_vertex": 3466,
+      "vertex_count": 3
+    },
+    {
+      "name": "ear_edge",
+      "first_vertex": 3469,
+      "vertex_count": 3
+    },
+    {
+      "name": "ear_edge",
+      "first_vertex": 3472,
+      "vertex_count": 3
+    },
+    {
+      "name": "ear_edge",
+      "first_vertex": 3475,
+      "vertex_count": 3
+    },
+    {
+      "name": "ear_edge",
+      "first_vertex": 3478,
+      "vertex_count": 3
+    },
+    {
+      "name": "ear_edge",
+      "first_vertex": 3481,
+      "vertex_count": 3
+    },
+    {
+      "name": "ear_edge",
+      "first_vertex": 3484,
+      "vertex_count": 3
+    },
+    {
+      "name": "ear_pink",
+      "first_vertex": 3487,
+      "vertex_count": 3
+    },
+    {
+      "name": "whisker",
+      "first_vertex": 3490,
+      "vertex_count": 18
+    },
+    {
+      "name": "whisker",
+      "first_vertex": 3508,
+      "vertex_count": 18
+    },
+    {
+      "name": "whisker",
+      "first_vertex": 3526,
+      "vertex_count": 18
+    },
+    {
+      "name": "nose",
+      "first_vertex": 3544,
+      "vertex_count": 86
+    },
+    {
+      "name": "tail",
+      "first_vertex": 3630,
+      "vertex_count": 60
+    }
+  ],
+  "source": "Original procedural geometry; no game or downloaded meshes."
+}

@@ -1,0 +1,83 @@
+{
+  "arrays": [
+    {
+      "id": "CAB-e501bd45440235ffda6f72797d1da628.sharedAssets:127",
+      "bundle": "src/maps/brmap_oilplatforms_s",
+      "name": "TexArray_256",
+      "categories": [
+        "sheet_metal",
+        "sheet_metal",
+        "concrete",
+        "concrete",
+        "concrete",
+        "concrete",
+        "sheet_metal",
+        "concrete",
+        "wood",
+        "sheet_metal",
+        "concrete",
+        "sheet_metal"
+      ]
+    },
+    {
+      "id": "CAB-e501bd45440235ffda6f72797d1da628.sharedAssets:128",
+      "bundle": "src/maps/brmap_oilplatforms_s",
+      "name": "TexArray_2048",
+      "categories": [
+        "sheet_metal",
+        "concrete",
+        "sheet_metal",
+        "sheet_metal"
+      ]
+    },
+    {
+      "id": "CAB-e501bd45440235ffda6f72797d1da628.sharedAssets:129",
+      "bundle": "src/maps/brmap_oilplatforms_s",
+      "name": "TexArray_512",
+      "categories": [
+        "sheet_metal",
+        "concrete",
+        "sheet_metal",
+        "wood",
+        "concrete",
+        "sheet_metal",
+        "concrete",
+        "concrete",
+        "wood"
+      ]
+    },
+    {
+      "id": "CAB-e501bd45440235ffda6f72797d1da628.sharedAssets:130",
+      "bundle": "src/maps/brmap_oilplatforms_s",
+      "name": "TexArray_1024",
+      "categories": [
+        "sheet_metal",
+        "concrete",
+        "sheet_metal",
+        "sheet_metal",
+        "sheet_metal",
+        "sheet_metal",
+        "sheet_metal",
+        "sheet_metal",
+        "sheet_metal",
+        "concrete",
+        "concrete",
+        "sheet_metal",
+        "sheet_metal",
+        "sheet_metal",
+        "concrete",
+        "sheet_metal",
+        "sheet_metal",
+        "sheet_metal",
+        "sheet_metal",
+        "sheet_metal",
+        "sheet_metal",
+        "sheet_metal",
+        "sheet_metal",
+        "sheet_metal",
+        "wood"
+      ]
+    }
+  ],
+  "mapping_method": "Inspected source layer contact sheet; obvious wood/concrete/metal layers classified, mixed or unknown layers use neutral concrete fallback. This is a whole-layer approximation, not semantic segmentation within atlases."
+}

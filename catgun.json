@@ -1,0 +1,13 @@
+{
+  "base_config": "halftone.json",
+  "output": "experiments/lynx-cat-v1",
+  "backups": "backups/lynx-cat-v1",
+  "asset_output": "assets/cat",
+  "scale": 1.0,
+  "position": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "notes": "Original rigid cat child on both Lynx visual roots; Lynx-specific graphics get separate empty render copies. Shared optics retained. Existing rig/animation/muzzle/collision/script/audio data preserved. Offline prototype; placement needs game-visible validation."
+}
