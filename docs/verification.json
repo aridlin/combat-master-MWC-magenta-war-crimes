@@ -18,7 +18,7 @@
     "new_local_references_resolve": true,
     "original_animation_audio_scripts_collision_data_byte_exact": true,
     "in_game_tested": false,
-    "installed": false
+    "installed": true
   },
   "tests": {
     "workspace": "22 passed",
