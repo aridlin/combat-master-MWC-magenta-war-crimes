@@ -16,6 +16,10 @@ def inherited_mapping(names,parents,primary):
 def profile(name,meta):
     names=meta['bone_names'];parents=meta['bone_parents']
     if name.startswith('tf2_'):return dict(source_basis=[[-1,0,0],[0,0,-1],[0,1,0]])
+    if name=='titanfall_transfer':
+        if len(names)!=83 or 'Head_M' not in names or 'Root_M' not in names:raise ValueError('Pilot local rig differs from reviewed native-reference hierarchy')
+        semantics={i:('Root_M' if n=='root_jnt' else n) for i,n in enumerate(names)};primary={n:i for i,n in semantics.items() if n!='Root_M' or names[i]=='Root_M'}
+        return dict(source_targets=semantics,source_basis=[[1,0,0],[0,1,0],[0,0,1]],primary_sources=primary,source_root=names.index('Root_M'),source_head=names.index('Head_M'))
     if name=='steve_classic':
         if len(names)!=22 or names[5]!='Head_M':raise ValueError('Steve rig differs from reviewed assembly')
         return dict(source_targets={i:n for i,n in enumerate(names)},source_basis=[[-1,0,0],[0,1,0],[0,0,1]],primary_sources={n:i for i,n in enumerate(names)},source_root=0,source_head=5)

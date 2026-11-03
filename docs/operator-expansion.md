@@ -1,6 +1,44 @@
 # Operator and model expansion — 3 November 2026
 
-## Applied checkpoint
+## Staged correction after gameplay feedback
+
+The next correction is built and file-verified, **not installed while the game
+is running**. Ranger uses the actual authored **Titanfall 2 Stim pilot**, in
+magenta. Fishguy is an optional model choice; it is not the default replacement.
+Dozer retains Shrek, his original outfit and the rust shooting glasses.
+
+The character shader's unbound metallic texture defaulted to white. Its
+metalness comes from a texture rather than the previously set scalar. Explicit
+linear zero-metalness and flat-normal textures now bind to both native shader
+schemas, with low body smoothness. Serialized albedo/data-map checks pass.
+Fishguy's rear source render has a complete textured back; the reported gray
+appearance still needs an in-game recheck after the material correction.
+
+Renderer culling bounds now use the root bone's coordinate frame, retaining the
+original animation envelope. The authored fishing rod is raised 10 cm, nailer
+5.5 cm and toaster 6 cm within their visual child transforms; native sights,
+weapon sockets and animations stay unchanged. Exact alignment is untested.
+
+**Matching first-person arms** is an independent option in the Operators tab
+and Extras catalogue. It extracts actual authored arm triangles, fits them to
+the native arm skeleton and retains weapon IK/camera/controller data. Ranger's
+pilot arms and Dozer's Shrek hands/sleeves pass serialized geometry, skin,
+material and reference checks. All 32 operator identities are indexed; three
+shared-prefab cases require compatible assignments and fail explicitly if a
+choice would silently change an unselected operator. Other character/rig
+combinations still need first-person visual and in-game grip testing.
+
+Pilot fitting uses a private local native skin reference. Packaged sources
+contain no native geometry or bind matrices. Offline reviews caught and fixed
+stretched fingers and collar vertices attached to the rotating helmet.
+
+**71 tests: 70 passed, one existing data-dependent test skipped.** The revised
+three-bundle update passed apply and restore on private copies of the real
+bundles, restoring exact hashes and operator assignments. Gameplay files were
+unchanged by that test. In-game material, ADS/grip, animation and performance
+acceptance remain pending.
+
+## Earlier applied checkpoint
 
 The user's pre-home update was installed through the manager's hash-guarded
 transaction system. All **81 installed/original bundle entries** were verified.
@@ -16,8 +54,8 @@ prior hashes and operator-assignment metadata restored.
 | All nine TF2 mercenaries | Optional per-operator choices. Actual local VPK imports, native bundle and synthetic articulation tests passed; offline previews reviewed. Clothing/collar clipping and in-game animation acceptance still need work. |
 | Mario | Optional choice. Authored color/alpha/vertex-color material graphs baked to original UVs; source rig adapted. Native bundle and synthetic articulation checks passed; in-game untested. |
 | Minecraft Steve | Optional choice. Existing classic mesh/pixel skin; explicit rig and interpolated elbow/knee cuts added. Native bundle and synthetic articulation checks passed; in-game untested. |
-| Titanfall pilot | Proper textured source obtained. It has no skeleton; rigging is unfinished. Installer reports this limitation instead of substituting a placeholder. |
-| Sonic impact grenade | Proper spin-ball source obtained, but 499,000 triangles needs reduction and review. Not installed. |
+| Titanfall pilot | Authored Stim pilot rigged locally, native bundle and offline deformation checks passed. Ranger correction staged; in-game acceptance pending. |
+| Sonic impact grenade | Proper authored spin ball reduced from 499,000 to 5,979 triangles with reviewed surface preservation. Impact-grenade visual targets resolved; bundle/manager integration pending. |
 | Audiojungle / extra TF2 sounds | Correct CoopDogger Audiojungle project identified. Further source/rights review and optional audio integration remain unfinished. Existing Lynx sounds preserved. |
 | Per-model magenta and separate native-operator control | Implemented after the applied checkpoint. Independent source-color/magenta builds and pristine native-color restoration passed bundle verification. In-game untested. |
 
@@ -97,4 +135,4 @@ these results from source renders, synthetic poses or build checks.
 
 ## Independent operator colors
 
-Each replacement model has its own Magenta checkbox. Shrek, Fishguy, Mario and Steve default to source colors; TF2 and the pending Titanfall option default to magenta. A separate checkbox controls unmodified in-game operator models. This override affects their body renderers; first-person arms still follow Player textures. Original native materials/albedos are cloned from verified pristine backups so shared weapon/arm textures stay unchanged. Turning native magenta on while Player textures is off is supported too. Preferences are saved separately from installed appearance metadata and committed only with a successful installation.
+Each replacement model has its own Magenta checkbox. Shrek, Fishguy, Mario and Steve default to source colors; TF2 and Titanfall default to magenta. A separate checkbox controls unmodified in-game operator models. This override affects their body renderers; first-person arms follow Player textures unless the independent matching-arms option is enabled. Original native materials/albedos are cloned from verified pristine backups so shared weapon/arm textures stay unchanged. Turning native magenta on while Player textures is off is supported too. Preferences are saved separately from installed appearance metadata and committed only with a successful installation.

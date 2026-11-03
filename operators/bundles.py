@@ -21,22 +21,28 @@ from .profiles import profile
 from .retarget import adapt,native_frame
 from .skinning import skinned_tree,validate_weights
 from .assets import load
+from .bounds import root_bounds
 
 ROOT=Path(__file__).resolve().parents[1]
 BUNDLE='src/thrid_person'
 
 
-def material(template,objects,label,texture,rgba=(1.,1.,1.,1.),alpha_clip=False,transparent=False):
+def material(template,objects,label,texture,rgba=(1.,1.,1.,1.),alpha_clip=False,transparent=False,data_maps=None):
     obj=new_object(template,label,objects);m=obj.read();m.m_Name=label
     for slot,value in m.m_SavedProperties.m_TexEnvs:
-        value.m_Texture.m_FileID=0;value.m_Texture.m_PathID=texture if slot in ('_BaseMap','_MainTex') else 0;value.m_Scale.x=value.m_Scale.y=1;value.m_Offset.x=value.m_Offset.y=0
-    values={'_Metallic':0.,'_Smoothness':.18 if transparent else .35,'_Glossiness':.18 if transparent else .35,'_AlphaClip':float(alpha_clip),'_Cutoff':.35,'_AlphaToMask':0.,'_Surface':float(transparent),'_Blend':0.,'_SrcBlend':5. if transparent else 1.,'_DstBlend':10. if transparent else 0.,'_SrcBlendAlpha':1.,'_DstBlendAlpha':10. if transparent else 0.,'_ZWrite':0. if transparent else 1.,'_Cull':0. if transparent else 2.,'EnableCamo':0.,'FlapEnable':0.}
+        value.m_Texture.m_FileID=0;value.m_Texture.m_PathID=texture if slot in ('_BaseMap','_MainTex','Albedo') else data_maps['metallic'].path_id if data_maps and slot in ('_MetallicGlossMap','_SpecGlossMap','Metallic') else data_maps['normal'].path_id if data_maps and slot in ('_BumpMap','Normal') else 0;value.m_Scale.x=value.m_Scale.y=1;value.m_Offset.x=value.m_Offset.y=0
+    if data_maps:
+        present={slot for slot,value in m.m_SavedProperties.m_TexEnvs}
+        for slot,role in [('_MetallicGlossMap','metallic'),('_BumpMap','normal')]:
+            if slot in present:continue
+            value=copy.copy(m.m_SavedProperties.m_TexEnvs[0][1]);value.m_Texture=copy.copy(value.m_Texture);value.m_Texture.m_FileID=0;value.m_Texture.m_PathID=data_maps[role].path_id;m.m_SavedProperties.m_TexEnvs.append((slot,value))
+    values={'_Metallic':0.,'Smoothness':.45 if transparent else .12,'_Smoothness':.45 if transparent else .12,'_Glossiness':.45 if transparent else .12,'_BumpScale':0.,'_AlphaClip':float(alpha_clip),'_Alpha_Clip_Threshold':.35 if alpha_clip else 0.,'_Cutoff':.35,'_AlphaToMask':0.,'_Surface':float(transparent),'_Blend':0.,'_SrcBlend':5. if transparent else 1.,'_DstBlend':10. if transparent else 0.,'_SrcBlendAlpha':1.,'_DstBlendAlpha':10. if transparent else 0.,'_ZWrite':0. if transparent else 1.,'_Cull':0. if transparent else 2.,'EnableCamo':0.,'TintCamo':0.,'FlapEnable':0.}
     seen=set()
     for i,(slot,value) in enumerate(m.m_SavedProperties.m_Floats):
         if slot in values:m.m_SavedProperties.m_Floats[i]=(slot,values[slot]);seen.add(slot)
     for slot in values.keys()-seen:m.m_SavedProperties.m_Floats.append((slot,values[slot]))
     for slot,c in m.m_SavedProperties.m_Colors:
-        if slot in ('_BaseColor','_Color'):c.r,c.g,c.b,c.a=rgba
+        if slot in ('_BaseColor','_Color','AlbedoColor'):c.r,c.g,c.b,c.a=rgba
         if slot=='_EmissionColor':c.r=c.g=c.b=0
     keywords=['_SURFACE_TYPE_TRANSPARENT'] if transparent else ['_ALPHATEST_ON'] if alpha_clip else []
     if getattr(m,'m_ShaderKeywords',None) is not None:m.m_ShaderKeywords=' '.join(keywords)
@@ -74,20 +80,31 @@ def geometry_check(obj,mesh,indices,weights):
 def build(config,settings):
     version=build_id(config);assignments=validate(settings['assignments'])
     if not assignments:raise ValueError('Choose at least one operator replacement')
-    source=Path(config['bundle_root'])/BUNDLE
+    first_person=bool(settings.get('first_person',False));bundle='src/first_person' if first_person else BUNDLE
+    source=Path(config['bundle_root'])/bundle
     if digest(source)!=settings['source_sha256']:raise ValueError('Operator baseline changed')
-    output=safe_output(settings['output'],config);backup=safe_output(settings['backups'],config)/BUNDLE
+    output=safe_output(settings['output'],config);backup=safe_output(settings['backups'],config)/bundle
     if (output/'manifest.json').exists():raise ValueError('Choose a fresh operator build directory')
     backup.parent.mkdir(parents=True,exist_ok=True)
     if backup.exists():
         if digest(backup)!=settings['source_sha256']:raise ValueError('Operator backup belongs to another baseline')
-    else:shutil.copyfile(source,backup)
-    env=UnityPy.load(str(backup));original=list(env.objects);before=inventory(env);objects={key(o.assets_file.name,o.path_id):o for o in original};allowed={};added=[];expected_geometry={};records=[];cached={}
-    targets={t['id']:t for t in json.loads((ROOT/'config/operator-targets.json').read_text())['operators']}
+    else:
+        from installer.mwc_installer.engine import copy_private
+        copy_private(source,backup)
+    env=UnityPy.load(str(backup));original=list(env.objects);before=inventory(env);objects={key(o.assets_file.name,o.path_id):o for o in original};allowed={};added=[];expected_geometry={};records=[];cached={};completed_prefabs={}
+    targets={t['id']:t for t in json.loads((ROOT/('config/operator-first-person-targets.json' if first_person else 'config/operator-targets.json')).read_text())['operators']}
+    if first_person:
+        from .first_person import validate_assignments
+        validate_assignments(assignments,list(targets.values()))
     texture_template=next(o for o in original if o.type.name=='Texture2D')
+    from .material_data import create as neutral_maps
+    data_maps=neutral_maps(texture_template,objects);added.extend(key(o.assets_file.name,o.path_id) for o in data_maps.values())
     for identifier,model in assignments.items():
         if model not in settings['library']:raise ValueError('Model source is not available locally: '+model)
-        spec=settings['library'][model];directory=Path(spec['source']);target=targets[identifier];rig=native_rig(env,target);model_key=(model,spec.get('style','original'))
+        spec=settings['library'][model];directory=Path(spec['source']);target=targets[identifier]
+        if first_person and target['prefab_guid'] in completed_prefabs:
+            record=copy.deepcopy(completed_prefabs[target['prefab_guid']]);record.update(operator=identifier,name=target['name'],shared_prefab=True);records.append(record);continue
+        rig=native_rig(env,target,first_person=first_person);model_key=(model,spec.get('style','original'))
         if model_key not in cached:
             base,image,si,sw,meta=load(directory,spec.get('style','original'),config);data=np.load(directory/'source.npz',allow_pickle=False);options=profile(spec['profile'],meta);cached[model_key]=(base,image,si,sw,meta,data,options)
         base,image,si,sw,meta,data,options=cached[model_key]
@@ -96,33 +113,39 @@ def build(config,settings):
         tex.m_ColorSpace=1;tex.m_StreamData.path='';tex.m_StreamData.offset=tex.m_StreamData.size=0;tex.m_TextureSettings.m_FilterMode=0 if meta.get('texture_filter')=='nearest' else 1;tex.m_TextureSettings.m_WrapU=tex.m_TextureSettings.m_WrapV=1;tex.save();added.append(key(tex_obj.assets_file.name,tex_obj.path_id))
         primary=set(rig['primary'].values());donor=rig['snapshots'][rig['primary'][min(rig['primary'])]];pointer=donor['renderer']['m_Materials'][0]
         if pointer['m_FileID']!=0:raise ValueError('External operator material needs explicit handling')
-        material_template=objects[key(donor['mesh_object'].assets_file.name,pointer['m_PathID'])];body_mat=material(material_template,objects,'MWC_OperatorMaterial_'+identifier,tex_obj.path_id,alpha_clip=meta['alpha_clip_required']);added.append(key(body_mat.assets_file.name,body_mat.path_id));frame_mat=lens_mat=None
-        if spec.get('glasses'):
-            frame_mat=material(material_template,objects,'MWC_OperatorFrame_'+identifier,0,(.012,.016,.020,1.));lens_mat=material(material_template,objects,'MWC_OperatorRustShield_'+identifier,0,(.32,.095,.035,.40),transparent=True);added.extend(key(o.assets_file.name,o.path_id) for o in (frame_mat,lens_mat))
+        material_template=objects[key(donor['mesh_object'].assets_file.name,pointer['m_PathID'])];body_mat=material(material_template,objects,'MWC_OperatorMaterial_'+identifier,tex_obj.path_id,alpha_clip=meta['alpha_clip_required'],data_maps=data_maps);added.append(key(body_mat.assets_file.name,body_mat.path_id));frame_mat=lens_mat=None
+        if spec.get('glasses') and not first_person:
+            frame_mat=material(material_template,objects,'MWC_OperatorFrame_'+identifier,0,(.012,.016,.020,1.),data_maps=data_maps);lens_mat=material(material_template,objects,'MWC_OperatorRustShield_'+identifier,0,(.32,.095,.035,.40),transparent=True,data_maps=data_maps);added.extend(key(o.assets_file.name,o.path_id) for o in (frame_mat,lens_mat))
         model_records=[]
         for rid,tree in rig['renderers'].items():
             template=rig['meshes'][rid];new_mesh=new_object(template,'MWC_OperatorMesh_'+identifier+'_'+str(rid),objects)
             fields={}
             if rid in primary:
-                native=rig['snapshots'][rid];v,n,bi,bw,fit_report=adapt(np.asarray(base.vertices),np.asarray(base.normals),meta['bone_names'],data['inverse_bind'],si,sw,native['bone_names'],native['inverse_bind'],**options);mesh=copy.deepcopy(base);mesh.vertices=v.tolist();mesh.normals=n.tolist()
-                if np.linalg.det(options.get('source_basis',[[-1,0,0],[0,0,-1],[0,1,0]]))<0:mesh.faces=np.asarray(mesh.faces)[:,[0,2,1]].tolist()
+                native=rig['snapshots'][rid]
+                if first_person:
+                    from .first_person import fit as fit_arms
+                    mesh,bi,bw,fit_report=fit_arms(base,si,sw,meta,data['inverse_bind'],native,options)
+                else:
+                    v,n,bi,bw,fit_report=adapt(np.asarray(base.vertices),np.asarray(base.normals),meta['bone_names'],data['inverse_bind'],si,sw,native['bone_names'],native['inverse_bind'],**options);mesh=copy.deepcopy(base);mesh.vertices=v.tolist();mesh.normals=n.tolist()
+                    if np.linalg.det(options.get('source_basis',[[-1,0,0],[0,0,-1],[0,1,0]]))<0:mesh.faces=np.asarray(mesh.faces)[:,[0,2,1]].tolist()
                 parts=[(mesh,bi,bw)];mats=[body_mat.path_id]
-                if spec.get('glasses'):
+                if spec.get('glasses') and not first_person:
                     from .glasses import create
                     head_index=next(i for i,k in enumerate(native['bone_names']) if k.endswith('Head_M'));head=np.linalg.inv(native['inverse_bind'])[head_index,:3,3];coordinate_frame,units=native_frame(native['bone_names'],native['inverse_bind']);frame,shield,glass_meta=create(coordinate_frame.T@head/units)
                     for part in (frame,shield):
                         part.vertices=(np.asarray(part.vertices)@coordinate_frame.T*units).tolist();part.normals=(np.asarray(part.normals)@coordinate_frame.T).tolist()
                         idx=np.zeros((len(part.vertices),4),dtype='u1');idx[:,0]=head_index;weight=np.zeros((len(part.vertices),4),dtype='<f4');weight[:,0]=1;parts.append((part,idx,weight))
                     mats.extend([frame_mat.path_id,lens_mat.path_id])
-                combined,bi,bw,submeshes=combine(parts);validate_weights(bi,bw,len(combined.vertices),len(native['bone_names']));md=skinned_tree(native['mesh_tree'],combined,'MWC_OperatorMesh_'+identifier,bi,bw,len(native['bone_names']));md['m_SubMeshes']=submeshes;new_mesh.save_typetree(md);fields.update(m_Materials=[{'m_FileID':0,'m_PathID':i} for i in mats],m_AABB=md['m_LocalAABB']);expected_geometry[new_mesh.path_id]=(combined,bi,bw)
+                combined,bi,bw,submeshes=combine(parts);validate_weights(bi,bw,len(combined.vertices),len(native['bone_names']));md=skinned_tree(native['mesh_tree'],combined,'MWC_OperatorMesh_'+identifier,bi,bw,len(native['bone_names']));md['m_SubMeshes']=submeshes;new_mesh.save_typetree(md);fields.update(m_Materials=[{'m_FileID':0,'m_PathID':i} for i in mats],m_AABB=root_bounds(combined.vertices,native['inverse_bind'],native['root_bone_index'],tree['m_AABB']));expected_geometry[new_mesh.path_id]=(combined,bi,bw)
                 model_records.append({'renderer':str(rid),'vertices':len(combined.vertices),'triangles':len(combined.faces),'submeshes':len(submeshes),'bones':len(native['bone_names']),'fit':fit_report})
             else:new_mesh.save_typetree(empty_visual(template.read_typetree()))
             fields['m_Mesh']={'m_FileID':0,'m_PathID':new_mesh.path_id};changed=copy.deepcopy(tree);changed.update(fields);obj=rig['objects'][rid];obj.save_typetree(changed);allowed[key(obj.assets_file.name,rid)]=fields;added.append(key(new_mesh.assets_file.name,new_mesh.path_id))
         records.append({'operator':identifier,'name':target['name'],'model':model,'prefab_guid':target['prefab_guid'],'source_geometry_sha256':digest(directory/'source.npz'),'style':spec.get('style','original'),'glasses':bool(spec.get('glasses')),'renderers':model_records,'original_renderers_changed':len(rig['renderers']),'skeleton_changed':False,'in_game_tested':False})
+        completed_prefabs[target['prefab_guid']]=records[-1]
     expected=copy.deepcopy(before)
     for oid in list(allowed)+added:
         o=objects[oid];expected[(o.assets_file.name,o.path_id)]={'type':o.type.name,'sha256':hashlib.sha256(o.data if o.data is not None else o.get_raw_data()).hexdigest()}
-    target_path=output/BUNDLE;target_path.parent.mkdir(parents=True,exist_ok=True);target_path.write_bytes(env.file.save(packer='lz4'));del env;gc.collect();checked=UnityPy.load(str(target_path));new={key(o.assets_file.name,o.path_id):o for o in checked.objects}
+    target_path=output/bundle;target_path.parent.mkdir(parents=True,exist_ok=True);target_path.write_bytes(env.file.save(packer='lz4'));del env;gc.collect();checked=UnityPy.load(str(target_path));new={key(o.assets_file.name,o.path_id):o for o in checked.objects}
     actual_inventory=inventory(checked)
     if actual_inventory!=expected:
         mismatch=[{'asset':str(oid),'expected':expected.get(oid),'actual':actual_inventory.get(oid)} for oid in expected.keys()|actual_inventory.keys() if expected.get(oid)!=actual_inventory.get(oid)];dump(output/'serialization-mismatch.json',mismatch)
@@ -147,4 +170,9 @@ def build(config,settings):
         for pid in local_refs(obj.read_typetree()):
             if key(obj.assets_file.name,pid) not in new:raise ValueError('New operator reference does not resolve')
     for pid,(mesh,bi,bw) in expected_geometry.items():geometry_check(next(o for o in checked.objects if o.path_id==pid),mesh,bi,bw)
-    report={'build_id':version,'operators':records,'files':[{'bundle':BUNDLE,'backup':str(backup.resolve()),'output':str(target_path.resolve()),'source_sha256':digest(backup),'output_sha256':digest(target_path),'changes':allowed,'added':added}],'verification':{'all_other_original_objects_byte_exact':untouched,'renderer_field_whitelist':['m_Mesh','m_Materials','m_AABB'],'geometry_uv_skin_exact_roundtrip':True,'original_meshes_materials_skeletons_animations_scripts_collision_retained':True,'all_new_local_references_resolve':True},'in_game_tested':False,'lens_transparency_in_game_tested':False};dump(output/'manifest.json',report);return report
+    from .material_data import verify as verify_material_data
+    local_objects={obj.path_id:obj for obj in checked.objects}
+    for oid in added:
+        obj=new[oid]
+        if obj.type.name=='Material':verify_material_data(obj,local_objects,require_albedo=obj.peek_name().startswith('MWC_OperatorMaterial_'))
+    report={'build_id':version,'first_person':first_person,'operators':records,'files':[{'bundle':bundle,'backup':str(backup.resolve()),'output':str(target_path.resolve()),'source_sha256':digest(backup),'output_sha256':digest(target_path),'changes':allowed,'added':added}],'verification':{'all_other_original_objects_byte_exact':untouched,'renderer_field_whitelist':['m_Mesh','m_Materials','m_AABB'],'geometry_uv_skin_exact_roundtrip':True,'original_meshes_materials_skeletons_animations_scripts_collision_retained':True,'all_new_local_references_resolve':True},'in_game_tested':False,'lens_transparency_in_game_tested':False};dump(output/'manifest.json',report);return report

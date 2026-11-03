@@ -16,7 +16,7 @@ retexture work, not the cat prototype. More captures are in
 | Fine / Quiet Light-Dot Halftone | Implemented and applied locally; gameplay captures available |
 | Authored weapon upgrades | Scorpion, fishing rod, toaster and MP7 power nailer installed/file-verified. Local TF2 Medigun visual also installed. In-game testing pending. |
 | Minecraft-style sky | Independent sky-only cubemap module; installed/file-verified, in-game rendering untested |
-| Operator expansion | Dozer/Shrek with glasses and Ranger/low-poly Fishguy installed/file-verified. All nine TF2 mercenaries, Mario and Steve are optional per-operator choices. In-game acceptance pending. |
+| Operator expansion | Dozer/Shrek retained; magenta Ranger/Stim pilot, non-metallic materials and matching arms staged/file-verified. Fishguy optional. All nine TF2 mercenaries, Mario and Steve are optional per-operator choices. In-game acceptance pending. |
 | FT mod manager | Individual cards, previews, per-operator assignments and independent magenta controls; verified backups/transactions. Linux UI tested; current Windows runtime untested. |
 | Shared albedo separation | Implemented with category-specific copies and verified material bindings |
 | Map texture arrays | Implemented for the four inspected BC7 albedo arrays, 50 layers |
@@ -258,4 +258,4 @@ procedural assets; the game and captured game content retain their own owners.
 
 Authored scorpion, fishing rod and toaster models replace three procedural weapon prototypes. The MP7 and Lynx are preserved. An independent Minecraft-style sky module changes only sky cubemap bindings. These builds passed file-level validation; in-game acceptance remains pending. Character work is blocked on authenticated source asset downloads and rigging/target validation. See [the expansion report](docs/expansion.md), [model attribution](assets/authored-weapons/ATTRIBUTION.md), and [installer instructions](installer/README.md).
 
-Current operator/model status, source credits and acceptance limits are in [the operator expansion report](docs/operator-expansion.md). The source test suite has 63 tests: 62 pass, one existing data-dependent test is skipped. Color controls distinguish replacement models from unmodified in-game operator models; first-person arms still follow Player textures.
+Current operator/model status, source credits and acceptance limits are in [the operator expansion report](docs/operator-expansion.md). The source test suite has 71 tests: 70 pass, one existing data-dependent test is skipped. Color controls distinguish replacement models from unmodified in-game operator models; matching authored first-person arms are independently selectable (in-game grip testing pending).

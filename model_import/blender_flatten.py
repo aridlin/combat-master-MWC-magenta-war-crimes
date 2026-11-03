@@ -23,11 +23,20 @@ def material_index(mat):
  color=list(mat.diffuse_color) if mat else [.8,.8,.8,1.];image=None
  if mat and mat.use_nodes:
   bsdf=next((n for n in mat.node_tree.nodes if n.type=='BSDF_PRINCIPLED'),None)
+  emission=next((n for n in mat.node_tree.nodes if n.type=='EMISSION'),None)
   if bsdf:
    base=bsdf.inputs.get('Base Color');color=list(base.default_value)
    if base.is_linked:
     node=base.links[0].from_node
-    if node.type=='TEX_IMAGE':image=node.image
+    if node.type!='TEX_IMAGE':raise ValueError('Bake authored material graph before flattening: '+mat.name)
+    image=node.image;color=[1.,1.,1.,1.]
+  elif emission:
+   base=emission.inputs['Color'];color=list(base.default_value)
+   if base.is_linked:
+    node=base.links[0].from_node
+    if node.type!='TEX_IMAGE':raise ValueError('Bake authored unlit graph before flattening: '+mat.name)
+    image=node.image;color=[1.,1.,1.,1.]
+  else:raise ValueError('Unsupported authored shader; bake before flattening: '+mat.name)
  if a.texture:image=bpy.data.images.load(str(Path(a.texture).resolve()),check_existing=True)
  record={'name':name,'base_color_linear':color}
  if image and image.size[0]>0:

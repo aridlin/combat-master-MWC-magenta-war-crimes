@@ -23,8 +23,9 @@ def common(dest,windows):
     shutil.copyfile(I/'vendor/PROVENANCE.md',dest/'FT-PROVENANCE.md')
     (dest/'OPERATOR-ASSET-CREDITS.md').write_text((R/'assets/operator-sources/ATTRIBUTION.md').read_text().replace('(licenses/','(operator-licenses/'))
     shutil.copytree(R/'assets/operator-sources/licenses',dest/'operator-licenses',dirs_exist_ok=True)
-def build(windows):
-    dest=DIST/('MWC-Windows-x64' if windows else 'MWC-Linux-x64')
+def build(windows,output=None):
+    destination_root=Path(output).resolve() if output else DIST
+    dest=destination_root/('MWC-Windows-x64' if windows else 'MWC-Linux-x64')
     if dest.exists():shutil.rmtree(dest)
     common(dest,windows)
     if windows:
@@ -68,4 +69,4 @@ def build(windows):
     (archive.with_suffix(archive.suffix+'.sha256')).write_text(hashlib.file_digest(archive.open('rb'),'sha256').hexdigest()+'  '+archive.name+'\n')
     print(archive)
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--windows',action='store_true');build(p.parse_args().windows)
+    p=argparse.ArgumentParser();p.add_argument('--windows',action='store_true');p.add_argument('--output',type=Path,help='Build in a separate directory without replacing a running installer');a=p.parse_args();build(a.windows,a.output)

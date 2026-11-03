@@ -2,37 +2,54 @@
   "date": "2026-11-03",
   "game_build": "24397779",
   "tests": {
-    "collected": 43,
-    "passed": 42,
+    "collected": 71,
+    "passed": 70,
     "skipped": 1
   },
-  "installed_bundle_verification": {
-    "src/weapons/weapons": {
-      "mp7_objects_byte_exact": 223,
-      "original_materials_byte_exact": 256,
-      "lynx_named_objects_byte_exact": 75
-    },
-    "src/weapons/attachments": {
-      "mp7_objects_byte_exact": 340,
-      "original_materials_byte_exact": 392,
-      "lynx_named_objects_byte_exact": 224
-    },
-    "all_81_installed_hashes_verified": true,
-    "original_operator_magenta_bundles_byte_exact": true,
-    "lynx_audio_bundle_byte_exact": true,
-    "restoration_test": "restored",
-    "reinstall_test": "applied",
-    "in_game_tested": false
+  "live_preapply_verification": {
+    "managed_installed_and_original_hashes_verified": 81,
+    "game_running": true,
+    "pending_correction": "expansion-postfeedback.json",
+    "game_files_modified": false
   },
-  "operator_writer_validation": {
-    "source_mesh": "Mask_LOD1",
-    "vertices": 741,
-    "bone_count": 83,
-    "geometry_weights_bone_indices_roundtrip_verified": true,
-    "all_original_serialized_objects_byte_exact": true,
-    "installed": false,
-    "new_operators_implemented": false,
-    "in_game_animation_tested": false
+  "correction": {
+    "status": "staged; game running",
+    "assignments": {
+      "operator_0": "titanfall_pilot",
+      "operator_30": "shrek"
+    },
+    "fishguy": "optional, not the default assignment",
+    "world": {
+      "all_other_original_objects_byte_exact": 34558,
+      "renderer_field_whitelist": [
+        "m_Mesh",
+        "m_Materials",
+        "m_AABB"
+      ],
+      "geometry_uv_skin_exact_roundtrip": true,
+      "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+      "all_new_local_references_resolve": true
+    },
+    "first_person": {
+      "all_other_original_objects_byte_exact": 144986,
+      "renderer_field_whitelist": [
+        "m_Mesh",
+        "m_Materials",
+        "m_AABB"
+      ],
+      "geometry_uv_skin_exact_roundtrip": true,
+      "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+      "all_new_local_references_resolve": true
+    },
+    "arm_native_bones_preserved": 80,
+    "material_albedo_and_linear_neutral_maps_verified": true,
+    "real_bundle_private_apply_restore": "passed; exact hashes and assignment metadata restored",
+    "weapon_visual_offsets_m": {
+      "fishing_rod": 0.1,
+      "nail_gun": 0.055,
+      "toaster": 0.06
+    },
+    "in_game_tested": false
   },
   "packaged_linux_diagnostics": {
     "model_assets_verified": {
@@ -57,14 +74,14 @@
         "author": "Justin Randall"
       },
       "nail_gun": {
-        "asset": "legacy_procedural",
-        "vertices": 1260,
-        "triangles": 1068,
+        "asset": "authored",
+        "vertices": 10386,
+        "triangles": 3462,
         "image_size": [
-          256,
-          32
+          1040,
+          1040
         ],
-        "author": "MWC"
+        "author": "Liberi Arcano"
       },
       "toaster": {
         "asset": "authored",
@@ -75,58 +92,54 @@
           520
         ],
         "author": "MilkAndBanana"
+      },
+      "medigun": {
+        "asset": "local_tf2",
+        "requires_local_tf2": true,
+        "content_bundled": false
       }
     },
+    "operator_sources_verified": {
+      "shrek": {
+        "vertices": 28962,
+        "triangles": 9654,
+        "source_bones": 104,
+        "hashes_verified": true
+      },
+      "fishguy": {
+        "vertices": 8592,
+        "triangles": 2864,
+        "source_bones": 65,
+        "hashes_verified": true
+      },
+      "mario": {
+        "vertices": 34857,
+        "triangles": 11619,
+        "source_bones": 99,
+        "hashes_verified": true
+      },
+      "minecraft_steve": {
+        "vertices": 408,
+        "triangles": 136,
+        "source_bones": 22,
+        "hashes_verified": true
+      },
+      "titanfall_pilot": {
+        "vertices": 48186,
+        "triangles": 16062,
+        "hashes_verified": true,
+        "rig_generated_locally": true,
+        "native_geometry_bundled": false
+      }
+    },
+    "renderer_bounds_root_probe_verified": true,
+    "renderer_bounds_float32_stable": true,
     "sky_faces": 6,
     "game_files_modified": false,
     "in_game_tested": false
   },
-  "independent_authored_model_selection_test": "passed",
-  "windows": "native frontend cross-compiles; expanded Windows runtime and game untested",
-  "new_features_in_game_tested": false,
-  "blocked_archives": [
-    {
-      "feature": "shrek",
-      "source": "https://sketchfab.com/models/1ed7e0ec5a4b412fb15c7ca721721eab",
-      "advertised_downloadable": true,
-      "actual_download_http": 401,
-      "archive_obtained": false
-    },
-    {
-      "feature": "titanfall_stim",
-      "source": "https://sketchfab.com/models/9f42c6d4503841a7a4729c2e9f64047c",
-      "advertised_downloadable": true,
-      "actual_download_http": 401,
-      "archive_obtained": false
-    },
-    {
-      "feature": "titanfall_pulse_fanart",
-      "source": "https://sketchfab.com/models/489986a1332d4da680036a73746eefdb",
-      "advertised_downloadable": true,
-      "actual_download_http": 401,
-      "archive_obtained": false
-    },
-    {
-      "feature": "sonic_spin",
-      "source": "https://sketchfab.com/models/c99e3050331c442bad73028571acb51e",
-      "advertised_downloadable": true,
-      "actual_download_http": 401,
-      "archive_obtained": false
-    },
-    {
-      "feature": "steve",
-      "source": "https://sketchfab.com/models/0cffc39bdab04551bde4f8cdfbc52eca",
-      "advertised_downloadable": true,
-      "actual_download_http": 401,
-      "archive_obtained": false
-    },
-    {
-      "feature": "mario",
-      "source": "https://sketchfab.com/models/9d0f8b1fb8714e6c9aca8ed17266aa1e",
-      "advertised_downloadable": true,
-      "actual_download_http": 401,
-      "archive_obtained": false
-    }
-  ],
-  "extras_tab_render_check": "not executed: automatic approval review model at capacity; not an unsafe-action determination"
+  "linux_installer_render": "isolated Xvfb screenshot reviewed; pilot thumbnail and independent arms toggle visible",
+  "windows": "frontend cross-compiles; current expanded Windows UI/game acceptance pending",
+  "preserved": "Existing Lynx model, full tail and audio; native skeletons, controllers, collision and gameplay objects",
+  "sonic": "Authored spin ball reduced to 5979 triangles; exact impact visual ownership resolved; builder pending"
 }

@@ -38,6 +38,9 @@ def prepare(config,assignments,work,tf2='',appearance=None):
         raw=Path(work)/'tf2-local';names=[name.removeprefix('tf2_') for name in tf_models];import_models(discover_tf2(config,tf2),raw,names)
         for model in tf_models:
             source=flatten(raw/model.removeprefix('tf2_'),Path(work)/'operator-sources'/model);result[model]={'source':str(source),'profile':model,'style':'magenta'}
+    if 'titanfall_pilot' in required:
+        from .autorig import build as pilot_rig
+        source=pilot_rig(config,ROOT/'assets/operator-sources/titanfall_pilot',Path(work)/'operator-sources/titanfall_pilot');result['titanfall_pilot']={'source':str(source),'profile':'titanfall_transfer','style':'magenta'}
     missing=required-result.keys()
     if missing:raise ValueError('These models are still being prepared and cannot be installed yet: '+', '.join(sorted(missing)))
     for model,spec in result.items():spec['style']='magenta' if appearance['model_magenta'][model] else 'original'

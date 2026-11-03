@@ -8,7 +8,7 @@ from halftone.assets import dump
 from deploy_halftone import replace_verified
 
 ROOT=Path(__file__).resolve().parents[2]
-IDS={'lynx','scorpion','fishing_rod','nail_gun','toaster','medigun','players','weapons','terrain','cat_audio','crates','reticles','iron','glass','menu','sky'}
+IDS={'lynx','scorpion','fishing_rod','nail_gun','toaster','medigun','players','weapons','terrain','cat_audio','crates','reticles','iron','glass','menu','sky','operator_arms'}
 MODELS={'scorpion','fishing_rod','nail_gun','toaster','medigun'}
 
 def log(message):print(message,flush=True)
@@ -200,7 +200,7 @@ def compose(config,state,saved,selected,addon,operator_assignments=None,tf2='',o
     # Copies are private. Builders never receive the actual game path.
     for rel in saved['originals']:
         p=work/rel;p.parent.mkdir(parents=True,exist_ok=True);copy_private(state/'originals'/rel,p)
-    c=copy.deepcopy(config);c['bundle_root']=str(work);c['source_overrides']={}
+    c=copy.deepcopy(config);c['bundle_root']=str(work);c['source_overrides']={};c['operator_original_root']=str(state/'originals')
     c['paths']={n:str(run/n) for n in ('reports','output','backups','canonical')}
     if operator_assignments is None:operator_assignments=saved.get('operator_assignments',{})
     from operators.styles import normalize as appearance_defaults
@@ -277,7 +277,9 @@ def compose(config,state,saved,selected,addon,operator_assignments=None,tf2='',o
     if operator_assignments:
         from operators.library import prepare as operator_sources
         from operators.bundles import build as operator_build,BUNDLE
-        log('Building explicit per-operator replacements...');s=settings('operators');s.update(assignments=operator_assignments,source_sha256=digest(work/BUNDLE),library=operator_sources(c,operator_assignments,run,tf2,operator_appearance));operator_build(c,s);merge(s)
+        log('Building explicit per-operator replacements...');library=operator_sources(c,operator_assignments,run,tf2,operator_appearance);s=settings('operators');s.update(assignments=operator_assignments,source_sha256=digest(work/BUNDLE),library=library);operator_build(c,s);merge(s)
+        if 'operator_arms' in selected:
+            log('Building matching authored first-person arms on native weapon rigs...');s=settings('operator-arms');s.update(first_person=True,assignments=operator_assignments,source_sha256=digest(work/'src/first_person'),library=library);operator_build(c,s);merge(s)
     return {rel:work/rel for rel in saved['originals']}
 
 def validate_frontend(saved,request):

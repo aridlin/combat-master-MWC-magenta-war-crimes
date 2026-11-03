@@ -20,10 +20,23 @@ def main():
             m,image,meta=model_asset({'models':{}},name);rows[name]={'asset':asset_kind({'models':{}},name),'vertices':len(m.vertices),'triangles':len(m.faces),'image_size':list(image.size),'author':meta['author']}
         from operators.assets import load as operator_asset
         from operators.skinning import validate_weights
+        from operators.bounds import root_bounds
+        import numpy as np
+        transform=np.array([[0.,0.,1.,-1.],[0.,1.,0.,0.],[-1.,0.,0.,0.],[0.,0.,0.,1.]])
+        probe=root_bounds([[0,0,0],[0,0,2]],transform[None],0,{'m_Center':dict(x=0.,y=0.,z=0.),'m_Extent':dict(x=.1,y=.1,z=.1)})
+        if not np.isclose(probe['m_Extent']['x'],1.04):raise ValueError('Root-bone renderer bounds regression')
+        if any(float(np.float32(v))!=v for section in probe.values() for v in section.values()):raise ValueError('Renderer bounds are not float32 roundtrip stable')
         operators={}
         for name in ('shrek','fishguy','mario','minecraft_steve'):
             mesh,texture,indices,weights,meta=operator_asset(ROOT/'assets/operator-sources'/name);validate_weights(indices,weights,len(mesh.vertices),len(meta['bone_names']));operators[name]={'vertices':len(mesh.vertices),'triangles':len(mesh.faces),'source_bones':len(meta['bone_names']),'hashes_verified':True}
-        print(json.dumps({'model_assets_verified':rows,'operator_sources_verified':operators,'sky_faces':len(faces(32)),'game_files_modified':False,'in_game_tested':False},indent=2));return
+        mesh,texture,indices,weights,meta=operator_asset(ROOT/'assets/operator-sources/titanfall_pilot')
+        if indices is not None or weights is not None or not meta.get('rigless'):raise ValueError('Packaged pilot unexpectedly contains private native skin data')
+        operators['titanfall_pilot']={'vertices':len(mesh.vertices),'triangles':len(mesh.faces),'hashes_verified':True,'rig_generated_locally':True,'native_geometry_bundled':False}
+        from operators.first_person import validate_assignments
+        targets=json.loads((ROOT/'config/operator-first-person-targets.json').read_text())['operators']
+        if len(targets)!=32:raise ValueError('Incomplete first-person operator index')
+        validate_assignments({'operator_0':'titanfall_pilot','operator_30':'shrek'},targets)
+        print(json.dumps({'model_assets_verified':rows,'operator_sources_verified':operators,'renderer_bounds_root_probe_verified':True,'renderer_bounds_float32_stable':True,'sky_faces':len(faces(32)),'game_files_modified':False,'in_game_tested':False},indent=2));return
     if a.status:
         from installer.mwc_installer.engine import discover
         from operators.assignments import load_plan,save_plan

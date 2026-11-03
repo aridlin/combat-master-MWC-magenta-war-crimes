@@ -160,5 +160,16 @@
       "src/maps/map_drains_s",
       "src/maps/map_warehouse_s"
     ]
+  },
+  {
+    "id": "operator_arms",
+    "title": "Matching operator arms",
+    "group": "Extras",
+    "description": "Use the selected character models\u2019 actual arms on native weapon animation rigs. Shared-prefab conflicts are reported.",
+    "thumbnail": "assets/operator_arms.png",
+    "preview_kind": "Authored arms; in-game grip test pending",
+    "default": false,
+    "target": "Explicit owned first-person operator renderers",
+    "status": "built and file-verified; in-game untested"
   }
 ]

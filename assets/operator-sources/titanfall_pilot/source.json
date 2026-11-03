@@ -1,0 +1,49 @@
+{
+  "source": "titanfall_stim.glb",
+  "objects": [
+    {
+      "name": "Object_2",
+      "first_vertex": 0,
+      "vertex_count": 14865
+    },
+    {
+      "name": "Object_3",
+      "first_vertex": 14865,
+      "vertex_count": 10893
+    },
+    {
+      "name": "Object_4",
+      "first_vertex": 25758,
+      "vertex_count": 14475
+    },
+    {
+      "name": "Object_5",
+      "first_vertex": 40233,
+      "vertex_count": 7953
+    }
+  ],
+  "materials": [
+    {
+      "name": "Packed authored source",
+      "image": "albedo.png"
+    }
+  ],
+  "vertices": 48186,
+  "triangles": 16062,
+  "scripts_executed": false,
+  "alpha_clip_required": false,
+  "style": "original",
+  "prepacked": true,
+  "rigless": true,
+  "provenance": {
+    "author": "Paris",
+    "source": "https://sketchfab.com/3d-models/pilot-stim-titanfall-2-9f42c6d4503841a7a4729c2e9f64047c",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "source_glb_sha256": "1f1b51c7fa1cb38ae50b5670d71fc96e83488ef2ccfe0ea4fd6c74202cf73126",
+    "modifications": "Original static authored mesh/UVs retained; albedo atlas packed. Native-reference rig transfer is performed locally, not embedded in this package."
+  },
+  "mesh_sha256": "b1df1faab7557afd511d51a85e268088869122c8e77cc3c8245d3ec5e02c4495",
+  "albedo_sha256": "1133fe0f31fdbcff817ecc648b2d3ca3bf0b33b5741c82e16d89c6a2fdd6e5b4",
+  "in_game_tested": false
+}

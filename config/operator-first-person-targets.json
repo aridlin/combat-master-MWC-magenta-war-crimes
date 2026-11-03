@@ -1,0 +1,935 @@
+{
+  "build_id": "24397779",
+  "operators": [
+    {
+      "id": "operator_0",
+      "name": "Ranger",
+      "internal_name": "0.MaleBase",
+      "bundle": "src/first_person",
+      "prefab_guid": "c3f28381d04a6b04eb964c2c727b68b0",
+      "prefab_path_id": "8681120419374396685",
+      "resource_path_id": "4724",
+      "renderers": [
+        {
+          "path_id": "-6446956547449719539",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "2ba0a0ea4f9b5e6c77932d27c1c0afefea6ab7ab41dd5215207fa6a1d9d122c0"
+        },
+        {
+          "path_id": "2264244255083033869",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "4f4d8abb19579c143b91923c36b11dc6715a14c24e7dc3c4d827a04163d67fd9"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_1",
+      "name": "Rush",
+      "internal_name": "1.Racer",
+      "bundle": "src/first_person",
+      "prefab_guid": "0d8b710d7f999a34a9e5b2dab86753b1",
+      "prefab_path_id": "4677667616714901477",
+      "resource_path_id": "4725",
+      "renderers": [
+        {
+          "path_id": "4269109331880101861",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "ab191a989fbb3d7f1ca447add49137528d220606a3617b6451085fa60a4ac920"
+        },
+        {
+          "path_id": "8250575380682819557",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "212dff37b8de18112483ab1f5b36702651ea9e34afd25640610a2fd4501a6f0d"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_2",
+      "name": "Viper",
+      "internal_name": "2.DesertCobra",
+      "bundle": "src/first_person",
+      "prefab_guid": "a98a96f3023cf464c9454f03dba0fa9d",
+      "prefab_path_id": "-1252489719576191327",
+      "resource_path_id": "4736",
+      "renderers": [
+        {
+          "path_id": "-552105254557901151",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "ab09e35b4a03d0dcecf9e1c0599ff0e1ea72f8248e84be7b418fed9eac90ddf3"
+        },
+        {
+          "path_id": "-23703727080661343",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "93546e691487538ef762cc92305359ca974b8206020ebefb6cda0c3463ac7519"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_3",
+      "name": "Alisa Lynx",
+      "internal_name": "3.Redcat",
+      "bundle": "src/first_person",
+      "prefab_guid": "87d98966a17a3934e99ed0e64aa9b739",
+      "prefab_path_id": "4198275468421694351",
+      "resource_path_id": "4747",
+      "renderers": [
+        {
+          "path_id": "-7156458465408646257",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "837de00ae8bcfd905716b7855e4d6968599bc3dd4e9e65222ab751ab11eda3ba"
+        },
+        {
+          "path_id": "-4962052146116230257",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "8b96e47a900977a371fc02f869cc267be56e33aff7dea52a3a58dabae097a812"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_4",
+      "name": "Skull Face",
+      "internal_name": "4.MercenaryGold",
+      "bundle": "src/first_person",
+      "prefab_guid": "6bc5cfe6318924c2ea791b12410af169",
+      "prefab_path_id": "3753775596574564186",
+      "resource_path_id": "4750",
+      "renderers": [
+        {
+          "path_id": "1641577943820033882",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "43992eb53f8c99d507c15492e85400f67804ffc844f23383d11f12f722d6a5af"
+        },
+        {
+          "path_id": "6930090380286779226",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "68d2c90e7c08d1109282fb19b186f6498423fe2bb91373254c6bcebe4e75dacd"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_5",
+      "name": "Lightning",
+      "internal_name": "5.FemaleBase",
+      "bundle": "src/first_person",
+      "prefab_guid": "554f9dbbde8643e4b95d57c2999b27a6",
+      "prefab_path_id": "5272809465640699864",
+      "resource_path_id": "4751",
+      "renderers": [
+        {
+          "path_id": "-3124033951873120296",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "caa24a8284081d5dcbd5c047c3aa6ce269a0d00412b6b8ad6b93b3e521eb23d7"
+        },
+        {
+          "path_id": "5158130229574944728",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "9658915524e2ec8fc2137305abaea8c9fe564a5567eb1ac1a4ba6b5ea3738d05"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_6",
+      "name": "Echo",
+      "internal_name": "6.Echo_Base",
+      "bundle": "src/first_person",
+      "prefab_guid": "2834a8e3e5c00404cbfe970f6f91bb32",
+      "prefab_path_id": "8346640973172200956",
+      "resource_path_id": "4752",
+      "renderers": [
+        {
+          "path_id": "-7850863103506688516",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "4324d8b75e48420c1c597de189e79eea6a60c276047e43b015a4c17a604f425e"
+        },
+        {
+          "path_id": "6462647307108570620",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "fa5dffa71c7d6c846dde8a297f23476f7ce538c709da2a66c0e6f588d3d29a34"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_7",
+      "name": "Echo Elite",
+      "internal_name": "7.Echo_Final",
+      "bundle": "src/first_person",
+      "prefab_guid": "cc1745537e81d444f81506af0e73a0e6",
+      "prefab_path_id": "-989681269134822913",
+      "resource_path_id": "4753",
+      "renderers": [
+        {
+          "path_id": "-3802603851012345345",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "1f7c65a62b50bbcc5cd0b3c3e588303d346ce9eedd322b46aece3def6a682790"
+        },
+        {
+          "path_id": "1537837717880140287",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "f95e912b440a31bad0bd0a2d4c487bc1031c36da37c845baee9bb8e0b8f01e5d"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_8",
+      "name": "Jagermeister",
+      "internal_name": "8.Sniper",
+      "bundle": "src/first_person",
+      "prefab_guid": "fdea5259df03d5941a19ac88879ab239",
+      "prefab_path_id": "6035744671513052149",
+      "resource_path_id": "4754",
+      "renderers": [
+        {
+          "path_id": "-4787179290932083723",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 108,
+          "sha256": "4bc5c81b16922a1b6574ecc69e65ac63e15a07ed808f23b4e5de11aaf68d237d"
+        },
+        {
+          "path_id": "2740442336760759285",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 108,
+          "sha256": "3e64310f2b70d761bdd2ede9d8e722b3f46b3d1afb318a7914c7a97dadc4adce"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_9",
+      "name": "Polar Star",
+      "internal_name": "9.Echo_Polar",
+      "bundle": "src/first_person",
+      "prefab_guid": "eff034f9fef5d46bfbb82aa0dfa363b5",
+      "prefab_path_id": "-1826611153562926426",
+      "resource_path_id": "4755",
+      "renderers": [
+        {
+          "path_id": "7459414141908648614",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "20127d1af3e65f0f8ac84a1a47ea48f2b22a4e2cea7b264d3656d5961179eac8"
+        },
+        {
+          "path_id": "8222251306192044710",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "c3c45f07bdb33c06bb989ec24c8cea18ab060afe0df991e1617fc87562a68f74"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_10",
+      "name": "Shadow Rider",
+      "internal_name": "10.Rider",
+      "bundle": "src/first_person",
+      "prefab_guid": "43f14adb1299641c99da79eeb7937b16",
+      "prefab_path_id": "-1076555459065404718",
+      "resource_path_id": "4726",
+      "renderers": [
+        {
+          "path_id": "-8217188275901750574",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "832daac8110e73bda47db1299cef4a564fe74ad78ca49c0c68b855cfd2833289"
+        },
+        {
+          "path_id": "-3288113997923802414",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "066653b509e2f54f1006b55dfe645947613604f91aa34d8ad0046895b088ed8a"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_11",
+      "name": "Wolverine",
+      "internal_name": "11.Sniper_Demon",
+      "bundle": "src/first_person",
+      "prefab_guid": "feb56fa94aa2e44f1a2d0704309fd34f",
+      "prefab_path_id": "3055870722490069979",
+      "resource_path_id": "4727",
+      "renderers": [
+        {
+          "path_id": "-2476197397630454821",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 108,
+          "sha256": "66622597f3eadd8058af19d9c5e5e4cffa35b8bb5e2e6744f385d5231657c8ca"
+        },
+        {
+          "path_id": "-1814746298656590885",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 108,
+          "sha256": "7b1625944ede1454f0ee9eb3d57a043382f666a0ee28397552a209397ba0e4c5"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_12",
+      "name": "Demon_DS_Game_Mode",
+      "internal_name": "12.Demon_DS_Game_Mode",
+      "bundle": "src/first_person",
+      "prefab_guid": "fdea5259df03d5941a19ac88879ab239",
+      "prefab_path_id": "6035744671513052149",
+      "resource_path_id": "4728",
+      "renderers": [
+        {
+          "path_id": "-4787179290932083723",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 108,
+          "sha256": "4bc5c81b16922a1b6574ecc69e65ac63e15a07ed808f23b4e5de11aaf68d237d"
+        },
+        {
+          "path_id": "2740442336760759285",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 108,
+          "sha256": "3e64310f2b70d761bdd2ede9d8e722b3f46b3d1afb318a7914c7a97dadc4adce"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_13",
+      "name": "Street Fighter",
+      "internal_name": "13.Street_Fighter_Red",
+      "bundle": "src/first_person",
+      "prefab_guid": "de40f7918e3724d9b9475bc45bdcef1a",
+      "prefab_path_id": "-5591378429344179773",
+      "resource_path_id": "4729",
+      "renderers": [
+        {
+          "path_id": "4476143713531894211",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "1f437b02ea1b1e87ae5b8a4276411741e41f8122574458be9f6333ec1cc5de48"
+        },
+        {
+          "path_id": "6431688315522750915",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "da5d39429c9062a4a9695720052372ab066331ccb3696414e1761d0694599c48"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_14",
+      "name": "Blacksmith",
+      "internal_name": "14.Atlas_Base",
+      "bundle": "src/first_person",
+      "prefab_guid": "8710a5a33738a4801b1f7dbb707244f5",
+      "prefab_path_id": "2740224381683767128",
+      "resource_path_id": "4730",
+      "renderers": [
+        {
+          "path_id": "-9085428690149697704",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "74a6064a4d5f4ccd5d5e26e63aaa9a78e3100e07a51ff6ea50cd1240c7b21b09"
+        },
+        {
+          "path_id": "4099439365423306584",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "7142869e9b4a0f1963558afd287e5c2c15fda0aec39a38cd5adaa03a0895655c"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_15",
+      "name": "Kestrel",
+      "internal_name": "15.FemaleBase_Sand",
+      "bundle": "src/first_person",
+      "prefab_guid": "61ceb9ee7c88f4e139ae52c3e14b883f",
+      "prefab_path_id": "7017709127939342346",
+      "resource_path_id": "4731",
+      "renderers": [
+        {
+          "path_id": "-519033934017314806",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "72e85c21c6dffe85663812d0ea9729c789088c25346b1e060e968680320098e9"
+        },
+        {
+          "path_id": "2314483260178186250",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "31bcbd0b18cd8de38df5d38a2ad5c297076d8b54bc65fbb83565bd6e70dcc195"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_16",
+      "name": "Hunter",
+      "internal_name": "16.Atlas_Grey",
+      "bundle": "src/first_person",
+      "prefab_guid": "1c4435de1f97f204e8d75dc049423194",
+      "prefab_path_id": "-9090165138007981029",
+      "resource_path_id": "4732",
+      "renderers": [
+        {
+          "path_id": "4301601354780771355",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "eaff9fc9a803f49fa67cd75e7ee9bd5295d21d799288202ec1546425ad58d39c"
+        },
+        {
+          "path_id": "5518055716573414427",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "34d7279ae7bc9da75efad99024f81f303e8a3e365798782a51730e32dc8c5a30"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_17",
+      "name": "Crusader",
+      "internal_name": "17.Atlas_Gold",
+      "bundle": "src/first_person",
+      "prefab_guid": "92c6b91a969f95945bcce3823f9bd23a",
+      "prefab_path_id": "-2628493181943450059",
+      "resource_path_id": "4733",
+      "renderers": [
+        {
+          "path_id": "-7619494429500606923",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "7f496271557409679eba0e73c24c9b5db360363196744295d42f615182e403fe"
+        },
+        {
+          "path_id": "-7220986523347356107",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "2a704670b762d8199aa19e2727c7c1f6aea813f44eb8738ca57fde8cfb7cbc56"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_18",
+      "name": "Nighthawk",
+      "internal_name": "18.Pilot2",
+      "bundle": "src/first_person",
+      "prefab_guid": "99aa1b822079d6349bea469df09f66c5",
+      "prefab_path_id": "-3372574413928042930",
+      "resource_path_id": "4734",
+      "renderers": [
+        {
+          "path_id": "-8575581469031240114",
+          "name": "arm_mesh_tris_LOD0_01",
+          "bones": 80,
+          "sha256": "99820235bede3d4cb258ce49e93924a4c9de0d73f4d4312cde9684555b576db2"
+        },
+        {
+          "path_id": "-7690484609746112946",
+          "name": "arm_mesh_tris_LOD0_01",
+          "bones": 80,
+          "sha256": "03b48277b9d607b3e1f08dafb19155eb69b9234b3c1f21bd6f1e216e8e7c87f3"
+        },
+        {
+          "path_id": "-7409322756521628082",
+          "name": "arm_mesh_tris_LOD0_01",
+          "bones": 80,
+          "sha256": "22431cf27da82fb64dfcb1d7277e79b0d386a3982bd9217e34dcb4771d3cc3c6"
+        },
+        {
+          "path_id": "-4322290034342269362",
+          "name": "arm_mesh_tris_LOD0_01",
+          "bones": 80,
+          "sha256": "6f5355768a684c1d8cbf42d318a424223d88aa6bc27c4eddb994f117ac94f60b"
+        },
+        {
+          "path_id": "-4282231167877747122",
+          "name": "arm_mesh_tris_LOD1_01",
+          "bones": 80,
+          "sha256": "09135d12d8cb1cbb73b16ab17aaa96bdc7c79b2769084e21ef60ce7f9c1eed4f"
+        },
+        {
+          "path_id": "-2946088348539261362",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "f11bc2129fe33515e69736aaba2f8ceb6244cb0a2036da5374ef714e0ee2303e"
+        },
+        {
+          "path_id": "192652984900021838",
+          "name": "arm_mesh_tris_LOD1_01",
+          "bones": 80,
+          "sha256": "1ed29df783118fabc8adc721497e060d7f8a37fd8d421ac37adffd1d4c619191"
+        },
+        {
+          "path_id": "221627321840332366",
+          "name": "arm_mesh_tris_LOD1_01",
+          "bones": 80,
+          "sha256": "8cb4daec49aeca0f6619a6f9421b6ce316638133edef9f1ce3140c43362c910a"
+        },
+        {
+          "path_id": "751845991891562062",
+          "name": "arm_mesh_tris_LOD1_01",
+          "bones": 80,
+          "sha256": "1929f1408237ef2530a1fbca1f6cde4dc7a928be186f292e9e014b60f1ebd19b"
+        },
+        {
+          "path_id": "2568301269936664142",
+          "name": "arm_mesh_tris_LOD1_01",
+          "bones": 80,
+          "sha256": "7ff373df204b235098fe9b298001aed7e7a6f91cfe62cef376ce428fd413f1c6"
+        },
+        {
+          "path_id": "2863027900908858958",
+          "name": "arm_mesh_tris_LOD0_01",
+          "bones": 80,
+          "sha256": "2fad263db4e5646f115db23d92d74621df4ba8fca02179e9a3c770ec32f27353"
+        },
+        {
+          "path_id": "4535729199665999438",
+          "name": "arm_mesh_tris_LOD1_01",
+          "bones": 80,
+          "sha256": "a898a5d120d9170bba235c7f5cce2d6c6862ca0babbd6c35af8b56f43043e2ef"
+        },
+        {
+          "path_id": "4656554219175439950",
+          "name": "arm_mesh_tris_LOD0_01",
+          "bones": 80,
+          "sha256": "3e77dfe7a850781c9996e4fbee31703017d43b8d6ea16c975f12028c078eb88d"
+        },
+        {
+          "path_id": "8046349945062583886",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "495a31f66612c60569435410a433bb23dd8d8da2d02a0df774c7de5a9168533a"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_19",
+      "name": "Nightshade",
+      "internal_name": "19.Frogman",
+      "bundle": "src/first_person",
+      "prefab_guid": "a01625e7d664e7646a929404ba20a01f",
+      "prefab_path_id": "6621745241096690622",
+      "resource_path_id": "4735",
+      "renderers": [
+        {
+          "path_id": "-2876118853832107074",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "ee6505d957b024b9e87150da2f737305921d4289916db7cf1b9ec262a43c7d5e"
+        },
+        {
+          "path_id": "1253292404385553342",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "0e6615ce92d853f47c7e2e48b4349ea9efd2e48c7f29768f65135f049053aafb"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_20",
+      "name": "T-REX",
+      "internal_name": "20.Trex",
+      "bundle": "src/first_person",
+      "prefab_guid": "d152f2648a7b4584ab36b59817af90ab",
+      "prefab_path_id": "-7418581888544657982",
+      "resource_path_id": "4737",
+      "renderers": [
+        {
+          "path_id": "-4912643636514705982",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "92d4d9678733ba19fefef849797dc3dabb804f706ae85dba3eb7f4bcd7e29d2f"
+        },
+        {
+          "path_id": "2121146452897312194",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "5e97c44d7c6d0cead6af6c6a59f67d9151e78cb8a43bcd718f760757e933d03b"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_21",
+      "name": "Foreward",
+      "internal_name": "21.Street_Fighter_Standart",
+      "bundle": "src/first_person",
+      "prefab_guid": "ddcfc8ffde023144abea2c2b1e90c90b",
+      "prefab_path_id": "-490187059720384900",
+      "resource_path_id": "4738",
+      "renderers": [
+        {
+          "path_id": "-7242697081420214660",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "33a959f340db5f930b544655bc52cb9717e083306226a928745a778f8374e4ca"
+        },
+        {
+          "path_id": "-4046135103492813188",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "9d4f506e5190359bde896ebf870130e4f5b8015ff26a11b49455d80a9f02f4f2"
+        },
+        {
+          "path_id": "1663464852840550012",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "7122a679f9881e3911005a33b63f2881db5662da071ec655e67a5bffc09f3204"
+        },
+        {
+          "path_id": "5308069966691995260",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "116fe42497262e71ba8c5570bfeb034c1a01fc4e16c4c976388ea5fa20b161d9"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_22",
+      "name": "Vixen",
+      "internal_name": "22.HalloweenDevil",
+      "bundle": "src/first_person",
+      "prefab_guid": "8e3c138c616cae5438e5c22d112cc39b",
+      "prefab_path_id": "263263652738169200",
+      "resource_path_id": "4739",
+      "renderers": [
+        {
+          "path_id": "-8517439474302650000",
+          "name": "arm_mesh_TopJacket01_LOD0",
+          "bones": 80,
+          "sha256": "e54d182526fb818132b420c19e3012011596cc08a5854f22cbae007e6d6a7f3b"
+        },
+        {
+          "path_id": "-5481461272088086160",
+          "name": "arm_mesh_HandAcc02_LOD0",
+          "bones": 80,
+          "sha256": "fc42cfcbba44ea4719b02634a9fa5166e589a94c7ef2249cfa6031ca2238559b"
+        },
+        {
+          "path_id": "-937247368617133712",
+          "name": "arm_mesh_HandAcc01_LOD0",
+          "bones": 80,
+          "sha256": "d35cd72f6db7a8f9065c9f6f00b59c17c9c1c0262de741c3e6032845db36feef"
+        },
+        {
+          "path_id": "-544712841129297552",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "713d719c8140cb4a751ebb7339e4e307ec5b00324a62a7f01e832e3dfdb19033"
+        },
+        {
+          "path_id": "97823557606504816",
+          "name": "arm_mesh_Jacket01_LOD0",
+          "bones": 80,
+          "sha256": "48eb4e2922e5e6fb12c8c436dd3acf8ddc001b5f9186422d4946d0eaa28c4b81"
+        },
+        {
+          "path_id": "1848194054839990640",
+          "name": "arm_mesh_Nails_LOD0",
+          "bones": 80,
+          "sha256": "8eee5ea097721d99b2097b2b49ad33320f978cf184562f262c3f30f19109e5cb"
+        },
+        {
+          "path_id": "5798569375582321008",
+          "name": "arm_mesh_Nails_LOD0",
+          "bones": 80,
+          "sha256": "b0d63d52b80a58d2ce91bc9d1cc21d5cd75feafed5cbb67dc88c0d185761f611"
+        },
+        {
+          "path_id": "6089493485467859312",
+          "name": "arm_mesh_Jacket02_LOD0",
+          "bones": 80,
+          "sha256": "4a91fbb402160596a60d93974cacff8a5d9ec7e9e5717b94c655a793e4cc2025"
+        },
+        {
+          "path_id": "9080560130263480688",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "8021c5563479ef61452cd4f887322ad10f025494bc74e980ea95e90952b0fd8e"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_23",
+      "name": "Aberration",
+      "internal_name": "23.HalloweenPumpkinGreen",
+      "bundle": "src/first_person",
+      "prefab_guid": "97962426ec17a7e40a1282f66076708a",
+      "prefab_path_id": "7589395949038439689",
+      "resource_path_id": "4740",
+      "renderers": [
+        {
+          "path_id": "-6636538168133382903",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "c0ef76032d2b3025205486decabb4281b09f405f4370ab051afce926a02aaef4"
+        },
+        {
+          "path_id": "-5472140832176370423",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "184686490a73ab39ab822fe795d0649f9b43f804c6a3a6b1d958e0801b288f36"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_24",
+      "name": "John O. Lantern",
+      "internal_name": "24.HalloweenPumpkinYellow",
+      "bundle": "src/first_person",
+      "prefab_guid": "97962426ec17a7e40a1282f66076708a",
+      "prefab_path_id": "7589395949038439689",
+      "resource_path_id": "4741",
+      "renderers": [
+        {
+          "path_id": "-6636538168133382903",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "c0ef76032d2b3025205486decabb4281b09f405f4370ab051afce926a02aaef4"
+        },
+        {
+          "path_id": "-5472140832176370423",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "184686490a73ab39ab822fe795d0649f9b43f804c6a3a6b1d958e0801b288f36"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_25",
+      "name": "Pincushion",
+      "internal_name": "25.HalloweenPumpkinNail",
+      "bundle": "src/first_person",
+      "prefab_guid": "97962426ec17a7e40a1282f66076708a",
+      "prefab_path_id": "7589395949038439689",
+      "resource_path_id": "4742",
+      "renderers": [
+        {
+          "path_id": "-6636538168133382903",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "c0ef76032d2b3025205486decabb4281b09f405f4370ab051afce926a02aaef4"
+        },
+        {
+          "path_id": "-5472140832176370423",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "184686490a73ab39ab822fe795d0649f9b43f804c6a3a6b1d958e0801b288f36"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_26",
+      "name": "Falcon",
+      "internal_name": "26.DroneOperator",
+      "bundle": "src/first_person",
+      "prefab_guid": "d272616fbc675b04e929c048e737d84e",
+      "prefab_path_id": "-8371647676328995642",
+      "resource_path_id": "4743",
+      "renderers": [
+        {
+          "path_id": "-6893709451531742010",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "470fb9ab8ec252789c0ecbb433881441c090c645ac0e1781e2124f96a7a93467"
+        },
+        {
+          "path_id": "4415211951022314694",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "c74e8ac394ea7df3834126f0c1294ba9f961e21b12e41c1541a9c43e981abc3d"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_27",
+      "name": "Ghost",
+      "internal_name": "27.Wolf_Sniper",
+      "bundle": "src/first_person",
+      "prefab_guid": "ebbc3175905517943abaa4e89059b08f",
+      "prefab_path_id": "-8763709575654853706",
+      "resource_path_id": "4744",
+      "renderers": [
+        {
+          "path_id": "-5630602871048293450",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 108,
+          "sha256": "3ca096a0b293f4e4c314be24d80cbc5f87d3293375b716557ab9b33546aa4fe3"
+        },
+        {
+          "path_id": "-5509886948071951434",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 108,
+          "sha256": "f482338749935b8dec9361f54dff6d3e348f951be684bb515e5708837363de99"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_28",
+      "name": "Mercy",
+      "internal_name": "28.Angel",
+      "bundle": "src/first_person",
+      "prefab_guid": "024724892516288458b5b884d0452b4c",
+      "prefab_path_id": "-4783803231512057881",
+      "resource_path_id": "4745",
+      "renderers": [
+        {
+          "path_id": "-3791119385787455513",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "a84f285e42e0af4c24bce253ce45d9c04cc8c61e53be215cda68dc15638ec4eb"
+        },
+        {
+          "path_id": "-1272481263465879577",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "6c087762bd5d9ff1fff54c213c4f3d74dac56b066743e344c4fd47bc665c3c3f"
+        },
+        {
+          "path_id": "865446857898436583",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "f14b7dc56a694ec21cc41ccea682b35aa59168c0e82dc248629593eb421bd4ac"
+        },
+        {
+          "path_id": "3745722844131141607",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "2a3c875af9375ee64c5a5182ff847757a17ac920a3929640c5e12971bec1d0b1"
+        },
+        {
+          "path_id": "4120149209500264423",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "c0532a8547a4fbc8ebb9a1a560a9820f5c86470570113e3a2007f9bc6e111770"
+        },
+        {
+          "path_id": "4196040115290875879",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "f45a27efb5ccd754da67bee64596fa5df2ced00203774c9cb2f55c0afe2c2ebc"
+        },
+        {
+          "path_id": "5997587151594825703",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "528c8aeab70d344f23cbf0b72349001afc81910bf4f3e0480a1830d45dd5d8b4"
+        },
+        {
+          "path_id": "7298267806001047527",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "12d084b9fd98b8be06d91f53ead80367633fefa9296fec4eb50876960f57dfe6"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_29",
+      "name": "Kriegs",
+      "internal_name": "29.Kruger",
+      "bundle": "src/first_person",
+      "prefab_guid": "e7fecddfa25645949aa7d7d694af73fb",
+      "prefab_path_id": "1077681539000208053",
+      "resource_path_id": "4746",
+      "renderers": [
+        {
+          "path_id": "-9014785712294491467",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "aa289a13f53a5d02c0cc6e046e7ad75f2a34198c9caa0f85bb2e7a71b671b95b"
+        },
+        {
+          "path_id": "4460345023924177589",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "e9e145a9eba557ec5c679e5eaa6a1479b209f1da39d07530a6f71c7cbe5df9fe"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_30",
+      "name": "Dozer",
+      "internal_name": "30.VinniePuh",
+      "bundle": "src/first_person",
+      "prefab_guid": "51e340ad96e2b344e9c61674465894ee",
+      "prefab_path_id": "3026630549454840909",
+      "resource_path_id": "4748",
+      "renderers": [
+        {
+          "path_id": "-2288515203743292339",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "13d031bf2a9f32c22f37f4658c0adad0ae3ee3531125aa1d9a11a5b858274473"
+        },
+        {
+          "path_id": "8748504418325161037",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "ca7e8d2050c28685b4f779ada2c6dcf6325feb9441d250d9265a9e0a2cd6fae4"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_31",
+      "name": "Hunter",
+      "internal_name": "31.Stalker",
+      "bundle": "src/first_person",
+      "prefab_guid": "db234260965967540bbb52c3c7228054",
+      "prefab_path_id": "6746472737025656883",
+      "resource_path_id": "4749",
+      "renderers": [
+        {
+          "path_id": "-8381054017121056717",
+          "name": "arm_mesh_tris_LOD1",
+          "bones": 80,
+          "sha256": "e81240993ea2b2c4635cb395333ed110aa3266032f5a23af57d1e49a4db5af8b"
+        },
+        {
+          "path_id": "742183344353019955",
+          "name": "arm_mesh_tris_LOD0",
+          "bones": 80,
+          "sha256": "bb92524fc53e2ccea194ff677c49b937f7dff6dc84e2b5f3ce81d5c062c82a47"
+        }
+      ],
+      "identity_verified": true
+    }
+  ]
+}

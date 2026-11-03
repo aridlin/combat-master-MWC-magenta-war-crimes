@@ -46,17 +46,25 @@ def export(stage,output,pose_name='bind'):
         # A deterministic head turn and bent limbs expose detached accessories,
         # inverted skinning and gross weight leakage without running game code.
         rotations={} if pose_name=='bind' else {'Head_M':([0,1,0],35),'Elbow_L':([1,0,0],55),'Elbow_R':([1,0,0],-35),'Knee_L':([1,0,0],45),'Shoulder_L':([0,0,1],20)}
+        if manifest.get('first_person') and pose_name!='bind':rotations={'j_elbow_L':([1,0,0],35),'j_elbow_R':([1,0,0],-25),'j_hand_L':([0,0,1],15)}
         pose=articulated_pose(bind,parents,names,rotations);original=v.copy();v=cpu_skin(v,bi,bw,pose,bind).astype('<f4');deformation=pose@bind;normal_transforms=np.linalg.inv(deformation[:,:3,:3]).transpose(0,2,1);result=np.zeros_like(n)
         for k in range(4):result+=np.einsum('nij,nj->ni',normal_transforms[bi[:,k]],n)*bw[:,k,None]
         n=result/np.maximum(np.linalg.norm(result,axis=1,keepdims=True),1e-12)
         if not np.isfinite(v).all():raise ValueError('Non-finite articulated geometry')
         if pose_name=='bind' and not np.allclose(v,original,atol=2e-5):raise ValueError('Serialized native bind pose does not reproduce the mesh')
-        frame,units=native_frame(names,bind);v=(v@frame/units).astype('<f4');n=(n@frame).astype('<f4')
+        if manifest.get('first_person'):
+            rest=np.linalg.inv(bind);up=rest[names.index('tag_camera'),:3,3]-rest[names.index('tag_torso'),:3,3];axis=up/np.linalg.norm(up)
+            if axis[2]>.95:frame=np.eye(3)
+            elif axis[1]>.95:frame=np.array([[1.,0,0],[0,0,1],[0,-1,0]])
+            else:raise ValueError('Unreviewed first-person mesh frame')
+            units=100. if np.linalg.norm(up)>10 else 1.
+        else:frame,units=native_frame(names,bind)
+        v=(v@frame/units).astype('<f4');n=(n@frame).astype('<f4')
         # Keep the displayed skeleton in the same canonical review frame.
         to_native=np.eye(4);to_native[:3,:3]=frame*units;review_bind=bind@to_native
         out=output/record['model'];out.mkdir(parents=True,exist_ok=True);materials=[]
         for mi,ptr in enumerate(renderer['m_Materials']):
-            mat=objects[ptr['m_PathID']].read_typetree();props=mat['m_SavedProperties'];color=next((c for key,c in props['m_Colors'] if key in ('_BaseColor','_Color')),dict(r=1,g=1,b=1,a=1));m={'name':mat['m_Name'],'base_color_linear':[color[k] for k in 'rgba']};texture=next((slot['m_Texture']['m_PathID'] for key,slot in props['m_TexEnvs'] if key in ('_BaseMap','_MainTex') and slot['m_Texture']['m_PathID']),0)
+            mat=objects[ptr['m_PathID']].read_typetree();props=mat['m_SavedProperties'];color=next((c for key,c in props['m_Colors'] if key in ('_BaseColor','_Color','AlbedoColor')),dict(r=1,g=1,b=1,a=1));m={'name':mat['m_Name'],'base_color_linear':[color[k] for k in 'rgba']};texture=next((slot['m_Texture']['m_PathID'] for key,slot in props['m_TexEnvs'] if key in ('_BaseMap','_MainTex','Albedo') and slot['m_Texture']['m_PathID']),0)
             if texture:
                 filename=f'material-{mi}.png';objects[texture].read().image.save(out/filename);m['image']=filename
             if any(key=='_Surface' and value==1 for key,value in props['m_Floats']):m['transparent']=True

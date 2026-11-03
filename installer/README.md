@@ -1,6 +1,6 @@
 # MWC modular installer (preview)
 
-The native Windows and Linux interface uses the user's FT C++17 library. Weapon, texture and extra cards are independently selectable. All four earlier weapon placeholders now use authored models; Minigun can use the actual Medigun imported from a local TF2 installation. The Operators tab assigns Shrek, Fishguy, Mario, Minecraft Steve or any of the nine locally imported TF2 mercenaries to individual game operators. Pending models are labeled and cannot silently substitute a placeholder.
+The native Windows and Linux interface uses the user's FT C++17 library. Weapon, texture and extra cards are independently selectable. All four earlier weapon placeholders now use authored models; Minigun can use the actual Medigun imported from a local TF2 installation. The Operators tab assigns Shrek, Fishguy, Mario, Minecraft Steve, the Titanfall Stim pilot or any of the nine locally imported TF2 mercenaries to individual game operators. Pending models are labeled and cannot silently substitute a placeholder.
 
 Opening the installer does not install mods. Apply builds a complete desired selection from immutable original snapshots; removing one choice preserves the other enabled choices. Restore all originals removes the managed selection. Close Combat Master before applying or restoring. Use these visual experiments offline or in an explicitly authorized environment.
 
@@ -37,4 +37,8 @@ Expansion asset checks: run `backend/mwc-backend --diagnose` in the Linux distri
 
 Operator choices are saved separately from installed state. Apply selected mods composes those assignments too. The TF2 folder can be detected through Steam or entered on the Operators tab; Import TF2 previews reads local assets and generates private thumbnails without changing game files. See OPERATOR-ASSET-CREDITS.md and operator-licenses/ in the distribution. Character prototypes have passed file/synthetic checks; in-game acceptance remains pending.
 
-Operator colors: each replacement model has its own Magenta checkbox. A separate toggle controls unreplaced native game operator models; first-person arms still follow Player textures. Source colors remain the default for Shrek, Fishguy, Mario and Steve. Save choices and colors does not install anything.
+Operator colors: each replacement model has its own Magenta checkbox. A separate toggle controls unreplaced native game operator models; matching authored first-person arms are independently selectable; otherwise they follow Player textures. Source colors remain the default for Shrek, Fishguy, Mario and Steve. Save choices and colors does not install anything.
+
+Matching first-person arms is an optional control on the Operators tab and an Extras card. It uses actual source arm geometry on the unchanged native weapon-animation rig. Shared-prefab assignment conflicts fail explicitly. Ranger/pilot and Dozer/Shrek arm builds are file-verified; ADS grip, clipping and reload appearance still need in-game testing. Explicit non-metallic/flat-normal data textures and root-bone-space renderer bounds apply to rebuilt character models.
+
+Use `--output DIRECTORY` when packaging to keep an already running distribution intact.

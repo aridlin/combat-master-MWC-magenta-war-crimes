@@ -11,6 +11,7 @@ from catgun.bundle import new_object,mesh_tree,verify_geometry
 from deploy_halftone import close_game,replace_verified
 from .geometry import make_model as legacy_model,palette as legacy_palette,export_model as legacy_export
 from .imported import load as load_authored,export_model as export_authored
+from .placements import parent_position,offset
 
 def asset_kind(settings,name):
     defaults=json.loads((Path(__file__).resolve().parents[1]/'config/weapon-asset-selections.json').read_text())
@@ -166,7 +167,7 @@ def build(config,settings):
                 for i,parent in enumerate(roots):
                     label=name+'-'+str(i);new_go=new_object(go_template,'MWC-model-go-'+label,objects);new_t=new_object(parts['Transform'],'MWC-model-transform-'+label,objects);new_r=new_object(parts['MeshRenderer'],'MWC-model-renderer-'+label,objects);new_f=new_object(parts['MeshFilter'],'MWC-model-filter-'+label,objects)
                     gd=copy.deepcopy(template_go);gd['m_Name']='MWC_Model_'+name;gd['m_IsActive']=True;gd['m_Component']=[{'component':{'m_FileID':0,'m_PathID':o.path_id}} for o in [new_t,new_r,new_f]];new_go.save_typetree(gd)
-                    td=parts['Transform'].read_typetree();td['m_GameObject']={'m_FileID':0,'m_PathID':new_go.path_id};td['m_Father']={'m_FileID':0,'m_PathID':parent.path_id};td['m_Children']=[];td['m_LocalPosition']={'x':0.,'y':0.,'z':0.};td['m_LocalRotation']={'x':0.,'y':2**-.5,'z':2**-.5,'w':0.};td['m_LocalScale']={'x':1.,'y':1.,'z':1.};new_t.save_typetree(td)
+                    td=parts['Transform'].read_typetree();td['m_GameObject']={'m_FileID':0,'m_PathID':new_go.path_id};td['m_Father']={'m_FileID':0,'m_PathID':parent.path_id};td['m_Children']=[];td['m_LocalPosition']=parent_position(settings,name);td['m_LocalRotation']={'x':0.,'y':2**-.5,'z':2**-.5,'w':0.};td['m_LocalScale']={'x':1.,'y':1.,'z':1.};new_t.save_typetree(td)
                     rd=parts['MeshRenderer'].read_typetree();rd['m_GameObject']={'m_FileID':0,'m_PathID':new_go.path_id};rd['m_Enabled']=True;rd['m_Materials']=[{'m_FileID':0,'m_PathID':mat_obj.path_id}];new_r.save_typetree(rd)
                     fd=parts['MeshFilter'].read_typetree();fd['m_GameObject']={'m_FileID':0,'m_PathID':new_go.path_id};fd['m_Mesh']={'m_FileID':0,'m_PathID':mesh.path_id};new_f.save_typetree(fd)
                     parent_id=key(parent.assets_file.name,parent.path_id);changes.setdefault(parent_id,{}).setdefault('children',[]).append(new_t.path_id);parent.save_typetree(expected_tree(parent.read_typetree(),{'children':[new_t.path_id]}))

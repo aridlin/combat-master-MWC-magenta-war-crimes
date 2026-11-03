@@ -15,12 +15,13 @@ def fit(source,native,output,kind):
     if np.linalg.det(options['source_basis'])<0:data['faces']=data['faces'][:,[0,2,1]]
     output.mkdir(parents=True)
     for mat in meta['materials']:
-        if 'pixels' not in mat:continue
-        name=mat['pixels']
-        if Path(name).name!=name:raise ValueError('Material pixel path must be local to source')
-        shutil.copyfile(source/name,output/name)
+        for field in ('pixels','image'):
+            if field not in mat:continue
+            name=mat[field]
+            if Path(name).name!=name:raise ValueError('Material image path must be local to source')
+            shutil.copyfile(source/name,output/name)
     np.savez_compressed(output/'source.npz',**data)
-    meta.update(bone_names=target_meta['bone_names'],coordinate_system='z_up',fit_profile=kind,fitting=report,source_geometry_sha256=hashlib.sha256((source/'source.npz').read_bytes()).hexdigest(),target_bind_sha256=hashlib.sha256(target['inverse_bind'].tobytes()).hexdigest(),in_game_tested=False)
+    meta.update(bone_names=target_meta['bone_names'],coordinate_system='z_up',fit_profile=kind,fitting=report,source_geometry_sha256=hashlib.sha256((source/'source.npz').read_bytes()).hexdigest(),mesh_sha256=hashlib.sha256((output/'source.npz').read_bytes()).hexdigest(),target_bind_sha256=hashlib.sha256(target['inverse_bind'].tobytes()).hexdigest(),in_game_tested=False)
     (output/'source.json').write_text(json.dumps(meta,indent=2)+'\n');return report
 
 

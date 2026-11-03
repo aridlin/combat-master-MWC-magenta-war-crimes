@@ -1,0 +1,11 @@
+{
+  "coordinate_system": "metres; X lateral, Y forward, Z up in the authored model frame",
+  "models": {
+    "scorpion": [0.0, 0.0, 0.0],
+    "fishing_rod": [0.0, 0.0, 0.10],
+    "nail_gun": [0.0, 0.0, 0.055],
+    "toaster": [0.0, 0.0, 0.06],
+    "medigun": [0.0, 0.0, 0.0]
+  },
+  "status": "Raised rod, nailer and toaster after user screenshots; in-game recheck pending."
+}

@@ -22,7 +22,7 @@ def load(source,style='original',pattern_config=None):
             pixels=np.asarray(atlas).copy();dots,_=pattern(pattern_config['categories']['characters']['color'],pattern_config['generation'],atlas.width,atlas.height);detail=(pixels[:,:,:3].astype(float)@np.array([.2126,.7152,.0722]))/255;pixels[:,:,:3]=np.rint(dots*(.30+.70*detail[:,:,None])).astype(np.uint8);atlas=Image.fromarray(pixels)
         elif style!='original':raise ValueError('Unknown operator material style')
         mesh=Mesh();mesh.vertices=v.tolist();mesh.normals=n.tolist();mesh.uv=uv.tolist();mesh.faces=faces.tolist()
-        return mesh,atlas,a['bone_indices'].copy(),a['bone_weights'].copy(),{**meta,'style':style}
+        return mesh,atlas,a['bone_indices'].copy() if 'bone_indices' in a else None,a['bone_weights'].copy() if 'bone_weights' in a else None,{**meta,'style':style}
     count=len(meta['materials']);cols=math.ceil(math.sqrt(count));rows=math.ceil(count/cols);tile=512;gutter=4;stride=tile+2*gutter;atlas=Image.new('RGBA',(cols*stride,rows*stride),(255,255,255,0));mapped=uv.copy();assigned=np.full(len(v),-1);alpha_used=False
     for mi,mat in enumerate(meta['materials']):
         ids=np.unique(faces[fm==mi].ravel())
@@ -47,7 +47,7 @@ def load(source,style='original',pattern_config=None):
         x,y=(mi%cols)*stride,(mi//cols)*stride;atlas.paste(Image.fromarray(np.pad(pixels,((gutter,gutter),(gutter,gutter),(0,0)),mode='edge')),(x,y));mapped[ids,0]=(x+gutter+local[:,0]*tile)/atlas.width;mapped[ids,1]=1-(y+gutter+(1-local[:,1])*tile)/atlas.height
     if np.any(assigned<0):raise ValueError('Unassigned character vertices')
     mesh=Mesh();mesh.vertices=v.tolist();mesh.normals=n.tolist();mesh.uv=mapped.tolist();mesh.faces=faces.tolist()
-    return mesh,atlas,a['bone_indices'].copy(),a['bone_weights'].copy(),{**meta,'alpha_clip_required':alpha_used,'style':style}
+    return mesh,atlas,a['bone_indices'].copy() if 'bone_indices' in a else None,a['bone_weights'].copy() if 'bone_weights' in a else None,{**meta,'alpha_clip_required':alpha_used,'style':style}
 
 
 def prepare(source,destination,provenance,profile):
@@ -58,3 +58,11 @@ def prepare(source,destination,provenance,profile):
     image.save(destination/'albedo.png')
     meta.update(prepacked=True,profile=profile,provenance=provenance,materials=[{'name':'Packed authored source','image':'albedo.png'}],source_geometry_sha256=hashlib.sha256((source/'source.npz').read_bytes()).hexdigest(),mesh_sha256=hashlib.sha256((destination/'source.npz').read_bytes()).hexdigest(),albedo_sha256=hashlib.sha256((destination/'albedo.png').read_bytes()).hexdigest(),in_game_tested=False)
     (destination/'source.json').write_text(json.dumps(meta,indent=2)+'\n');return meta
+
+
+def prepare_static(source,destination,provenance):
+    source,destination=Path(source),Path(destination)
+    if destination.exists():raise ValueError('Use a fresh static character package')
+    mesh,image,bi,bw,meta=load(source)
+    if bi is not None or bw is not None:raise ValueError('Expected an unrigged source for local rig transfer')
+    destination.mkdir(parents=True);v,n,uv,f=mesh.arrays();np.savez_compressed(destination/'source.npz',positions=v,normals=n,uv=uv,faces=f,face_materials=np.zeros(len(f),dtype='<i4'));image.save(destination/'albedo.png');meta.update(prepacked=True,rigless=True,provenance=provenance,materials=[{'name':'Packed authored source','image':'albedo.png'}],mesh_sha256=hashlib.sha256((destination/'source.npz').read_bytes()).hexdigest(),albedo_sha256=hashlib.sha256((destination/'albedo.png').read_bytes()).hexdigest(),in_game_tested=False);(destination/'source.json').write_text(json.dumps(meta,indent=2)+'\n');return meta

@@ -65,8 +65,9 @@
     },
     {
       "id": "titanfall_pilot",
-      "name": "Titanfall pilot",
-      "status": "source acquired; rig fitting pending"
+      "name": "Titanfall 2 / Stim pilot",
+      "status": "Local rig fitting and file verification passed; in-game test pending.",
+      "thumbnail": "assets/operators/titanfall_pilot.png"
     },
     {
       "id": "mario",

@@ -5,7 +5,7 @@ import numpy as np
 import UnityPy
 
 
-def native_rig(env,target):
+def native_rig(env,target,first_person=False):
     objects={o.path_id:o for o in env.objects};transforms={o.path_id:o.read_typetree() for o in env.objects if o.type.name=='Transform'}
     owned={int(r['path_id']):r for r in target['renderers']};renderers={};meshes={};lods={}
     for rid,record in owned.items():
@@ -21,8 +21,13 @@ def native_rig(env,target):
             for row in lod['renderers']:
                 ptr=row['renderer']
                 if ptr['m_FileID']==0 and ptr['m_PathID'] in owned:lods.setdefault(level,set()).add(ptr['m_PathID'])
-    if not lods:raise ValueError('Operator has no reviewed LOD group')
-    primary={level:max(ids,key=lambda i:meshes[i].read_typetree()['m_VertexData']['m_VertexCount']) for level,ids in lods.items()}
+    if not lods:
+        if not first_person:raise ValueError('Operator has no reviewed LOD group')
+        lods={level:{rid} for level,rid in enumerate(sorted(owned))}
+    def vertex_count(rid):
+        tree=meshes[rid].read_typetree()
+        return tree['m_VertexData']['m_VertexCount'] or tree['m_CompressedMesh']['m_Vertices']['m_NumItems']//3
+    primary={level:max(ids,key=vertex_count) for level,ids in lods.items()}
     snapshots={}
     for rid in set(primary.values()):
         tree=renderers[rid];mesh=meshes[rid].read_typetree();pointers=tree['m_Bones']
@@ -36,7 +41,9 @@ def native_rig(env,target):
             parents.append(index.get(parent,-1))
         bind=np.asarray([[[p['e'+str(i)+str(j)] for j in range(4)] for i in range(4)] for p in mesh['m_BindPose']],dtype='<f4')
         if bind.shape!=(len(ids),4,4) or not np.isfinite(bind).all():raise ValueError('Invalid native inverse bind data')
-        snapshots[rid]={'bone_names':names,'bone_parents':parents,'inverse_bind':bind,'renderer':tree,'mesh_object':meshes[rid],'mesh_tree':mesh}
+        root=tree['m_RootBone']
+        if root['m_FileID']!=0 or root['m_PathID'] not in index:raise ValueError('Renderer root bone is not part of the reviewed native rig')
+        snapshots[rid]={'bone_names':names,'bone_parents':parents,'inverse_bind':bind,'root_bone_index':index[root['m_PathID']],'renderer':tree,'mesh_object':meshes[rid],'mesh_tree':mesh}
     return {'objects':objects,'renderers':renderers,'meshes':meshes,'primary':primary,'snapshots':snapshots,'target':target}
 
 
