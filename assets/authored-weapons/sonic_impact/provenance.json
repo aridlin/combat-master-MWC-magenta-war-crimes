@@ -1,0 +1,128 @@
+{
+  "title": "Sonic Ball Spin / Sonic Dash",
+  "author": "Swenzy",
+  "source_url": "https://sketchfab.com/3d-models/sonic-ball-spin-sonic-dash-obj-blend-c99e3050331c442bad73028571acb51e",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_glb_sha256": "2c1a2e53da0714a6d5811a5ee9d5d7fd27be50c2519ef1a5c668c457ca007505",
+  "modifications": "Coincident-vertex welding followed by reviewed reduction from 499000 to 5979 triangles; original material texture retained; uniform grenade-scale fitting.",
+  "source_vertices": 17937,
+  "triangles": 5979,
+  "rotation": [
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "uniform_scale": 0.0409343760399984,
+  "target_forward_length_m": 0.085,
+  "bounds": [
+    [
+      -0.0419163614378109,
+      -0.0425,
+      -0.041055655102616426
+    ],
+    [
+      0.0419163614378109,
+      0.0425,
+      0.041055655102616426
+    ]
+  ],
+  "source_objects": [
+    {
+      "name": "Object_10",
+      "first_vertex": 0,
+      "vertex_count": 1176
+    },
+    {
+      "name": "Object_11",
+      "first_vertex": 1176,
+      "vertex_count": 1176
+    },
+    {
+      "name": "Object_12",
+      "first_vertex": 2352,
+      "vertex_count": 1176
+    },
+    {
+      "name": "Object_13",
+      "first_vertex": 3528,
+      "vertex_count": 1170
+    },
+    {
+      "name": "Object_14",
+      "first_vertex": 4698,
+      "vertex_count": 1173
+    },
+    {
+      "name": "Object_15",
+      "first_vertex": 5871,
+      "vertex_count": 1179
+    },
+    {
+      "name": "Object_16",
+      "first_vertex": 7050,
+      "vertex_count": 1179
+    },
+    {
+      "name": "Object_17",
+      "first_vertex": 8229,
+      "vertex_count": 1179
+    },
+    {
+      "name": "Object_18",
+      "first_vertex": 9408,
+      "vertex_count": 1179
+    },
+    {
+      "name": "Object_19",
+      "first_vertex": 10587,
+      "vertex_count": 288
+    },
+    {
+      "name": "Object_4",
+      "first_vertex": 10875,
+      "vertex_count": 1176
+    },
+    {
+      "name": "Object_5",
+      "first_vertex": 12051,
+      "vertex_count": 1176
+    },
+    {
+      "name": "Object_6",
+      "first_vertex": 13227,
+      "vertex_count": 1179
+    },
+    {
+      "name": "Object_7",
+      "first_vertex": 14406,
+      "vertex_count": 1176
+    },
+    {
+      "name": "Object_8",
+      "first_vertex": 15582,
+      "vertex_count": 1179
+    },
+    {
+      "name": "Object_9",
+      "first_vertex": 16761,
+      "vertex_count": 1176
+    }
+  ],
+  "mesh_sha256": "032fc9de624e92608a7e5781917895baae97eb5239d6e1466d316ec7ce142945",
+  "albedo_sha256": "cd69888ad16bf6982b155fee0791d4b78987bff8f21295caf488e0d28aaeb80c",
+  "geometry_created": false,
+  "animation_claim": "Visual-only held and thrown impact grenade; native animation, physics and damage data retained; in-game alignment untested."
+}

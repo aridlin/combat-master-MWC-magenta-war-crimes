@@ -8,7 +8,7 @@ from halftone.assets import dump
 from deploy_halftone import replace_verified
 
 ROOT=Path(__file__).resolve().parents[2]
-IDS={'lynx','scorpion','fishing_rod','nail_gun','toaster','medigun','players','weapons','terrain','cat_audio','crates','reticles','iron','glass','menu','sky','operator_arms'}
+IDS={'lynx','scorpion','fishing_rod','nail_gun','toaster','medigun','players','weapons','terrain','cat_audio','crates','reticles','iron','glass','menu','sky','operator_arms','sonic_impact'}
 MODELS={'scorpion','fishing_rod','nail_gun','toaster','medigun'}
 
 def log(message):print(message,flush=True)
@@ -259,6 +259,9 @@ def compose(config,state,saved,selected,addon,operator_assignments=None,tf2='',o
             from weapon_models.local_tf2 import prepare as medigun_source
             s['models']['medigun']['directory']=str(medigun_source(c,run,tf2))
         s['sources']={rel:digest(work/rel) for rel in bundles.bundle_names(s)};bundles.build(c,s);merge(s)
+    if 'sonic_impact' in selected:
+        import sonic_impact
+        log('Building Sonic impact grenade visuals...');s=settings('sonic-impact');s['source_sha256']=digest(work/sonic_impact.BUNDLE);sonic_impact.build(c,s);merge(s)
     if 'glass' in selected:
         import helicopter_windows
         log('Building helicopter glass...');s=settings('glass');s['source_sha256']=digest(work/'src/src');helicopter_windows.build(c,s);merge(s)

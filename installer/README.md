@@ -4,7 +4,7 @@ The native Windows and Linux interface uses the user's FT C++17 library. Weapon,
 
 Opening the installer does not install mods. Apply builds a complete desired selection from immutable original snapshots; removing one choice preserves the other enabled choices. Restore all originals removes the managed selection. Close Combat Master before applying or restoring. Use these visual experiments offline or in an explicitly authorized environment.
 
-The bundled edition includes the original M1A0 archive requested by the user and selects it automatically. Its credits and hash are in `addons/M1A0-CREDITS.txt`; MWC's MIT license does not apply to third-party content. Only inspected visual/WAV inputs are imported. Addon Lua is never executed.
+Public releases import a locally owned M1A0 archive through the file chooser. The separate locally bundled edition includes the archive requested by the user and selects it automatically. Its credits and hash are in `addons/M1A0-CREDITS.txt`; MWC's MIT license does not apply to third-party content. Only inspected visual/WAV inputs are imported. Addon Lua is never executed.
 
 ## Run
 
@@ -42,3 +42,9 @@ Operator colors: each replacement model has its own Magenta checkbox. A separate
 Matching first-person arms is an optional control on the Operators tab and an Extras card. It uses actual source arm geometry on the unchanged native weapon-animation rig. Shared-prefab assignment conflicts fail explicitly. Ranger/pilot and Dozer/Shrek arm builds are file-verified; ADS grip, clipping and reload appearance still need in-game testing. Explicit non-metallic/flat-normal data textures and root-bone-space renderer bounds apply to rebuilt character models.
 
 Use `--output DIRECTORY` when packaging to keep an already running distribution intact.
+
+First-person volume is configurable independently in `config/operator-viewmodels.json` (portable Linux: `backend/_internal/config/`; Windows: `source/config/`). The scales reduce arm/hand radius around native joint axes while retaining reach. Rebuild/apply after editing. Third-person geometry stays unchanged.
+
+Sonic spin ball is an independent weapon-model card for the impact grenade. Held and thrown visual bindings are isolated; original shared launcher meshes, projectile/physics/damage and all audio remain unchanged. This option has passed private shared-bundle composition and removal tests, with in-game testing pending. See WEAPON-ASSET-CREDITS.md and weapon-licenses/.
+
+Public release builds use `python installer/package.py --without-addon` (add `--windows` for Windows). This edition excludes the M1A0 archive because MWC has no recorded redistribution grant; local import remains supported. The default local build retains the requested bundled edition.

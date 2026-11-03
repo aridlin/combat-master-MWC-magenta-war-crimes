@@ -2,18 +2,12 @@
   "date": "2026-11-03",
   "game_build": "24397779",
   "tests": {
-    "collected": 71,
-    "passed": 70,
+    "collected": 75,
+    "passed": 74,
     "skipped": 1
   },
-  "live_preapply_verification": {
-    "managed_installed_and_original_hashes_verified": 81,
-    "game_running": true,
-    "pending_correction": "expansion-postfeedback.json",
-    "game_files_modified": false
-  },
   "correction": {
-    "status": "staged; game running",
+    "status": "applied and hash-verified; in-game acceptance pending",
     "assignments": {
       "operator_0": "titanfall_pilot",
       "operator_30": "shrek"
@@ -141,5 +135,51 @@
   "linux_installer_render": "isolated Xvfb screenshot reviewed; pilot thumbnail and independent arms toggle visible",
   "windows": "frontend cross-compiles; current expanded Windows UI/game acceptance pending",
   "preserved": "Existing Lynx model, full tail and audio; native skeletons, controllers, collision and gameplay objects",
-  "sonic": "Authored spin ball reduced to 5979 triangles; exact impact visual ownership resolved; builder pending"
+  "sonic": "Authored spin ball; 5 exact held/thrown visual bindings file-verified. Sonic+nailer to nailer-only selection preserves nailer. Not installed; in-game untested.",
+  "live_verification": {
+    "status": "applied_and_hash_verified",
+    "managed_installed_and_original_files_verified": 81,
+    "changed_bundles": [
+      "src/first_person",
+      "src/thrid_person",
+      "src/weapons/weapons"
+    ],
+    "assignments": {
+      "operator_0": "titanfall_pilot",
+      "operator_30": "shrek"
+    },
+    "matching_first_person_arms": true,
+    "lynx_audio_and_attachments_byte_exact": true,
+    "verified_undo_copies": 3,
+    "in_game_tested": false
+  },
+  "viewmodel_rod_live_verification": {
+    "status": "applied_and_hash_verified",
+    "all_managed_installed_and_original_hashes": 81,
+    "changed_bundles": [
+      "src/first_person",
+      "src/weapons/weapons"
+    ],
+    "third_person_models_unchanged": true,
+    "lynx_audio_and_attachments_unchanged": true,
+    "shrek_first_person_radius": [
+      0.55,
+      0.6
+    ],
+    "pilot_first_person_radius": [
+      0.65,
+      0.7
+    ],
+    "rod_roll_degrees": 90,
+    "in_game_tested": false
+  },
+  "windows_vm": {
+    "native_window_rendered": true,
+    "saved_assignments_and_colors_loaded_from_CRLF": true,
+    "native_save_button_request_verified": true,
+    "mod_selections_preserved": true,
+    "windows_fmod_library_initialized": true,
+    "game_files_modified": false,
+    "windows_game_installation_tested": false
+  }
 }

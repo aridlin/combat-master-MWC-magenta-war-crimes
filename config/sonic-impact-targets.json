@@ -1,0 +1,62 @@
+{
+  "build_id": "24397779",
+  "bundle": "src/weapons/weapons",
+  "ui_key": "gd_weapon_explosive_256_name",
+  "weapon_info": "1.0.Thermite",
+  "weapon_uid": 17170688,
+  "held_prefab_guid": "c36889a61f3a5a04590ee5b950a613ca",
+  "held_prefab": "-8573073510806075769",
+  "contact_projectile": "7457900563634755416",
+  "targets": [
+    {
+      "path_id": "-2670349362427869561",
+      "type": "SkinnedMeshRenderer",
+      "game_object": "3983098542270105223",
+      "role": "held",
+      "name": "thermite_LOD1",
+      "sha256": "7fec9f20d5b4eec038e52eeb5c31b22ecd0976b83f16282a7afcb1c028d208bc"
+    },
+    {
+      "path_id": "2223280102228149895",
+      "type": "SkinnedMeshRenderer",
+      "game_object": "4149468215838492295",
+      "role": "held",
+      "name": "thermite_LOD2",
+      "sha256": "a5cf9972e92ee78cf9ef9224f784b78d0e0fd942a891e6f0e8f558e577255647"
+    },
+    {
+      "path_id": "3810939752448050823",
+      "type": "SkinnedMeshRenderer",
+      "game_object": "2065718343861388935",
+      "role": "held",
+      "name": "thermite_LOD0",
+      "sha256": "859499c54df1e5ee4b9a403ab03034351b4c83ddae0d0bd87f6bfb6326dd88c0"
+    },
+    {
+      "path_id": "-7355432883086715048",
+      "type": "MeshFilter",
+      "game_object": "761081257654916952",
+      "role": "thrown",
+      "name": "Grenade",
+      "sha256": "74bd33d6ad05bf1dcc5685f5bac5dfb50da5c477df9b2c7abb92d642eb224262"
+    },
+    {
+      "path_id": "-5895491033512175784",
+      "type": "MeshRenderer",
+      "game_object": "761081257654916952",
+      "role": "thrown",
+      "name": "Grenade",
+      "sha256": "41608efb69f50ed76a0504464c6e16b19ffcaeb79e83022324b1c39a217182e9"
+    }
+  ],
+  "held_center": [
+    0,
+    0,
+    -0.02
+  ],
+  "thrown_center": [
+    8.53491947054863e-05,
+    0.002229193225502968,
+    0.05378406494855881
+  ]
+}

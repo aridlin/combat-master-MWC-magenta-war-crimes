@@ -1,9 +1,9 @@
 # Operator and model expansion — 3 November 2026
 
-## Staged correction after gameplay feedback
+## Applied character/material correction
 
-The next correction is built and file-verified, **not installed while the game
-is running**. Ranger uses the actual authored **Titanfall 2 Stim pilot**, in
+The three-bundle correction was **installed after the user exited**, then all
+81 installed/original hashes and its three undo copies were verified. Ranger uses the actual authored **Titanfall 2 Stim pilot**, in
 magenta. Fishguy is an optional model choice; it is not the default replacement.
 Dozer retains Shrek, his original outfit and the rust shooting glasses.
 
@@ -54,8 +54,8 @@ prior hashes and operator-assignment metadata restored.
 | All nine TF2 mercenaries | Optional per-operator choices. Actual local VPK imports, native bundle and synthetic articulation tests passed; offline previews reviewed. Clothing/collar clipping and in-game animation acceptance still need work. |
 | Mario | Optional choice. Authored color/alpha/vertex-color material graphs baked to original UVs; source rig adapted. Native bundle and synthetic articulation checks passed; in-game untested. |
 | Minecraft Steve | Optional choice. Existing classic mesh/pixel skin; explicit rig and interpolated elbow/knee cuts added. Native bundle and synthetic articulation checks passed; in-game untested. |
-| Titanfall pilot | Authored Stim pilot rigged locally, native bundle and offline deformation checks passed. Ranger correction staged; in-game acceptance pending. |
-| Sonic impact grenade | Proper authored spin ball reduced from 499,000 to 5,979 triangles with reviewed surface preservation. Impact-grenade visual targets resolved; bundle/manager integration pending. |
+| Titanfall pilot | Authored Stim pilot rigged locally, native bundle and offline deformation checks passed. Ranger correction applied and hash-verified; in-game acceptance pending. |
+| Sonic impact grenade | Authored 5,979-triangle spin ball. Independent manager option; three held LOD renderers and the thrown filter/material are file-verified. Sonic+nailer then nailer-only composition preserves the nailer. Not installed; in-game untested. |
 | Audiojungle / extra TF2 sounds | Correct CoopDogger Audiojungle project identified. Further source/rights review and optional audio integration remain unfinished. Existing Lynx sounds preserved. |
 | Per-model magenta and separate native-operator control | Implemented after the applied checkpoint. Independent source-color/magenta builds and pristine native-color restoration passed bundle verification. In-game untested. |
 
@@ -136,3 +136,41 @@ these results from source renders, synthetic poses or build checks.
 ## Independent operator colors
 
 Each replacement model has its own Magenta checkbox. Shrek, Fishguy, Mario and Steve default to source colors; TF2 and Titanfall default to magenta. A separate checkbox controls unmodified in-game operator models. This override affects their body renderers; first-person arms follow Player textures unless the independent matching-arms option is enabled. Original native materials/albedos are cloned from verified pristine backups so shared weapon/arm textures stay unchanged. Turning native magenta on while Player textures is off is supported too. Preferences are saved separately from installed appearance metadata and committed only with a successful installation.
+
+## Applied first-person size and rod-roll correction
+
+Gameplay feedback showed excessive first-person bulk. The applied first-person
+mesh correction reduces radius around unchanged native bone axes: Shrek arms
+0.55/hands 0.60, Stim pilot arms 0.65/hands 0.70. It keeps joint-to-joint reach,
+weights, UVs, skeletons, weapon sockets and all third-person models. Fixed-camera
+serialized-mesh comparisons were reviewed. These values are editable in
+`config/operator-viewmodels.json` and require rebuilding/applying the mod.
+
+The fishing rod rolls 90 degrees around its authored shaft axis. Its child
+translation compensates for the offset shaft pivot, retaining the shaft line
+while moving the reel sideways out of ADS. Only the three MWC rod visual child
+transforms change; native sights, meshes, animation and collision stay exact.
+The editable roll/pivot is in `config/weapon-model-placements.json`.
+
+The combined update passed private apply/restore with exact hashes restored,
+then was applied after the game exited. All 81 installed/original hashes verify;
+only first-person and weapon bundles changed. Third-person models, Lynx audio
+and attachments remain unchanged. Latest suite: **75 tests, 74 passes,
+one existing data-dependent skip**. Actual ADS clearance and slimmer-hand grip
+still need in-game acceptance.
+
+## Portable release validation
+
+The corrected Windows frontend rendered in the user's Windows 11 VM. The
+packaged backend verified all bundled model assets, and the actual Save operator
+choices button preserved model assignments, independent colors and selected
+mods without creating installed game state. This caught a CRLF parsing bug,
+which is fixed in the shared frontend. The packaged Windows FMOD library also
+initialized with sound output disabled. Actual Windows game-bundle installation
+remains untested.
+
+Public portable releases exclude the M1A0 archive: its Workshop credits identify
+third-party owners, but MWC has no recorded redistribution grant. Lynx and cat
+audio import a local archive instead. The user's local bundled edition retains
+the requested archive. Permitted character/prop sources and license records are
+included; Valve TF2 models import locally and are not redistributed.

@@ -18,6 +18,8 @@ def main():
             if asset_kind({'models':{}},name)=='local_tf2':
                 rows[name]={'asset':'local_tf2','requires_local_tf2':True,'content_bundled':False};continue
             m,image,meta=model_asset({'models':{}},name);rows[name]={'asset':asset_kind({'models':{}},name),'vertices':len(m.vertices),'triangles':len(m.faces),'image_size':list(image.size),'author':meta['author']}
+        from weapon_models.imported import load as prop_asset
+        m,image,meta=prop_asset('sonic_impact');rows['sonic_impact']={'asset':'authored','vertices':len(m.vertices),'triangles':len(m.faces),'image_size':list(image.size),'author':meta['author']}
         from operators.assets import load as operator_asset
         from operators.skinning import validate_weights
         from operators.bounds import root_bounds
@@ -33,10 +35,12 @@ def main():
         if indices is not None or weights is not None or not meta.get('rigless'):raise ValueError('Packaged pilot unexpectedly contains private native skin data')
         operators['titanfall_pilot']={'vertices':len(mesh.vertices),'triangles':len(mesh.faces),'hashes_verified':True,'rig_generated_locally':True,'native_geometry_bundled':False}
         from operators.first_person import validate_assignments
+        from operators.viewmodel import settings as viewmodel_settings
+        import sonic_impact
         targets=json.loads((ROOT/'config/operator-first-person-targets.json').read_text())['operators']
         if len(targets)!=32:raise ValueError('Incomplete first-person operator index')
         validate_assignments({'operator_0':'titanfall_pilot','operator_30':'shrek'},targets)
-        print(json.dumps({'model_assets_verified':rows,'operator_sources_verified':operators,'renderer_bounds_root_probe_verified':True,'renderer_bounds_float32_stable':True,'sky_faces':len(faces(32)),'game_files_modified':False,'in_game_tested':False},indent=2));return
+        print(json.dumps({'model_assets_verified':rows,'operator_sources_verified':operators,'viewmodel_volume':{name:viewmodel_settings(name) for name in ('shrek','titanfall_pilot')},'sonic_visual_module_imported':sonic_impact.BUNDLE=='src/weapons/weapons','renderer_bounds_root_probe_verified':True,'renderer_bounds_float32_stable':True,'sky_faces':len(faces(32)),'game_files_modified':False,'in_game_tested':False},indent=2));return
     if a.status:
         from installer.mwc_installer.engine import discover
         from operators.assignments import load_plan,save_plan

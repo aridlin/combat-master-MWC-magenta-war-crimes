@@ -36,7 +36,7 @@ def native_name(name):
     return 'unused_'+name
 
 
-def fit(base,source_indices,source_weights,meta,source_bind,native,options):
+def fit(base,source_indices,source_weights,meta,source_bind,native,options,model=''):
     names=meta['bone_names'];semantics=options.get('source_targets')
     semantics={i:(semantics.get(i) if semantics is not None else target_name(name)) for i,name in enumerate(names)}
     arms={i:arm_name(name) for i,name in semantics.items()};bi=np.asarray(source_indices);bw=np.asarray(source_weights).copy()
@@ -63,6 +63,8 @@ def fit(base,source_indices,source_weights,meta,source_bind,native,options):
     anchors={name:i for name,i in primary.items() if arms.get(i)==name};anchors.update(Root_M=source_root,Head_M=source_head)
     v,n,indices,weights,report=adapt(mesh.vertices,mesh.normals,names,source_bind,bi,bw,target_names,extended,source_targets=mapping,source_basis=options.get('source_basis'),primary_sources=anchors,source_root=source_root,source_head=source_head)
     if np.any(indices>=len(bind)):raise ValueError('Virtual torso landmarks leaked into serialized arm weights')
+    from .viewmodel import slim,settings
+    v,n,volume=slim(v,n,indices,weights,native,**settings(model));report['viewmodel_volume']=volume
     mesh.vertices=v.tolist();mesh.normals=n.tolist()
     if np.linalg.det(basis)<0:mesh.faces=np.asarray(mesh.faces)[:,[0,2,1]].tolist()
     validate_weights(indices,weights,len(v),len(bind));report.update(authored_arm_triangles=len(selected),source_triangles=len(faces),native_bones_preserved=len(bind),virtual_landmarks_not_serialized=True,in_game_tested=False)

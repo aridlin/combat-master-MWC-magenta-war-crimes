@@ -1,10 +1,10 @@
-"""Stage position-only corrections to already installed MWC visual children."""
+"""Stage position/roll corrections to already installed MWC visual children."""
 import argparse,copy,hashlib,json
 from pathlib import Path
 import UnityPy
 from bundle_utils import digest,inventory
 from halftone.assets import key,dump
-from .placements import parent_position
+from .placements import parent_position,parent_rotation
 from .bundles import SPECS
 
 BUNDLE='src/weapons/weapons'
@@ -26,9 +26,9 @@ def build(config,state,output,backups,names=('fishing_rod','nail_gun','toaster')
         if name not in names or gos[tree['m_GameObject']['m_PathID']]!='MWC_Model_'+name:continue
         parent=transforms[tree['m_Father']['m_PathID']];parent_name=gos[parent['m_GameObject']['m_PathID']]
         if parent_name not in SPECS[name]['roots']:raise ValueError('Installed model is attached to an unexpected root')
-        counts[name]+=1;position=parent_position({},name)
-        if tree['m_LocalPosition']==position:continue
-        changes[key(obj.assets_file.name,obj.path_id)]={'model':name,'before':tree['m_LocalPosition'],'after':position};tree['m_LocalPosition']=position;obj.save_typetree(tree)
+        counts[name]+=1;fields={'m_LocalPosition':parent_position({},name),'m_LocalRotation':parent_rotation({},name)}
+        if all(tree[k]==v for k,v in fields.items()):continue
+        changes[key(obj.assets_file.name,obj.path_id)]={'model':name,'before':{k:tree[k] for k in fields},'after':fields};tree.update(fields);obj.save_typetree(tree)
     if any(counts[n]!=SPECS[n]['root_count'] for n in names):raise ValueError('Unexpected number of installed visual children')
     if not changes:raise ValueError('Installed visual positions already match the configured correction')
     expected=copy.deepcopy(before)
@@ -40,10 +40,10 @@ def build(config,state,output,backups,names=('fishing_rod','nail_gun','toaster')
     for obj in baseline.objects:
         oid=key(obj.assets_file.name,obj.path_id)
         if oid in changes:
-            tree=obj.read_typetree();tree['m_LocalPosition']=changes[oid]['after']
-            if tree!=after[oid].read_typetree():raise ValueError('Placement correction exceeded position field whitelist')
+            tree=obj.read_typetree();tree.update(changes[oid]['after'])
+            if tree!=after[oid].read_typetree():raise ValueError('Placement correction exceeded visual pose field whitelist')
         elif obj.get_raw_data()!=after[oid].get_raw_data():raise ValueError('Placement correction changed an unrelated object')
-    report={'files':[{'bundle':BUNDLE,'backup':str(backup.resolve()),'output':str(target.resolve()),'source_sha256':digest(backup),'output_sha256':digest(target)}],'changes':changes,'verification':{'only_MWC_visual_child_positions_changed':True,'all_other_objects_byte_exact':True,'original_sights_animations_colliders_gameplay_retained':True},'in_game_tested':False};dump(output/'manifest.json',report);return report
+    report={'files':[{'bundle':BUNDLE,'backup':str(backup.resolve()),'output':str(target.resolve()),'source_sha256':digest(backup),'output_sha256':digest(target)}],'changes':changes,'verification':{'only_MWC_visual_child_positions_and_rotations_changed':True,'all_other_objects_byte_exact':True,'original_sights_animations_colliders_gameplay_retained':True},'in_game_tested':False};dump(output/'manifest.json',report);return report
 
 
 if __name__=='__main__':

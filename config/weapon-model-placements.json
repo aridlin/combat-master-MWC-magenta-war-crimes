@@ -7,5 +7,8 @@
     "toaster": [0.0, 0.0, 0.06],
     "medigun": [0.0, 0.0, 0.0]
   },
-  "status": "Raised rod, nailer and toaster after user screenshots; in-game recheck pending."
+  "roll": {
+    "fishing_rod": {"degrees": 90.0, "pivot": [-0.0042362, 0.0, -0.05836]}
+  },
+  "status": "Raised visuals; rod rolled 90 degrees around its authored shaft cross-section center to move the reel out of ADS. In-game recheck pending."
 }

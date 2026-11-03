@@ -7,6 +7,7 @@
 #include <sstream>
 #include <vector>
 #include <chrono>
+#include <algorithm>
 #ifndef _WIN32
 #include <sys/wait.h>
 #include <unistd.h>
@@ -29,7 +30,7 @@ static int run(const std::vector<std::string>&args,const fs::path&log){
  pid_t pid=fork();if(pid<0)return 126;if(pid==0){int fd=open(log.c_str(),O_WRONLY|O_CREAT|O_TRUNC,0600);if(fd<0)_exit(126);dup2(fd,1);dup2(fd,2);close(fd);std::vector<char*>v;for(auto&s:args)v.push_back(const_cast<char*>(s.c_str()));v.push_back(nullptr);execvp(v[0],v.data());_exit(127);}int status=0;while(waitpid(pid,&status,0)<0){if(errno!=EINTR)return 126;}return WIFEXITED(status)?WEXITSTATUS(status):128;
 #endif
 }
-static std::string read(const fs::path&p){std::ifstream f(p,std::ios::binary);return {std::istreambuf_iterator<char>(f),{}};}
+static std::string read(const fs::path&p){std::ifstream f(p,std::ios::binary);std::string text{std::istreambuf_iterator<char>(f),{}};text.erase(std::remove(text.begin(),text.end(),'\r'),text.end());return text;}
 int main(int argc,char**argv){
  fs::path home=fs::absolute(fs::u8path(argv[0])).parent_path();
 #ifdef _WIN32

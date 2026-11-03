@@ -171,5 +171,16 @@
     "default": false,
     "target": "Explicit owned first-person operator renderers",
     "status": "built and file-verified; in-game untested"
+  },
+  {
+    "id": "sonic_impact",
+    "title": "Impact grenade / Sonic spin ball",
+    "group": "Models",
+    "description": "Swenzy / CC BY 4.0. Held and thrown visuals; native grenade physics and damage retained.",
+    "thumbnail": "assets/sonic_impact.png",
+    "preview_kind": "Authored Sonic model; in-game test pending",
+    "default": false,
+    "target": "Resolved impact ContactGrenade and its thrown projectile only",
+    "status": "built and file-verified; in-game untested"
   }
 ]

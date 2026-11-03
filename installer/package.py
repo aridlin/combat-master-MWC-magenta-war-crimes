@@ -2,32 +2,40 @@
 import argparse,hashlib,json,shutil,struct,subprocess,sys,tarfile,zipfile
 from pathlib import Path
 R=Path(__file__).resolve().parents[1];I=R/'installer';DIST=I/'dist'
-SOURCES=['bundle_utils.py','configure.py','deploy_halftone.py','menu_background.py','sight_customization.py','helicopter_windows.py','crate_colors.py','cat_audio.py','catgun','weapon_models','skybox','operators','model_import','halftone','installer/mwc_installer','installer/__init__.py','config','assets/branding','assets/authored-weapons','assets/operator-sources']
+SOURCES=['bundle_utils.py','configure.py','deploy_halftone.py','menu_background.py','sight_customization.py','helicopter_windows.py','crate_colors.py','cat_audio.py','sonic_impact.py','catgun','weapon_models','skybox','operators','model_import','halftone','installer/mwc_installer','installer/__init__.py','config','assets/branding','assets/authored-weapons','assets/operator-sources']
 def copy_sources(dest):
     for name in SOURCES:
         p=R/name;target=dest/name
         if p.is_dir():shutil.copytree(p,target,dirs_exist_ok=True,ignore=shutil.ignore_patterns('__pycache__'))
         else:target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(p,target)
     shutil.copyfile(I/'backend.py',dest/'installer/backend.py')
-def common(dest,windows):
+def common(dest,windows,bundle_addon=True):
     dest.mkdir(parents=True,exist_ok=True)
     shutil.copyfile(I/'build'/('mwc-installer.exe' if windows else 'mwc-installer'),dest/('MWC-Installer.exe' if windows else 'MWC-Installer'))
     if not windows:(dest/'MWC-Installer').chmod(0o755)
     shutil.copytree(I/'assets',dest/'assets',dirs_exist_ok=True);shutil.copytree(R/'assets/branding',dest/'branding',dirs_exist_ok=True)
     addon=R/'external-assets/m1a0/M1A0-Cat-Gun.bin'
-    if not addon.exists():raise ValueError('Supply the local M1A0 archive under external-assets/m1a0 before building this bundled edition')
-    (dest/'addons').mkdir(exist_ok=True);shutil.copyfile(addon,dest/'addons/M1A0-Cat-Gun.bin')
+    (dest/'addons').mkdir(exist_ok=True)
+    if bundle_addon:
+        if not addon.exists():raise ValueError('Supply the local M1A0 archive under external-assets/m1a0 before building this bundled edition')
+        shutil.copyfile(addon,dest/'addons/M1A0-Cat-Gun.bin')
+    else:
+        (dest/'addons/M1A0-Cat-Gun.bin').unlink(missing_ok=True)
+        (dest/'addons/LOCAL-ARCHIVE.txt').write_text('Public edition: choose your locally owned M1A0 Workshop .bin/.gma for Lynx and cat audio.\nhttps://steamcommunity.com/sharedfiles/filedetails/?id=827320827\nThe original archive has no redistribution grant recorded by MWC and is not bundled in public releases.\n')
     shutil.copyfile(I/'M1A0-CREDITS.txt',dest/'addons/M1A0-CREDITS.txt')
     shutil.copyfile(I/'catalog.json',dest/'catalog.json');shutil.copyfile(R/'LICENSE',dest/'MWC-LICENSE.txt')
     if (I/'README.md').exists():shutil.copyfile(I/'README.md',dest/'README.md')
     shutil.copyfile(I/'vendor/PROVENANCE.md',dest/'FT-PROVENANCE.md')
     (dest/'OPERATOR-ASSET-CREDITS.md').write_text((R/'assets/operator-sources/ATTRIBUTION.md').read_text().replace('(licenses/','(operator-licenses/'))
     shutil.copytree(R/'assets/operator-sources/licenses',dest/'operator-licenses',dirs_exist_ok=True)
-def build(windows,output=None):
+    (dest/'WEAPON-ASSET-CREDITS.md').write_text((R/'assets/authored-weapons/ATTRIBUTION.md').read_text().replace('licenses/','weapon-licenses/'))
+    shutil.copytree(R/'assets/authored-weapons/licenses',dest/'weapon-licenses',dirs_exist_ok=True)
+    (dest/'EDITION.json').write_text(json.dumps({'m1a0_archive_bundled':bool(bundle_addon),'game_bundles_bundled':False,'valve_tf2_models_bundled':False},indent=2)+'\n')
+def build(windows,output=None,bundle_addon=True):
     destination_root=Path(output).resolve() if output else DIST
     dest=destination_root/('MWC-Windows-x64' if windows else 'MWC-Linux-x64')
     if dest.exists():shutil.rmtree(dest)
-    common(dest,windows)
+    common(dest,windows,bundle_addon)
     if windows:
         runtime=dest/'runtime';runtime.mkdir()
         with zipfile.ZipFile(I/'downloads/python-3.12.10-embed-amd64.zip') as z:z.extractall(runtime)
@@ -69,4 +77,4 @@ def build(windows,output=None):
     (archive.with_suffix(archive.suffix+'.sha256')).write_text(hashlib.file_digest(archive.open('rb'),'sha256').hexdigest()+'  '+archive.name+'\n')
     print(archive)
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--windows',action='store_true');p.add_argument('--output',type=Path,help='Build in a separate directory without replacing a running installer');a=p.parse_args();build(a.windows,a.output)
+    p=argparse.ArgumentParser();p.add_argument('--windows',action='store_true');p.add_argument('--output',type=Path,help='Build in a separate directory without replacing a running installer');p.add_argument('--without-addon',action='store_true',help='Public edition: import a local M1A0 archive instead of redistributing it');a=p.parse_args();build(a.windows,a.output,not a.without_addon)
