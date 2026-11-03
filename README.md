@@ -1,7 +1,7 @@
 # Combat Master MWC (Magenta War Crimes)
 
 Native Linux visual-asset experiments for **Combat Master**: deterministic
-halftone retextures, an M1A0 ginger Lynx cat gun, and offline sight customization.
+halftone retextures, an M1A0 ginger Lynx cat gun, authored weapon replacements, sky cubemaps, and offline sight customization through an FT mod manager.
 
 ![MWC gameplay: magenta arms, orange weapon and simplified world surfaces](docs/screenshots/ship-deck.jpg)
 
@@ -14,7 +14,10 @@ retexture work, not the cat prototype. More captures are in
 | Feature | State |
 | --- | --- |
 | Fine / Quiet Light-Dot Halftone | Implemented and applied locally; gameplay captures available |
-| Four original weapon models | Scorpion, fishing rod, nail gun and toaster built/installed; file-verified, in-game testing pending |
+| Authored weapon upgrades | Scorpion, fishing rod and toaster imported/installed; file-verified, in-game testing pending. Existing MP7 preserved. |
+| Minecraft-style sky | Independent sky-only cubemap module; installed/file-verified, in-game rendering untested |
+| Operator expansion | Dozer identity mapped; skinning writer validated on a native mesh copy. Character assets/rigging and game testing incomplete; see expansion report. |
+| FT mod manager | Individual cards, thumbnails, original backups and transactional restoration; Linux preview tested, expanded Windows runtime untested |
 | Shared albedo separation | Implemented with category-specific copies and verified material bindings |
 | Map texture arrays | Implemented for the four inspected BC7 albedo arrays, 50 layers |
 | Lynx cat geometry | Actual M1A0 ginger cat imported locally; original tail and full body preserved |
@@ -36,7 +39,7 @@ bypass. Use these experiments offline or in an explicitly authorized setup.
 ## Setup
 
 Use Python 3.12, a native Linux Steam installation, and enough space for
-original snapshots and staged bundles. The tools do not distribute game data.
+original snapshots and staged bundles. Original game bundles are excluded; the installer builds from the user's own Steam files. Third-party assets retain their own licenses.
 
 ```sh
 python3.12 -m venv .venv
@@ -250,3 +253,7 @@ docs/screenshots/      curated stills from user-provided gameplay recordings
 Game bundles, original backups, account-specific configuration, raw clips and
 local scan reports are ignored. The MIT license covers original code and
 procedural assets; the game and captured game content retain their own owners.
+
+## 2026-11-03 expansion
+
+Authored scorpion, fishing rod and toaster models replace three procedural weapon prototypes. The MP7 and Lynx are preserved. An independent Minecraft-style sky module changes only sky cubemap bindings. These builds passed file-level validation; in-game acceptance remains pending. Character work is blocked on authenticated source asset downloads and rigging/target validation. See [the expansion report](docs/expansion.md), [model attribution](assets/authored-weapons/ATTRIBUTION.md), and [installer instructions](installer/README.md).

@@ -1,0 +1,132 @@
+{
+  "date": "2026-11-03",
+  "game_build": "24397779",
+  "tests": {
+    "collected": 43,
+    "passed": 42,
+    "skipped": 1
+  },
+  "installed_bundle_verification": {
+    "src/weapons/weapons": {
+      "mp7_objects_byte_exact": 223,
+      "original_materials_byte_exact": 256,
+      "lynx_named_objects_byte_exact": 75
+    },
+    "src/weapons/attachments": {
+      "mp7_objects_byte_exact": 340,
+      "original_materials_byte_exact": 392,
+      "lynx_named_objects_byte_exact": 224
+    },
+    "all_81_installed_hashes_verified": true,
+    "original_operator_magenta_bundles_byte_exact": true,
+    "lynx_audio_bundle_byte_exact": true,
+    "restoration_test": "restored",
+    "reinstall_test": "applied",
+    "in_game_tested": false
+  },
+  "operator_writer_validation": {
+    "source_mesh": "Mask_LOD1",
+    "vertices": 741,
+    "bone_count": 83,
+    "geometry_weights_bone_indices_roundtrip_verified": true,
+    "all_original_serialized_objects_byte_exact": true,
+    "installed": false,
+    "new_operators_implemented": false,
+    "in_game_animation_tested": false
+  },
+  "packaged_linux_diagnostics": {
+    "model_assets_verified": {
+      "scorpion": {
+        "asset": "authored",
+        "vertices": 4632,
+        "triangles": 1544,
+        "image_size": [
+          1040,
+          520
+        ],
+        "author": "Guillaume \"GuieA_7\" Englert"
+      },
+      "fishing_rod": {
+        "asset": "authored",
+        "vertices": 44580,
+        "triangles": 14860,
+        "image_size": [
+          1560,
+          1040
+        ],
+        "author": "Justin Randall"
+      },
+      "nail_gun": {
+        "asset": "legacy_procedural",
+        "vertices": 1260,
+        "triangles": 1068,
+        "image_size": [
+          256,
+          32
+        ],
+        "author": "MWC"
+      },
+      "toaster": {
+        "asset": "authored",
+        "vertices": 1980,
+        "triangles": 660,
+        "image_size": [
+          520,
+          520
+        ],
+        "author": "MilkAndBanana"
+      }
+    },
+    "sky_faces": 6,
+    "game_files_modified": false,
+    "in_game_tested": false
+  },
+  "independent_authored_model_selection_test": "passed",
+  "windows": "native frontend cross-compiles; expanded Windows runtime and game untested",
+  "new_features_in_game_tested": false,
+  "blocked_archives": [
+    {
+      "feature": "shrek",
+      "source": "https://sketchfab.com/models/1ed7e0ec5a4b412fb15c7ca721721eab",
+      "advertised_downloadable": true,
+      "actual_download_http": 401,
+      "archive_obtained": false
+    },
+    {
+      "feature": "titanfall_stim",
+      "source": "https://sketchfab.com/models/9f42c6d4503841a7a4729c2e9f64047c",
+      "advertised_downloadable": true,
+      "actual_download_http": 401,
+      "archive_obtained": false
+    },
+    {
+      "feature": "titanfall_pulse_fanart",
+      "source": "https://sketchfab.com/models/489986a1332d4da680036a73746eefdb",
+      "advertised_downloadable": true,
+      "actual_download_http": 401,
+      "archive_obtained": false
+    },
+    {
+      "feature": "sonic_spin",
+      "source": "https://sketchfab.com/models/c99e3050331c442bad73028571acb51e",
+      "advertised_downloadable": true,
+      "actual_download_http": 401,
+      "archive_obtained": false
+    },
+    {
+      "feature": "steve",
+      "source": "https://sketchfab.com/models/0cffc39bdab04551bde4f8cdfbc52eca",
+      "advertised_downloadable": true,
+      "actual_download_http": 401,
+      "archive_obtained": false
+    },
+    {
+      "feature": "mario",
+      "source": "https://sketchfab.com/models/9d0f8b1fb8714e6c9aca8ed17266aa1e",
+      "advertised_downloadable": true,
+      "actual_download_http": 401,
+      "archive_obtained": false
+    }
+  ],
+  "extras_tab_render_check": "not executed: automatic approval review model at capacity; not an unsafe-action determination"
+}

@@ -1,0 +1,12 @@
+{
+  "method": "deterministic amplitude-modulated grayscale halftone; original canvas and composition preserved",
+  "ai_generated": false,
+  "pitch_pixels": 7,
+  "size": [
+    2048,
+    2048
+  ],
+  "original_sha256": "d45c1393dedf69cf364c249e3697c5678fca11f36b762a344768957780608606",
+  "sticker_sha256": "8291a4af22bf60753da44f3f09219338b4bf4c75621c5bea91d2017f1c89cb87",
+  "output_sha256": "4c064ab38e66ec00594d9088c947be635a1050bb8bd8a8e975296cc6948806f6"
+}

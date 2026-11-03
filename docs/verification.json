@@ -26,8 +26,9 @@
     "ads_tested": false
   },
   "tests": {
-    "workspace": "24 passed",
-    "source_only_repository": "23 passed, 1 game-data-dependent rollback test skipped"
+    "current_checkout": "42 passed, 1 game-data-dependent test skipped (43 collected)",
+    "historical_workspace": "24 tests passed before this expansion",
+    "independent_imported_model_selection": "passed on private original bundle copies"
   },
   "blue_crates": {
     "color": "#008CFF",
@@ -46,7 +47,7 @@
     "new_local_references_resolve": true,
     "original_animation_audio_scripts_collision_data_byte_exact": true,
     "in_game_tested": true,
-    "installed": true,
+    "installed": false,
     "variant": "v3",
     "preview_rendering_verified": true,
     "forward_upright_orientation_verified": true,
@@ -96,28 +97,80 @@
     "models": {
       "Scorpion Evo": {
         "model": "scorpion",
-        "vertices": 3014,
-        "triangles": 5572
+        "vertices": 4632,
+        "triangles": 1544,
+        "source": "authored",
+        "author": "Guillaume \"GuieA_7\" Englert",
+        "license": "CC-BY-SA-4.0",
+        "source_url": "https://opengameart.org/content/scorpion-3d"
       },
       "Kar98k": {
         "model": "fishing rod",
-        "vertices": 4140,
-        "triangles": 7676
+        "vertices": 44580,
+        "triangles": 14860,
+        "source": "authored",
+        "author": "Justin Randall",
+        "license": "CC-BY-3.0",
+        "source_url": "https://poly.pizza/m/9gXWYDqB6vt"
       },
       "MP7": {
         "model": "nail gun",
         "vertices": 1260,
-        "triangles": 1068
+        "triangles": 1068,
+        "source": "preserved existing procedural prototype; authored upgrade not completed"
       },
       "P90": {
         "model": "toaster",
-        "vertices": 1404,
-        "triangles": 2104
+        "vertices": 1980,
+        "triangles": 660,
+        "source": "authored",
+        "author": "MilkAndBanana",
+        "license": "CC0-1.0",
+        "source_url": "https://poly.pizza/m/5mEcP28FcV"
       }
     },
     "geometry_and_palette_roundtrip_exact": true,
     "new_local_references_resolve": true,
     "unrelated_original_objects_byte_exact": true,
     "original_meshes_collision_scripts_animation_audio_unchanged": true
-  }
+  },
+  "skybox": {
+    "installed": true,
+    "sky_materials": 7,
+    "bundles": 5,
+    "source": "original pixel-style generator; not extracted Mojang artwork",
+    "original_environment_and_lighting_objects_byte_exact": true,
+    "in_game_tested": false,
+    "night_map_integration": false
+  },
+  "expansion_preservation": {
+    "src/weapons/weapons": {
+      "mp7_objects_byte_exact": 223,
+      "original_materials_byte_exact": 256,
+      "lynx_named_objects_byte_exact": 75
+    },
+    "src/weapons/attachments": {
+      "mp7_objects_byte_exact": 340,
+      "original_materials_byte_exact": 392,
+      "lynx_named_objects_byte_exact": 224
+    },
+    "all_81_installed_hashes_verified": true,
+    "original_operator_magenta_bundles_byte_exact": true,
+    "lynx_audio_bundle_byte_exact": true,
+    "restoration_test": "restored",
+    "reinstall_test": "applied",
+    "in_game_tested": false
+  },
+  "operator_skinning_writer": {
+    "source_mesh": "Mask_LOD1",
+    "vertices": 741,
+    "bone_count": 83,
+    "geometry_weights_bone_indices_roundtrip_verified": true,
+    "all_original_serialized_objects_byte_exact": true,
+    "installed": false,
+    "new_operators_implemented": false,
+    "in_game_animation_tested": false
+  },
+  "character_expansion_implemented": false,
+  "character_asset_access": "Candidate archives require authentication; browser access disabled"
 }

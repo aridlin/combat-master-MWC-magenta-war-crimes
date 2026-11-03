@@ -5,16 +5,20 @@
   "asset_output": "assets/weapon-models",
   "models": {
     "scorpion": {
-      "enabled": true
+      "enabled": true,
+      "asset": "authored"
     },
     "fishing_rod": {
-      "enabled": true
+      "enabled": true,
+      "asset": "authored"
     },
     "nail_gun": {
-      "enabled": true
+      "enabled": true,
+      "asset": "legacy_procedural"
     },
     "toaster": {
-      "enabled": true
+      "enabled": true,
+      "asset": "authored"
     }
   },
   "sources": {}

@@ -68,7 +68,8 @@ def apply_arrays(config,mapping_path):
                     layer['alpha_mip_sha256'].append(alpha_hash(old))
                     tile=levels[min(level,len(levels)-1)]
                     pixels=np.tile(tile,(math.ceil(h/tile.shape[0]),math.ceil(w/tile.shape[1]),1))[:h,:w]
-                    image=Image.fromarray(pixels).convert('RGBA'); image.putalpha(old.convert('RGBA').getchannel('A'))
+                    image=Image.fromarray(pixels).convert('RGBA') if config['categories'][category].get('enabled',False) else old.convert('RGBA')
+                    image.putalpha(old.convert('RGBA').getchannel('A'))
                     encoded,_=image_to_texture2d(image,4)
                     chunks.append(encoded); offset+=size
                 if offset!=(index+1)*stride: raise ValueError('Unexpected source array slice layout')

@@ -1,0 +1,56 @@
+{
+  "title": "Scorpion (3D)",
+  "author": "Guillaume \"GuieA_7\" Englert",
+  "license": "CC-BY-SA-4.0",
+  "source_url": "https://opengameart.org/content/scorpion-3d",
+  "changes": "Imported evaluated source geometry; uniform fit, rotation, translation, material atlas and file conversion. No replacement primitive geometry.",
+  "source_vertices": 4632,
+  "triangles": 1544,
+  "rotation": [
+    [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      -1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "uniform_scale": 0.046444489793669545,
+  "target_forward_length_m": 0.41,
+  "bounds": [
+    [
+      -0.14773982210884196,
+      -0.16,
+      -0.20316006048593208
+    ],
+    [
+      0.14773982210884196,
+      0.24999999999999994,
+      0.05316006048593214
+    ]
+  ],
+  "source_objects": [
+    {
+      "name": "scorpion",
+      "first_vertex": 0,
+      "vertex_count": 4632
+    }
+  ],
+  "mesh_sha256": "a02d13a590bcdad331bc031fedbea1e448e4e04894c117576f49d3b8d2a76758",
+  "albedo_sha256": "86f2b5b2ed2173f8266040d5d65d1da9a5a50ac7351ca0f69c75b94f878e6224",
+  "geometry_created": false,
+  "animation_claim": "Rigid weapon visual follows existing root animation; in-game alignment untested",
+  "original_sources": {
+    "scorpion.blend": "5b13f82ce7faaa43887531901969fc25acc4a9042a9533d511a4cd71d040f0d2",
+    "scorpion.png": "63908b77329051db8e4ceb27a3944821f552a7e2ef2f77773d98e652afbda87b"
+  },
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+}

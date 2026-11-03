@@ -1,0 +1,153 @@
+[
+  {
+    "id": "lynx",
+    "title": "Lynx / M1A0 ginger cat",
+    "group": "Models",
+    "description": "Existing ginger cat and original tail.",
+    "thumbnail": "assets/lynx.png",
+    "preview_kind": "Existing M1A0 model preview",
+    "default": false
+  },
+  {
+    "id": "scorpion",
+    "title": "Scorpion Evo / Scorpion",
+    "group": "Models",
+    "description": "Guillaume Englert / CC BY-SA 4.0",
+    "thumbnail": "assets/scorpion.png",
+    "preview_kind": "Authored model; game test pending",
+    "default": false,
+    "target": "CZ_Scorpion_Base",
+    "status": "built and file-verified; in-game untested"
+  },
+  {
+    "id": "fishing_rod",
+    "title": "Kar98k / Fishing rod",
+    "group": "Models",
+    "description": "Justin Randall / CC BY 3.0",
+    "thumbnail": "assets/fishing_rod.png",
+    "preview_kind": "Authored model; game test pending",
+    "default": false,
+    "target": "Kar98K_Base / Kar98K_CM_Base",
+    "status": "built and file-verified; in-game untested"
+  },
+  {
+    "id": "nail_gun",
+    "title": "MP7 / Nail gun",
+    "group": "Models",
+    "description": "Upgrade pending a suitable source model.",
+    "thumbnail": "assets/nail_gun.png",
+    "preview_kind": "Existing prototype (preserved)",
+    "default": false,
+    "target": "MP7_Base",
+    "status": "existing feature preserved; authored upgrade blocked"
+  },
+  {
+    "id": "toaster",
+    "title": "P90 / Toaster",
+    "group": "Models",
+    "description": "MilkAndBanana / CC0",
+    "thumbnail": "assets/toaster.png",
+    "preview_kind": "Authored model; game test pending",
+    "default": false,
+    "target": "P90_Base",
+    "status": "built and file-verified; in-game untested"
+  },
+  {
+    "id": "players",
+    "title": "Player textures",
+    "group": "Textures",
+    "description": "Magenta light-dot player surfaces and arms.",
+    "thumbnail": "assets/players.png",
+    "preview_kind": "Gameplay screenshot",
+    "default": false
+  },
+  {
+    "id": "weapons",
+    "title": "Weapon textures",
+    "group": "Textures",
+    "description": "Orange light-dot weapon surfaces.",
+    "thumbnail": "assets/weapons.png",
+    "preview_kind": "Gameplay screenshot",
+    "default": false
+  },
+  {
+    "id": "terrain",
+    "title": "Terrain and environment",
+    "group": "Textures",
+    "description": "Halftone map surfaces, props and terrain layers.",
+    "thumbnail": "assets/terrain.png",
+    "preview_kind": "Gameplay screenshot",
+    "default": false
+  },
+  {
+    "id": "cat_audio",
+    "title": "Lynx cat sounds",
+    "group": "Extras",
+    "description": "Cat firing and reload sounds. Local addon required.",
+    "thumbnail": "assets/cat_audio.png",
+    "preview_kind": "Model preview; audio mod",
+    "default": false
+  },
+  {
+    "id": "crates",
+    "title": "Blue Warzone crates",
+    "group": "Extras",
+    "description": "Blue crate albedo; normal maps retained.",
+    "thumbnail": "assets/crates.png",
+    "preview_kind": "Gameplay context; crate preview pending",
+    "default": false
+  },
+  {
+    "id": "reticles",
+    "title": "Sun sight pictures",
+    "group": "Extras",
+    "description": "Preserve the seven requested reticle designs.",
+    "thumbnail": "assets/reticles.png",
+    "preview_kind": "Thumbnail; reticle capture pending",
+    "default": false
+  },
+  {
+    "id": "iron",
+    "title": "Steg Spikes iron sight",
+    "group": "Extras",
+    "description": "Conventional notch and front post.",
+    "thumbnail": "assets/iron.png",
+    "preview_kind": "Thumbnail; sight capture pending",
+    "default": false
+  },
+  {
+    "id": "glass",
+    "title": "Clear helicopter windows",
+    "group": "Extras",
+    "description": "MH6 glass appearance only. Frames retained.",
+    "thumbnail": "assets/glass.png",
+    "preview_kind": "Gameplay context; helicopter capture pending",
+    "default": false
+  },
+  {
+    "id": "menu",
+    "title": "Fishguy main menu",
+    "group": "Extras",
+    "description": "Halftone warehouse and your Fishguy sticker.",
+    "thumbnail": "assets/menu.png",
+    "preview_kind": "Background artwork",
+    "default": false
+  },
+  {
+    "id": "sky",
+    "title": "Minecraft-style Overworld sky",
+    "group": "Extras",
+    "description": "Blue sky, square sun and block clouds. Terrain textures unchanged.",
+    "thumbnail": "assets/sky.png",
+    "preview_kind": "Sky cubemap face; in-game appearance untested",
+    "default": false,
+    "status": "built and file-verified",
+    "targets": [
+      "src/maps/maps",
+      "src/maps/brmap_oilplatforms_s",
+      "src/maps/map_depot_s",
+      "src/maps/map_drains_s",
+      "src/maps/map_warehouse_s"
+    ]
+  }
+]

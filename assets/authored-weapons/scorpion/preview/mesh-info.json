@@ -1,0 +1,16 @@
+{
+  "vertices": 4632,
+  "triangles": 1544,
+  "bounds_min": [
+    -0.14773982763290405,
+    -0.1599999964237213,
+    -0.20316006243228912
+  ],
+  "bounds_max": [
+    0.14773982763290405,
+    0.25,
+    0.053160060197114944
+  ],
+  "parts": [],
+  "source": "Original procedural geometry; no game or downloaded meshes."
+}

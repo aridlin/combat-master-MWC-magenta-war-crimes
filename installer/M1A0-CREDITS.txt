@@ -1,0 +1,8 @@
+M1A0 Cat Gun
+Original Workshop addon: https://steamcommunity.com/sharedfiles/filedetails/?id=827320827
+Model/textures: Dragonfly GF Co., LTD and Gameforge 4D GmbH.
+GMod port: xdshot.
+
+Third-party content. The MWC MIT license does not apply to this archive.
+Original archive retained without edits; only the inspected models, texture and WAV files are imported. Addon Lua is never executed.
+SHA-256: 4a3d94105272c184e0a39ebc84a5c73fa5b5b8b1a1c6e82a41dbd784955309c4

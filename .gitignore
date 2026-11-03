@@ -36,3 +36,13 @@ UnityPlayer.*
 *.vtf
 
 *.wav
+/installer/build/
+/installer/dist/
+/installer/downloads/
+/installer/vm-*.txt
+/installer/vm-*.json
+/installer/vm-*.ps1
+/installer/catalog.generated.hpp
+/installer/test-work/
+
+/model_import/__pycache__/

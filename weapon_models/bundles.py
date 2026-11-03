@@ -9,7 +9,18 @@ from halftone.assets import key,dump
 from halftone.pipeline import build_id
 from catgun.bundle import new_object,mesh_tree,verify_geometry
 from deploy_halftone import close_game,replace_verified
-from .geometry import make_model,palette,export_model
+from .geometry import make_model as legacy_model,palette as legacy_palette,export_model as legacy_export
+from .imported import load as load_authored,export_model as export_authored
+
+def asset_kind(settings,name):
+    defaults=json.loads((Path(__file__).resolve().parents[1]/'config/weapon-asset-selections.json').read_text())
+    return settings.get('models',{}).get(name,{}).get('asset',defaults[name])
+
+def model_asset(settings,name):
+    kind=asset_kind(settings,name)
+    if kind=="authored":return load_authored(name)
+    if kind=="legacy_procedural":return legacy_model(name),legacy_palette(name),{"title":"Legacy procedural prototype","license":"MIT","author":"MWC"}
+    raise ValueError("Unknown model asset source: "+str(kind))
 
 SPECS={
  'scorpion':{'prefix':r'(?i)^cz_scorpion_','roots':['CZ_Scorpion_Base'],'root_count':2},
@@ -43,6 +54,9 @@ def expected_tree(original,change):
 
 def verify(settings):
     manifest=json.loads((Path(settings['output'])/'manifest.json').read_text());results=[]
+    settings=copy.deepcopy(settings)
+    for name,record in manifest['models'].items():
+        if 'asset' not in record:settings.setdefault('models',{}).setdefault(name,{})['asset']='legacy_procedural'
     for b in manifest['files']:
         if digest(Path(b['backup']))!=b['source_sha256'] or digest(Path(b['output']))!=b['output_sha256']:raise ValueError('Model artifact/backup hash mismatch')
         A=UnityPy.load(b['backup']);B=UnityPy.load(b['output']);old={key(o.assets_file.name,o.path_id):o for o in A.objects};new={key(o.assets_file.name,o.path_id):o for o in B.objects}
@@ -56,11 +70,11 @@ def verify(settings):
             for pid in local_refs(tree):
                 if key(obj.assets_file.name,pid) not in new:raise ValueError('Dangling new local reference')
             if oid in b['geometry']:
-                name=b['geometry'][oid];verify_geometry(obj,make_model(name))
+                name=b['geometry'][oid];verify_geometry(obj,model_asset(settings,name)[0])
             elif obj.type.name=='Mesh' and tree['m_VertexData']['m_VertexCount']!=0:raise ValueError('Masking mesh has visible geometry')
             if obj.type.name=='Texture2D':
                 name=b['textures'][oid]
-                if not np.array_equal(np.array(obj.read().image.convert('RGB')),np.array(palette(name))):raise ValueError('Model palette pixel mismatch')
+                if not np.array_equal(np.array(obj.read().image.convert('RGB')),np.array(model_asset(settings,name)[1])):raise ValueError('Model palette pixel mismatch')
         results.append({'bundle':b['bundle'],'masked_visual_objects':b['masked'],'new_objects':len(b['added']),
                         'geometry_and_palette_exact_roundtrip':True,'all_new_local_references_resolve':True,'all_other_original_objects_byte_exact':True})
         del A,B,old,new;gc.collect()
@@ -71,8 +85,10 @@ def build(config,settings):
     build_id(config);names=enabled(settings);out=Path(settings['output']);out.mkdir(parents=True,exist_ok=True)
     if (out/'manifest.json').exists():raise ValueError('Choose a fresh model output directory')
     if set(settings.get('sources',{}))!=set(BUNDLES):raise ValueError('Run prepare to record the intended installed baseline first')
-    for name in names:export_model(name,Path(settings['asset_output'])/name)
-    result={'models':{n:{'vertices':len(make_model(n).vertices),'triangles':len(make_model(n).faces),'enabled':True} for n in names},'files':[],'in_game_tested':False}
+    for name in names:
+        exporter=legacy_export if asset_kind(settings,name)=='legacy_procedural' else export_authored
+        exporter(name,Path(settings['asset_output'])/name)
+    result={'models':{n:{'vertices':len(model_asset(settings,n)[0].vertices),'triangles':len(model_asset(settings,n)[0].faces),'enabled':True,'asset':asset_kind(settings,n),'provenance':model_asset(settings,n)[2]} for n in names},'files':[],'in_game_tested':False}
     empty_tree=None
     for relative in BUNDLES:
         source=Path(config['bundle_root'])/relative
@@ -116,8 +132,8 @@ def build(config,settings):
             texture_template=next(o for o in original if o.type.name=='Texture2D')
             transforms=[o for o in original if o.type.name=='Transform']
             for name in names:
-                mesh=new_object(empty_obj,'MWC-model-mesh-'+name,objects);mesh.save_typetree(mesh_tree(empty_tree,make_model(name),'MWC_ModelMesh_'+name));oid=key(mesh.assets_file.name,mesh.path_id);added.append(oid);geometry[oid]=name
-                tex_obj=new_object(texture_template,'MWC-model-texture-'+name,objects);tex=tex_obj.read();image=palette(name);raw,_=image_to_texture2d(image,4)
+                mesh=new_object(empty_obj,'MWC-model-mesh-'+name,objects);mesh.save_typetree(mesh_tree(empty_tree,model_asset(settings,name)[0],'MWC_ModelMesh_'+name));oid=key(mesh.assets_file.name,mesh.path_id);added.append(oid);geometry[oid]=name
+                tex_obj=new_object(texture_template,'MWC-model-texture-'+name,objects);tex=tex_obj.read();image=model_asset(settings,name)[1];raw,_=image_to_texture2d(image,4)
                 tex.m_Name='MWC_ModelPalette_'+name;tex.m_Width,tex.m_Height=image.size;tex.image_data=raw;tex.m_TextureFormat=4;tex.m_CompleteImageSize=len(raw);tex.m_MipCount=1
                 if tex.m_MipMap is not None:tex.m_MipMap=False
                 tex.m_ColorSpace=1;tex.m_StreamData.path='';tex.m_StreamData.offset=tex.m_StreamData.size=0;tex.m_TextureSettings.m_FilterMode=1;tex.m_TextureSettings.m_WrapU=tex.m_TextureSettings.m_WrapV=1;tex.save();oid=key(tex_obj.assets_file.name,tex_obj.path_id);added.append(oid);textures[oid]=name
@@ -164,7 +180,9 @@ def deploy(config,settings,action,dry_run=False):
         plan.append((b,target,source,current,wanted))
     if dry_run:return {'action':action,'dry_run':True,'bundles':[b['bundle'] for b,*_ in plan]}
     if action=='install':verify(settings)
-    close_game(config);completed=[]
+    from installer.mwc_installer.engine import game_running
+    if game_running(Path(config['bundle_root']).parents[2]):raise ValueError('Close Combat Master before changing model bundles')
+    completed=[]
     try:
         for b,target,source,current,wanted in plan:
             if current!=wanted:replace_verified(source,target,current,wanted)

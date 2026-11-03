@@ -82,7 +82,7 @@ def build(config,settings):
     mapping=json.loads(Path(settings['mapping']).read_text());base=Path(config['bundle_root']);sun={}
     for identifier in [264,518]:
         d=next(d for d in mapping if d['id']==identifier);e=UnityPy.load(str(base/d['bundle']))
-        o=next(o for o in e.objects if o.path_id==d['texture']['id']);sun[identifier]=o.read().image.convert('RGBA');sun[identifier].save(out/f'sun-{identifier}.png');del e;gc.collect()
+        o=next(o for o in e.objects if o.type.name=='Texture2D' and o.peek_name()==d['texture']['name']);sun[identifier]=o.read().image.convert('RGBA');sun[identifier].save(out/f'sun-{identifier}.png');del e;gc.collect()
     result={'files':[],'reticles_replaced':0,'in_game_tested':False,'keep':sorted(KEEP)}
     for rel,expected_hash in settings['sources'].items():
         source=base/rel
@@ -92,15 +92,17 @@ def build(config,settings):
         shutil.copyfile(source,backup);env=UnityPy.load(str(backup));expected=inventory(env)
         objects={key(o.assets_file.name,o.path_id):o for o in env.objects};changes={};added=[]
         for d in mapping:
-            if d['bundle']!=rel or d['label'] in KEEP:continue
-            obj=next(o for o in env.objects if o.path_id==d['texture']['id']);reference=518 if 512<=d['id']<768 else 264
+            if not settings.get('reticles',True) or d['bundle']!=rel or d['label'] in KEEP:continue
+            obj=next(o for o in env.objects if o.type.name=='Texture2D' and o.peek_name()==d['texture']['name']);reference=518 if 512<=d['id']<768 else 264
             change_texture(obj,sun[reference]);changes[key(obj.assets_file.name,obj.path_id)]={'kind':'reticle','id':d['id'],'name':d['label'],'reference':f'sun-{reference}.png'};result['reticles_replaced']+=1
-        if rel=='src/weapons/attachments':
+        if rel=='src/weapons/attachments' and settings.get('iron',True):
             original=list(env.objects);names={o.path_id:o.peek_name() for o in original if o.type.name=='GameObject'}
             filters=[o for o in original if o.type.name=='MeshFilter' and names.get(o.read().m_GameObject.m_PathID,'').startswith('Dino_scope_LOD')]
             # This name also appears in the standalone blueprint prefab: select
             # only the inspected Steg Spikes prefab's exact three filter IDs.
-            filters=[o for o in filters if o.path_id in [1377934939271121617,-7189244049578734895,-3259986363469280559]]
+            transforms={o.path_id:o.read_typetree() for o in original if o.type.name=='Transform'}
+            parents={t['m_GameObject']['m_PathID']:names.get(transforms.get(t['m_Father']['m_PathID'],{}).get('m_GameObject',{}).get('m_PathID'),'') for t in transforms.values()}
+            filters=[o for o in filters if parents.get(o.read().m_GameObject.m_PathID)=='Dino_Ironsight']
             if len(filters)!=3:raise ValueError('Unexpected Steg Spikes LOD layout')
             template=objects[key(filters[0].assets_file.name,filters[0].read().m_Mesh.m_PathID)]
             mesh=new_object(template,'MWC-Steg-standard-iron',objects);mesh.save_typetree(mesh_tree(template.read_typetree(),iron_mesh(),'MWC_StandardIronSight'));added.append(key(mesh.assets_file.name,mesh.path_id))

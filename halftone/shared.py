@@ -37,6 +37,7 @@ def separate_shared(config):
         for r in rows:
             original=objects[r['id']]
             for category in r['candidates']:
+                if not config['categories'][category].get('enabled',False):continue
                 existing=next((c for c in records if c['source_id']==r['id'] and c['category']==category),None)
                 if existing:
                     clone_map[(r['id'],category)]=existing
@@ -66,7 +67,8 @@ def separate_shared(config):
     for r in targets:
         for ref in r['references']:
             if not ref['is_color']: continue
-            clone=clone_map[(r['id'],ref['categories'][0])]
+            clone=clone_map.get((r['id'],ref['categories'][0]))
+            if clone is None:continue
             bindings.setdefault(ref['material_bundle'],{}).setdefault(ref['material_id'],[]).append({
                 'slot':ref['slot'],'old_path_id':int(r['id'].rsplit(':',1)[1]),
                 'new_path_id':int(clone['id'].rsplit(':',1)[1]),'source_id':r['id'],'category':ref['categories'][0]})

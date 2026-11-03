@@ -1,0 +1,51 @@
+{
+  "title": "Toaster",
+  "author": "MilkAndBanana",
+  "license": "CC0-1.0",
+  "source_url": "https://poly.pizza/m/5mEcP28FcV",
+  "changes": "Uniform fit, tiled material atlas, translation and file conversion; authored geometry retained.",
+  "source_vertices": 1980,
+  "triangles": 660,
+  "rotation": [
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "uniform_scale": 0.03827469856932317,
+  "target_forward_length_m": 0.28,
+  "bounds": [
+    [
+      -0.07770081263961658,
+      -0.07,
+      -0.14347083908600133
+    ],
+    [
+      0.07770081263961658,
+      0.21000000000000002,
+      0.023470839086001324
+    ]
+  ],
+  "source_objects": [
+    {
+      "name": "appliance_toaster_Cube.264",
+      "first_vertex": 0,
+      "vertex_count": 1980
+    }
+  ],
+  "mesh_sha256": "5c8c1ea73bcdbb658e9a21e9ce821029ad0355b8bbcdad561b4ffd068d1f255b",
+  "albedo_sha256": "2e04923d8103978d25d9867ad538b62b3347dbb3325aac3c00a6bebb0d5a8d4c",
+  "geometry_created": false,
+  "animation_claim": "Rigid weapon visual follows existing root animation; in-game alignment untested"
+}

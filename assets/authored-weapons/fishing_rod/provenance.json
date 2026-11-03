@@ -1,0 +1,55 @@
+{
+  "title": "Fishing rod",
+  "author": "Justin Randall",
+  "license": "CC-BY-3.0",
+  "source_url": "https://poly.pizza/m/9gXWYDqB6vt",
+  "changes": "Imported evaluated source geometry; uniform fit, rotation, translation, material atlas and file conversion. No replacement primitive geometry.",
+  "source_vertices": 44580,
+  "triangles": 14860,
+  "rotation": [
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ],
+    [
+      0.0,
+      -1.0,
+      0.0
+    ]
+  ],
+  "uniform_scale": 0.2824132826845473,
+  "target_forward_length_m": 1.1,
+  "bounds": [
+    [
+      -0.015532733619698771,
+      -0.2,
+      -0.0668324712640644
+    ],
+    [
+      0.015532733619698771,
+      0.9000000000000001,
+      0.016832471264064397
+    ]
+  ],
+  "source_objects": [
+    {
+      "name": "Node",
+      "first_vertex": 0,
+      "vertex_count": 44580
+    }
+  ],
+  "mesh_sha256": "a8fb630af6e411188d19b3d7e905aa69c053ac1d34c1740498c064677eb86a66",
+  "albedo_sha256": "4baaa8363e543b7c7259ef03d78da96cb8fde3277fd96d18d505b884bd3ae4e8",
+  "geometry_created": false,
+  "animation_claim": "Rigid weapon visual follows existing root animation; in-game alignment untested",
+  "original_sources": {
+    "fishing-rod.glb": "b51a2e1a642e0df431b2c8992eb251f88f83b294282f7591319433a76ea396a7"
+  },
+  "license_url": "https://creativecommons.org/licenses/by/3.0/"
+}
