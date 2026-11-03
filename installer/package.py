@@ -45,7 +45,7 @@ def build(windows):
             cmd+=['--add-data',str(R/name)+':'+target]
         for pkg in ['UnityPy','numpy','PIL','texture2ddecoder','etcpak','astc_encoder','fmod_toolkit','pyfmodex','tpk_ar','archspec','installer.mwc_installer']:cmd+=['--collect-all',pkg]
         # Builders are imported inside branches, and all must be visible to analysis.
-        for name in ['catgun.operations','catgun.bundle','catgun.import_addon','weapon_models.bundles','weapon_models.local_tf2','sight_customization','helicopter_windows','crate_colors','cat_audio','menu_background','halftone.arrays','halftone.shared','skybox.bundles','weapon_models.imported','operators.assignments','operators.inventory','operators.retarget','model_import.tf2','operators.assets','operators.bundles','operators.library','operators.profiles','operators.skinning']:cmd+=['--hidden-import',name]
+        for name in ['catgun.operations','catgun.bundle','catgun.import_addon','weapon_models.bundles','weapon_models.local_tf2','sight_customization','helicopter_windows','crate_colors','cat_audio','menu_background','halftone.arrays','halftone.shared','skybox.bundles','weapon_models.imported','operators.assignments','operators.inventory','operators.retarget','model_import.tf2','operators.assets','operators.bundles','operators.library','operators.profiles','operators.skinning','operators.styles','operators.native_colors','operators.previews']:cmd+=['--hidden-import',name]
         subprocess.run(cmd+[str(I/'backend.py')],check=True,cwd=R)
         shutil.copytree(I/'build/backend-dist/mwc-backend',dest/'backend',symlinks=True)
         import archspec

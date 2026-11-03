@@ -36,3 +36,5 @@ Expansion asset checks: run `backend/mwc-backend --diagnose` in the Linux distri
 
 
 Operator choices are saved separately from installed state. Apply selected mods composes those assignments too. The TF2 folder can be detected through Steam or entered on the Operators tab; Import TF2 previews reads local assets and generates private thumbnails without changing game files. See OPERATOR-ASSET-CREDITS.md and operator-licenses/ in the distribution. Character prototypes have passed file/synthetic checks; in-game acceptance remains pending.
+
+Operator colors: each replacement model has its own Magenta checkbox. A separate toggle controls unreplaced native game operator models; first-person arms still follow Player textures. Source colors remain the default for Shrek, Fishguy, Mario and Steve. Save choices and colors does not install anything.

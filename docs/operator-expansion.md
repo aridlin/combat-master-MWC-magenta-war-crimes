@@ -19,7 +19,7 @@ prior hashes and operator-assignment metadata restored.
 | Titanfall pilot | Proper textured source obtained. It has no skeleton; rigging is unfinished. Installer reports this limitation instead of substituting a placeholder. |
 | Sonic impact grenade | Proper spin-ball source obtained, but 499,000 triangles needs reduction and review. Not installed. |
 | Audiojungle / extra TF2 sounds | Correct CoopDogger Audiojungle project identified. Further source/rights review and optional audio integration remain unfinished. Existing Lynx sounds preserved. |
-| Per-model magenta and separate native-operator control | Requested after this applied checkpoint; implementation in progress. |
+| Per-model magenta and separate native-operator control | Implemented after the applied checkpoint. Independent source-color/magenta builds and pristine native-color restoration passed bundle verification. In-game untested. |
 
 The current Lynx cat, full tail and cat audio were preserved. The complete
 `root/audio` bundle remains SHA-256
@@ -46,7 +46,7 @@ scripts, collision and unrelated operators are checked byte-for-byte. New
 references resolve and mesh positions/normals/UV/skin/submesh triangles roundtrip
 exactly. This proves file integrity, not animation quality or gameplay visuals.
 
-**57 automated tests collected: 56 passed, one existing data-dependent test
+**63 automated tests collected: 62 passed, one existing data-dependent test
 skipped.** Linux and Windows frontends compile. Linux packaged asset diagnostics
 pass. The expanded Windows package has not yet passed current VM/runtime/game
 acceptance. The VM was found aborted, and the desktop was locked during the
@@ -94,3 +94,7 @@ Still required: real armory/helicopter appearance, running/sliding/jumping,
 weapon handling, ADS/reload, LOD/culling, lens transparency, lighting and frame
 performance in an offline or explicitly authorized environment. Do not infer
 these results from source renders, synthetic poses or build checks.
+
+## Independent operator colors
+
+Each replacement model has its own Magenta checkbox. Shrek, Fishguy, Mario and Steve default to source colors; TF2 and the pending Titanfall option default to magenta. A separate checkbox controls unmodified in-game operator models. This override affects their body renderers; first-person arms still follow Player textures. Original native materials/albedos are cloned from verified pristine backups so shared weapon/arm textures stay unchanged. Turning native magenta on while Player textures is off is supported too. Preferences are saved separately from installed appearance metadata and committed only with a successful installation.

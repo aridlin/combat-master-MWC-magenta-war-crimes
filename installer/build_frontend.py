@@ -9,7 +9,7 @@ header='#pragma once\nstruct Mod {std::string id,title,group,description,thumbna
 for m in mods:
     with Image.open(root/m['thumbnail']) as img:w,h=img.size
     header+='{'+','.join(json.dumps(m[k]) for k in ('id','title','group','description','thumbnail','preview_kind'))+f',{w},{h}'+'},\n'
-header+='};\nstruct OperatorChoice {std::string id,title,status,thumbnail;float thumb_w=1,thumb_h=1;ft::ImageHandle* image=nullptr;};\nstatic std::vector<OperatorChoice> operator_models={\n'
+header+='};\nstruct OperatorChoice {std::string id,title,status,thumbnail;float thumb_w=1,thumb_h=1;ft::ImageHandle* image=nullptr;bool magenta=false;};\nstatic std::vector<OperatorChoice> operator_models={\n'
 for m in json.loads((root.parent/'config/operator-models.json').read_text())['models']:
     thumbnail=m.get('thumbnail','');w=h=1
     if thumbnail:

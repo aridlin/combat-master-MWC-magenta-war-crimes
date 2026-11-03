@@ -24,7 +24,9 @@ def discover_tf2(config,requested=''):
     return found[0]
 
 
-def prepare(config,assignments,work,tf2=''):
+def prepare(config,assignments,work,tf2='',appearance=None):
+    from .styles import normalize
+    appearance=normalize(appearance)
     required=set(assignments.values());result={}
     for model in required & {'shrek','fishguy','mario','minecraft_steve'}:
         source=ROOT/'assets/operator-sources'/model
@@ -38,4 +40,5 @@ def prepare(config,assignments,work,tf2=''):
             source=flatten(raw/model.removeprefix('tf2_'),Path(work)/'operator-sources'/model);result[model]={'source':str(source),'profile':model,'style':'magenta'}
     missing=required-result.keys()
     if missing:raise ValueError('These models are still being prepared and cannot be installed yet: '+', '.join(sorted(missing)))
+    for model,spec in result.items():spec['style']='magenta' if appearance['model_magenta'][model] else 'original'
     return result

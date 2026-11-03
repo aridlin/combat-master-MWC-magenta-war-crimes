@@ -16,9 +16,13 @@ def load(source,style='original',pattern_config=None):
         for filename,field in [('source.npz','mesh_sha256'),('albedo.png','albedo_sha256')]:
             if hashlib.sha256((source/filename).read_bytes()).hexdigest()!=meta[field]:raise ValueError('Packaged operator source hash mismatch: '+filename)
         with Image.open(source/'albedo.png') as image:atlas=image.convert('RGBA')
-        if style!='original':raise ValueError('Prepacked source needs an explicitly prepared style variant')
+        if style=='magenta':
+            if pattern_config is None:raise ValueError('Magenta style needs the existing halftone configuration')
+            from halftone.patterns import pattern
+            pixels=np.asarray(atlas).copy();dots,_=pattern(pattern_config['categories']['characters']['color'],pattern_config['generation'],atlas.width,atlas.height);detail=(pixels[:,:,:3].astype(float)@np.array([.2126,.7152,.0722]))/255;pixels[:,:,:3]=np.rint(dots*(.30+.70*detail[:,:,None])).astype(np.uint8);atlas=Image.fromarray(pixels)
+        elif style!='original':raise ValueError('Unknown operator material style')
         mesh=Mesh();mesh.vertices=v.tolist();mesh.normals=n.tolist();mesh.uv=uv.tolist();mesh.faces=faces.tolist()
-        return mesh,atlas,a['bone_indices'].copy(),a['bone_weights'].copy(),meta
+        return mesh,atlas,a['bone_indices'].copy(),a['bone_weights'].copy(),{**meta,'style':style}
     count=len(meta['materials']);cols=math.ceil(math.sqrt(count));rows=math.ceil(count/cols);tile=512;gutter=4;stride=tile+2*gutter;atlas=Image.new('RGBA',(cols*stride,rows*stride),(255,255,255,0));mapped=uv.copy();assigned=np.full(len(v),-1);alpha_used=False
     for mi,mat in enumerate(meta['materials']):
         ids=np.unique(faces[fm==mi].ravel())

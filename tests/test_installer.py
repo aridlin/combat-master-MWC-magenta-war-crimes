@@ -56,6 +56,12 @@ class Transactions(unittest.TestCase):
     def test_old_frontend_cannot_drop_installed_operator_choices(self):
         with self.assertRaisesRegex(ValueError,'operator assignments'):
             e.validate_frontend({'selected':[],'operator_assignments':{'operator_30':'shrek'}},{'supported_mods':sorted(e.IDS)})
+    def test_old_frontend_cannot_drop_installed_operator_colors(self):
+        with self.assertRaisesRegex(ValueError,'operator colors'):
+            e.validate_frontend({'selected':[],'operator_appearance':{'game_customs_magenta':False}},{'supported_mods':sorted(e.IDS),'operator_assignments':{}})
+    @patch.object(e,'game_running',return_value=False)
+    def test_operator_colors_are_committed_and_preserved_by_unrelated_transactions(self,_):
+        colors={'model_magenta':{'fishguy':True},'game_customs_magenta':False};installed=e.transaction(self.config,self.state,self.saved,self.output(),{'lynx'},operator_appearance=colors);self.assertEqual(installed['operator_appearance'],colors);unchanged=e.transaction(self.config,self.state,installed,{},set());self.assertEqual(unchanged['operator_appearance'],colors)
     @patch.object(e,'game_running',return_value=False)
     def test_operator_choices_commit_restore_and_survive_unrelated_transactions(self,_):
         chosen={'operator_30':'shrek'};installed=e.transaction(self.config,self.state,self.saved,self.output(),{'lynx'},chosen)

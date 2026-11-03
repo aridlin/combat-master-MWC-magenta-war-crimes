@@ -9,58 +9,58 @@
     {
       "id": "tf2_scout",
       "name": "TF2 Scout",
-      "status": "Local TF2 required. Native bundle and synthetic skin verified; in-game test pending."
+      "status": "Local TF2 required. File-verified; in-game test pending."
     },
     {
       "id": "tf2_soldier",
       "name": "TF2 Soldier",
-      "status": "Local TF2 required. Native bundle and synthetic skin verified; in-game test pending."
+      "status": "Local TF2 required. File-verified; in-game test pending."
     },
     {
       "id": "tf2_pyro",
       "name": "TF2 Pyro",
-      "status": "Local TF2 required. Native bundle and synthetic skin verified; in-game test pending."
+      "status": "Local TF2 required. File-verified; in-game test pending."
     },
     {
       "id": "tf2_demoman",
       "name": "TF2 Demoman",
-      "status": "Local TF2 required. Native bundle and synthetic skin verified; in-game test pending."
+      "status": "Local TF2 required. File-verified; in-game test pending."
     },
     {
       "id": "tf2_heavy",
       "name": "TF2 Heavy",
-      "status": "Local TF2 required. Native bundle and synthetic skin verified; in-game test pending."
+      "status": "Local TF2 required. File-verified; in-game test pending."
     },
     {
       "id": "tf2_engineer",
       "name": "TF2 Engineer",
-      "status": "Local TF2 required. Native bundle and synthetic skin verified; in-game test pending."
+      "status": "Local TF2 required. File-verified; in-game test pending."
     },
     {
       "id": "tf2_medic",
       "name": "TF2 Medic",
-      "status": "Local TF2 required. Native bundle and synthetic skin verified; in-game test pending."
+      "status": "Local TF2 required. File-verified; in-game test pending."
     },
     {
       "id": "tf2_sniper",
       "name": "TF2 Sniper",
-      "status": "Local TF2 required. Native bundle and synthetic skin verified; in-game test pending."
+      "status": "Local TF2 required. File-verified; in-game test pending."
     },
     {
       "id": "tf2_spy",
       "name": "TF2 Spy",
-      "status": "Local TF2 required. Native bundle and synthetic skin verified; in-game test pending."
+      "status": "Local TF2 required. File-verified; in-game test pending."
     },
     {
       "id": "fishguy",
       "name": "Fishguy",
-      "status": "Offline prototype: native bundle and skin file-verified; in-game acceptance pending.",
+      "status": "File-verified offline prototype. In-game test pending.",
       "thumbnail": "assets/operators/fishguy.png"
     },
     {
       "id": "shrek",
       "name": "Shrek + rust shooting glasses",
-      "status": "Offline prototype: native bundle and skin file-verified; in-game acceptance pending.",
+      "status": "File-verified offline prototype. In-game test pending.",
       "thumbnail": "assets/operators/shrek.png"
     },
     {
@@ -71,13 +71,13 @@
     {
       "id": "mario",
       "name": "Mario",
-      "status": "Offline prototype: native bundle and skin file-verified; in-game acceptance pending.",
+      "status": "File-verified offline prototype. In-game test pending.",
       "thumbnail": "assets/operators/mario.png"
     },
     {
       "id": "minecraft_steve",
       "name": "Minecraft Steve",
-      "status": "Offline prototype: native bundle and skin file-verified; in-game acceptance pending.",
+      "status": "File-verified offline prototype. In-game test pending.",
       "thumbnail": "assets/operators/minecraft_steve.png"
     }
   ]

@@ -164,7 +164,7 @@ def recover(config,state):
         replace_verified(Path(row['backup']),target,row['after'],row['before'])
     jp.unlink();log('Recovered interrupted transaction; previous selections restored.')
 
-def transaction(config,state,saved,outputs,selected,operator_assignments=None):
+def transaction(config,state,saved,outputs,selected,operator_assignments=None,operator_appearance=None):
     root=Path(config['bundle_root']);identity=uuid.uuid4().hex;undo=state/'transactions'/identity;rows=[]
     for rel,source in sorted(outputs.items()):
         before=saved['installed'][rel];after=digest(source)
@@ -174,19 +174,20 @@ def transaction(config,state,saved,outputs,selected,operator_assignments=None):
         rows.append(dict(bundle=rel,source=str(source),backup=str(backup.resolve()),before=before,after=after))
     verify_current(config,state,saved)
     if game_running(root.parents[2]):raise ValueError('Close Combat Master before installing')
-    j={'id':identity,'files':rows,'selected':sorted(selected),'operator_assignments':operator_assignments};dump(state/'pending.json',j)
+    j={'id':identity,'files':rows,'selected':sorted(selected),'operator_assignments':operator_assignments,'operator_appearance':operator_appearance};dump(state/'pending.json',j)
     try:
         for row in rows:
             replace_verified(Path(row['source']),root/row['bundle'],row['before'],row['after']);log('Installed and hash verified: '+row['bundle'])
         updated=copy.deepcopy(saved);updated['selected']=sorted(selected);updated['transaction']=identity
         if operator_assignments is not None:updated['operator_assignments']=copy.deepcopy(operator_assignments)
+        if operator_appearance is not None:updated['operator_appearance']=copy.deepcopy(operator_appearance)
         for row in rows:updated['installed'][row['bundle']]=row['after']
         dump(state/'state.json',updated)
     except BaseException:
         recover(config,state);raise
     (state/'pending.json').unlink();return updated
 
-def compose(config,state,saved,selected,addon,operator_assignments=None,tf2=''):
+def compose(config,state,saved,selected,addon,operator_assignments=None,tf2='',operator_appearance=None):
     """Always compose from originals; no stale layer can overwrite another mod."""
     from halftone.pipeline import build_id
     from halftone.assets import scan
@@ -202,6 +203,8 @@ def compose(config,state,saved,selected,addon,operator_assignments=None,tf2=''):
     c=copy.deepcopy(config);c['bundle_root']=str(work);c['source_overrides']={}
     c['paths']={n:str(run/n) for n in ('reports','output','backups','canonical')}
     if operator_assignments is None:operator_assignments=saved.get('operator_assignments',{})
+    from operators.styles import normalize as appearance_defaults
+    operator_appearance=appearance_defaults(saved.get('operator_appearance') if operator_appearance is None else operator_appearance,players='players' in selected)
     textures=bool(selected&{'players','weapons','terrain'})
     for name,category in c['categories'].items():category['enabled']=('players' in selected if name=='characters' else 'weapons' in selected if name=='weapons' else 'terrain' in selected)
     if textures:
@@ -268,10 +271,13 @@ def compose(config,state,saved,selected,addon,operator_assignments=None,tf2=''):
     if 'menu' in selected:
         import menu_background
         log('Building Fishguy menu...');s=settings('menu');s.update(source_sha256=digest(work/'root/root'),image=str(ROOT/'assets/branding/menu-halftone.png'));menu_background.build(c,s);merge(s)
+    if operator_appearance['game_customs_magenta']!=('players' in selected):
+        from operators.native_colors import build as native_colors,SOURCES as native_color_sources
+        log('Building independent native-operator colors...');s=settings('native-colors');s.update(source_sha256=digest(work/'src/thrid_person'),original_root=str(state/'originals'),original_sha256={r:saved['originals'][r] for r in native_color_sources},magenta=operator_appearance['game_customs_magenta'],operator_assignments=operator_assignments);native_colors(c,s);merge(s)
     if operator_assignments:
         from operators.library import prepare as operator_sources
         from operators.bundles import build as operator_build,BUNDLE
-        log('Building explicit per-operator replacements...');s=settings('operators');s.update(assignments=operator_assignments,source_sha256=digest(work/BUNDLE),library=operator_sources(c,operator_assignments,run,tf2));operator_build(c,s);merge(s)
+        log('Building explicit per-operator replacements...');s=settings('operators');s.update(assignments=operator_assignments,source_sha256=digest(work/BUNDLE),library=operator_sources(c,operator_assignments,run,tf2,operator_appearance));operator_build(c,s);merge(s)
     return {rel:work/rel for rel in saved['originals']}
 
 def validate_frontend(saved,request):
@@ -281,6 +287,7 @@ def validate_frontend(saved,request):
     missing=set(saved.get('selected',[]))-set(supported)
     if missing:raise ValueError('Outdated installer cannot represent installed mods: '+', '.join(sorted(missing))+'. Reopen the current installer before applying a selection.')
     if saved.get('operator_assignments') and 'operator_assignments' not in request:raise ValueError('Outdated installer cannot represent installed operator assignments; reopen the current installer')
+    if saved.get('operator_appearance') and 'operator_appearance' not in request:raise ValueError('Outdated installer cannot represent installed operator colors; reopen the current installer')
 
 def execute(request):
     game=request.get('game','')
@@ -301,10 +308,12 @@ def execute(request):
         os.chdir(state) # legacy safe_output confines generated files to CWD
         recover(config,state)
         saved=snapshot(config,state,request.get('adopt'));verify_current(config,state,saved)
+        from operators.styles import normalize as appearance_defaults
+        operator_appearance=appearance_defaults(request.get('operator_appearance',saved.get('operator_appearance')),players='players' in selected)
         if request['action']=='apply':validate_frontend(saved,request)
-        if request['action']=='restore':selected=set();operator_assignments={};outputs={rel:state/'originals'/rel for rel in saved['originals']}
-        elif request['action']=='apply':outputs=compose(config,state,saved,selected,request.get('addon',''),operator_assignments,request.get('tf2',''))
+        if request['action']=='restore':selected=set();operator_assignments={};operator_appearance=appearance_defaults(players=False);outputs={rel:state/'originals'/rel for rel in saved['originals']}
+        elif request['action']=='apply':outputs=compose(config,state,saved,selected,request.get('addon',''),operator_assignments,request.get('tf2',''),operator_appearance)
         else:raise ValueError('Unknown action')
-        result=transaction(config,state,saved,outputs,selected,operator_assignments)
+        result=transaction(config,state,saved,outputs,selected,operator_assignments,operator_appearance)
         log('Complete. Selected mods: '+(', '.join(result['selected']) or 'none (originals restored)'))
         return result
