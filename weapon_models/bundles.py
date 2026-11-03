@@ -19,6 +19,9 @@ def asset_kind(settings,name):
 def model_asset(settings,name):
     kind=asset_kind(settings,name)
     if kind=="authored":return load_authored(name)
+    if kind=="local_tf2":
+        directory=Path(settings['models'][name]['directory'])
+        return load_authored(directory.name,root=directory.parent)
     if kind=="legacy_procedural":return legacy_model(name),legacy_palette(name),{"title":"Legacy procedural prototype","license":"MIT","author":"MWC"}
     raise ValueError("Unknown model asset source: "+str(kind))
 
@@ -26,7 +29,8 @@ SPECS={
  'scorpion':{'prefix':r'(?i)^cz_scorpion_','roots':['CZ_Scorpion_Base'],'root_count':2},
  'fishing_rod':{'prefix':r'(?i)^kar98k(?:_cm)?_','roots':['Kar98K_CM_Base','Kar98K_Base'],'root_count':3},
  'nail_gun':{'prefix':r'(?i)^mp7_','roots':['MP7_Base'],'root_count':2},
- 'toaster':{'prefix':r'(?i)^p90_','roots':['P90_Base'],'root_count':2}}
+ 'toaster':{'prefix':r'(?i)^p90_','roots':['P90_Base'],'root_count':2},
+ 'medigun':{'prefix':r'(?i)^minigun(?:_|01$)','roots':['Minigun_Posed'],'root_count':2,'bundles':['src/weapons/weapons']}}
 BUNDLES=('src/weapons/weapons','src/weapons/attachments')
 
 
@@ -34,6 +38,11 @@ def enabled(settings):
     names=[n for n,v in settings['models'].items() if v.get('enabled',False)]
     if not names or any(n not in SPECS for n in names):raise ValueError('Select at least one known weapon model')
     return names
+
+
+def bundle_names(settings):
+    names=enabled(settings)
+    return tuple(b for b in BUNDLES if any(b in SPECS[n].get('bundles',BUNDLES) for n in names))
 
 
 def local_refs(tree):
@@ -84,13 +93,16 @@ def verify(settings):
 def build(config,settings):
     build_id(config);names=enabled(settings);out=Path(settings['output']);out.mkdir(parents=True,exist_ok=True)
     if (out/'manifest.json').exists():raise ValueError('Choose a fresh model output directory')
-    if set(settings.get('sources',{}))!=set(BUNDLES):raise ValueError('Run prepare to record the intended installed baseline first')
+    if set(settings.get('sources',{}))!=set(bundle_names(settings)):raise ValueError('Run prepare to record the intended installed baseline first')
     for name in names:
         exporter=legacy_export if asset_kind(settings,name)=='legacy_procedural' else export_authored
-        exporter(name,Path(settings['asset_output'])/name)
+        if asset_kind(settings,name)=='local_tf2':
+            directory=Path(settings['models'][name]['directory']);export_authored(directory.name,Path(settings['asset_output'])/name,root=directory.parent)
+        else:exporter(name,Path(settings['asset_output'])/name)
     result={'models':{n:{'vertices':len(model_asset(settings,n)[0].vertices),'triangles':len(model_asset(settings,n)[0].faces),'enabled':True,'asset':asset_kind(settings,n),'provenance':model_asset(settings,n)[2]} for n in names},'files':[],'in_game_tested':False}
     empty_tree=None
-    for relative in BUNDLES:
+    for relative in bundle_names(settings):
+        active=[name for name in names if relative in SPECS[name].get('bundles',BUNDLES)]
         source=Path(config['bundle_root'])/relative
         if digest(source)!=settings['sources'][relative]:raise ValueError('Installed baseline changed: '+relative)
         backup=Path(settings['backups'])/relative;backup.parent.mkdir(parents=True,exist_ok=True)
@@ -101,13 +113,13 @@ def build(config,settings):
         objects={key(o.assets_file.name,o.path_id):o for o in env.objects};original=list(env.objects)
         gos={o.path_id:o.read_typetree() for o in original if o.type.name=='GameObject'}
         if any(g['m_Name'].startswith('MWC_Model_') for g in gos.values()):raise ValueError('Models already present in baseline; restore that layer first')
-        changes={};added=[];empties={};geometry={};textures={};masked={n:0 for n in names}
+        changes={};added=[];empties={};geometry={};textures={};masked={n:0 for n in active}
         if relative.endswith('/weapons'):
             empty_obj=next(o for o in original if o.type.name=='Mesh' and o.peek_name()=='GM6_Lynx_Empty');empty_tree=copy.deepcopy(empty_obj.read_typetree())
         for obj in original:
             if obj.type.name not in ('MeshFilter','MeshRenderer','SkinnedMeshRenderer'):continue
             tree=obj.read_typetree();go_name=gos.get(tree['m_GameObject']['m_PathID'],{}).get('m_Name','')
-            owner=next((n for n in names if re.match(SPECS[n]['prefix'],go_name)),None)
+            owner=next((n for n in active if re.match(SPECS[n]['prefix'],go_name)),None)
             if owner is None or re.search(r'(?i)scope|sight|optic|connector',go_name):continue
             fields={}
             if 'm_Mesh' in tree and tree['m_Mesh']['m_PathID']:
@@ -131,7 +143,7 @@ def build(config,settings):
             material_template=next(o for o in original if o.type.name=='Material' and o.peek_name()=='Cheek')
             texture_template=next(o for o in original if o.type.name=='Texture2D')
             transforms=[o for o in original if o.type.name=='Transform']
-            for name in names:
+            for name in active:
                 mesh=new_object(empty_obj,'MWC-model-mesh-'+name,objects);mesh.save_typetree(mesh_tree(empty_tree,model_asset(settings,name)[0],'MWC_ModelMesh_'+name));oid=key(mesh.assets_file.name,mesh.path_id);added.append(oid);geometry[oid]=name
                 tex_obj=new_object(texture_template,'MWC-model-texture-'+name,objects);tex=tex_obj.read();image=model_asset(settings,name)[1];raw,_=image_to_texture2d(image,4)
                 tex.m_Name='MWC_ModelPalette_'+name;tex.m_Width,tex.m_Height=image.size;tex.image_data=raw;tex.m_TextureFormat=4;tex.m_CompleteImageSize=len(raw);tex.m_MipCount=1

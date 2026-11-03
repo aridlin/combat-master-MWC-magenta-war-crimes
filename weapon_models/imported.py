@@ -16,8 +16,8 @@ def load(name,root=None):
     with Image.open(directory/'albedo.png') as image:coat=image.convert('RGB')
     return m,coat,meta
 
-def export_model(name,directory):
-    mesh,image,meta=load(name);directory=Path(directory);directory.mkdir(parents=True,exist_ok=True)
+def export_model(name,directory,root=None):
+    mesh,image,meta=load(name,root);directory=Path(directory);directory.mkdir(parents=True,exist_ok=True)
     result=export(mesh,directory,texture=image,prefix=name,description='Authored source: '+meta['title']+' by '+meta['author']+'; '+meta['license'])
     render(mesh,directory/'preview.png',texture=image,label=name.replace('_',' ')+' | authored model | software preview, not in-game')
     (directory/'provenance.json').write_text(json.dumps(meta,indent=2)+'\n');return result
