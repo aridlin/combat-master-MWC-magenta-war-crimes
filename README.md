@@ -36,6 +36,8 @@ Unity **6000.3.19f1 / IL2CPP**. Unknown builds stop at the version/hash guards.
 There is no Mono loader, process injection, network modification or integrity
 bypass. Use these experiments offline or in an explicitly authorized setup.
 
+Current [Linux and Windows preview installers](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.1-preview) are available in Releases. Read the [native operator review](docs/operator-runtime-review.md) for newer source-only material/headwear fixes and remaining deformation limits.
+
 ## Setup
 
 Use Python 3.12, a native Linux Steam installation, and enough space for

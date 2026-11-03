@@ -39,6 +39,10 @@ def target_name(source):
     m=re.fullmatch(r'hlp_(suitArmTop|suitArmpitBack|thigh)_([LR])',source)
     if m:return ('Shoulder' if m[1]!='thigh' else 'Hip')+'_'+m[2]
     # Loose secondary accessories follow their actual anatomical region.
+    # TF2's Soldier/Engineer helmets and Sniper hat use prp_ bones. Mapping
+    # these to the chest looks fine at rest but drops the hat over the face
+    # when Combat Master's native holding pose bends the neck/head.
+    if source in ('prp_helmet','prp_hat'):return 'Head_M'
     if source.startswith(('bip_pack','bip_dogtag','medal_bone','prp_','prp_buckle','bip_tie','bip_cig','bip_hat')):return 'Chest_M' if not source.startswith(('bip_cig','bip_hat')) else 'Head_M'
     return None
 

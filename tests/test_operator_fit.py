@@ -3,11 +3,27 @@ import numpy as np
 from operators.retarget import adapt,rotation_between
 from operators.glasses import create
 from operators.assets import load
-from operators.skinning import validate_weights
+from operators.skinning import validate_weights,cpu_skin
 from pathlib import Path
 
 
 class Fitting(unittest.TestCase):
+    def test_tf2_headwear_follows_head_motion_without_moving_chest_accessories(self):
+        names=['bip_pelvis','bip_spine_2','bip_head','prp_hat','prp_helmet','prp_pouch']
+        rest=np.repeat(np.eye(4)[None],6,axis=0);rest[:,2,3]=[0,.6,1,1.2,1.2,.65];rest[3:,0,3]=[.1,-.1,.2]
+        tn=['Root_M','Chest_M','Head_M','HeadEnd_M'];target=rest[[0,1,2,2]].copy();target[3,2,3]=1.3
+        p=rest[3:,:3,3].copy();n=np.tile([0.,-1.,0.],(3,1));i=np.zeros((3,4),dtype=int);i[:,0]=[3,4,5];w=np.zeros((3,4));w[:,0]=1
+        v,_,bi,bw,_=adapt(p,n,names,np.linalg.inv(rest),i,w,tn,np.linalg.inv(target),source_basis=np.eye(3))
+        np.testing.assert_allclose(v,p,atol=1e-6)
+        # The native holding pose turns the head independently of the chest.
+        angle=np.pi/3;r=np.array([[1,0,0],[0,np.cos(angle),-np.sin(angle)],[0,np.sin(angle),np.cos(angle)]])
+        pose=target.copy();pose[2,:3,:3]=r;origin=target[2,:3,3]
+        posed=cpu_skin(v,bi,bw,pose,np.linalg.inv(target))
+        expected=(p[:2]-origin)@r.T+origin
+        np.testing.assert_allclose(posed[:2],expected,atol=1e-6)
+        np.testing.assert_allclose(posed[2],p[2],atol=1e-6)
+        np.testing.assert_allclose(bw.sum(1),1)
+
     def test_short_pelvis_helper_cannot_stretch_coat_and_accessory_keeps_offset(self):
         names=['hips','tiny_spine_helper','chest','head','head_accessory'];positions=np.array([[.2,0,-.4],[.1,0,.75]]);normals=np.array([[0,1.,0]]*2)
         rest=np.repeat(np.eye(4)[None],5,axis=0);rest[:,2,3]=[0,.0001,.5,1,.75];rest[4,0,3]=.1

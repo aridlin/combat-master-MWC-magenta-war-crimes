@@ -78,3 +78,5 @@ are intentionally separate from the replacement bodies. ADS, reloads, hipfire,
 all attachment/LOD combinations, sound playback and performance remain
 unchecked. The Minigun Kill Chains UI shows a static promotional image, so it
 cannot verify the installed Medigun mesh. No match was entered.
+
+For the private operator roster, confirmed Fishguy rear geometry, TF2 headwear corrections and remaining deformation problems, see [the native operator review](../operator-runtime-review.md). Those source-color test assignments were never installed as user defaults.

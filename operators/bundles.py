@@ -112,8 +112,9 @@ def build(config,settings):
         if tex.m_MipMap is not None:tex.m_MipMap=False
         tex.m_ColorSpace=1;tex.m_StreamData.path='';tex.m_StreamData.offset=tex.m_StreamData.size=0;tex.m_TextureSettings.m_FilterMode=0 if meta.get('texture_filter')=='nearest' else 1;tex.m_TextureSettings.m_WrapU=tex.m_TextureSettings.m_WrapV=1;tex.save();added.append(key(tex_obj.assets_file.name,tex_obj.path_id))
         primary=set(rig['primary'].values());donor=rig['snapshots'][rig['primary'][min(rig['primary'])]];pointer=donor['renderer']['m_Materials'][0]
-        if pointer['m_FileID']!=0:raise ValueError('External operator material needs explicit handling')
-        material_template=objects[key(donor['mesh_object'].assets_file.name,pointer['m_PathID'])];body_mat=material(material_template,objects,'MWC_OperatorMaterial_'+identifier,tex_obj.path_id,alpha_clip=meta['alpha_clip_required'],data_maps=data_maps);added.append(key(body_mat.assets_file.name,body_mat.path_id));frame_mat=lens_mat=None
+        from .body_material import template as body_template
+        material_template,material_record=body_template(rig['objects'],pointer,first_person=first_person)
+        body_mat=material(material_template,objects,'MWC_OperatorMaterial_'+identifier,tex_obj.path_id,alpha_clip=meta['alpha_clip_required'],data_maps=data_maps);added.append(key(body_mat.assets_file.name,body_mat.path_id));frame_mat=lens_mat=None
         if spec.get('glasses') and not first_person:
             from .lenses import template as lens_template,configure as configure_lens
             frame_mat=material(material_template,objects,'MWC_OperatorFrame_'+identifier,0,(.012,.016,.020,1.),data_maps=data_maps);lens_mat=configure_lens(material(lens_template(rig['objects']),objects,'MWC_OperatorRustShield_'+identifier,0,(.32,.095,.035,.40),transparent=True,data_maps=data_maps));added.extend(key(o.assets_file.name,o.path_id) for o in (frame_mat,lens_mat))
@@ -141,7 +142,7 @@ def build(config,settings):
                 model_records.append({'renderer':str(rid),'vertices':len(combined.vertices),'triangles':len(combined.faces),'submeshes':len(submeshes),'bones':len(native['bone_names']),'fit':fit_report})
             else:new_mesh.save_typetree(empty_visual(template.read_typetree()))
             fields['m_Mesh']={'m_FileID':0,'m_PathID':new_mesh.path_id};changed=copy.deepcopy(tree);changed.update(fields);obj=rig['objects'][rid];obj.save_typetree(changed);allowed[key(obj.assets_file.name,rid)]=fields;added.append(key(new_mesh.assets_file.name,new_mesh.path_id))
-        records.append({'operator':identifier,'name':target['name'],'model':model,'prefab_guid':target['prefab_guid'],'source_geometry_sha256':digest(directory/'source.npz'),'style':spec.get('style','original'),'glasses':bool(spec.get('glasses')),'renderers':model_records,'original_renderers_changed':len(rig['renderers']),'skeleton_changed':False,'in_game_tested':False})
+        records.append({'operator':identifier,'name':target['name'],'model':model,'prefab_guid':target['prefab_guid'],'source_geometry_sha256':digest(directory/'source.npz'),'style':spec.get('style','original'),'glasses':bool(spec.get('glasses')),'material_template':material_record,'renderers':model_records,'original_renderers_changed':len(rig['renderers']),'skeleton_changed':False,'in_game_tested':False})
         completed_prefabs[target['prefab_guid']]=records[-1]
     expected=copy.deepcopy(before)
     for oid in list(allowed)+added:

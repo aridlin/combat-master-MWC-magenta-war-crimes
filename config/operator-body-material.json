@@ -1,0 +1,9 @@
+{
+  "build_id": "24397779",
+  "native_template_id": "-3967873096513865614",
+  "native_template_name": "Soldier_01",
+  "shader": {"m_FileID": 2, "m_PathID": 9216735585210638481},
+  "shader_archive": "CAB-416f3adfc9eb51cde84d97b6a0d31644",
+  "native_original_sha256": "9950230be2a0dc61b87c6f7d474e53fa0d51c385c0a26cbf6aa5853fbfd6aa1d",
+  "note": "Reference hash documents the pristine template. Existing halftone modules can change albedo bindings; the selector checks the stable shader/interface and the builder replaces every texture binding on the new copy."
+}

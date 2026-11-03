@@ -2,8 +2,8 @@
   "date": "2026-11-03",
   "game_build": "24397779",
   "tests": {
-    "collected": 82,
-    "passed": 81,
+    "collected": 88,
+    "passed": 87,
     "skipped": 1
   },
   "correction": {
@@ -212,7 +212,7 @@
     "both_frontends_compile": true,
     "both_portable_archives_built_and_audited": true,
     "Windows_new_build_runtime_tested": true,
-    "published": false,
+    "published": true,
     "first_person_full_fit_matrix": {
       "models": 14,
       "unique_prefabs": 29,
@@ -234,7 +234,9 @@
       "redistribution_permission_recorded": false,
       "manager_mod_implemented": false,
       "installed": false
-    }
+    },
+    "release": "v0.1.1-preview",
+    "release_source_commit": "5b49c87"
   },
   "shooting_lens_correction": {
     "status": "applied_and_hash_verified",
@@ -330,5 +332,41 @@
       "4K performance",
       "all skin/attachment/LOD combinations"
     ]
+  },
+  "post_v0_1_1_corrections": {
+    "released": false,
+    "installed": false,
+    "tests": {
+      "collected": 88,
+      "passed": 87,
+      "skipped": 1
+    },
+    "world_material_selection": {
+      "real_world_slots_built": 32,
+      "all_other_original_objects_byte_exact": 34223,
+      "special_template_slots": [
+        "operator_8",
+        "operator_13",
+        "operator_18"
+      ],
+      "original_first_person_materials_unchanged": true
+    },
+    "headwear": {
+      "test_only": true,
+      "installed_models_and_choices_unchanged": true,
+      "models": [
+        "tf2_soldier",
+        "tf2_engineer",
+        "tf2_sniper"
+      ],
+      "native_holding_pose_headwear_placement_visually_verified": true,
+      "source_headwear_geometry_preserved": true,
+      "source_prp_hat_and_prp_helmet_now_map_to_Head_M": true,
+      "original_profile_unchanged": true,
+      "game_exit": 0,
+      "compositor_exit": 139,
+      "full_animation_acceptance": false
+    },
+    "remaining": "Fishguy/other character hand deformation, other model previews and full animation/gameplay acceptance."
   }
 }

@@ -124,5 +124,26 @@
     "color_editing": false,
     "sha256": "2e46f5b8eb9a769cfee91731b222349cba9db2221c9b77f524ab726c46c30fe6",
     "caption": "Actual native MP7 showcase with authored Poons power nailer; ADS/reload untested."
+  },
+  {
+    "file": "tf2-soldier-headwear-offline.png",
+    "source": "Codex private native offline operator preview, 2026-11-03; source colors are test-only, not installer defaults",
+    "color_editing": false,
+    "sha256": "31062c91610afd5fc9bf124e6f07b3d7ddf143649c42ee515a3c923d6fbcaee5",
+    "caption": "Actual soldier holding pose after headwear attachment correction; full animation and grip quality remain unaccepted."
+  },
+  {
+    "file": "tf2-engineer-headwear-offline.png",
+    "source": "Codex private native offline operator preview, 2026-11-03; source colors are test-only, not installer defaults",
+    "color_editing": false,
+    "sha256": "6c109893398df63d95198199edc736403a669f737d387354151a52198e7b56bc",
+    "caption": "Actual engineer holding pose after headwear attachment correction; full animation and grip quality remain unaccepted."
+  },
+  {
+    "file": "tf2-sniper-headwear-offline.png",
+    "source": "Codex private native offline operator preview, 2026-11-03; source colors are test-only, not installer defaults",
+    "color_editing": false,
+    "sha256": "a2e7860423fbd1dafcbd6ca575b70610c73cd67b303ad8a24e47df2632db069e",
+    "caption": "Actual sniper holding pose after headwear attachment correction; full animation and grip quality remain unaccepted."
   }
 ]
