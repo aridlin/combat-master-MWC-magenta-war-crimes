@@ -212,6 +212,28 @@
     "both_frontends_compile": true,
     "both_portable_archives_built_and_audited": true,
     "Windows_new_build_runtime_tested": false,
-    "published": false
+    "published": false,
+    "first_person_full_fit_matrix": {
+      "models": 14,
+      "unique_prefabs": 29,
+      "operator_identities": 32,
+      "model_renderer_fits": 812,
+      "bind_identity": true,
+      "synthetic_bent_pose_finite": true,
+      "normalized_normals": true,
+      "in_game_tested": false
+    },
+    "audiojungle_research": {
+      "author": "CoopDogger",
+      "original_TF2_archive_inspected": true,
+      "archive_sha256": "d441a35b2452716568f513f9d255f933660ba28d47397ff822fca9f6f51305ba",
+      "mp3_files": 3123,
+      "wav_files": 677,
+      "native_FMOD_decode_without_playback": true,
+      "source_scripts_executed": false,
+      "redistribution_permission_recorded": false,
+      "manager_mod_implemented": false,
+      "installed": false
+    }
   }
 }

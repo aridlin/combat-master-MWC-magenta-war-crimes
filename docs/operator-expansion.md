@@ -26,6 +26,20 @@ still needs a runtime retest. The menu thumbnail now shows the current original-
 halftone artwork rather than the superseded dot preview. See [the sound module](tf2-audio.md) for its source,
 processing and restoration behavior.
 
+The subsequent numerical cross-product sweep passed **812 fits**: every one of
+14 source models on all 58 primary renderers in the 29 unique first-person
+prefabs (covering all 32 identities). Native bind reproduction, finite bent
+poses and normalized normals passed. The 14 reviewed images are representative
+synthetic renders; every possible model/slot view has not been visually reviewed.
+
+Audiojungle's original TF2 archive has now been inspected privately. Its 3,123
+MP3s and 677 WAVs rely on TF2 sound-script randomization; three sample MP3s decode
+through the packaged FMOD dependency without playback. Porting full four-second
+sounds into native half-second firing slots would truncate the joke or require
+changing sound timing. No source scripts were executed, no pack assets are
+redistributed, and an Audiojungle manager mod is not implemented. See the
+[source investigation](audiojungle-research.md).
+
 ## Applied character/material correction
 
 The three-bundle correction was **installed after the user exited**, then all
