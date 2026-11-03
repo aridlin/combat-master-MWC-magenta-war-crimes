@@ -1,7 +1,7 @@
 # Combat Master MWC (Magenta War Crimes)
 
 Native Linux visual-asset experiments for **Combat Master**: deterministic
-halftone retextures, an M1A0 ginger Lynx cat gun, authored weapon replacements, sky cubemaps, and offline sight customization through an FT mod manager.
+halftone retextures, an M1A0 ginger Lynx cat gun, authored weapon replacements, sky cubemaps, character replacements, and offline sight customization through an FT mod manager.
 
 ![MWC gameplay: magenta arms, orange weapon and simplified world surfaces](docs/screenshots/ship-deck.jpg)
 
@@ -14,10 +14,10 @@ retexture work, not the cat prototype. More captures are in
 | Feature | State |
 | --- | --- |
 | Fine / Quiet Light-Dot Halftone | Implemented and applied locally; gameplay captures available |
-| Authored weapon upgrades | Scorpion, fishing rod and toaster imported/installed; file-verified, in-game testing pending. Existing MP7 preserved. |
+| Authored weapon upgrades | Scorpion, fishing rod, toaster and MP7 power nailer installed/file-verified. Local TF2 Medigun visual also installed. In-game testing pending. |
 | Minecraft-style sky | Independent sky-only cubemap module; installed/file-verified, in-game rendering untested |
-| Operator expansion | Dozer identity mapped; skinning writer validated on a native mesh copy. Character assets/rigging and game testing incomplete; see expansion report. |
-| FT mod manager | Individual cards, thumbnails, original backups and transactional restoration; Linux preview tested, expanded Windows runtime untested |
+| Operator expansion | Dozer/Shrek with glasses and Ranger/low-poly Fishguy installed/file-verified. All nine TF2 mercenaries, Mario and Steve are optional per-operator choices. In-game acceptance pending. |
+| FT mod manager | Individual cards, previews, per-operator assignments and independent magenta controls; verified backups/transactions. Linux UI tested; current Windows runtime untested. |
 | Shared albedo separation | Implemented with category-specific copies and verified material bindings |
 | Map texture arrays | Implemented for the four inspected BC7 albedo arrays, 50 layers |
 | Lynx cat geometry | Actual M1A0 ginger cat imported locally; original tail and full body preserved |
@@ -257,3 +257,5 @@ procedural assets; the game and captured game content retain their own owners.
 ## 2026-11-03 expansion
 
 Authored scorpion, fishing rod and toaster models replace three procedural weapon prototypes. The MP7 and Lynx are preserved. An independent Minecraft-style sky module changes only sky cubemap bindings. These builds passed file-level validation; in-game acceptance remains pending. Character work is blocked on authenticated source asset downloads and rigging/target validation. See [the expansion report](docs/expansion.md), [model attribution](assets/authored-weapons/ATTRIBUTION.md), and [installer instructions](installer/README.md).
+
+Current operator/model status, source credits and acceptance limits are in [the operator expansion report](docs/operator-expansion.md). The source test suite has 63 tests: 62 pass, one existing data-dependent test is skipped. Color controls distinguish replacement models from unmodified in-game operator models; first-person arms still follow Player textures.
