@@ -82,5 +82,5 @@ def profile(name,meta):
             m=re.fullmatch(r'(Left|Right)Hand(Thumb|Index|Middle|Ring|Pinky)([1234])',short)
             if m:primary[m[2]+'Finger'+m[3]+'_'+('L' if m[1]=='Left' else 'R')]=i
         if len(names)!=65 or not all(k in primary for k in ('Root_M','Head_M','Wrist_L','Wrist_R','Ankle_L','Ankle_R')):raise ValueError('Unexpected Fishguy body skeleton')
-        return dict(source_targets=inherited_mapping(names,parents,primary),source_basis=[[0,-1,0],[-1,0,0],[0,0,1]],primary_sources=primary,source_root=primary['Root_M'],source_head=primary['Head_M'])
+        return dict(source_targets=inherited_mapping(names,parents,primary),source_basis=[[0,-1,0],[-1,0,0],[0,0,1]],primary_sources=primary,source_root=primary['Root_M'],source_head=primary['Head_M'],fit_hands=True,wrist_transition=True)
     raise ValueError('Source skeleton has no reviewed correspondence profile: '+name)

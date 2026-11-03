@@ -50,3 +50,10 @@ Sonic spin ball is an independent weapon-model card for the impact grenade. Held
 Public release builds use `python installer/package.py --without-addon` (add `--windows` for Windows). This edition excludes the M1A0 archive because MWC has no recorded redistribution grant; local import remains supported. The default local build retains the requested bundled edition.
 
 Development source adds an independent **TF2 Medigun audio** Extras card. It reads only a local TF2 installation and bundles no Valve sound data. Three Minigun firing slots and barrel spin keep their native durations and event metadata. Disabling it preserves Lynx cat audio. This newer option has private file/composition verification and Windows VM selection/PCM decoding checks; in-game audition remains pending.
+
+Fishguy uses an anatomical palm-width fit with a smooth distal-forearm transition.
+It preserves source topology/UVs/skin weights and native skeletons. His first-person
+hands keep radius 1.0 after this fit; arms retain radius 0.60. Native menu appearance
+and serialized/synthetic checks passed; actual first-person grip and full animation
+acceptance remain pending. This applies only when Fishguy is selected, and does not
+assign him to Ranger or any other default automatically.

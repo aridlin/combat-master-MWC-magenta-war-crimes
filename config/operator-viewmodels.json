@@ -3,6 +3,6 @@
   "defaults": {"arm_radius_scale": 0.65, "hand_radius_scale": 0.7},
   "models": {
     "shrek": {"arm_radius_scale": 0.55, "hand_radius_scale": 0.6},
-    "fishguy": {"arm_radius_scale": 0.6, "hand_radius_scale": 0.65}
+    "fishguy": {"arm_radius_scale": 0.6, "hand_radius_scale": 1.0}
   }
 }

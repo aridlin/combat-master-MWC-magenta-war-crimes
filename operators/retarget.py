@@ -56,7 +56,7 @@ def rotation_between(a,b):
     return np.eye(3)+k+k@k/(1+c)
 
 
-def adapt(positions,normals,source_names,source_inverse_bind,source_indices,source_weights,target_names,target_inverse_bind,*,source_targets=None,source_basis=None,primary_sources=None,source_root=None,source_head=None,fit_hands=False):
+def adapt(positions,normals,source_names,source_inverse_bind,source_indices,source_weights,target_names,target_inverse_bind,*,source_targets=None,source_basis=None,primary_sources=None,source_root=None,source_head=None,fit_hands=False,wrist_transition=False,source_faces=None):
     # Compiled TF2 reference pose: +Y up, +X character-left. Combat Master's
     # renderer-local bind pose: +Z up, -X character-left, -Y forward.
     basis=np.asarray(source_basis if source_basis is not None else [[-1.,0.,0.],[0.,0.,-1.],[0.,1.,0.]])
@@ -152,4 +152,14 @@ def adapt(positions,normals,source_names,source_inverse_bind,source_indices,sour
             if w>0:merged[mapped[int(bi)]]=merged.get(mapped[int(bi)],0)+float(w)
         for k,(bi,w) in enumerate(sorted(merged.items(),key=lambda x:-x[1])):out_indices[v,k]=bi;out_weights[v,k]=w
     if not np.isfinite(transformed).all() or not np.allclose(out_weights.sum(1),1,atol=1e-4):raise ValueError('Invalid adapted geometry or skin')
-    return transformed.astype('<f4'),transformed_n.astype('<f4'),out_indices,out_weights,{'scale':float(scale),'mapped_weighted_bones':len(used),'target_bones':len(target_names),'native_frame':frame.tolist(),'hand_fits':{side:{key:float(value) for key,value in fit.items() if key!='rotation'} for side,fit in hand_fits.items()},'method':'joint-based rest-pose fitting in exact native mesh frame; visual and animation acceptance required'}
+    report={'scale':float(scale),'mapped_weighted_bones':len(used),'target_bones':len(target_names),'native_frame':frame.tolist(),'hand_fits':{side:{key:float(value) for key,value in fit.items() if key!='rotation'} for side,fit in hand_fits.items()},'method':'joint-based rest-pose fitting in exact native mesh frame; visual and animation acceptance required'}
+    if wrist_transition:
+        if not fit_hands or source_faces is None:raise ValueError('Wrist transition requires hand fitting and source triangle topology')
+        from .hand_fit import transition
+        baseline=adapt(positions,normals,source_names,source_inverse_bind,source_indices,source_weights,target_names,target_inverse_bind,source_targets=source_targets,source_basis=source_basis,primary_sources=primary_sources,source_root=source_root,source_head=source_head)
+        if not np.array_equal(baseline[2],out_indices) or not np.array_equal(baseline[3],out_weights):raise ValueError('Hand fitting changed skin weights')
+        faces=np.asarray(source_faces)
+        if faces.ndim!=2 or faces.shape[1]!=3 or not faces.size or faces.dtype.kind not in 'iu' or faces.min()<0 or faces.max()>=len(p):raise ValueError('Invalid source triangle topology')
+        if np.linalg.det(basis)<0:faces=faces[:,[0,2,1]]
+        transformed,transformed_n,report['wrist_transition']=transition(positions,faces,baseline[0],transformed,transformed_n,source_inverse_bind,source_indices,source_weights,dict(enumerate(semantics)),primary)
+    return transformed.astype('<f4'),transformed_n.astype('<f4'),out_indices,out_weights,report

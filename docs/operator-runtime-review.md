@@ -22,7 +22,7 @@ existing defaults stay unchanged.
 
 | Private preview slot | Model seen | Finding |
 |---|---|---|
-| Rush | Fishguy | Recognizable low-poly sardine head and muscular body. Rear geometry is present and skin-colored. Wrist/hand deformation still needs work. |
+| Rush | Fishguy | Recognizable low-poly sardine head and muscular body. Rear geometry is present and skin-colored. A later anatomical palm fit smooths the wrist transition; full grip and animation acceptance remain pending. |
 | Alisa Lynx | Minecraft Steve | Recognizable texture, block head and limbs render; proportions/grip need further review. |
 | Skull Face | TF2 Scout | Renders with cap/headset and original outfit; full animation/grip acceptance pending. |
 | Shadow Rider | TF2 Medic | Renders with original coat, glasses and gloves; full animation/grip acceptance pending. |
@@ -62,10 +62,10 @@ hashes were verified; Windows runtime/code/assets match the VM-tested package.
 The world-material selection and TF2 headwear fixes described above are newer
 source changes, not included in v0.1.1. That release can reject Jagermeister or
 Street Fighter replacement builds, and its Soldier/Engineer/Sniper headwear can
-misalign. Missing support fails before installation. Use the updated source for
-these fixes until a newer tested package is published.
+misalign. Missing support fails before installation. Updated source includes
+these fixes; check each newer release's source revision and validation notes.
 
-The current suite runs 88 tests: 87 passed, one existing data-dependent skip.
+The current suite runs 102 tests: 101 passed, one existing data-dependent skip.
 Fishguy and other character hand deformation, remaining model previews, full
 animations/helicopter scenes, first-person grip/ADS/reload, optional audio
 playback and 4K performance remain open. Do not treat numeric fits or these menu
@@ -91,15 +91,31 @@ states. Other model comparisons retain identical normals, bone indices and skin
 weights; Shrek/Mario positions differ by less than 0.000001 metres from the prior
 fit because of float32 rounding. The installed bundles remain unchanged.
 
-The Fishguy hand-specific palm fit is a **disabled prototype**: the native trial
-reduced oversized palms but left an awkward wrist transition. No normal source
-profile enables it, and it is not a manager option. His back is intact; wrist and
-hand quality still need work. Mario renders with his authored head/glove
+Fishguy now uses native palm width to fit hand volume separately from torso
+scale. A mesh-edge displacement solve blends the fitted hand into only the
+distal forearm; the upper arm, torso, head, source triangles, UVs and skin weights
+stay unchanged. The native preview below shows the private Rush test alias,
+not a changed default assignment. Front and rotated views have a smoother wrist
+than the earlier pinched prototype. His back remains intact.
+
+![Fishguy wrist in the native rotated showcase](screenshots/fishguy-wrist-offline.png)
+
+The integrated fit differs from this preview trial by at most 0.000008 native
+centimetres in positions and 0.000013 in normal components, because it preserves
+each duplicate source position rather than replacing it with a welded neighbor.
+Weights and indices match exactly. Both world and first-person bundle builds
+round-trip correctly; 34,569 and 144,988 other original objects respectively
+stay byte-exact. The renewed first-person matrix passed all 812 fits. Fishguy's
+first-person arm radius remains 0.60; hand radius is 1.0 because anatomical fitting
+already matches palm width. A synthetic bent-arm render was reviewed, but actual
+first-person grip, ADS, reload and full animation acceptance are still pending.
+The source enables this fit only for Fishguy. Current installed game selections
+and bundles remain unchanged. Mario renders with his authored head/glove
 proportions, but the native menu camera crops his hat and his grip needs review.
 The TF2 characters remain experimental for full animations, grip and helicopter
 scenes even though all nine have now rendered.
 
-The current source suite runs 98 tests: 97 passed, one existing data-dependent
+The current source suite runs 102 tests: 101 passed, one existing data-dependent
 skip. These hierarchy changes are newer than the published v0.1.1 binaries;
-updated installer builds are being prepared. No character source is replaced
+release notes identify the source included in subsequent installers. No character source is replaced
 with primitive geometry, and no Valve model/audio binaries are published.

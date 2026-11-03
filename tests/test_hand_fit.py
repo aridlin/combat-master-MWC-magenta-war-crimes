@@ -1,10 +1,17 @@
 import unittest
 import numpy as np
-from operators.hand_fit import frame,fits
+from operators.hand_fit import frame,fits,transition
 from operators.retarget import adapt,rotation_between
 
 
 class AnatomicalHandFit(unittest.TestCase):
+    def test_palm_width_controls_volume_independently_of_length(self):
+        p=np.array([[0.,0,0],[0,0,2],[1,0,1],[-1,0,1]])
+        q=p*np.array([.3,.3,.1])
+        names={n+'_'+s:4*k+j for k,s in enumerate(('L','R')) for j,n in enumerate(('Wrist','MiddleFinger1','IndexFinger1','PinkyFinger1'))}
+        for result in fits(np.r_[p,p+[5,0,0]],np.r_[q,q+[2,0,0]],names,names).values():
+            self.assertAlmostEqual(result['scale'],.3)
+            self.assertAlmostEqual(result['length_scale'],.1)
     def test_palm_uses_independent_length_and_roll_without_mirroring(self):
         # A long authored hand rolls 90 degrees to fit a smaller native palm.
         points=np.array([[0.,0,0],[0,0,2],[1,0,1],[-1,0,1]])
@@ -40,6 +47,37 @@ class AnatomicalHandFit(unittest.TestCase):
         np.testing.assert_array_equal(target,before)
         self.assertAlmostEqual(report['scale'],2)
         self.assertAlmostEqual(report['hand_fits']['L']['scale'],.4)
+
+
+class WristTransition(unittest.TestCase):
+    def geometry(self):
+        points=np.array([[x,y,0.] for offset in (0.,3.) for x in (0.,.4,.7,1.,1.3) for y in (offset,offset+.2)])
+        faces=np.array([[o+i,o+i+2,o+i+1] for o in (0,10) for i in range(0,8,2)]+[[o+i+1,o+i+2,o+i+3] for o in (0,10) for i in range(0,8,2)])
+        rest=np.repeat(np.eye(4)[None],4,axis=0);rest[:,:3,3]=[[0,0,0],[1,0,0],[0,3,0],[1,3,0]]
+        indices=np.zeros((20,4),int);indices[:,0]=[0]*6+[1]*4+[2]*6+[3]*4
+        weights=np.zeros((20,4));weights[:,0]=1
+        trial=points.copy();trial[[6,7,8,9,16,17,18,19],2]=.2
+        return points,faces,trial,np.linalg.inv(rest),indices,weights,{0:'Elbow_L',1:'Wrist_L',2:'Elbow_R',3:'Wrist_R'},{'Elbow_L':0,'Wrist_L':1,'Elbow_R':2,'Wrist_R':3}
+
+    def test_taper_preserves_fixed_body_and_fitted_hands(self):
+        p,f,t,b,i,w,s,a=self.geometry();original=(i.copy(),w.copy(),f.copy())
+        v,n,report=transition(p,f,p,t,np.tile([0.,0,1.],(20,1)),b,i,w,s,a)
+        np.testing.assert_array_equal(v[[0,1,10,11]],p[[0,1,10,11]].astype('<f4'))
+        np.testing.assert_allclose(v[[6,7,8,9,16,17,18,19]],t[[6,7,8,9,16,17,18,19]])
+        self.assertTrue(np.all((v[[2,3,4,5,12,13,14,15],2]>0)&(v[[2,3,4,5,12,13,14,15],2]<.2)))
+        np.testing.assert_allclose(np.linalg.norm(n,axis=1),1,atol=1e-6)
+        for before,after in zip(original,(i,w,f)):np.testing.assert_array_equal(before,after)
+        self.assertTrue(report['outside_hand_and_distal_forearm_unchanged'])
+
+    def test_reflected_output_winding_has_outward_normals(self):
+        p,f,t,b,i,w,s,a=self.geometry();baseline=p*np.array([-1,1,1]);trial=t*np.array([-1,1,1]);faces=f[:,[0,2,1]]
+        v,n,_=transition(p,faces,baseline,trial,np.tile([0.,0,1.],(20,1)),b,i,w,s,a)
+        face_normals=np.cross(v[faces[:,1]]-v[faces[:,0]],v[faces[:,2]]-v[faces[:,0]])
+        self.assertTrue(np.all(np.einsum('ij,ij->i',face_normals,n[faces].mean(1))>0))
+
+    def test_missing_landmarks_fail_explicitly(self):
+        p,f,t,b,i,w,s,a=self.geometry();del a['Elbow_L']
+        with self.assertRaisesRegex(ValueError,'elbow and wrist'):transition(p,f,p,t,np.tile([0.,0,1.],(20,1)),b,i,w,s,a)
 
 
 if __name__=='__main__':unittest.main()

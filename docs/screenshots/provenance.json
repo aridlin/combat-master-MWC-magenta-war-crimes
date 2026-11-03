@@ -180,5 +180,12 @@
     "sha256": "d4c8f6548257383d823c777d664169f04625fed0febe998907b3bc493f4532c4",
     "color_editing": false,
     "caption": "Actual native Mario on private Viper alias; oversized original proportions and menu framing need review."
+  },
+  {
+    "file": "fishguy-wrist-offline.png",
+    "source": "Codex native offline private operator preview, 2026-11-03; private Rush alias, source colors",
+    "sha256": "9a7d8f683156c0c6d57ad4ae62597068844b519cb744426bb05ddb77361bbfb8",
+    "color_editing": false,
+    "caption": "Fishguy anatomical hand/wrist trial in rotated native showcase; source integration differs only by recorded rounding, full animation and first-person acceptance pending."
   }
 ]

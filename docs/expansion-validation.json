@@ -2,8 +2,8 @@
   "date": "2026-11-03",
   "game_build": "24397779",
   "tests": {
-    "collected": 98,
-    "passed": 97,
+    "collected": 102,
+    "passed": 101,
     "skipped": 1
   },
   "correction": {
@@ -400,5 +400,21 @@
     "normals_indices_weights_unchanged": true,
     "all_arrays_byte_exact": false,
     "note": "Sub-micrometre float32 position differences on Shrek/Mario; installed bundles unchanged."
+  },
+  "fishguy_anatomical_wrist": {
+    "status": "source implemented; native menu trial visually reviewed; integrated serialization and synthetic first-person checks passed",
+    "scope": "Fishguy only; optional assignment; no installed game changes",
+    "palm_volume": "native landmark width independent of torso scale",
+    "transition": "fixed hand and proximal body boundaries; harmonic distal forearm displacement",
+    "first_person_radius": {
+      "arm": 0.6,
+      "hand": 1.0
+    },
+    "world_other_objects_byte_exact": 34569,
+    "first_person_other_objects_byte_exact": 144988,
+    "first_person_matrix_fits": 812,
+    "models": 14,
+    "unique_prefabs": 29,
+    "actual_first_person_grip_ADS_reload_tested": false
   }
 }

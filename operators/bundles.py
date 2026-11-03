@@ -128,7 +128,7 @@ def build(config,settings):
                     from .first_person import fit as fit_arms
                     mesh,bi,bw,fit_report=fit_arms(base,si,sw,meta,data['inverse_bind'],native,options,model=model)
                 else:
-                    v,n,bi,bw,fit_report=adapt(np.asarray(base.vertices),np.asarray(base.normals),meta['bone_names'],data['inverse_bind'],si,sw,native['bone_names'],native['inverse_bind'],**options);mesh=copy.deepcopy(base);mesh.vertices=v.tolist();mesh.normals=n.tolist()
+                    v,n,bi,bw,fit_report=adapt(np.asarray(base.vertices),np.asarray(base.normals),meta['bone_names'],data['inverse_bind'],si,sw,native['bone_names'],native['inverse_bind'],source_faces=base.faces,**options);mesh=copy.deepcopy(base);mesh.vertices=v.tolist();mesh.normals=n.tolist()
                     if np.linalg.det(options.get('source_basis',[[-1,0,0],[0,0,-1],[0,1,0]]))<0:mesh.faces=np.asarray(mesh.faces)[:,[0,2,1]].tolist()
                 parts=[(mesh,bi,bw)];mats=[body_mat.path_id]
                 if spec.get('glasses') and not first_person:
