@@ -8,8 +8,8 @@ from halftone.assets import dump
 from deploy_halftone import replace_verified
 
 ROOT=Path(__file__).resolve().parents[2]
-IDS={'lynx','scorpion','fishing_rod','nail_gun','toaster','players','weapons','terrain','cat_audio','crates','reticles','iron','glass','menu','sky'}
-MODELS={'scorpion','fishing_rod','nail_gun','toaster'}
+IDS={'lynx','scorpion','fishing_rod','nail_gun','toaster','medigun','players','weapons','terrain','cat_audio','crates','reticles','iron','glass','menu','sky'}
+MODELS={'scorpion','fishing_rod','nail_gun','toaster','medigun'}
 
 def log(message):print(message,flush=True)
 
@@ -164,7 +164,7 @@ def recover(config,state):
         replace_verified(Path(row['backup']),target,row['after'],row['before'])
     jp.unlink();log('Recovered interrupted transaction; previous selections restored.')
 
-def transaction(config,state,saved,outputs,selected):
+def transaction(config,state,saved,outputs,selected,operator_assignments=None):
     root=Path(config['bundle_root']);identity=uuid.uuid4().hex;undo=state/'transactions'/identity;rows=[]
     for rel,source in sorted(outputs.items()):
         before=saved['installed'][rel];after=digest(source)
@@ -174,18 +174,19 @@ def transaction(config,state,saved,outputs,selected):
         rows.append(dict(bundle=rel,source=str(source),backup=str(backup.resolve()),before=before,after=after))
     verify_current(config,state,saved)
     if game_running(root.parents[2]):raise ValueError('Close Combat Master before installing')
-    j={'id':identity,'files':rows,'selected':sorted(selected)};dump(state/'pending.json',j)
+    j={'id':identity,'files':rows,'selected':sorted(selected),'operator_assignments':operator_assignments};dump(state/'pending.json',j)
     try:
         for row in rows:
             replace_verified(Path(row['source']),root/row['bundle'],row['before'],row['after']);log('Installed and hash verified: '+row['bundle'])
         updated=copy.deepcopy(saved);updated['selected']=sorted(selected);updated['transaction']=identity
+        if operator_assignments is not None:updated['operator_assignments']=copy.deepcopy(operator_assignments)
         for row in rows:updated['installed'][row['bundle']]=row['after']
         dump(state/'state.json',updated)
     except BaseException:
         recover(config,state);raise
     (state/'pending.json').unlink();return updated
 
-def compose(config,state,saved,selected,addon):
+def compose(config,state,saved,selected,addon,operator_assignments=None,tf2=''):
     """Always compose from originals; no stale layer can overwrite another mod."""
     from halftone.pipeline import build_id
     from halftone.assets import scan
@@ -200,6 +201,7 @@ def compose(config,state,saved,selected,addon):
         p=work/rel;p.parent.mkdir(parents=True,exist_ok=True);copy_private(state/'originals'/rel,p)
     c=copy.deepcopy(config);c['bundle_root']=str(work);c['source_overrides']={}
     c['paths']={n:str(run/n) for n in ('reports','output','backups','canonical')}
+    if operator_assignments is None:operator_assignments=saved.get('operator_assignments',{})
     textures=bool(selected&{'players','weapons','terrain'})
     for name,category in c['categories'].items():category['enabled']=('players' in selected if name=='characters' else 'weapons' in selected if name=='weapons' else 'terrain' in selected)
     if textures:
@@ -249,7 +251,11 @@ def compose(config,state,saved,selected,addon):
         log('Building selected sight changes...');s=settings('sights');s.update(mapping=str(ROOT/'config/sight-map.json'),reticles='reticles' in selected,iron='iron' in selected,sources={rel:digest(work/rel) for rel in ('root/root','src/weapons/weapons','src/weapons/attachments')});sight_customization.build(c,s);merge(s)
     if selected&MODELS:
         from weapon_models import bundles
-        log('Building selected weapon models...');s=settings('models');s.update(models={n:{'enabled':n in selected} for n in MODELS},sources={rel:digest(work/rel) for rel in bundles.BUNDLES});bundles.build(c,s);merge(s)
+        log('Building selected weapon models...');s=settings('models');s.update(models={n:{'enabled':n in selected} for n in MODELS})
+        if 'medigun' in selected:
+            from weapon_models.local_tf2 import prepare as medigun_source
+            s['models']['medigun']['directory']=str(medigun_source(c,run,tf2))
+        s['sources']={rel:digest(work/rel) for rel in bundles.bundle_names(s)};bundles.build(c,s);merge(s)
     if 'glass' in selected:
         import helicopter_windows
         log('Building helicopter glass...');s=settings('glass');s['source_sha256']=digest(work/'src/src');helicopter_windows.build(c,s);merge(s)
@@ -262,6 +268,10 @@ def compose(config,state,saved,selected,addon):
     if 'menu' in selected:
         import menu_background
         log('Building Fishguy menu...');s=settings('menu');s.update(source_sha256=digest(work/'root/root'),image=str(ROOT/'assets/branding/menu-halftone.png'));menu_background.build(c,s);merge(s)
+    if operator_assignments:
+        from operators.library import prepare as operator_sources
+        from operators.bundles import build as operator_build,BUNDLE
+        log('Building explicit per-operator replacements...');s=settings('operators');s.update(assignments=operator_assignments,source_sha256=digest(work/BUNDLE),library=operator_sources(c,operator_assignments,run,tf2));operator_build(c,s);merge(s)
     return {rel:work/rel for rel in saved['originals']}
 
 def validate_frontend(saved,request):
@@ -270,6 +280,7 @@ def validate_frontend(saved,request):
         raise ValueError('Update/reopen the MWC installer: this frontend does not declare its supported mod catalogue')
     missing=set(saved.get('selected',[]))-set(supported)
     if missing:raise ValueError('Outdated installer cannot represent installed mods: '+', '.join(sorted(missing))+'. Reopen the current installer before applying a selection.')
+    if saved.get('operator_assignments') and 'operator_assignments' not in request:raise ValueError('Outdated installer cannot represent installed operator assignments; reopen the current installer')
 
 def execute(request):
     game=request.get('game','')
@@ -281,6 +292,8 @@ def execute(request):
     root=Path(config['bundle_root'])
     if state==root or root in state.parents or state in root.parents:raise ValueError('Backups must be outside the game bundle tree')
     selected=set(request.get('selected',[]))
+    from operators.assignments import validate as validate_operators
+    operator_assignments=validate_operators(request.get('operator_assignments',{}))
     if not selected<=IDS:raise ValueError('Unknown mod selection')
     if request['action']=='apply' and not request.get('offline_authorized'):raise ValueError('Confirm an offline or explicitly authorized modding environment')
     with locked(state):
@@ -289,9 +302,9 @@ def execute(request):
         recover(config,state)
         saved=snapshot(config,state,request.get('adopt'));verify_current(config,state,saved)
         if request['action']=='apply':validate_frontend(saved,request)
-        if request['action']=='restore':selected=set();outputs={rel:state/'originals'/rel for rel in saved['originals']}
-        elif request['action']=='apply':outputs=compose(config,state,saved,selected,request.get('addon',''))
+        if request['action']=='restore':selected=set();operator_assignments={};outputs={rel:state/'originals'/rel for rel in saved['originals']}
+        elif request['action']=='apply':outputs=compose(config,state,saved,selected,request.get('addon',''),operator_assignments,request.get('tf2',''))
         else:raise ValueError('Unknown action')
-        result=transaction(config,state,saved,outputs,selected)
+        result=transaction(config,state,saved,outputs,selected,operator_assignments)
         log('Complete. Selected mods: '+(', '.join(result['selected']) or 'none (originals restored)'))
         return result

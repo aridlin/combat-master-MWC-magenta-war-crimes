@@ -1,6 +1,6 @@
 # MWC modular installer (preview)
 
-The native Windows and Linux interface uses the user's FT C++17 library. Each card has an independent selection and an explicitly labeled thumbnail. Select Lynx, Scorpion, Kar98k, MP7, P90, player textures, weapon textures, terrain/environment, Lynx cat sounds, blue crates, Sun reticles, the Steg Spikes iron sight, clear helicopter glass, the Fishguy menu, or the Minecraft-style sky independently. Three weapon choices now use imported authored models; the MP7 remains explicitly on its existing prototype pending a suitable source asset.
+The native Windows and Linux interface uses the user's FT C++17 library. Weapon, texture and extra cards are independently selectable. All four earlier weapon placeholders now use authored models; Minigun can use the actual Medigun imported from a local TF2 installation. The Operators tab assigns Shrek, Fishguy, Mario, Minecraft Steve or any of the nine locally imported TF2 mercenaries to individual game operators. Pending models are labeled and cannot silently substitute a placeholder.
 
 Opening the installer does not install mods. Apply builds a complete desired selection from immutable original snapshots; removing one choice preserves the other enabled choices. Restore all originals removes the managed selection. Close Combat Master before applying or restoring. Use these visual experiments offline or in an explicitly authorized environment.
 
@@ -33,3 +33,6 @@ The local integration helper `installer/integration.py TEST_DIRECTORY ORIGINAL_B
 Test before release: verify every card/toggle on both desktops; apply two mods sharing a bundle; remove one and inspect the remaining mod; restore and compare all original hashes; test 4K hipfire/ADS/reload/LOD in an authorized environment; test category-only texture selections and terrain arrays; check disk/VRAM requirements and frame times. Windows runtime imports were tested in the user's VM; Windows UI and game installation tests remain pending.
 
 Expansion asset checks: run `backend/mwc-backend --diagnose` in the Linux distribution to verify the packaged model assets and sky generator without changing game files. See [the expansion report](../docs/expansion.md) for all incomplete/blocked character features.
+
+
+Operator choices are saved separately from installed state. Apply selected mods composes those assignments too. The TF2 folder can be detected through Steam or entered on the Operators tab; Import TF2 previews reads local assets and generates private thumbnails without changing game files. See OPERATOR-ASSET-CREDITS.md and operator-licenses/ in the distribution. Character prototypes have passed file/synthetic checks; in-game acceptance remains pending.

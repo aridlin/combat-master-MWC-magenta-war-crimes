@@ -1,0 +1,70 @@
+{
+  "title": "3December 2021 Day 3: Power Tool",
+  "author": "Liberi Arcano",
+  "license": "CC BY 4.0",
+  "license_url": "http://creativecommons.org/licenses/by/4.0/",
+  "source_uid": "32172b0e57f74bddb401c5843c5354e4",
+  "source_download": "Public Objaverse mirror of the creator Creative Commons model",
+  "source_sha256": "ea42c6da49f914054711894c55c536815a163f7266ee2a570fea5a4acb60335c",
+  "modifications": "Preserved authored triangles, materials and markings; fitted scale/orientation, packed color-material atlas.",
+  "source_vertices": 10386,
+  "triangles": 3462,
+  "rotation": [
+    [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      -1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "uniform_scale": 0.06626129196046854,
+  "target_forward_length_m": 0.3,
+  "bounds": [
+    [
+      -0.029560211690589464,
+      -0.05499999999999999,
+      -0.14098045907500634
+    ],
+    [
+      0.029560211690589464,
+      0.24499999999999997,
+      0.024980459075006317
+    ]
+  ],
+  "source_objects": [
+    {
+      "name": "Text.001_NailGun_Base_0",
+      "first_vertex": 0,
+      "vertex_count": 1512
+    },
+    {
+      "name": "Text.001_NailGun_Black_0",
+      "first_vertex": 1512,
+      "vertex_count": 5568
+    },
+    {
+      "name": "Text.001_NailGun_Safeties_0",
+      "first_vertex": 7080,
+      "vertex_count": 408
+    },
+    {
+      "name": "Text.001_White_0",
+      "first_vertex": 7488,
+      "vertex_count": 2898
+    }
+  ],
+  "mesh_sha256": "f9f81625d265836ef6f6e0d99a40f4925e249851f407ee7b7469d4bcdef60f65",
+  "albedo_sha256": "49ff3f6a510f591b560bd1302cd4e056fb4c1cbec1a5da831e0f72f4e3167219",
+  "geometry_created": false,
+  "animation_claim": "Rigid weapon visual follows existing root animation; in-game alignment untested",
+  "source_url": "https://sketchfab.com/3d-models/3december-2021-day-3-power-tool-32172b0e57f74bddb401c5843c5354e4"
+}

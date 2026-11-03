@@ -17,3 +17,5 @@ A simpler Kenney CC0 toaster candidate was rejected after visual review and is n
 The Lynx model and its meowing audio are not part of this upgrade. They retain their existing assets and credits.
 
 MP7 upgrade: the downloaded HippoDevelopment nailgun was rejected at visual review and is not distributed as an upgrade. The existing MP7 prototype remains explicitly selected in config/weapon-asset-selections.json.
+
+MP7 nail gun: **3December 2021 Day 3: Power Tool / Poons 460**, by **Liberi Arcano**, [original creator listing](https://sketchfab.com/3d-models/32172b0e57f74bddb401c5843c5354e4), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Downloaded from the public Objaverse mirror of the Creative Commons model. Authored geometry and markings retained; uniform fitting, rotation and color-material atlas conversion. Source SHA-256 and exact transformations are in `nail_gun/provenance.json`.

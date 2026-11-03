@@ -2,7 +2,7 @@
 import argparse,hashlib,json,shutil,struct,subprocess,sys,tarfile,zipfile
 from pathlib import Path
 R=Path(__file__).resolve().parents[1];I=R/'installer';DIST=I/'dist'
-SOURCES=['bundle_utils.py','configure.py','deploy_halftone.py','menu_background.py','sight_customization.py','helicopter_windows.py','crate_colors.py','cat_audio.py','catgun','weapon_models','skybox','halftone','installer/mwc_installer','installer/__init__.py','config','assets/branding','assets/authored-weapons']
+SOURCES=['bundle_utils.py','configure.py','deploy_halftone.py','menu_background.py','sight_customization.py','helicopter_windows.py','crate_colors.py','cat_audio.py','catgun','weapon_models','skybox','operators','model_import','halftone','installer/mwc_installer','installer/__init__.py','config','assets/branding','assets/authored-weapons','assets/operator-sources']
 def copy_sources(dest):
     for name in SOURCES:
         p=R/name;target=dest/name
@@ -21,6 +21,8 @@ def common(dest,windows):
     shutil.copyfile(I/'catalog.json',dest/'catalog.json');shutil.copyfile(R/'LICENSE',dest/'MWC-LICENSE.txt')
     if (I/'README.md').exists():shutil.copyfile(I/'README.md',dest/'README.md')
     shutil.copyfile(I/'vendor/PROVENANCE.md',dest/'FT-PROVENANCE.md')
+    (dest/'OPERATOR-ASSET-CREDITS.md').write_text((R/'assets/operator-sources/ATTRIBUTION.md').read_text().replace('(licenses/','(operator-licenses/'))
+    shutil.copytree(R/'assets/operator-sources/licenses',dest/'operator-licenses',dirs_exist_ok=True)
 def build(windows):
     dest=DIST/('MWC-Windows-x64' if windows else 'MWC-Linux-x64')
     if dest.exists():shutil.rmtree(dest)
@@ -43,7 +45,7 @@ def build(windows):
             cmd+=['--add-data',str(R/name)+':'+target]
         for pkg in ['UnityPy','numpy','PIL','texture2ddecoder','etcpak','astc_encoder','fmod_toolkit','pyfmodex','tpk_ar','archspec','installer.mwc_installer']:cmd+=['--collect-all',pkg]
         # Builders are imported inside branches, and all must be visible to analysis.
-        for name in ['catgun.operations','catgun.bundle','catgun.import_addon','weapon_models.bundles','sight_customization','helicopter_windows','crate_colors','cat_audio','menu_background','halftone.arrays','halftone.shared','skybox.bundles','weapon_models.imported']:cmd+=['--hidden-import',name]
+        for name in ['catgun.operations','catgun.bundle','catgun.import_addon','weapon_models.bundles','weapon_models.local_tf2','sight_customization','helicopter_windows','crate_colors','cat_audio','menu_background','halftone.arrays','halftone.shared','skybox.bundles','weapon_models.imported','operators.assignments','operators.inventory','operators.retarget','model_import.tf2','operators.assets','operators.bundles','operators.library','operators.profiles','operators.skinning']:cmd+=['--hidden-import',name]
         subprocess.run(cmd+[str(I/'backend.py')],check=True,cwd=R)
         shutil.copytree(I/'build/backend-dist/mwc-backend',dest/'backend',symlinks=True)
         import archspec

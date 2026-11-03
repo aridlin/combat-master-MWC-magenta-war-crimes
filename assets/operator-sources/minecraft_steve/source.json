@@ -1,0 +1,85 @@
+{
+  "source": "steve_classic.glb",
+  "objects": [
+    {
+      "name": "Steve_02 - Default_0",
+      "first_vertex": 0,
+      "vertex_count": 216
+    }
+  ],
+  "materials": [
+    {
+      "name": "Packed authored source",
+      "image": "albedo.png"
+    }
+  ],
+  "vertices": 408,
+  "triangles": 136,
+  "scripts_executed": false,
+  "bone_names": [
+    "Root_M",
+    "Spine1_M",
+    "Spine2_M",
+    "Chest_M",
+    "Neck_M",
+    "Head_M",
+    "Scapula_L",
+    "Shoulder_L",
+    "Elbow_L",
+    "Wrist_L",
+    "Hip_L",
+    "Knee_L",
+    "Ankle_L",
+    "Toes_L",
+    "Scapula_R",
+    "Shoulder_R",
+    "Elbow_R",
+    "Wrist_R",
+    "Hip_R",
+    "Knee_R",
+    "Ankle_R",
+    "Toes_R"
+  ],
+  "bone_parents": [
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    3,
+    6,
+    7,
+    8,
+    0,
+    10,
+    11,
+    12,
+    3,
+    14,
+    15,
+    16,
+    0,
+    18,
+    19,
+    20
+  ],
+  "rigging": "Explicit block-character joints, original authored mesh with interpolated elbow/knee cuts; no replacement body geometry",
+  "in_game_tested": false,
+  "texture_filter": "nearest",
+  "alpha_clip_required": false,
+  "style": "original",
+  "prepacked": true,
+  "profile": "steve_classic",
+  "provenance": {
+    "author": "Vincent Yanez",
+    "source": "https://sketchfab.com/3d-models/cb228dcc137042cc9a3dc588758cc6e9",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "source_glb_sha256": "d9a432b6f4691277616693542fd8b1d72f1d5d35a1729caf8484fade5f011513",
+    "modifications": "Authored classic Steve geometry and original pixel skin retained. Explicit 22-bone rig and interpolated elbow/knee cuts added; nearest texture sampling."
+  },
+  "source_geometry_sha256": "c47734821097c2545a5ae11a352a4c045d51126abaa35d65fdc43a0c73409a90",
+  "mesh_sha256": "511efb08eb9b4d5dd506b0895ca4e06a6dac93355ecc1aa828cc188d725ca913",
+  "albedo_sha256": "1b9e503c77c70e2bcee246141bdde6007010551431e03f29d7d5f0fbafc95da6"
+}

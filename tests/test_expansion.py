@@ -7,7 +7,7 @@ from skybox.pixels import colors,face_directions,faces
 
 class AuthoredAssets(unittest.TestCase):
     def test_imported_assets_keep_attribution_and_valid_mesh_attributes(self):
-        for name in ('scorpion','fishing_rod','toaster'):
+        for name in ('scorpion','fishing_rod','nail_gun','toaster'):
             with self.subTest(name=name):
                 mesh,texture,meta=load(name);v,n,uv,f=mesh.arrays()
                 self.assertFalse(meta['geometry_created']);self.assertTrue(meta['author']);self.assertTrue(meta['source_url'].startswith('https://'))

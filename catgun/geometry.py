@@ -135,14 +135,14 @@ def export(mesh,directory,texture=None,prefix="cat",description="Original MWC ca
     js=json.dumps(document,separators=(',',':')).encode();js+=b' '*((-len(js))%4);binary+=b'\0'*((-len(binary))%4)
     glb=struct.pack('<III',0x46546c67,2,12+8+len(js)+8+len(binary))+struct.pack('<I4s',len(js),b'JSON')+js+struct.pack('<I4s',len(binary),b'BIN\0')+binary
     (directory/(prefix+'.glb')).write_bytes(glb)
-    stats={'vertices':len(v),'triangles':len(f),'bounds_min':v.min(axis=0).tolist(),'bounds_max':v.max(axis=0).tolist(),'parts':mesh.parts,'source':'Original procedural geometry; no game or downloaded meshes.'}
+    stats={'vertices':len(v),'triangles':len(f),'bounds_min':v.min(axis=0).tolist(),'bounds_max':v.max(axis=0).tolist(),'parts':mesh.parts,'source':description}
     (directory/'mesh-info.json').write_text(json.dumps(stats,indent=2)+'\n')
     return stats
 
 
-def render(mesh,path,eye=(.9,.8,.45),width=1000,height=700,texture=None,label=None):
+def render(mesh,path,eye=(.9,.8,.45),width=1000,height=700,texture=None,label=None,target=None):
     """Small deterministic shaded preview, explicitly not a game screenshot."""
-    v,n,uv,faces=mesh.arrays(); eye=np.asarray(eye,dtype=float);target=np.array([0,.17,.025])
+    v,n,uv,faces=mesh.arrays(); eye=np.asarray(eye,dtype=float);target=np.asarray([0,.17,.025] if target is None else target,dtype=float);tex=np.asarray(texture.convert('RGB')) if texture is not None else None
     forward=target-eye;forward/=np.linalg.norm(forward);right=np.cross(forward,[0,0,1]);right/=np.linalg.norm(right);up=np.cross(right,forward)
     projected=np.stack([(v-target)@right,(v-target)@up,(v-eye)@forward],axis=1)
     scale=min((width-80)/np.ptp(projected[:,0]),(height-100)/np.ptp(projected[:,1]))
@@ -170,7 +170,6 @@ def render(mesh,path,eye=(.9,.8,.45),width=1000,height=700,texture=None,label=No
             base=base[None,None,:]
         else:
             pixels_uv=w0[...,None]*uv[face[0]]+w1[...,None]*uv[face[1]]+w2[...,None]*uv[face[2]]
-            tex=np.asarray(texture.convert('RGB'))
             tx=np.clip((pixels_uv[...,0]*tex.shape[1]).astype(int),0,tex.shape[1]-1)
             ty=np.clip(((1-pixels_uv[...,1])*tex.shape[0]).astype(int),0,tex.shape[0]-1)
             base=tex[ty,tx]/255

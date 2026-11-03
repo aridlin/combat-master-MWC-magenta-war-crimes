@@ -1,6 +1,7 @@
 {
   "scorpion": "authored",
   "fishing_rod": "authored",
-  "nail_gun": "legacy_procedural",
-  "toaster": "authored"
+  "nail_gun": "authored",
+  "toaster": "authored",
+  "medigun": "local_tf2"
 }

@@ -34,12 +34,12 @@
     "id": "nail_gun",
     "title": "MP7 / Nail gun",
     "group": "Models",
-    "description": "Upgrade pending a suitable source model.",
+    "description": "Authored Poons 460 power nailer by Liberi Arcano.",
     "thumbnail": "assets/nail_gun.png",
-    "preview_kind": "Existing prototype (preserved)",
+    "preview_kind": "Authored model / software preview",
     "default": false,
     "target": "MP7_Base",
-    "status": "existing feature preserved; authored upgrade blocked"
+    "status": "built and file-verified; in-game untested"
   },
   {
     "id": "toaster",
@@ -51,6 +51,17 @@
     "default": false,
     "target": "P90_Base",
     "status": "built and file-verified; in-game untested"
+  },
+  {
+    "id": "medigun",
+    "title": "Minigun / TF2 Medigun",
+    "group": "Models",
+    "description": "Actual Valve model imported from your local TF2 files. Visual replacement only; weapon behavior preserved.",
+    "thumbnail": "assets/medigun.png",
+    "preview_kind": "Local import required; game test pending",
+    "default": false,
+    "target": "Minigun_Posed",
+    "status": "bundle verification in progress; in-game untested"
   },
   {
     "id": "players",

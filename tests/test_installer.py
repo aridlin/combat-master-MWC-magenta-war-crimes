@@ -53,6 +53,17 @@ class Transactions(unittest.TestCase):
     def test_missing_catalogue_declaration_is_rejected(self):
         with self.assertRaisesRegex(ValueError,'frontend'):
             e.validate_frontend({'selected':['sky']},{'selected':[]})
+    def test_old_frontend_cannot_drop_installed_operator_choices(self):
+        with self.assertRaisesRegex(ValueError,'operator assignments'):
+            e.validate_frontend({'selected':[],'operator_assignments':{'operator_30':'shrek'}},{'supported_mods':sorted(e.IDS)})
+    @patch.object(e,'game_running',return_value=False)
+    def test_operator_choices_commit_restore_and_survive_unrelated_transactions(self,_):
+        chosen={'operator_30':'shrek'};installed=e.transaction(self.config,self.state,self.saved,self.output(),{'lynx'},chosen)
+        self.assertEqual(installed['operator_assignments'],chosen)
+        same=e.transaction(self.config,self.state,installed,{},set())
+        self.assertEqual(same['operator_assignments'],chosen)
+        restored=e.transaction(self.config,self.state,same,{r:self.state/'originals'/r for r in self.saved['originals']},set(),{})
+        self.assertEqual(restored['operator_assignments'],{});self.assertEqual(restored['installed'],self.saved['installed'])
     def test_current_frontend_can_intentionally_deselect_any_supported_mod(self):
         e.validate_frontend({'selected':['sky','lynx']},{'supported_mods':sorted(e.IDS),'selected':['lynx']})
     def test_catalog_has_every_mod_and_existing_preview(self):

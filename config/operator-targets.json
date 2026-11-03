@@ -1,0 +1,2483 @@
+{
+  "build_id": "24397779",
+  "operators": [
+    {
+      "id": "operator_0",
+      "name": "Ranger",
+      "internal_name": "0.MaleBase",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "aba2f01f388246e43a88751dbf70d89e",
+      "prefab_path_id": "-2872247247995537336",
+      "resource_path_id": "4724",
+      "renderers": [
+        {
+          "path_id": "272128706882762824",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "8b867b6a62d45e503f58a23faa314a9e836dd07318f447c95c7ce32e44b05878"
+        },
+        {
+          "path_id": "1717629945135888456",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "f56ebf2bd097307e7009594bfd1ed99ab15f3c72885dbda2d72fbc9b8fbf99a7"
+        },
+        {
+          "path_id": "5737818508469467208",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "1f87bd13f4935cc33e6ab5fd074678e86c8ee0290723e5f1aca0173507ed20e2"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_1",
+      "name": "Rush",
+      "internal_name": "1.Racer",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "8de509ac534cff242a973fbe043488fd",
+      "prefab_path_id": "-4414853880939760334",
+      "resource_path_id": "4725",
+      "renderers": [
+        {
+          "path_id": "-1421260684441832142",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "434e769e89bc06df32725bd67c02e1f4e40a6b6dfba254e9767f034fde42df5c"
+        },
+        {
+          "path_id": "2932278700358612274",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "8f93461e91049d7b80e7a6a30e64048605dd72c04e66b3f582578db8e2045833"
+        },
+        {
+          "path_id": "6878595873949267250",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "e77cb01646ed9c50acb16230f502d095f147d6245d7f80218bb6689d6f8b8098"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_2",
+      "name": "Viper",
+      "internal_name": "2.DesertCobra",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "a644fc7e6d8a55b478d8868ead815f05",
+      "prefab_path_id": "-6042655726633068389",
+      "resource_path_id": "4736",
+      "renderers": [
+        {
+          "path_id": "-2816441216388802405",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "fa041939d8f612a87c44d521998f7c294401f64b9ad2051b493a5f4f9eafa202"
+        },
+        {
+          "path_id": "3184144828574292123",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "db4fb1cc1e1c74587ca2a4324ef34657a5719ec311cc1a4195e1d87237005892"
+        },
+        {
+          "path_id": "5398309170577037467",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "940d1ecd3f7d6f539694e75d2c679785a3cfca600cbc37a8739f20f7b380272f"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_3",
+      "name": "Alisa Lynx",
+      "internal_name": "3.Redcat",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "fe258caf109dc444ba611fe807277579",
+      "prefab_path_id": "-7283877313824420881",
+      "resource_path_id": "4747",
+      "renderers": [
+        {
+          "path_id": "-7310829552623481873",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "88a86ac3f7216629737505966619e46a8c90596be754d92f7b0a9daabf7fc195"
+        },
+        {
+          "path_id": "-4389901649726206993",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "211045f19a12a2413e56205d9008a85e9f400576de70770abc426634e99c4ef5"
+        },
+        {
+          "path_id": "-3433303384087852049",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "8f71243cd728a263def144b3a933341c0b2807d0e793ba6e5c23e57f5e1fbaff"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_4",
+      "name": "Skull Face",
+      "internal_name": "4.MercenaryGold",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "33bbf42e4783a664caaab0cd1781974f",
+      "prefab_path_id": "5353809917858554369",
+      "resource_path_id": "4750",
+      "renderers": [
+        {
+          "path_id": "-7266098946933841407",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "826c64ce5a24fde991b8d47e0527b8d9c93a8a95f22ba6b67bf25283673ed6dd"
+        },
+        {
+          "path_id": "2941865721336242689",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "314d7e1a028d5912e5e2900d49f09c5cbd35c84a5099aeb72f20dcaa868dcbf0"
+        },
+        {
+          "path_id": "4254699112764678657",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "e829c793060ab24a01cf336c70c684c1b13d3b50deb045e62162e76c429df3d7"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_5",
+      "name": "Lightning",
+      "internal_name": "5.FemaleBase",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "687ed30b924c1e043b224cbaf3cec0cd",
+      "prefab_path_id": "-2967145479833682436",
+      "resource_path_id": "4751",
+      "renderers": [
+        {
+          "path_id": "-6734478272208994820",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "b0265799f6d4307b7ce75961f719f7cfd561c6906c1d92698fe2e1dc19bad67a"
+        },
+        {
+          "path_id": "-3962819685538234884",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "cbec94a2c36107d43ee79d852333d98c649e82695b1610798d501ad4ae87c28a"
+        },
+        {
+          "path_id": "5663760178520817148",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "dcfea15e2b4073a5622742c152a4ce1a83005212dbda6795e54d0e4428671087"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_6",
+      "name": "Echo",
+      "internal_name": "6.Echo_Base",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "cfb8e11810285da488443b7d5461f066",
+      "prefab_path_id": "-4059072410995254944",
+      "resource_path_id": "4752",
+      "renderers": [
+        {
+          "path_id": "-3807554716910610080",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "c8f03e340fd8a1b66e0db5d99a4f164f2384d21424842f45070a652353de7ad1"
+        },
+        {
+          "path_id": "-3173131816895243936",
+          "name": "soldier:Solder_PatchOcto",
+          "bones": 83,
+          "sha256": "4c6b0a54bde5fa9501534cc8a04bf40d028554e576a9d6605a14ee40baf129ab"
+        },
+        {
+          "path_id": "7648837823042820448",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "2979cf177af81ab1c1a71219cfdd1c925f2d7ef553c1646c0d3c74dcd2c53281"
+        },
+        {
+          "path_id": "7937452017050982752",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "52c202335e268691e7d5391b81a56b2ea9b2deb5a9b23182dd1ffab227346065"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_7",
+      "name": "Echo Elite",
+      "internal_name": "7.Echo_Final",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "f67388d0e0d70470f8ccab27a1cd0800",
+      "prefab_path_id": "3134184153119105675",
+      "resource_path_id": "4753",
+      "renderers": [
+        {
+          "path_id": "-3786234331230002549",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "dd6dfd31338a34974ba81e20bdaee34cce44903ed8202784f5547ae12fe3f82e"
+        },
+        {
+          "path_id": "1963271978375225995",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "3020680f129c6eb48489bfe7561c002e0b62d057a5b5b4eba2c0218c9b9dc9f0"
+        },
+        {
+          "path_id": "4690066034295022219",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "ea09d7a592b32a6d2d550d8f85bc6af86fdeb6fb67c093381a14522f5e675acd"
+        },
+        {
+          "path_id": "5930770630829974155",
+          "name": "soldier:Solder_PatchOcto",
+          "bones": 83,
+          "sha256": "aebff967015598657a4dee23058b2364de7e3b5d8b7eeb712d76e3c0be959aa9"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_8",
+      "name": "Jagermeister",
+      "internal_name": "8.Sniper",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "0261bc916fb37cf4aa73926abcc44bcd",
+      "prefab_path_id": "4735852568554799782",
+      "resource_path_id": "4754",
+      "renderers": [
+        {
+          "path_id": "-7428233909819506010",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "0cc1389336e44b9cf42ae893c8768b50014456fc88da0589de9eb7312f71d418"
+        },
+        {
+          "path_id": "-4597347105976843610",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "d6099defd4bbb835b1700bf5caf6e0b196a4d1cffa8cb5c66b16c0f0da990fd5"
+        },
+        {
+          "path_id": "-4379894716537273690",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "a3e234f0ea13897d7d358424e115cc3920b7892b5126c9989bfc1acb00469e22"
+        },
+        {
+          "path_id": "-2559815770967539034",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "b4a1c3bc72cc69a6bda082059e1438a976e60706e2883cc35af7e33e12c2367c"
+        },
+        {
+          "path_id": "-1743134573157186906",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "3dcef828888bfe0a7f049125b72a0ef11cb5a10dbf83fc45fdb26819353bc46e"
+        },
+        {
+          "path_id": "-235878605733264730",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "5160a2b17590962d0c422f5928c35a9fe2596503546456ce5efa4aaf003073d1"
+        },
+        {
+          "path_id": "3927804523954602662",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "be35886a5b30dde1ad2854254d19440d0e90db116a429409d408a03c919fefd8"
+        },
+        {
+          "path_id": "6008679906843722406",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "8adcf8479e04030dc2fe694d514940966e76d30200ff2f398654c440a3769486"
+        },
+        {
+          "path_id": "8286935981784269478",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "a480917ea9f51bf15fbd77299010602fb9a93111a9e5368a5a196e0a802e759c"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_9",
+      "name": "Polar Star",
+      "internal_name": "9.Echo_Polar",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "806939c1c03ec4eaa99f324fabe91244",
+      "prefab_path_id": "4832041467555943070",
+      "resource_path_id": "4755",
+      "renderers": [
+        {
+          "path_id": "-6964615630700670306",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "1e155ec60446750953a899a1d4fdc26cf908ac43b72aa8bc8f11ab056490e6f3"
+        },
+        {
+          "path_id": "-2233515193452522850",
+          "name": "soldier:Solder_PatchPolar",
+          "bones": 83,
+          "sha256": "6952fd0aa380fe3d69a23e6fab3b0edf9ffd7023ef23e5957ef1c96d29be9dcf"
+        },
+        {
+          "path_id": "2501254363991970462",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "85ecb27af52715c59850f1527305e2ebb6722cbd84e61b7ffa975231ea3c05ba"
+        },
+        {
+          "path_id": "7288156380857438878",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "4ea3620122e750b24d0566a478eda005d4c75507652caafcd6b133ee86527ece"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_10",
+      "name": "Shadow Rider",
+      "internal_name": "10.Rider",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "46e94fb3dfe0747c0ad20c7d53a45fb4",
+      "prefab_path_id": "2509974413219318774",
+      "resource_path_id": "4726",
+      "renderers": [
+        {
+          "path_id": "-6118496052891890698",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "8639dd1e977a0ac0447f462084235549f8da37820dada4880cb75566cf4de909"
+        },
+        {
+          "path_id": "2761596043835526134",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "f6301610c176e09f01d0a6640671c4de1e9de5967bddfee9267c88e10c144d82"
+        },
+        {
+          "path_id": "4674764358291868662",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "24b1dbaf21aa6914009642f28cfb472d44222f974baa2a97d9bb3cb847802330"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_11",
+      "name": "Wolverine",
+      "internal_name": "11.Sniper_Demon",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "92af124bb18ef406c9a3e8a260e2496d",
+      "prefab_path_id": "-6607508486061928293",
+      "resource_path_id": "4727",
+      "renderers": [
+        {
+          "path_id": "-8941098310970027877",
+          "name": "eyes_LOD1",
+          "bones": 83,
+          "sha256": "71a1a3a2c0f49addd396b484e376204e95bfba8a0fb3f3d0a38f864858002588"
+        },
+        {
+          "path_id": "-8697267069030543205",
+          "name": "Claws_LOD1",
+          "bones": 83,
+          "sha256": "14475b6625d1a02f75194c1c5e1539701f67ec9de865a6d3ae33f919a8b2cac7"
+        },
+        {
+          "path_id": "-7633943447518687077",
+          "name": "Claws_LOD0",
+          "bones": 83,
+          "sha256": "b55024f6830bed10f3e75721b65fdfa307270e5fc36b1bf6199df9236f5086af"
+        },
+        {
+          "path_id": "-7062931652206767973",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "bc5ac523036c4d23c6b720a7580794c6001a4e33755d6e9d1dfc90b8f3eaeab4"
+        },
+        {
+          "path_id": "-6526756408074809189",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "dd6e34261db8ba999e10ab4902adca19555b843dd7d9d7c63598d732fe54a88f"
+        },
+        {
+          "path_id": "-5549018362237071205",
+          "name": "Horns_LOD0",
+          "bones": 83,
+          "sha256": "146294441eca8c8a608f16b680d815c75ab76c45ad4279832bbde91ed3f109fc"
+        },
+        {
+          "path_id": "-4091356463460560741",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "1786b91ef7ed51f1449b7816d4e5c4c386100c92c4b95f83703cec72f4bcf0c1"
+        },
+        {
+          "path_id": "-3146748928263696229",
+          "name": "eyes_LOD0",
+          "bones": 83,
+          "sha256": "dd76ebbd589982f0b997acf25a325fa369e41693b69589ca41ba766d36a46265"
+        },
+        {
+          "path_id": "-3078177645036547941",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "fd6204e09b9dc654dae180a9fa54d5a23b20df333872ef1eb07fca8a25700be5"
+        },
+        {
+          "path_id": "-2924705822684983141",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "e48212a602232359c47f5d25994daa5516afe36c82c630b6a30ec240d7a89aae"
+        },
+        {
+          "path_id": "-1460886228440559461",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "50e55f9240228a90fa0e4fb6ce56da6254ecca39a4bc2d2ad38f62c08cadf5f8"
+        },
+        {
+          "path_id": "-228809067274088293",
+          "name": "Horns_LOD1",
+          "bones": 83,
+          "sha256": "7d2d68a9f6d41e673775bcc93b0e14f8356ffc1bfe2ae6e602f2d125ce771080"
+        },
+        {
+          "path_id": "445656014566740123",
+          "name": "Horns_LOD2",
+          "bones": 83,
+          "sha256": "90f1c95ec3365e0c19a53bd1e592d41c424897acef9e3e676c146463ba001366"
+        },
+        {
+          "path_id": "837316945171861659",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "8440dd05f7ca4a7a4ee7ac4bc9a706d5164c75d00c3304ee1f7964abfddc325e"
+        },
+        {
+          "path_id": "3587186065218228379",
+          "name": "Mask_LOD1",
+          "bones": 83,
+          "sha256": "f8a8a2697dfb526b0aa6fbe92bb856ee16c4bc5ed5185d8a225c56bb654c490d"
+        },
+        {
+          "path_id": "3945269545046790299",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "4b167fc6522f620f43110b31d56438f1168229ba4c729e7e033d2f0e2af979ac"
+        },
+        {
+          "path_id": "4105269976573366427",
+          "name": "Mask_LOD2",
+          "bones": 83,
+          "sha256": "16a8503519c05dc16d23519174cf8895b3cc125f24726f13a92f550342802fb8"
+        },
+        {
+          "path_id": "4514761745417719963",
+          "name": "Claws_LOD2",
+          "bones": 83,
+          "sha256": "aa862cd23df1bbbf705f116e34a78a6c56bc70aa6789c1bc165ed959d5213cf9"
+        },
+        {
+          "path_id": "5353260775258542235",
+          "name": "Mask_LOD0",
+          "bones": 83,
+          "sha256": "baaa16cc01f198494cfbbfbee910fa7f000f97c603e7c18aa38bb21c5a585f32"
+        },
+        {
+          "path_id": "7635070787697463451",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "0f05ef50acceb7383276828ccc7bc57cd67cff92ed14a4da5e27e575ae53e473"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_12",
+      "name": "Demon_DS_Game_Mode",
+      "internal_name": "12.Demon_DS_Game_Mode",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "88ea363b1d3bd8c4fa8491742a5e3651",
+      "prefab_path_id": "7167487951288280935",
+      "resource_path_id": "4728",
+      "renderers": [
+        {
+          "path_id": "-8893405782129105049",
+          "name": "Mask_LOD2",
+          "bones": 83,
+          "sha256": "dd53f02822e1016f8cda891c699127e6b4a8ca36f60a8f8d27c6ff81440e366d"
+        },
+        {
+          "path_id": "-8653301675508422809",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "6808813cf3f4dda602a378249baa87eeea13db74422b6802e73e09719818cd72"
+        },
+        {
+          "path_id": "-7278926521999546521",
+          "name": "Mask_LOD0",
+          "bones": 83,
+          "sha256": "9b1af04ade7c2296f28f47552709889aec6e8907412aad3d71e3d16181046806"
+        },
+        {
+          "path_id": "-6181236348490733721",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "db0664c93348b08c4abaad96abbe5eff40d56b1eb6062749ea3cf563a08f4f8e"
+        },
+        {
+          "path_id": "-5530646491158403225",
+          "name": "Horns_LOD0",
+          "bones": 83,
+          "sha256": "ad1094d995379ac208b60d73801081857cb8e37571e432144c4fb615f136923d"
+        },
+        {
+          "path_id": "-2858356661813696665",
+          "name": "Horns_LOD2",
+          "bones": 83,
+          "sha256": "da6af81b85e2140e0061a9d98d20d5c4e12d3c7fbb9cadb550ddf4a5255d7a58"
+        },
+        {
+          "path_id": "-1926278223867861145",
+          "name": "Horns_LOD1",
+          "bones": 83,
+          "sha256": "f1d40b478eac761c47d1c7a773147eed9826a46703c456e09083f22a06ca9a3a"
+        },
+        {
+          "path_id": "-1544997707070363801",
+          "name": "eyes_LOD0",
+          "bones": 83,
+          "sha256": "6e6741d8ab2a64493ac461d0c0442384e49ba0530f1d437517541b7db81547e3"
+        },
+        {
+          "path_id": "-1297957428452579481",
+          "name": "eyes_LOD2",
+          "bones": 83,
+          "sha256": "193a2ceb7636f9cad20c82ef8652f5a4109fb16b30ce69ae02a03a65916bde60"
+        },
+        {
+          "path_id": "5042559997463635815",
+          "name": "eyes_LOD1",
+          "bones": 83,
+          "sha256": "c1381df331ca76d9412bc46737783b8b4395c30e8ac1325fa35b5c6257554c64"
+        },
+        {
+          "path_id": "5767599385169045351",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "2f863da812b5ec529008996041c5332689411afa323f00c0271a2b64a8dfffd5"
+        },
+        {
+          "path_id": "7238907187414771559",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "5cbde9b93fde7ccae4dffc6fb16c3318fbd92d642062c80c3d4a611e47149f87"
+        },
+        {
+          "path_id": "7410286866259847015",
+          "name": "Mask_LOD1",
+          "bones": 83,
+          "sha256": "41c12c4845151423eff92c35a81720ab9860e22d430f8a42c5ad550eb78f3151"
+        },
+        {
+          "path_id": "7660009929264015207",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "2d1fd226da68585a660abc49e9315acb0c57a453cf0b96095705197a506bd329"
+        },
+        {
+          "path_id": "7839449242510370663",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "08ad4460eb4b44c8fd457f64c3170c79fad4d4e4dc0cd545d1e7897218ad33ac"
+        },
+        {
+          "path_id": "8488806605105145703",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "45bff08d20184f7168e6db8d0e6a83b755a871a2f4704d071d96722fcb528ccf"
+        },
+        {
+          "path_id": "8770242748318361447",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "9e7719105c94cee072af853d420697ace5e03f4cdafd971df68d2c8b2a4ea7fc"
+        },
+        {
+          "path_id": "9027181879667730279",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "ecf17447eeed60a891550313abdd0823f2d2995f99d029c492c1eaeb58138c84"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_13",
+      "name": "Street Fighter",
+      "internal_name": "13.Street_Fighter_Red",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "67c50a1fb6564497fae8ffde63f7d3d6",
+      "prefab_path_id": "-294209182140584150",
+      "resource_path_id": "4729",
+      "renderers": [
+        {
+          "path_id": "-3367990904003416278",
+          "name": "soldier:Solder_Pouch_LOD1",
+          "bones": 83,
+          "sha256": "088129b53e97d070c7c152f5af65acf9be8af722257d35d7d029ec165b398bec"
+        },
+        {
+          "path_id": "-637888395806298326",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "d675f6b05661493ee3807dfffea4dbba9793e3b256399ea316952da18e3bc282"
+        },
+        {
+          "path_id": "381675501675032362",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "e4eac23078f51cde9e41fafe3a3742caed591da796db9f9569943051ad4f2af2"
+        },
+        {
+          "path_id": "877390850268606250",
+          "name": "soldier:Solder_Pouch_LOD0",
+          "bones": 83,
+          "sha256": "582bf5e24d3dcd9f5de1f1507ca5afa12855bc23d32c5d2a544159600874a345"
+        },
+        {
+          "path_id": "1623394765121400618",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "ad4e513653c88703214747a8b801a1e0beea7cf0019bfca1b1b2c9b29c61debb"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_14",
+      "name": "Blacksmith",
+      "internal_name": "14.Atlas_Base",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "c0428cd4812cf454faff7d2b0b6ca4c5",
+      "prefab_path_id": "6936218418171104522",
+      "resource_path_id": "4730",
+      "renderers": [
+        {
+          "path_id": "-3606654082344268534",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "a229f483a0fcd0996a04d414391946cf82836650b67502a271a00ec8f3e5a40e"
+        },
+        {
+          "path_id": "-2457546693750534902",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "916168dc6460b68e01d6d14603e7d5216db16835bf43b2c75a6c1a1b4fa1ab00"
+        },
+        {
+          "path_id": "-258288364778009334",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "2cd377d45cf620b0b95eac95b1449e705fff09752cf5ab97ef59a3a81f590007"
+        },
+        {
+          "path_id": "1678349304567057674",
+          "name": "soldier:Solder_PatchOcto",
+          "bones": 83,
+          "sha256": "b14c4d709ccfe90ff6885519032fc37f695a5c603d1945edba8ed48c39849304"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_15",
+      "name": "Kestrel",
+      "internal_name": "15.FemaleBase_Sand",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "904a36cfe2d944fa0bb97a7b1b31eeab",
+      "prefab_path_id": "441885534447490721",
+      "resource_path_id": "4731",
+      "renderers": [
+        {
+          "path_id": "3139027967592060577",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "67fd4e6b405731c2a17b0ef24fa0cec2f1032f710e80a728861079f6179bdb29"
+        },
+        {
+          "path_id": "3841516376195749537",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "3ecd343f1b91217d326e24b6ad6b7516a13d75b86720aab8e95fc9c888206a93"
+        },
+        {
+          "path_id": "8629312147995383457",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "83cee7ba180e47ff78d975b940637d213ea548ff10b902ae46be5050a57be130"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_16",
+      "name": "Hunter",
+      "internal_name": "16.Atlas_Grey",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "2d48ac39e75f548699feb04227136b99",
+      "prefab_path_id": "3501109992250563971",
+      "resource_path_id": "4732",
+      "renderers": [
+        {
+          "path_id": "339717277391084931",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "abd31959dff1e23707f839de992e06f3f444a9b4d5ca3d77d16758cdab3580b2"
+        },
+        {
+          "path_id": "3853127830959250819",
+          "name": "soldier:Solder_PatchOcto",
+          "bones": 83,
+          "sha256": "61cb63a1362e0a5ac66cb48af7f78ed3adf27743d249663c9e7ed0835ef62142"
+        },
+        {
+          "path_id": "5052049809398193539",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "fd410709be9a6f18d1beb409caaa875d7f7d649e0440a4454d5dcbcbcbdea429"
+        },
+        {
+          "path_id": "6754985561689316739",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "07e92168e0797072a0e5b243c423090f3b583c0688f11b32b6367056455a7152"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_17",
+      "name": "Crusader",
+      "internal_name": "17.Atlas_Gold",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "266f7211c3812486f8c21123f9c3d99f",
+      "prefab_path_id": "1868517304778591509",
+      "resource_path_id": "4733",
+      "renderers": [
+        {
+          "path_id": "-8537491892514550507",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "65a599deb66a7fecbd96afd10df9178ab6d82dd1f787e02df33aa606ff39441e"
+        },
+        {
+          "path_id": "-8352095267677500139",
+          "name": "soldier:Solder_PatchOcto",
+          "bones": 83,
+          "sha256": "1665568bf3a1becce8a5e04f1b10fac50a7b4915cf8d1133793cb133524fb923"
+        },
+        {
+          "path_id": "-6769911469583594219",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "96da4cd7196541f616635cd8eced5dce6e2254bd325ae01824ef46c52c42d96e"
+        },
+        {
+          "path_id": "5664559582610165013",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "18566e678409b2fb3b11447d9b107a3d074acb4261f2310f171f3995981228cb"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_18",
+      "name": "Nighthawk",
+      "internal_name": "18.Pilot2",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "d2df1ee5f99c86844957bd828b909b31",
+      "prefab_path_id": "8626636587485790178",
+      "resource_path_id": "4734",
+      "renderers": [
+        {
+          "path_id": "-8694189371082506270",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "007a5192861e6bce1e599c7bbb4021a88037539be411660f8bb80a3228512ae5"
+        },
+        {
+          "path_id": "-8240113907853066270",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "fc8b5bcda2cf85db2d31d9ed3badd9ef09c0a13162b566b9a9a655e93065dcfa"
+        },
+        {
+          "path_id": "-8230927514363658270",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "4269c67698b49048acfab60302991298c7e447f2fe78ea7467c62490ea225f75"
+        },
+        {
+          "path_id": "-8080186264513183774",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "0bd0293ae14b420c577143f09c9184f30043cfb79d5f4f96744d7c8384dad10a"
+        },
+        {
+          "path_id": "-7133624731366162462",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "306a48c38a20e7278d59c4342770d23bad9e124e9d73b058d7360d96c3fefdf5"
+        },
+        {
+          "path_id": "-7111421700872962078",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "c73540e23c8b7b469a30f9e2628ed4f7a522123263752e8ad7b3cbb744c9c66f"
+        },
+        {
+          "path_id": "-6958260603790196766",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "1ee64239bb4f3c11e49a5b707cc6129b972d7871ec6330743a427e17c76e31ad"
+        },
+        {
+          "path_id": "-6786704196508680222",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "3192224d6d0ac80f43db6a1fd9fee6a7719b50ae08944165afd97ae46e76f2e8"
+        },
+        {
+          "path_id": "-6438866361349406750",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "8dabc204cea9438fd391692142a1a8d354ef9079f6a5679f2c10577449f1eca9"
+        },
+        {
+          "path_id": "-6315154769446404126",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "de1915917db5196d1b79ed98861fa889ed4c226ca1f319b92418d85049fd3940"
+        },
+        {
+          "path_id": "-6253562395310915614",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "f1839e957f45aa74daf5970c9a4e8c71b594164283fd2e78ad328827536d9c1b"
+        },
+        {
+          "path_id": "-6249272520820949022",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "a431d5641c381003d3fe79793d9136259f07213230517cfe4c69277231d512e6"
+        },
+        {
+          "path_id": "-6082968558591508510",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "52dd9035e72e2a4ad7ab4fca5aa8f4d7b38d374f14d2af21000c75eaa77ea71a"
+        },
+        {
+          "path_id": "-5608552988376596510",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "a786d0212d3b661421e82cc004cc14150bae18de2ca8ffb3a78b75230cbee10e"
+        },
+        {
+          "path_id": "-5005834898561925150",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "66daf57e22f8683fda0d12f58e0458f8c3db04164341c971faba09d01799a9e1"
+        },
+        {
+          "path_id": "-4984986420429422622",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "6ce62bd0a58ac339ed8d76cf10e232339e50beb4bc34839f7c391b12a0a2cac5"
+        },
+        {
+          "path_id": "-4607691634927566878",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "55c0cc0ec659e81c6e222cce320b5d97a310bb77fa08c4610823a17d4c27b615"
+        },
+        {
+          "path_id": "-4393073932339740702",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "43c379a8cb4617a7fd82f28a894a4131f988235c7ff202aad8237e8b230930da"
+        },
+        {
+          "path_id": "-4267407285255700510",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "379f76e4c17cd2dd4ca0c3a800a898e10048ac6243abd3073cb5fb48d67ae0ef"
+        },
+        {
+          "path_id": "-4137372271502655518",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "c4ad800b2ea7079cf7f416aa24cacdd4f4fe192b835da22388e7565a923fc934"
+        },
+        {
+          "path_id": "-4109052021149368350",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "c4397aec61fc7d0490f8a22566c6deb483c7825f75f495a8f575e95be46da51f"
+        },
+        {
+          "path_id": "-3826513545867788318",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "1742ef8c10095638740c7bb34116b51d7c305db026618a0902c2039e49d4aeb4"
+        },
+        {
+          "path_id": "-3777363660304449566",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "f1432a448f17f8c54edcf1c095b0c313755528e16f9b70682edde9df31720ae8"
+        },
+        {
+          "path_id": "-3735601888163299358",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "93a9c9a9bf6cf33f07971a6e036fb90dd75858e111a44c724c5df0e215c91159"
+        },
+        {
+          "path_id": "-3648604902888800286",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "3e81cf8f71dcc14d3c26865323a8c740375665a33f454645e14918532c5ce472"
+        },
+        {
+          "path_id": "-3308345323864555550",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "6cce8ad41251e55a6c22a343f0f2176ef6512528f189c50db9f3f0e0fd2ea883"
+        },
+        {
+          "path_id": "-3299191468162187294",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "3049f1fd1efb6e2a5ca79a383ef33729403d2ae5870ab4794cb0a039c8595b4b"
+        },
+        {
+          "path_id": "-2048215185719787550",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "b169407dfe5775e1f76149d78d8e36ffc4fbd218888b8af94c248e756de4a765"
+        },
+        {
+          "path_id": "-1662808925346037790",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "0164d03dbd4702971e9075b196533f7695b7180ece9e3d6593c80631d8b0559b"
+        },
+        {
+          "path_id": "-1577205140656062494",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "f488f7daaa12e72a09ba3e1fc1d2bd5ad5d4d0b0ef77c8be9cddc3e01ea94bb2"
+        },
+        {
+          "path_id": "-1511581517204586526",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "ab3dab1c6fd80279124d1b1d53a5c55aa06e04423727aed52047aae23c5e44bf"
+        },
+        {
+          "path_id": "-404467344769581086",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "ab65c87e43e139661212a50ce3094cc4f35800c7804123eaee41b93c6b766426"
+        },
+        {
+          "path_id": "-346586981431017502",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "c06a6946cc220a16991a7b21b987876fb95fb5d333fe83a98a02b7b214623820"
+        },
+        {
+          "path_id": "-264012444639002654",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "2e3b3c7a7e9db09e4abe14d51331e31eae9cf9fbee003380bb950bb064bc6987"
+        },
+        {
+          "path_id": "-228194968110071838",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "c854dc42acec70b0a1e2866f18097c409ce0b4969df01da77e7fc786d807f948"
+        },
+        {
+          "path_id": "-227987593181233182",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "fae5d06facb46c4f154966ec392231f18b7851d25608aff41253b4526ab05a75"
+        },
+        {
+          "path_id": "-37717349027708958",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "e4abc25a62423fe586239bad5e4e4da519b2de849ae8d290b1fc4dc44b35f32a"
+        },
+        {
+          "path_id": "416793055474384866",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "9a8dd0da6fe5d3307189c3f151b84ab7e0a5105933cd75adf7c753f7e684796d"
+        },
+        {
+          "path_id": "864798435981492194",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "8de56fee94f0d4b81e521a39531805b8df286af23bc9464a8262a2febeba5dde"
+        },
+        {
+          "path_id": "937935756171837410",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "d1e59f6284bd633f1c07a8d31a4d22704d1cd6dcab90a9bebacc29fbc4c61198"
+        },
+        {
+          "path_id": "1147010569366306786",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "0f92ccbdbd05dacb21b18f516e9889f847d97407bce57af2a12a32e450ca1f4a"
+        },
+        {
+          "path_id": "1384990732060622818",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "0e5060d8a3a686af1a1cd4cd7e61150a57977a9eb6c61580b798c1acc2dad327"
+        },
+        {
+          "path_id": "1508273264526589922",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "c4207215cb853711ca666e6321254baa54ec691136e93bd20beddf6d41dc89f1"
+        },
+        {
+          "path_id": "1873576374938271714",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "0c6541f86432354edc08ec43d251d52cecb6000331e5aa98b44735c68c7b80c9"
+        },
+        {
+          "path_id": "1990242363061075938",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "77e326c230b2730c6c4eb57d7f7e1a22cc3ecaa2e3c3ac16aa07f26b82ba0a06"
+        },
+        {
+          "path_id": "2335397984963362786",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "d9ba44b4bb1a5a4e95a6b8807ea1aa1527ed717622cf712e1ab59a7c605b6c65"
+        },
+        {
+          "path_id": "2562862028007112674",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "6e67f69a8104655f5c2503c41ccafaa67cc11c7cb36e54db72f3b520d71ceb87"
+        },
+        {
+          "path_id": "2893687511902748642",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "916b11276d14ceb3af7d4f18d57b78acd551a4c1ad9234fd0d56bda3320f8798"
+        },
+        {
+          "path_id": "3366430644445937634",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "13f3e5abd5daa171d08d8964f0ace3c47f4ad68bfe4500e145961b0cd5df19fc"
+        },
+        {
+          "path_id": "3406723986836324322",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "95e74499f0076f7bc0feee720d9f7492e2ef738bbc3f1f645ccae99806fb4e0b"
+        },
+        {
+          "path_id": "3415221165367984098",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "96b7bf0313ecd99aa486d1dd83cc23e339e85584468f915d3b47355493f92ad2"
+        },
+        {
+          "path_id": "3466265373020094434",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "082222e147fbcbab79c81e666eea6054003e711c734763378340e573e6d97314"
+        },
+        {
+          "path_id": "3530434080345325538",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "cb84c57708c32447d673f2bcf1a2808c02abc0176d72174c5b441348b408417a"
+        },
+        {
+          "path_id": "3662002478997340130",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "608a7bf2bc910894e88602dcdfe1fb0c44a0717ff0c40f609f2b5111af3fafa1"
+        },
+        {
+          "path_id": "4337623828196392930",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "7359bca4248fce882398a734a7e8a8427b1f57dfa6ba7e8abff1817a880b434b"
+        },
+        {
+          "path_id": "4442525841668669410",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "343eaeb8f7fcb65d5d647fee4e00ffdc7f0ad492ba4d51a37821c438b2d41ab8"
+        },
+        {
+          "path_id": "4981953078506717154",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "9593b2d7c1e00e13763bda12084f9bdc9f841451a6139daa66b9df1ad82e1be0"
+        },
+        {
+          "path_id": "5214830071798202338",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "2010a19456005a2804aad49d0b5a69a5c6152bfe756a620d2d6a11709cd9dd5f"
+        },
+        {
+          "path_id": "5307307637871443938",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "bc1f65adf975c9168aa66b06401d31844cd20124023920c4c531139af7e2adbd"
+        },
+        {
+          "path_id": "5949939412547764194",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "d9841af0cd443345f7656e9da319433e311b2a62ebd55ba4aff7d0960121ee16"
+        },
+        {
+          "path_id": "6746283625391161314",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "1d74a1de89e2daa1a03b4f070c7d288c0d7f08c37c4ece6db5597e01d00d170b"
+        },
+        {
+          "path_id": "6874809784034885602",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "82db27a654693f90ad3fd23c983195eafcdf44c1c15146b3654f1fb8a4f6e899"
+        },
+        {
+          "path_id": "6917827340322504674",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "419865be9a5ab6f5230336cee3f852fa3961352d5bea606bd88bb66ccdfa9e29"
+        },
+        {
+          "path_id": "6963758409510322146",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "e5da3634ae287ada38db2fc91d031cbec5506ceda68944c2f17bc3fcc31fdd99"
+        },
+        {
+          "path_id": "7088507881517776866",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "8b30a42645e967c86e56e2c49188b9e4d757413f0a4b80753ee54beb8c4ea891"
+        },
+        {
+          "path_id": "7287814067545210850",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "186fb75af5d10721223401c83edda15f144ffc7e5b7fcbdafbe9120a492f4c32"
+        },
+        {
+          "path_id": "7395537918732697570",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "74ec4124260b976fdd825c8d9c6a40f4fb659b148fa3a47f1232f12c02523ee4"
+        },
+        {
+          "path_id": "7578835950239973346",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "3d2149925cc248877878d4c07af4a583b3b15cd484bbfd7c0653b832ccd7b61a"
+        },
+        {
+          "path_id": "8026378882420015074",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "c38f7ea0d81a496dcd069b2ee307d9930fcf287c2f07cb2b9d6701fb806d64dc"
+        },
+        {
+          "path_id": "8077131363701325794",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "5aedda1c0dd13d7da4a3b364b772205c18c1fb9bfc677146d233d5ec6c39af3f"
+        },
+        {
+          "path_id": "8652913893668192226",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "f590c1eb41e8d52a87e410dcd37743fa88bceefbe62a3389c6e5efd86a791e08"
+        },
+        {
+          "path_id": "8973733789008232418",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "6f78c4859e0cb9c2d9c37621bcee6a949624407f51ed533c58952895bb01fcaf"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_19",
+      "name": "Nightshade",
+      "internal_name": "19.Frogman",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "15f75a3e0e5020648b8e966686be008a",
+      "prefab_path_id": "6247376516348604199",
+      "resource_path_id": "4735",
+      "renderers": [
+        {
+          "path_id": "-6755558597276897497",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "7bdd99d6896c414d13f3440489a18e17a4f7f919d68eb31145cdcadfa96117e1"
+        },
+        {
+          "path_id": "-4388835723588374745",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "e621de08d160b7307a2c822b567d2c0db9529e3425373b5e1a42fd2ff18b4686"
+        },
+        {
+          "path_id": "-183383554528284889",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "a2a57034954795b09b4e3dcff433b462ea5bcda82181f0a4933fa29741e18728"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_20",
+      "name": "T-REX",
+      "internal_name": "20.Trex",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "b4167612879c18a47bfeb04c0ad2d795",
+      "prefab_path_id": "-4959584457374260501",
+      "resource_path_id": "4737",
+      "renderers": [
+        {
+          "path_id": "-1089203426372967701",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "9339ffadfad05ee7ef5d775bd08640f517f7a2ac31faed12e9630e9c030b0769"
+        },
+        {
+          "path_id": "-582690668899949845",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "9f2203451818ed1437c073c47e71ea600cbbd1f253ba40ef7e076fb0311265ec"
+        },
+        {
+          "path_id": "7331668927156822763",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "cac268a7998e8ef0a090ed44cb31f270f63d33a5472bbab8ac4687a5fefeec4b"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_21",
+      "name": "Foreward",
+      "internal_name": "21.Street_Fighter_Standart",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "e81d891f430af452ca5672e00b5bb42c",
+      "prefab_path_id": "-2934368602400615977",
+      "resource_path_id": "4738",
+      "renderers": [
+        {
+          "path_id": "-8585989698797825577",
+          "name": "soldier:Solder_BBhat_LOD1",
+          "bones": 83,
+          "sha256": "150e2b716e07f50b24bc1a16ac4aa88d169187326720d6af9e91bfbc05720f31"
+        },
+        {
+          "path_id": "-8182193617584254505",
+          "name": "soldier:Solder_BBhat_LOD1",
+          "bones": 83,
+          "sha256": "f48a9efcbb9ba95c3d4c8594a74732cf401de25f9b4804f3df88767a165b2014"
+        },
+        {
+          "path_id": "-7079344332269219369",
+          "name": "soldier:Solder_Glasses_LOD0",
+          "bones": 83,
+          "sha256": "f7af2fc5a55609596639eecebdc16d0218ae0008fbea104a15deb8d6c5a6031c"
+        },
+        {
+          "path_id": "-7040585969198362153",
+          "name": "soldier:Solder_Pouch_LOD1",
+          "bones": 83,
+          "sha256": "bb3922f096a443dfab143b28c88193ab2e9f77b02ba77b0db6c13986fa51b046"
+        },
+        {
+          "path_id": "-6782181520593251881",
+          "name": "soldier:Solder_BBhat_LOD1",
+          "bones": 83,
+          "sha256": "50b985fd185ccc3dfa7d3ba12a98e15d142c96b65d53799a0b5c4d4cbd5977aa"
+        },
+        {
+          "path_id": "-6613681831517679145",
+          "name": "soldier:Solder_LOD1_01",
+          "bones": 83,
+          "sha256": "c8f24b194435f27d6b26df03efc349ec2f71aeb7fd585de4443099a0790868aa"
+        },
+        {
+          "path_id": "-6283059436546289193",
+          "name": "soldier:Solder_LOD0_01",
+          "bones": 83,
+          "sha256": "02edcd2ea7d5a9e07c056ab205082595122eb120a2afdc85e845a13dc3bbc3b2"
+        },
+        {
+          "path_id": "-6086838737609420329",
+          "name": "soldier:Solder_Pouch_LOD0",
+          "bones": 83,
+          "sha256": "5cc03d43fe133608320196196433c1a7a48440edae762cfdd66f82fd7b45c769"
+        },
+        {
+          "path_id": "-3614647481152171561",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "6d2e6ef27ceb00f606242a60004eff206b7bbe424324590a15c525a7f99ccc4c"
+        },
+        {
+          "path_id": "-1089303356909219369",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "6e9afae9e2b01d3032b5ffca6dcf190334d3cfeacef7baba60b0450e4a9ff609"
+        },
+        {
+          "path_id": "-70006810817981993",
+          "name": "soldier:Solder_Glasses_LOD1",
+          "bones": 83,
+          "sha256": "6aee031f9c66324ea027381344c94c2a578a2efae8f8bbcb774532d73bfc7867"
+        },
+        {
+          "path_id": "291007719315608023",
+          "name": "soldier:Solder_BBhat_LOD0",
+          "bones": 83,
+          "sha256": "1e69dc7a0321a067924e51ed9b35ef8f167ba325d1acc235ad25837ecb4660e8"
+        },
+        {
+          "path_id": "4298145545683866071",
+          "name": "soldier:Solder_Pouch_LOD0",
+          "bones": 83,
+          "sha256": "27b98bca9c70cd30f9a8f25571f76d7b03a0f181802b7b33754a7713a6d69a19"
+        },
+        {
+          "path_id": "5841361432961094103",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "1c725c486f1d908622564e72173110645924f9e3078f6bd4713844df1836def2"
+        },
+        {
+          "path_id": "5927988579032633815",
+          "name": "soldier:Solder_LOD2_01",
+          "bones": 83,
+          "sha256": "287de78a87b8b388895a943e01072acf1f8a5acaf0a044b933ab2baae8e996cf"
+        },
+        {
+          "path_id": "6325008839418253783",
+          "name": "soldier:Solder_BBhat_LOD0",
+          "bones": 83,
+          "sha256": "87ce820d8775742c3b3768e8e6e01591e3473ce19686298b69602e91ac1f7dc0"
+        },
+        {
+          "path_id": "6374789458551706071",
+          "name": "soldier:Solder_Pouch_LOD1",
+          "bones": 83,
+          "sha256": "33b056c917dce868e7d5b1438335642a9f089ffd852d0d1b4a460578fbbd554a"
+        },
+        {
+          "path_id": "7587771279974404567",
+          "name": "soldier:Solder_BBhat_LOD0",
+          "bones": 83,
+          "sha256": "6dbad296d98a82302666a8ab199de3be5638e9ef9c9c523ad564c2459935f1b0"
+        },
+        {
+          "path_id": "7954394964158386647",
+          "name": "soldier:Solder_BBhat_LOD1",
+          "bones": 83,
+          "sha256": "cbabb91fa9f79e845fcdb3f79001d063826c2b891b5e7100c952952b53fcb762"
+        },
+        {
+          "path_id": "7963894281067893207",
+          "name": "soldier:Solder_BBhat_LOD0",
+          "bones": 83,
+          "sha256": "e02a5221148cb9908daccf96d71a7758ac147b7d5789468f2d708591447219ba"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_22",
+      "name": "Vixen",
+      "internal_name": "22.HalloweenDevil",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "4165d6387aeef3a4496549016b102f68",
+      "prefab_path_id": "-6706940250642509782",
+      "resource_path_id": "4739",
+      "renderers": [
+        {
+          "path_id": "-6874565219897438166",
+          "name": "soldier:Solder_TopJacket_LOD1",
+          "bones": 83,
+          "sha256": "d8e37d8f52caec65a316fb2f14d6552c8ba7e311993f0c4b42167c96ea5b00b5"
+        },
+        {
+          "path_id": "-6460663891164458966",
+          "name": "soldier:Solder_HandAcc_LOD1",
+          "bones": 83,
+          "sha256": "1381665db7845dd7b2d9cdaede17c915b4426fbf0be5f591026817a4443218c7"
+        },
+        {
+          "path_id": "-4695340130881892310",
+          "name": "soldier:Solder_Jacket_LOD1",
+          "bones": 83,
+          "sha256": "9cba0c2db8b65bd7b678c606c9e4f336612885a6b86118ba63c7067a54824d03"
+        },
+        {
+          "path_id": "-4080332267566526422",
+          "name": "soldier:Solder_HandAcc_LOD0",
+          "bones": 83,
+          "sha256": "cf7671a7c851f2daa9415b8fe210618bd622227d701bf811114748fa21331871"
+        },
+        {
+          "path_id": "-3535287695052369878",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "e2e169f7e843bf7e6d3f2b3bad6d3044d3234d2c1b35906d168486dd3a176808"
+        },
+        {
+          "path_id": "-3391750142586515414",
+          "name": "soldier:Solder_Nails_LOD0",
+          "bones": 83,
+          "sha256": "99398477b3af6a7dc03449969ac6490b1368e19e42d4a9dc33799ed50b8557cf"
+        },
+        {
+          "path_id": "-1708778969837006806",
+          "name": "soldier:Solder_Chopper_LOD1",
+          "bones": 83,
+          "sha256": "36c0a0269802a85588b853018baa55b8d96113b87cb8a85ebb0516e236e961d3"
+        },
+        {
+          "path_id": "-662595060272918486",
+          "name": "soldier:Solder_HandAcc_LOD0",
+          "bones": 83,
+          "sha256": "a0bb5f1d73040a542e104547090e52d5f6f66c079c933d3d3dc7ff897f86f20b"
+        },
+        {
+          "path_id": "2766643290769264682",
+          "name": "soldier:Solder_Nails_LOD1",
+          "bones": 83,
+          "sha256": "33c323ee80c3ff18fcae838c70bd9c86ca7d76a8e6dd0691a95817a6f7709340"
+        },
+        {
+          "path_id": "3077934709944684586",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "63232814213f3472dab60158ef861fee2900fab5ef66b3edd132ca4598f1b0ac"
+        },
+        {
+          "path_id": "3748275752512327722",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "f2aa9242ca03b6097f687a8a4824d1832bb73db4e0f33bfae27826144302adb9"
+        },
+        {
+          "path_id": "3807900905926299690",
+          "name": "soldier:Solder_TopJacket_LOD0",
+          "bones": 83,
+          "sha256": "2a8837f37dd4e8d9d856e9803c8226502137b48f27a2b29deb7ee07ebecd4d10"
+        },
+        {
+          "path_id": "4013056658373546026",
+          "name": "soldier:Solder_Nails_LOD0",
+          "bones": 83,
+          "sha256": "c4305d303331a4a30989e42cd282bb95b225bc6d341a70762dd9bd0ec8efc76a"
+        },
+        {
+          "path_id": "4241910585962336298",
+          "name": "soldier:Solder_Jacket_LOD0",
+          "bones": 83,
+          "sha256": "00eb7b96a1b6d44d286ce9675eadacd5326669f16baca4d6dfb4f34f5eac2399"
+        },
+        {
+          "path_id": "4633867793954770986",
+          "name": "soldier:Solder_Body_LOD0",
+          "bones": 83,
+          "sha256": "1177dc54f927ae4cc5f86410f5f3b547ff3246686799f08cdf3e933731a5b75a"
+        },
+        {
+          "path_id": "5048796408323969066",
+          "name": "soldier:Solder_Body_LOD1",
+          "bones": 83,
+          "sha256": "759ab62adef1ecd2d7662820cf953cd822e762a65640120ccbcb4a08c1f6184c"
+        },
+        {
+          "path_id": "5257619968580456490",
+          "name": "soldier:Solder_Nails_LOD1",
+          "bones": 83,
+          "sha256": "bbcc1b841a35cb887bdc6203b273bc1d48a6304034d98924d774117a447bdf96"
+        },
+        {
+          "path_id": "5958638328048128042",
+          "name": "soldier:Solder_Jacket_LOD1",
+          "bones": 83,
+          "sha256": "4bb1ff912dd6a8106bd7d0932ed126c4a81a97074c6d9e32a8428da8d16faec4"
+        },
+        {
+          "path_id": "6227813209139777578",
+          "name": "soldier:Solder_Horn01_LOD1",
+          "bones": 83,
+          "sha256": "837253f8548d35b98b7e27f466f2ce595deb8ab226930db7c67f9ab1d0db6017"
+        },
+        {
+          "path_id": "7381879776711020586",
+          "name": "soldier:Solder_Horn01_LOD0",
+          "bones": 83,
+          "sha256": "6ff19f956ec12ac0e51a374a2c8ac327ddd06e9019b34c6684a66ba35f706a38"
+        },
+        {
+          "path_id": "8772292654991609898",
+          "name": "soldier:Solder_Chopper_LOD0",
+          "bones": 83,
+          "sha256": "d0b3512eb7dea48dcb73a375f0be73c4772225bd6e41cd4acca4255fa5527cc6"
+        },
+        {
+          "path_id": "8883032785391390762",
+          "name": "soldier:Solder_Jacket_LOD0",
+          "bones": 83,
+          "sha256": "c45f9d58785bcd3a155c1649e1d4214ae6e5ea7a4317b0a0f3e775c5fd920961"
+        },
+        {
+          "path_id": "9077466235782828074",
+          "name": "soldier:Solder_HandAcc_LOD1",
+          "bones": 83,
+          "sha256": "9e010e3bdedea4d9f7f113871e7bf63b1cfa3b52950c62fd9d58bda877aecce9"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_23",
+      "name": "Aberration",
+      "internal_name": "23.HalloweenPumpkinGreen",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "f8d78bffb0508124a84d2f81d4c6501a",
+      "prefab_path_id": "4055028155874700781",
+      "resource_path_id": "4740",
+      "renderers": [
+        {
+          "path_id": "-6777089455745045011",
+          "name": "soldier:Solder_BBhat_LOD1",
+          "bones": 83,
+          "sha256": "87ca2a1be5cb3af036a8f77470affdbd6484c5160bd966ce32c18fb7e9b6e67a"
+        },
+        {
+          "path_id": "-5252132858307318291",
+          "name": "soldier:Solder_BBhat_LOD0",
+          "bones": 83,
+          "sha256": "40bc4144d76e5fd041cec55ab8bacc02887d3f2e0756a0eb14093b1cee2802b6"
+        },
+        {
+          "path_id": "-5024250185651032595",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "d301613293da9e4f658f1ff7db016918cf8763b6acbf417220f3d7e5601c447a"
+        },
+        {
+          "path_id": "-2074712140783194643",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "d8a11ffce7aae1624a11b18d9dacfe658a684444dd0a8c00c29ce2bc51b9bc23"
+        },
+        {
+          "path_id": "2371522544414780909",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "41f2f78d4b343fbc100a7be5d37649bc25c807a8cfe58ad3ff5b0cac44915d63"
+        },
+        {
+          "path_id": "7340503900251581933",
+          "name": "soldier:Solder_BBhat_LOD2",
+          "bones": 83,
+          "sha256": "fbdf9bfff640d5d8933cd87010acaf1604e80faca37973a87e1a5ce0f0731f05"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_24",
+      "name": "John O. Lantern",
+      "internal_name": "24.HalloweenPumpkinYellow",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "7e634e9c0f3c271408e6a491d0746caf",
+      "prefab_path_id": "-5542247320218333622",
+      "resource_path_id": "4741",
+      "renderers": [
+        {
+          "path_id": "-6495618844186407350",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "65585affbde9b4d72e09f401ccb3ee245c9a5b6100b4eb692281048c93e75335"
+        },
+        {
+          "path_id": "-4621923275678118326",
+          "name": "soldier:Solder_BBhat_LOD1",
+          "bones": 83,
+          "sha256": "99ef7c4847740872e38e2f237d903fe77c81068b14e80777e6437b985de86ee5"
+        },
+        {
+          "path_id": "-4150640514230415798",
+          "name": "soldier:Solder_BBhat_LOD0",
+          "bones": 83,
+          "sha256": "bd69e2cb82404d75c733252337bf05b4a77242ec86a945054952439f3841b8d2"
+        },
+        {
+          "path_id": "-2239675201109258678",
+          "name": "soldier:Solder_BBhat_LOD2",
+          "bones": 83,
+          "sha256": "cb0049cef37329c85e7d51e871c63e1439eff25d7d52f1e3c5b58be169364fb4"
+        },
+        {
+          "path_id": "1156376207903985226",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "0f023334a6c4afb10dc3717608e7afeb8c5bbe2d40cda60a9b3c3a97131175de"
+        },
+        {
+          "path_id": "1347255701287898698",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "e6a16fcb10e33398b4c8fb9c578f92d836eeda42094ac02c197bf67dfc66d56c"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_25",
+      "name": "Pincushion",
+      "internal_name": "25.HalloweenPumpkinNail",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "a42ac6e4f589bee4dadb1ca8778f1295",
+      "prefab_path_id": "6072471740867615895",
+      "resource_path_id": "4742",
+      "renderers": [
+        {
+          "path_id": "-5939818142031995753",
+          "name": "soldier:Solder_BBhat_LOD0",
+          "bones": 83,
+          "sha256": "cc903d07e497a3245a8f81ef2b100da0c02ebe424488636da2d6311e287732ac"
+        },
+        {
+          "path_id": "-2902793846586139497",
+          "name": "soldier:Solder_BBhat_LOD2",
+          "bones": 83,
+          "sha256": "0886a89fe586664e6c429bbf2c0fb32cfc1446ca7c46d8d24fa94e70d34553e5"
+        },
+        {
+          "path_id": "-999693403741479785",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "d9b94d6513c3e274d029cf92dbaaa919648335c210f92c497eac1c859ec9ad08"
+        },
+        {
+          "path_id": "4643837024828202135",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "7b7c522937454b2e9d09cb866ceb0678094d8327d63bf08b3ab79a73e5d59002"
+        },
+        {
+          "path_id": "4758835438744050839",
+          "name": "soldier:Solder_BBhat_LOD1",
+          "bones": 83,
+          "sha256": "b00a5f72d03ee4ab2975833af44d6878e6068a6f2891a9264c7483675cdf1963"
+        },
+        {
+          "path_id": "6004533637044116631",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "c976c79471183a08a69aae2bde5711090d1651f6355b46a4dc4fbd59598fc0a5"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_26",
+      "name": "Falcon",
+      "internal_name": "26.DroneOperator",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "5f4cd6399fb8bb44eae21ff3529f3392",
+      "prefab_path_id": "-6623911125368023658",
+      "resource_path_id": "4743",
+      "renderers": [
+        {
+          "path_id": "-8823353133473639018",
+          "name": "soldier:DroneVisor_LOD1",
+          "bones": 83,
+          "sha256": "7335fe7cb99ca44b338daf11732483e0abbd62a04d62a3503b9103cb24a9fe5d"
+        },
+        {
+          "path_id": "-4326139661956721258",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "2ae33b06da4ce9f1f2e1621d3f3a5f88ce1d4f0be434ba9764748edcaa5fef99"
+        },
+        {
+          "path_id": "438466280596264342",
+          "name": "soldier:DroneVisor_LOD2",
+          "bones": 83,
+          "sha256": "7aaa4d3f04d805181ddd8e91e7e6fc5191a57410d0db32d9309bd664fe4a14eb"
+        },
+        {
+          "path_id": "3316763159939732886",
+          "name": "soldier:DroneVisor_LOD0",
+          "bones": 83,
+          "sha256": "57f58fc339ec2927a88f13d998de1c90189c150ed83141c7bcb49c2f8a55fe46"
+        },
+        {
+          "path_id": "9142364297029637526",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "947b6e1f1fc971159d76635408cf561c03854534a529d6e9bf4efaab249e8ffb"
+        },
+        {
+          "path_id": "9145452252203537814",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "a535668c0c6b11315e8ae6746101a61f1b407b4f6b77c225ebb1096bf8179801"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_27",
+      "name": "Ghost",
+      "internal_name": "27.Wolf_Sniper",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "5decd879c7f9f6a4d9e8c123f37d8339",
+      "prefab_path_id": "1173408940023802868",
+      "resource_path_id": "4744",
+      "renderers": [
+        {
+          "path_id": "-7830870498312000524",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "e515faecc5cfbfc6451a3582c731e8fad9389a89641721340b5658d9c4437c10"
+        },
+        {
+          "path_id": "-7588849007578190860",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "ed5168411f0000154ab213d6e31d7a2fb6a9e8e802c6c73c6464ab819a76a2b3"
+        },
+        {
+          "path_id": "-7558700909997069324",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "3a6dafe03a712100fcd63a27d733828a95ed22ff914bd71e6710496a0d012006"
+        },
+        {
+          "path_id": "-6936888770269221900",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "56f384ad7e03fe7962d7db1817e3d06bd15e6da44f927c7d41d1e6d9dded7ca4"
+        },
+        {
+          "path_id": "-4805976608475780108",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "624274fa29ff4ca78d3539467b004f4aa068fac27a17dc63805e119b7e48352b"
+        },
+        {
+          "path_id": "-356555830448821260",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "841c84905a83c55ea889a513f0e19a14fb8460f50c6f92db092213a7171cf9db"
+        },
+        {
+          "path_id": "2206713200127568884",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "34cebd99fb29a1c072ccf7bac1e21c81e81ff58c850fc5a8f4a752aac426f9f9"
+        },
+        {
+          "path_id": "3242171639915015156",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "7ce6096b7d8d9c9177024684142cc5f4ac612756727fa98725b469f8ca7cf0c5"
+        },
+        {
+          "path_id": "4448652200479747060",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "2e0ca754320e6ea9ef81dd829756a535d3755e2e6da17231770820100433769d"
+        },
+        {
+          "path_id": "4552976210381237236",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "db4dd03ace971610a089560efe6a09cab68a675dd70203f10d363ff4525f0b2a"
+        },
+        {
+          "path_id": "5793519441961217012",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "c76153d04595fdd3af394793b7ed16958d16afc9dde19d0205cac04187ee1201"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_28",
+      "name": "Mercy",
+      "internal_name": "28.Angel",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "aabd34bb08cd3c04c84a9bc1dac4e880",
+      "prefab_path_id": "-191035454435859860",
+      "resource_path_id": "4745",
+      "renderers": [
+        {
+          "path_id": "-8460762166139395476",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "957937e3192c35a29fca5dc6da7cb99e78aa616685509b973bbd85c5ed93dbaf"
+        },
+        {
+          "path_id": "-8066749254974610836",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "af6708a42dc8322924695d03ec53a850ee6e201ba116bc9c72b1f74e0ee42bca"
+        },
+        {
+          "path_id": "-7818324670231322004",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "9e922b7dd02a6f5bf1f131b7e0034325b1d6b359ce1ef1ab299fc15f2da93bfc"
+        },
+        {
+          "path_id": "-7773018442941963668",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "b6d2cb958fbb6560a438c1b8fa9243cb2b57aaa4ef1bb5b804c669920d7b96b2"
+        },
+        {
+          "path_id": "-7641866127121882516",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "839326e8c0ef5ee7c3db4c68ae9cdeaa57ea40b158ec3cce581154b70115ca50"
+        },
+        {
+          "path_id": "-7303519943110270356",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "5fbc811ae4c5706efca5fcaa187a16e20fb903f65b809af1fcedbdc8620fca8e"
+        },
+        {
+          "path_id": "-6436407877188885908",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "1691cb5cdfde991e3b17ae3c736cbb62b7211b5c99fcef04fab08481950958be"
+        },
+        {
+          "path_id": "-6105429484898196884",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "ce01b83221c07545cae56bf083709d9346fcedec6695eb30ae7bc36870f98944"
+        },
+        {
+          "path_id": "-5864900197572713876",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "2b7d21cafae0d2aa1e36668aa22dd01496b0726afc9057d98bb837bdf3e720a6"
+        },
+        {
+          "path_id": "-5808490646498811284",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "98efa22657b2e3e1fd3b7281f951e3650fc03510f51dda3f5d965323a733353b"
+        },
+        {
+          "path_id": "-5762489844700716436",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "2b74258b276745c696771478902527332cbde3afb062501d2e1709ceb4c9a5a0"
+        },
+        {
+          "path_id": "-5747606870624804244",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "2cebbab4786e2688968a7e32c0cc2ec108620f06d4026899969d78e134b3ceef"
+        },
+        {
+          "path_id": "-5471113783148322196",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "7f47e366ed7ee9795c5e98e6da783fce49d4a815ddd044417ae6345d84f40907"
+        },
+        {
+          "path_id": "-5230335110888791444",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "28c20ec8f42c8d7ef2f62dbe4cae7b47de6669e68f1bbd27d5701f4c0cb99de2"
+        },
+        {
+          "path_id": "-5131648666622795156",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "4d9da44712baeeec18b6a3888324a8e808f55bc7bea1d1b1f0e788aba221d338"
+        },
+        {
+          "path_id": "-4987340277211307412",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "3b4191b8e99d8657010253e490386e49044817e505d73640a77b21b031b6f389"
+        },
+        {
+          "path_id": "-4598235600169966996",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "2eaec8ad4da9826ebc82da66db58463cad31339f65ee8fac12a7a111ac21fe74"
+        },
+        {
+          "path_id": "-3902691795865017748",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "a21933f8be9667459c4c61dd718e31402ad0290ddd74e3e0039cce3a33bdc647"
+        },
+        {
+          "path_id": "-3492835883059355028",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "1744fac80e8f4b9abe74128acfd2804c943bca39bc9906deeb4547332463cb0e"
+        },
+        {
+          "path_id": "-3487276672110861716",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "1f9ea42e3d3bbd23687308bca4338c151187eca1f6f5f3d64b5ee19e58341652"
+        },
+        {
+          "path_id": "-2987499580252134804",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "b5ea8ff70dda6a0548249e3525de93bfd4641c4647306920020169cdf6acba6a"
+        },
+        {
+          "path_id": "-2879912215397834132",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "595ef07adcb0a27f1f61da91cab2eade92c20998b4684293cf88c705ac4b3caf"
+        },
+        {
+          "path_id": "-2777109195688091028",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "8f06178ccae0b35de4064dcd79a15a632ae53ca41abd21c532a4b5a815ed2782"
+        },
+        {
+          "path_id": "-2685641888769875348",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "5454e0a2c341d4643eb50d62043cdcc3502db85eec397f272a252ded7e27568d"
+        },
+        {
+          "path_id": "-1828787338897431956",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "e7991707af51f48edd11643c496fd2cb9c56a28e564c63c97c4e84a498769910"
+        },
+        {
+          "path_id": "-1542505743067815316",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "ca19ccf46b20eb6fffe4b1610af6018e8dcb051590ec9b981c9413ac8045edb0"
+        },
+        {
+          "path_id": "-1152634837649104276",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "09d8c5c38041e8583fd908aa4255e3cf4f6bcae55dbc5f04cd7ba32a9f9cf081"
+        },
+        {
+          "path_id": "-1054955884589718932",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "0f1cf26a7217c6218c97e36f1ebddda58aed0a9c16f9ac5cb8697d1ce5436288"
+        },
+        {
+          "path_id": "-890828214604832148",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "aab94718dcbcef8ce395cf913bf2181a319d3a378ee5390630ffb321a19cde63"
+        },
+        {
+          "path_id": "-595212396554263956",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "27526e21e29946df6088361ad083553bd43957cd89abe6ea8a5c790f9f503e8f"
+        },
+        {
+          "path_id": "-479565471245114772",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "36041a3b59c776c4f3760c5d7c2cf386ba0df6f455fb01bf3bfe0121d5c08b87"
+        },
+        {
+          "path_id": "-242339234532531604",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "91eb0c84a29e969cac2f89f4dd7855dd901e769b62274e8242daa2cc5c33177d"
+        },
+        {
+          "path_id": "236962699079410284",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "f077af7335b58716b9afbf39e08695321c621d4d64a7da6115b0670395a4fa47"
+        },
+        {
+          "path_id": "542595034671440492",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "8f3732a5e71e58d2a5f5d948e11941dd8635c478c2066300e2a79f591d8d70f1"
+        },
+        {
+          "path_id": "598399093228135020",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "4f22f97f7b17a184ab3ec8e210d87dff186fcd1c8931d4ff39462fefc3bd5d53"
+        },
+        {
+          "path_id": "692937029356577388",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "2ddbf9a23d76bc98f0ec76ce709d25f9666fe4abe4a3b4ad5340f9007c0dac7c"
+        },
+        {
+          "path_id": "703123757444260460",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "1842f59944b5856fb6878e34e11321fe3116a03e7e363c9333c57e4a52c0d11f"
+        },
+        {
+          "path_id": "818642700307882604",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "f9c3eb466c3487a6f4d12fe1bba302a5472978cfaa9ce0b9789a7bd603c14f54"
+        },
+        {
+          "path_id": "1135487010303337068",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "1da5fe9f5878aaf5f6f103d725cc7ee6177bdd9a02b4c8cfb304475b8a122726"
+        },
+        {
+          "path_id": "1515041657260696172",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "c4bbebd8dcd390b8123752d4765f47555426b0c6fc97403074e88b3929786a14"
+        },
+        {
+          "path_id": "1578645134624383596",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "4565ae80be96581d1ac01b87f6bc8f5899813108058af3b248d3e8da9b33ce42"
+        },
+        {
+          "path_id": "1603534012522848876",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "25a44d785c4ebecbaac7f09d3c3ad8f16e7f37fa23d9267517080e7732ba2d2e"
+        },
+        {
+          "path_id": "1986342607651365484",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "1a0cc1eb7a15bd92cc80bcafbc08fae0a1117c92b93c94d6ef46df4b006cea0c"
+        },
+        {
+          "path_id": "2330630757164606060",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "a974be063c80207e3dc738fba68ddb8a4168d74128e576759613fe58dde8e732"
+        },
+        {
+          "path_id": "2356766837392761452",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "7cb111089d818296086a417c293b5e8340d92566eba2eed20b900d4fc07c7250"
+        },
+        {
+          "path_id": "2529817454264869484",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "4c16e43151a471dac9f8e6d8c2d55c2e7aaa3794c61a44eae2544a2cdb1a5909"
+        },
+        {
+          "path_id": "2687570765536649836",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "b09da0d6967a98e8af84adb11151971ac3e736b2642856cfd3b94ccc3106922d"
+        },
+        {
+          "path_id": "3219825927473160812",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "84dc7394b324993a2e56dab35f799331d9238e4a203dfdce54d6e9a7d7d1a297"
+        },
+        {
+          "path_id": "3463898578369471084",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "503d4c3ef8dd808a564f433d0c92b1d5995b52b768efd12462bca7cac794422c"
+        },
+        {
+          "path_id": "3583873270660358764",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "72de8398c94f067707d96dde85ae4cc9a8605c90bf1cc16b2df31f1e222a05ab"
+        },
+        {
+          "path_id": "3859919491597689452",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "6c3b97702304abbf32dba43bb978237f0f2e99df049bf7dee65f99f809f00012"
+        },
+        {
+          "path_id": "4152513362429305452",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "a761f74eb3e874eff81888c3635dd888c475fe8a5c2503968b0097c497af977d"
+        },
+        {
+          "path_id": "4558338766076600940",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "1f646e2d936b36ea2cfe43dba5f2dd5864b9d373c74e046e7ace9f0c70749ab7"
+        },
+        {
+          "path_id": "5167239045040923244",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "826d9e75165fe442c4ae0a37d5b744de35b3a4835a9e75eaa39d3b94b73cde42"
+        },
+        {
+          "path_id": "5351130877128041068",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "29f1173bebb377b5fecc47bcdf23cbcb9a25776b4cf9cd3adc2b87e3fd074bc5"
+        },
+        {
+          "path_id": "5407276403987407468",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "22a6c6880eb9b56d1c62e885b8964f3fdd9defa8f39e11852261fe4ce4df4a6d"
+        },
+        {
+          "path_id": "5535711680032498284",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "f6ef76bb51bcc7ef0cf61619cc577a0d72cc7b902b7939f266668c059077d9ac"
+        },
+        {
+          "path_id": "5563975503738790508",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "50fb640ad9707cdac2c34d15d40b4678ea059424db5027b5071e122ea77dc982"
+        },
+        {
+          "path_id": "6193886087701881452",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "ba4313be21b247cd1e95be6eb500ea2ac27d00d6a2c22b73687418d90ebc84c9"
+        },
+        {
+          "path_id": "6350330506009666156",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "a4778ceff0a59c14d959a2a3ba7d73a799873d8e2996f33554fe342572409bd7"
+        },
+        {
+          "path_id": "6409172369729938028",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "b98639e79c2be07f37021f732cf1134453b0ee332ec0f5bd2921de3c15d99685"
+        },
+        {
+          "path_id": "6520028316809847404",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "f6e75e0861d9f7e01cd99238db29a93afa01d3ecd424dd38169e7ec7d2b371b3"
+        },
+        {
+          "path_id": "6805552180600201836",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "f67be1b4cc8656c4e36b2856f03f6cabd570862f4abecb59a550b07ee03a4b6d"
+        },
+        {
+          "path_id": "7090161979993514604",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "7246f6a47a1bd3b8589a5694ff39494fa7d7323f1a9c8e4d2ccf2446a7e1a9ae"
+        },
+        {
+          "path_id": "7606737939045704300",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "004a12bdcdfead91c2ce60336c247cabd61f54832c911dd23985082cc80e8f55"
+        },
+        {
+          "path_id": "7818318690881856108",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "6141177b1902f854b1e71a4532bc1456c03fbd953e4f27492127497c3e952357"
+        },
+        {
+          "path_id": "7840003752888001132",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "c66a0dda554f0dad26a7ef9978717e86d31b42665550ea82d3e9290fd2583cdc"
+        },
+        {
+          "path_id": "8051926106730422892",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "b764f35326a7ac1ef6b425e9099d71bd4299c6af7b597cae295821def98aedf7"
+        },
+        {
+          "path_id": "8370466714945217132",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "13245d11a376abe3607e2297e83491e0f092cf9c603bc17d0bf461129c9f63a7"
+        },
+        {
+          "path_id": "8796710073758671468",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "ca46e1ad106811a90606065e6bdad564a95ee1e7e362ea37a53e7c42ce209d50"
+        },
+        {
+          "path_id": "9090906933188452972",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "90f6e6c298d81d581b8be642b4a432b9b05905e2b56534f433162169a5eb924e"
+        },
+        {
+          "path_id": "9109418814213808748",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "7dcea2a4e21a35f5c9d4cd996775ecf1f54360d386f8a772c21185d21bc53cc0"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_29",
+      "name": "Kriegs",
+      "internal_name": "29.Kruger",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "33943f22abf6854488476598454dc5c0",
+      "prefab_path_id": "-1391504138908329655",
+      "resource_path_id": "4746",
+      "renderers": [
+        {
+          "path_id": "6290783775389391177",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "e980d6864c395c01ac30645c7367bbca27fba623ed1e054846b27ffbe7cf091b"
+        },
+        {
+          "path_id": "7038910028240263497",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "10c49838e6a7035163a085806eee227b0d72cb1302ab73b0f33bb1411250a453"
+        },
+        {
+          "path_id": "9042709894222387529",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "67f7f02e26b29ce0a21dc44bff41e593ca5d98c041b5662bcc1c5daabf645e60"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_30",
+      "name": "Dozer",
+      "internal_name": "30.VinniePuh",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "7024d24a52c78664491512909e052015",
+      "prefab_path_id": "7890776869784536164",
+      "resource_path_id": "4748",
+      "renderers": [
+        {
+          "path_id": "-7898010807744904092",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "6c816e57e6f634cb4a38eea4bae19f6dd9a9f2666870708c764ae4565dde093a"
+        },
+        {
+          "path_id": "-5243856873084271516",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "274df992317ea58a7a17685a2cfa84646d4076c32c93c92e06370673e749aa96"
+        },
+        {
+          "path_id": "-4991282030066645916",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "d4376f6d9f2f3d3789a34cff473dbbd079b4ebcdc86a099a05df2e842a6cab2e"
+        },
+        {
+          "path_id": "-4853816764159081372",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "34a891f063dc89e07a06de0f49fc4fbb7a84a7db79bd04e38314ab44dd4f986b"
+        },
+        {
+          "path_id": "-3351961193737993116",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "0d18c451e91d6e367417a9fce0f23666393954f5b51f4ba891d150ae51dc5e1a"
+        },
+        {
+          "path_id": "-2326878500061297564",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "a8bc21f9cd81afa5cf73022b514a392e8d791e421953f88782f0a94d780d263d"
+        },
+        {
+          "path_id": "-639453003630754716",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "fbe8ff25765daf3d329f8d3ba091ebf23ba7326ad2caec95a3b20b23da33c845"
+        },
+        {
+          "path_id": "2353883638074459236",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "e263cf156efed6cbe6f9faea84088ab048b4a3ef2ec3b6338cccd0678f0ee339"
+        },
+        {
+          "path_id": "3712109036584125540",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "ddb13ce6986176c9a592f87f379a10a0946fe8e318ee7d0291fb8ffc4c13fd76"
+        },
+        {
+          "path_id": "5986511403136926820",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "8f8831c8e1d30f29a1a372d2c152284de25f56c4d96cb50bcdae28a137cfabc5"
+        },
+        {
+          "path_id": "6018146812854748260",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "59d933c351b0608a3ac5847a03e06a74a7dbd713dadeea1852de7d4dc2c4616c"
+        },
+        {
+          "path_id": "8263359496491058276",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "918cdabbbfec76676c5c2064bab8f11127573d45d552aeff2d82d56f329c19dd"
+        }
+      ],
+      "identity_verified": true
+    },
+    {
+      "id": "operator_31",
+      "name": "Hunter",
+      "internal_name": "31.Stalker",
+      "bundle": "src/thrid_person",
+      "prefab_guid": "e3c4d16adb7c9ab43830e23b1fef63ba",
+      "prefab_path_id": "-4543807667997044951",
+      "resource_path_id": "4749",
+      "renderers": [
+        {
+          "path_id": "-2077819392070512855",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "d5b754cdd63bc8c35b8135828a45f1301b825c5c41d498fc58203c7359da9a72"
+        },
+        {
+          "path_id": "-1883125094445215959",
+          "name": "soldier:Solder_LOD1",
+          "bones": 83,
+          "sha256": "529730c403a6f1865f8b2de56390185d0b65fb3062ff61bae1fe3ce292de8ba3"
+        },
+        {
+          "path_id": "671387300727557929",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "e9d25496a53beb7beea3b1d9d290fa7d5f006cc57ee41b0eb2aaab1c49a28794"
+        },
+        {
+          "path_id": "2565049147312443177",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "86f559916fd4e6f00632e948d3c30c8252b89a994d15cb67d73204fae5c44514"
+        },
+        {
+          "path_id": "5764907590874959657",
+          "name": "soldier:Solder_LOD2",
+          "bones": 83,
+          "sha256": "30275959225003b15e907bbce97e6479f20b9acb5a878daf6bd52d3ced36d4ec"
+        },
+        {
+          "path_id": "7599623888258404137",
+          "name": "soldier:Solder_LOD0",
+          "bones": 83,
+          "sha256": "f11432bc6b680b8c1f876c5eef210c60145114ab7fd48448feec4e95c955e616"
+        }
+      ],
+      "identity_verified": true
+    }
+  ]
+}

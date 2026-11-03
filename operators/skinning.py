@@ -25,6 +25,17 @@ def skinned_tree(template,mesh,name,indices,weights,bone_count):
     if 'm_Skin' in d:d['m_Skin']=[]
     # Preserve the exact target skeleton's inverse bind matrices and hashes.
     d['m_BindPose']=copy.deepcopy(template['m_BindPose']);d['m_BoneNameHashes']=copy.deepcopy(template['m_BoneNameHashes']);d['m_RootBoneNameHash']=template['m_RootBoneNameHash']
+    if 'm_VariableBoneCountWeights' in d:
+        d['m_VariableBoneCountWeights']={k:([] if isinstance(value,list) else b'' if isinstance(value,bytes) else value) for k,value in d['m_VariableBoneCountWeights'].items()}
+    if 'm_BonesAABB' in d:
+        bind=np.asarray([[[p['e'+str(row)+str(col)] for col in range(4)] for row in range(4)] for p in d['m_BindPose']]);homogeneous=np.c_[v,np.ones(len(v))];bounds=[]
+        for bone in range(bone_count):
+            mask=np.any((i==bone)&(w>0),axis=1)
+            if mask.any():
+                local=(homogeneous[mask]@bind[bone].T)[:,:3];low=local.min(0)-.002;high=local.max(0)+.002
+            else:low=np.full(3,np.inf);high=np.full(3,-np.inf)
+            bounds.append({'m_Min':dict(zip('xyz',map(float,low))),'m_Max':dict(zip('xyz',map(float,high)))})
+        d['m_BonesAABB']=bounds
     return d
 
 def cpu_skin(positions,indices,weights,pose_matrices,inverse_bind_matrices):

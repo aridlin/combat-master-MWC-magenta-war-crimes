@@ -25,7 +25,11 @@ def run(action,settings):
                     if rel in outputs:raise ValueError('Overlapping staged modules require explicit composition: '+rel)
                     outputs[rel]=p
             dump(record,{'status':'prepared','before':copy.deepcopy(saved),'manifests':settings['manifests']})
-            result=e.transaction(c,state,saved,outputs,set(settings['selected']))
+            assignments=settings.get('operator_assignments')
+            if assignments is not None:
+                from operators.assignments import validate
+                assignments=validate(assignments)
+            result=e.transaction(c,state,saved,outputs,set(settings['selected']),operator_assignments=assignments)
             journal=state/'transactions'/result['transaction'];undo={r:str(journal/r) for r in outputs if (journal/r).is_file()}
             dump(record,{'status':'applied','before':saved,'after':result,'undo':undo,'in_game_tested':False})
         elif action=='restore':
@@ -33,11 +37,13 @@ def run(action,settings):
             if rec['status']!='applied':raise ValueError('No applied expansion to restore')
             if saved['installed']!=rec['after']['installed']:raise ValueError('Installed selection changed after this update; restore through the manager instead')
             outputs={rel:Path(p) for rel,p in rec['undo'].items()}
-            result=e.transaction(c,state,saved,outputs,set(rec['before']['selected']))
+            result=e.transaction(c,state,saved,outputs,set(rec['before']['selected']),operator_assignments=rec['before'].get('operator_assignments',{}))
             if result['installed']!=rec['before']['installed']:raise ValueError('Restored stack hashes do not match the recorded prior state')
             rec['status']='restored';dump(record,rec)
         else:raise ValueError('Unknown action')
         (state/'selected.txt').write_text('\n'.join(result['selected'])+'\n')
+        from operators.assignments import save_plan
+        save_plan(state,result.get('operator_assignments',{}))
         return {'action':action,'selected':result['selected'],'game_process_was_not_closed':True,'in_game_tested':False}
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('action',choices=['apply','restore']);p.add_argument('--config',required=True);a=p.parse_args();print(json.dumps(run(a.action,json.loads(Path(a.config).read_text())),indent=2))

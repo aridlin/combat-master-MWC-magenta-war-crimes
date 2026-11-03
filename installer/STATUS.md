@@ -1,11 +1,21 @@
 # Expansion preview status — 2026-11-03
 
-The expansion report in docs/expansion.md is the current feature matrix. Three authored weapon upgrades and the independently selectable sky module passed bundle verification. Existing Lynx model/audio, MP7 objects, operator texture bundles and original weapon materials remain byte-exact.
+See [the current feature matrix](../docs/operator-expansion.md).
 
-Forty-three automated tests collected: 42 passed and one existing data-dependent test skipped. Native skinned-mesh codec roundtrip passed on a copy of a 741-vertex/83-bone mesh; no new character rig was installed. Character models remain blocked on authenticated downloads, asset suitability/permissions and target/rigging work.
+The pre-home checkpoint is applied: Dozer/Shrek with glasses, Ranger/low-poly
+Fishguy, authored MP7 nailer and local TF2 Medigun visual. Existing Lynx model,
+tail, cat sounds and the rest of the mod stack are preserved. All 81 managed
+installed/original hashes verify; private real-bundle apply/restore tests passed.
 
-The local legacy manager state was initialized only after validating known installed stage hashes and verifying 81 original/installed bundle entries. Expansion rollback to the precise previous mod stack and reinstallation were exercised. Final sky cloud layout was revised after visual review; the current final build is recorded in the private workspace deployment report. Original-scene deterministic halftone menu supersedes the rejected AI redraw.
+All nine TF2 mercenaries, Mario and Steve are optional per-operator choices with
+native bundle/skin verification and offline visual reviews. The TF2 importer
+creates private previews from local files; Valve models are not bundled.
+Titanfall rigging, Sonic reduction and further audio work remain unfinished.
+Per-model magenta controls and a separate native-game-operator control were
+requested after this checkpoint and are in progress.
 
-Linux and Windows frontends compile. Portable packages include updated thumbnails, source/license records and runtime data. Linux packaged diagnostics are checked separately from source tests. Windows expanded package runtime/game compatibility remains unverified; do not label cross-compilation a Windows runtime test.
-
-No new expansion feature has yet passed in-game acceptance. ADS/reload/LOD, sky HDR/exposure, animation and helicopter checks remain required. The test VM stays paused; no game is closed automatically.
+57 tests collected: 56 pass, one existing data-dependent test skipped. Linux and
+Windows frontends compile. Current Linux packaged diagnostics pass. Expanded
+Windows runtime/UI/game acceptance remains pending. The VM was found aborted.
+The desktop was locked during the attempted armory check; new features remain
+in-game unverified. No game is closed automatically.
