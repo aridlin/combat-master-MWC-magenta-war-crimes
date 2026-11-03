@@ -61,7 +61,7 @@ def fit(base,source_indices,source_weights,meta,source_bind,native,options,model
     extended=np.concatenate([bind,np.linalg.inv(virtual)]);target_names+=['Root_M','Head_M']
     mapping={i:arms[i] for i in range(len(names))};mapping[source_root]='Root_M';mapping[source_head]='Head_M'
     anchors={name:i for name,i in primary.items() if arms.get(i)==name};anchors.update(Root_M=source_root,Head_M=source_head)
-    v,n,indices,weights,report=adapt(mesh.vertices,mesh.normals,names,source_bind,bi,bw,target_names,extended,source_targets=mapping,source_basis=options.get('source_basis'),primary_sources=anchors,source_root=source_root,source_head=source_head)
+    v,n,indices,weights,report=adapt(mesh.vertices,mesh.normals,names,source_bind,bi,bw,target_names,extended,source_targets=mapping,source_basis=options.get('source_basis'),primary_sources=anchors,source_root=source_root,source_head=source_head,fit_hands=options.get('fit_hands',False))
     if np.any(indices>=len(bind)):raise ValueError('Virtual torso landmarks leaked into serialized arm weights')
     from .viewmodel import slim,settings
     v,n,volume=slim(v,n,indices,weights,native,**settings(model));report['viewmodel_volume']=volume

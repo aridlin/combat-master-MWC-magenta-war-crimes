@@ -48,7 +48,7 @@ def target_name(source):
 
 
 def rotation_between(a,b):
-    a=np.asarray(a,dtype=float);b=np.asarray(b,dtype=float);a/=np.linalg.norm(a);b/=np.linalg.norm(b);c=np.clip(a@b,-1,1);v=np.cross(a,b)
+    a=np.array(a,dtype=float,copy=True);b=np.array(b,dtype=float,copy=True);a/=np.linalg.norm(a);b/=np.linalg.norm(b);c=np.clip(a@b,-1,1);v=np.cross(a,b)
     if c<-.999999:
         axis=np.cross(a,[1.,0.,0.] if abs(a[0])<.9 else [0.,1.,0.]);axis/=np.linalg.norm(axis)
         return 2*np.outer(axis,axis)-np.eye(3)
@@ -56,7 +56,7 @@ def rotation_between(a,b):
     return np.eye(3)+k+k@k/(1+c)
 
 
-def adapt(positions,normals,source_names,source_inverse_bind,source_indices,source_weights,target_names,target_inverse_bind,*,source_targets=None,source_basis=None,primary_sources=None,source_root=None,source_head=None):
+def adapt(positions,normals,source_names,source_inverse_bind,source_indices,source_weights,target_names,target_inverse_bind,*,source_targets=None,source_basis=None,primary_sources=None,source_root=None,source_head=None,fit_hands=False):
     # Compiled TF2 reference pose: +Y up, +X character-left. Combat Master's
     # renderer-local bind pose: +Z up, -X character-left, -Y forward.
     basis=np.asarray(source_basis if source_basis is not None else [[-1.,0.,0.],[0.,0.,-1.],[0.,1.,0.]])
@@ -82,6 +82,13 @@ def adapt(positions,normals,source_names,source_inverse_bind,source_indices,sour
     if not 1e-5<scale/native_units<100:raise ValueError('Unexpected source-to-Combat-Master scale')
     torso_linear=rotation_between(sp[source_head]-sp[source_root],tp[target['Head_M']]-tp[target['Root_M']])*scale
     torso_offset=tp[target['Root_M']]-torso_linear@sp[source_root]
+    primary=primary_sources if primary_sources is not None else {target_name(name):i for i,name in enumerate(source_names) if name in CENTRAL or re.fullmatch(r'bip_(collar|upperArm|lowerArm|hand|hip|knee|foot|toe)_[LR]',name)}
+    hand_fits={}
+    if fit_hands:
+        from .hand_fit import fits
+        hand_primary={semantic:i for i,semantic in enumerate(semantics) if semantic}
+        hand_primary.update(primary)
+        hand_fits=fits(sp,tp,hand_primary,target)
     transformed=np.zeros_like(p,dtype=float);transformed_n=np.zeros_like(n,dtype=float)
     matrices=[]
     for i,name in enumerate(source_names):
@@ -100,23 +107,33 @@ def adapt(positions,normals,source_names,source_inverse_bind,source_indices,sour
         if child_name and len(split)==2 and split[1] in ('L','R'):child_name+='_'+split[1]
         finger=re.fullmatch(r'(.+Finger)([123])_([LR])',tn)
         if finger:child_name=finger[1]+str(int(finger[2])+1)+'_'+finger[3]
+        hand=hand_fits.get(split[-1]) if base=='Wrist' or finger else None
         # Find the source joint representing that child's target joint.
         candidates=[j for j,tj in enumerate(mapped) if child_name and tj==target.get(child_name,-2) and np.linalg.norm(sp[j]-sp[i])>1e-5]
-        linear=np.eye(3)*scale
+        region_scale=hand['scale'] if hand else scale
+        region_rotation=hand['rotation'] if hand else np.eye(3)
+        linear=region_rotation*region_scale
         if candidates:
             child=min(candidates,key=lambda j:np.linalg.norm(sp[j]-sp[i]));a=sp[child]-sp[i];b=tp[target[child_name]]-tp[ti]
             if np.linalg.norm(b)>1e-6:
-                direction=a/np.linalg.norm(a);ratio=np.clip(np.linalg.norm(b)/(np.linalg.norm(a)*scale),.4,2.5)
+                direction=a/np.linalg.norm(a);ratio=np.clip(np.linalg.norm(b)/(np.linalg.norm(a)*region_scale),.4,2.5)
                 if tn.endswith('_M'):ratio=1.
-                linear=rotation_between(a,b)@(np.eye(3)+(ratio-1)*np.outer(direction,direction))*scale
+                linear=rotation_between(region_rotation@a,b)@region_rotation@(np.eye(3)+(ratio-1)*np.outer(direction,direction))*region_scale
         matrices.append((linear,tp[ti]-linear@sp[i]))
     # Accessory roots keep their offset from the torso/limb instead of collapsing
     # each pouch, grenade and collar onto the same target joint.
-    primary=primary_sources if primary_sources is not None else {target_name(name):i for i,name in enumerate(source_names) if name in CENTRAL or re.fullmatch(r'bip_(collar|upperArm|lowerArm|hand|hip|knee|foot|toe)_[LR]',name)}
     for i,name in enumerate(source_names):
         semantic=semantics[i]
-        if semantic in primary and i!=primary[semantic] and (source_targets is not None or name not in CENTRAL):
+        # Multiple real TF2 spine nodes can share Chest_M. They remain part of
+        # the continuous torso fit, not secondary props snapped to one anchor.
+        if semantic in primary and i!=primary[semantic] and name not in CENTRAL:
             anchor=primary[semantic];linear,_=matrices[anchor]
+            if semantic in ('Root_M','Spine1_M','Spine2_M','Chest_M','Neck_M','Head_M','Jaw_M'):
+                # These primary regions already use a continuous uniform fit.
+                # Preserve that fitted frame, including its translation. A
+                # source spine helper need not coincide with the native joint;
+                # snapping its props there tears bandoliers away from the body.
+                matrices[i]=matrices[anchor];continue
             u,_,vt=np.linalg.svd(linear);rigid=(u@vt)*scale
             matrices[i]=(rigid,tp[mapped[anchor]]-rigid@sp[anchor])
     indices=np.asarray(source_indices);weights=np.asarray(source_weights)
@@ -135,4 +152,4 @@ def adapt(positions,normals,source_names,source_inverse_bind,source_indices,sour
             if w>0:merged[mapped[int(bi)]]=merged.get(mapped[int(bi)],0)+float(w)
         for k,(bi,w) in enumerate(sorted(merged.items(),key=lambda x:-x[1])):out_indices[v,k]=bi;out_weights[v,k]=w
     if not np.isfinite(transformed).all() or not np.allclose(out_weights.sum(1),1,atol=1e-4):raise ValueError('Invalid adapted geometry or skin')
-    return transformed.astype('<f4'),transformed_n.astype('<f4'),out_indices,out_weights,{'scale':float(scale),'mapped_weighted_bones':len(used),'target_bones':len(target_names),'native_frame':frame.tolist(),'method':'joint-based rest-pose fitting in exact native mesh frame; visual and animation acceptance required'}
+    return transformed.astype('<f4'),transformed_n.astype('<f4'),out_indices,out_weights,{'scale':float(scale),'mapped_weighted_bones':len(used),'target_bones':len(target_names),'native_frame':frame.tolist(),'hand_fits':{side:{key:float(value) for key,value in fit.items() if key!='rotation'} for side,fit in hand_fits.items()},'method':'joint-based rest-pose fitting in exact native mesh frame; visual and animation acceptance required'}

@@ -2,8 +2,8 @@
   "date": "2026-11-03",
   "game_build": "24397779",
   "tests": {
-    "collected": 88,
-    "passed": 87,
+    "collected": 98,
+    "passed": 97,
     "skipped": 1
   },
   "correction": {
@@ -368,5 +368,37 @@
       "full_animation_acceptance": false
     },
     "remaining": "Fishguy/other character hand deformation, other model previews and full animation/gameplay acceptance."
+  },
+  "tf2_hierarchy_correction": {
+    "all_nine_TF2_mercenaries_seen_across_native_menu_tests": true,
+    "Mario_seen_in_native_menu": true,
+    "Spy_sleeves_and_cigarette_placement_corrected_in_native_holding_pose": true,
+    "Heavy_bandolier_continuous_in_rotated_native_showcase": true,
+    "source_hierarchy_mapping_and_continuous_torso_prop_frames": true,
+    "installed_operator_choices_and_game_bundles_changed": false,
+    "user_profile_unchanged": true,
+    "game_exit": 0,
+    "compositor_exit": 139,
+    "menu_appearance_only": true,
+    "full_animation_and_grip_acceptance": false,
+    "Fishguy_hand_fit_prototype_enabled_in_normal_profiles": false,
+    "source_only_not_yet_in_released_installer": true
+  },
+  "updated_first_person_fit_matrix": {
+    "models": 14,
+    "unique_prefabs": 29,
+    "operator_identities": 32,
+    "fits_verified": 812,
+    "native_skeletons_unchanged": true,
+    "game_files_modified": false,
+    "in_game_tested": false
+  },
+  "other_model_fit_comparison": {
+    "models": 5,
+    "fits": 10,
+    "maximum_position_delta_metres": 2.384185791015625e-07,
+    "normals_indices_weights_unchanged": true,
+    "all_arrays_byte_exact": false,
+    "note": "Sub-micrometre float32 position differences on Shrek/Mario; installed bundles unchanged."
   }
 }

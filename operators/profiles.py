@@ -2,6 +2,33 @@
 import re
 
 
+def tf2_mapping(names,parents):
+    """Secondary cloth/prop bones follow their inspected anatomical ancestry.
+
+    TF2 uses prp_ for cigarettes, wrist cuffs, coat tails and helmets alike.
+    A blanket chest mapping stretches sleeves and detaches head accessories.
+    """
+    from .retarget import CENTRAL,target_name
+    if len(names)!=len(parents) or not {'bip_pelvis','bip_head'}<=set(names):
+        raise ValueError('Unexpected TF2 source hierarchy')
+    primary_roles={i:target_name(n) for i,n in enumerate(names) if n in CENTRAL or re.fullmatch(r'bip_(collar|upperArm|lowerArm|hand|hip|knee|foot|toe)_[LR]',n) or re.fullmatch(r'bip_(thumb|index|middle|ring|pinky)_[012]_[LR]',n)}
+    roles=dict(primary_roles)
+    for i,name in enumerate(names):
+        if re.fullmatch(r'hlp_(suitArmTop|suitArmpitBack|thigh)_[LR]',name):roles[i]=target_name(name)
+        # Heavy's one continuous chest bandolier is split into helper bones
+        # under several spines and a collar. Keep those rigid sections in one
+        # chest frame rather than stacking them as those native joints bend.
+        if name.startswith('prp_bullet_'):roles[i]='Chest_M'
+    semantics={}
+    for i in range(len(names)):
+        current=i;seen=set()
+        while current not in roles and current>=0:
+            if current in seen or current>=len(names):raise ValueError('Invalid TF2 source parent chain')
+            seen.add(current);current=int(parents[current])
+        semantics[i]=roles.get(current)
+    return semantics,{name:i for i,name in primary_roles.items()}
+
+
 def inherited_mapping(names,parents,primary):
     by_index={i:name for name,i in primary.items()};result={}
     for i in range(len(names)):
@@ -15,7 +42,9 @@ def inherited_mapping(names,parents,primary):
 
 def profile(name,meta):
     names=meta['bone_names'];parents=meta['bone_parents']
-    if name.startswith('tf2_'):return dict(source_basis=[[-1,0,0],[0,0,-1],[0,1,0]])
+    if name.startswith('tf2_'):
+        semantics,primary=tf2_mapping(names,parents)
+        return dict(source_targets=semantics,primary_sources=primary,source_root=names.index('bip_pelvis'),source_head=names.index('bip_head'),source_basis=[[-1,0,0],[0,0,-1],[0,1,0]])
     if name=='titanfall_transfer':
         if len(names)!=83 or 'Head_M' not in names or 'Root_M' not in names:raise ValueError('Pilot local rig differs from reviewed native-reference hierarchy')
         semantics={i:('Root_M' if n=='root_jnt' else n) for i,n in enumerate(names)};primary={n:i for i,n in semantics.items() if n!='Root_M' or names[i]=='Root_M'}

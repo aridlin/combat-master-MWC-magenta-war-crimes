@@ -8,6 +8,29 @@ from pathlib import Path
 
 
 class Fitting(unittest.TestCase):
+    def test_torso_props_share_fitted_body_frame_instead_of_snapping_to_native_spine(self):
+        from operators.profiles import tf2_mapping
+        names=['bip_pelvis','bip_spine_3','bip_head','prp_bullet_chest'];parents=[-1,0,1,1]
+        mapping,primary=tf2_mapping(names,parents)
+        rest=np.repeat(np.eye(4)[None],4,axis=0);rest[:,2,3]=[0,.6,1,.65]
+        target=np.repeat(np.eye(4)[None],3,axis=0);target[:,2,3]=[0,.8,1]
+        p=np.array([[.2,0,.65],[.2,0,.65]]);i=np.zeros((2,4),int);i[:,0]=[1,3];w=np.zeros((2,4));w[:,0]=1
+        v,_,bi,bw,_=adapt(p,np.tile([0.,-1.,0.],(2,1)),names,np.linalg.inv(rest),i,w,['Root_M','Chest_M','Head_M'],np.linalg.inv(target),source_targets=mapping,primary_sources=primary,source_root=0,source_head=2,source_basis=np.eye(3))
+        np.testing.assert_allclose(v,p,atol=1e-6)
+        angle=np.pi/4;pose=target.copy();pose[1,:3,:3]=[[np.cos(angle),0,np.sin(angle)],[0,1,0],[-np.sin(angle),0,np.cos(angle)]]
+        posed=cpu_skin(v,bi,bw,pose,np.linalg.inv(target))
+        np.testing.assert_allclose(posed[0],posed[1],atol=1e-6)
+
+    def test_explicit_tf2_mapping_keeps_duplicate_spine_roles_continuous(self):
+        from operators.profiles import tf2_mapping
+        names=['bip_pelvis','bip_spine_2','bip_spine_3','bip_head'];parents=[-1,0,1,2]
+        mapping,primary=tf2_mapping(names,parents)
+        rest=np.repeat(np.eye(4)[None],4,axis=0);rest[:,2,3]=[0,.6,.7,1]
+        target=np.repeat(np.eye(4)[None],3,axis=0);target[:,2,3]=[0,1.4,2]
+        p=np.array([[.1,0,.6],[.1,0,.7]]);i=np.zeros((2,4),int);i[:,0]=[1,2];w=np.zeros((2,4));w[:,0]=1
+        result=adapt(p,np.tile([0.,-1.,0.],(2,1)),names,np.linalg.inv(rest),i,w,['Root_M','Chest_M','Head_M'],np.linalg.inv(target),source_targets=mapping,primary_sources=primary,source_root=0,source_head=3,source_basis=np.eye(3))
+        np.testing.assert_allclose(result[0],p*2,atol=1e-6)
+
     def test_tf2_headwear_follows_head_motion_without_moving_chest_accessories(self):
         names=['bip_pelvis','bip_spine_2','bip_head','prp_hat','prp_helmet','prp_pouch']
         rest=np.repeat(np.eye(4)[None],6,axis=0);rest[:,2,3]=[0,.6,1,1.2,1.2,.65];rest[3:,0,3]=[.1,-.1,.2]

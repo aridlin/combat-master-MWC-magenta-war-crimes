@@ -145,5 +145,40 @@
     "color_editing": false,
     "sha256": "a2e7860423fbd1dafcbd6ca575b70610c73cd67b303ad8a24e47df2632db069e",
     "caption": "Actual sniper holding pose after headwear attachment correction; full animation and grip quality remain unaccepted."
+  },
+  {
+    "file": "tf2-spy-sleeves-offline.png",
+    "source": "Codex native offline private operator preview, 2026-11-03; source colors are test-only",
+    "sha256": "dc34af9bc4edc4d4d93001db608aad1cf6cf138b487cec261947d218ce24103c",
+    "color_editing": false,
+    "caption": "Actual native preview: corrected Spy sleeves and cigarette; private Street Fighter alias, not installed."
+  },
+  {
+    "file": "tf2-heavy-belt-offline.png",
+    "source": "Codex native offline private operator preview, 2026-11-03; source colors are test-only",
+    "sha256": "ae6eeb111647af1109c09ee906c3cca930c390d7e32c561f85d4b46caa7d5a76",
+    "color_editing": false,
+    "caption": "Actual rotated native showcase: continuous Heavy bandolier; private Jagermeister alias, not installed."
+  },
+  {
+    "file": "tf2-pyro-offline.png",
+    "source": "Codex native offline private operator preview, 2026-11-03; source colors are test-only",
+    "sha256": "c2b36ec917ff97b11f1a95ae20e8aae04f42dd718fc5b42c2ac5390b825ab3bd",
+    "color_editing": false,
+    "caption": "Actual native Pyro menu on private Echo alias; grip/animation acceptance pending."
+  },
+  {
+    "file": "tf2-demoman-offline.png",
+    "source": "Codex native offline private operator preview, 2026-11-03; source colors are test-only",
+    "sha256": "f53a9966d13b0c094aab9f39fe8718b6cb01962d34297ac581ec945031cff033",
+    "color_editing": false,
+    "caption": "Actual native Demoman on private Echo Elite alias; earlier attachment stage, not current full-animation acceptance."
+  },
+  {
+    "file": "mario-offline-menu.png",
+    "source": "Codex native offline private operator preview, 2026-11-03; source colors are test-only",
+    "sha256": "d4c8f6548257383d823c777d664169f04625fed0febe998907b3bc493f4532c4",
+    "color_editing": false,
+    "caption": "Actual native Mario on private Viper alias; oversized original proportions and menu framing need review."
   }
 ]

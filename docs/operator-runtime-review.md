@@ -30,10 +30,7 @@ existing defaults stay unchanged.
 | Polar Star | TF2 Engineer | Hardhat originally followed the chest and covered the face; head attachment corrected and native holding pose rechecked. |
 | Wolverine | TF2 Sniper | Hat originally followed the chest and covered the face; head attachment corrected and native holding pose rechecked. |
 
-Mario, Pyro, Demoman, Heavy and Spy still need this native-menu review. The
-mode-specific Demon_DS_Game_Mode slot has no selectable normal operator card;
-its private Spy assignment was not inspected. This is not worked around by
-changing unlocks or inventory.
+Mario, Pyro, Demoman, Heavy and Spy have now also rendered in normal native menus. Spy was assigned to the selectable Street Fighter slot in a later private test; the mode-specific Demon_DS_Game_Mode slot was left alone. No unlock or inventory changes were used.
 
 ![Corrected Soldier helmet](screenshots/tf2-soldier-headwear-offline.png)
 ![Corrected Engineer hardhat](screenshots/tf2-engineer-headwear-offline.png)
@@ -73,3 +70,36 @@ Fishguy and other character hand deformation, remaining model previews, full
 animations/helicopter scenes, first-person grip/ADS/reload, optional audio
 playback and 4K performance remain open. Do not treat numeric fits or these menu
 screenshots as completion of those checks.
+
+## Further hierarchy correction and honest quality limits
+
+The native review exposed stretched Spy cuffs, a cigarette attached to his chest,
+and misplaced Heavy bandolier sections. Secondary TF2 bones now inherit their
+reviewed anatomical ancestors: cuffs follow forearms, cigarettes/headwear follow
+the head and coat tails follow the pelvis. Real central spine helpers stay in the
+continuous torso fit. Torso props inherit that fitted body frame instead of
+snapping to a different native spine position. Heavy's connected bandolier
+sections share one chest frame so they retain their continuous diagonal.
+
+![Spy after sleeve and cigarette correction](screenshots/tf2-spy-sleeves-offline.png)
+![Heavy bandolier in the rotated native showcase](screenshots/tf2-heavy-belt-offline.png)
+
+These fixes passed private serialized bundle checks and the shown native holding
+poses. A renewed numerical first-person matrix passed 812 fits across 14 models
+and 29 unique prefabs. That does not prove real first-person grip or all animation
+states. Other model comparisons retain identical normals, bone indices and skin
+weights; Shrek/Mario positions differ by less than 0.000001 metres from the prior
+fit because of float32 rounding. The installed bundles remain unchanged.
+
+The Fishguy hand-specific palm fit is a **disabled prototype**: the native trial
+reduced oversized palms but left an awkward wrist transition. No normal source
+profile enables it, and it is not a manager option. His back is intact; wrist and
+hand quality still need work. Mario renders with his authored head/glove
+proportions, but the native menu camera crops his hat and his grip needs review.
+The TF2 characters remain experimental for full animations, grip and helicopter
+scenes even though all nine have now rendered.
+
+The current source suite runs 98 tests: 97 passed, one existing data-dependent
+skip. These hierarchy changes are newer than the published v0.1.1 binaries;
+updated installer builds are being prepared. No character source is replaced
+with primitive geometry, and no Valve model/audio binaries are published.
