@@ -5,15 +5,28 @@ import numpy as np
 import UnityPy
 
 
+def same_bind_frame(a,b,transforms,by_go):
+    if a['m_Bones']!=b['m_Bones'] or a['m_RootBone']!=b['m_RootBone']:return False
+    left=transforms[by_go[a['m_GameObject']['m_PathID']]];right=transforms[by_go[b['m_GameObject']['m_PathID']]]
+    return all(left[k]==right[k] for k in ('m_Father','m_LocalPosition','m_LocalRotation','m_LocalScale'))
+
+
 def native_rig(env,target,first_person=False):
     objects={o.path_id:o for o in env.objects};transforms={o.path_id:o.read_typetree() for o in env.objects if o.type.name=='Transform'}
+    by_go={t['m_GameObject']['m_PathID']:i for i,t in transforms.items()}
     owned={int(r['path_id']):r for r in target['renderers']};renderers={};meshes={};lods={}
     for rid,record in owned.items():
         obj=objects.get(rid)
         if not obj or obj.type.name!='SkinnedMeshRenderer' or hashlib.sha256(obj.get_raw_data()).hexdigest()!=record['sha256']:raise ValueError('Native operator renderer changed: '+str(rid))
         tree=obj.read_typetree();pointer=tree['m_Mesh']
         if pointer['m_FileID']!=0:raise ValueError('Expected a local operator mesh')
-        renderers[rid]=tree;meshes[rid]=objects[pointer['m_PathID']]
+        renderers[rid]=tree;meshes[rid]=objects[pointer['m_PathID']] if pointer['m_PathID'] else None
+    empty_donors={}
+    for rid,mesh in list(meshes.items()):
+        if mesh is not None:continue
+        candidates=[other for other,source in meshes.items() if source is not None and same_bind_frame(renderers[rid],renderers[other],transforms,by_go)]
+        if not first_person or not candidates:raise ValueError('Empty operator renderer has no verified matching native mesh frame: '+str(rid))
+        donor=min(candidates);meshes[rid]=meshes[donor];empty_donors[rid]=donor
     for obj in env.objects:
         if obj.type.name!='LODGroup':continue
         tree=obj.read_typetree()
@@ -44,7 +57,7 @@ def native_rig(env,target,first_person=False):
         root=tree['m_RootBone']
         if root['m_FileID']!=0 or root['m_PathID'] not in index:raise ValueError('Renderer root bone is not part of the reviewed native rig')
         snapshots[rid]={'bone_names':names,'bone_parents':parents,'inverse_bind':bind,'root_bone_index':index[root['m_PathID']],'renderer':tree,'mesh_object':meshes[rid],'mesh_tree':mesh}
-    return {'objects':objects,'renderers':renderers,'meshes':meshes,'primary':primary,'snapshots':snapshots,'target':target}
+    return {'objects':objects,'renderers':renderers,'meshes':meshes,'primary':primary,'snapshots':snapshots,'target':target,'empty_renderer_mesh_donors':empty_donors}
 
 
 def export(bundle_root,target_id,output):

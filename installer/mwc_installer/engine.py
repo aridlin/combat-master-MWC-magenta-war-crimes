@@ -8,7 +8,7 @@ from halftone.assets import dump
 from deploy_halftone import replace_verified
 
 ROOT=Path(__file__).resolve().parents[2]
-IDS={'lynx','scorpion','fishing_rod','nail_gun','toaster','medigun','players','weapons','terrain','cat_audio','crates','reticles','iron','glass','menu','sky','operator_arms','sonic_impact'}
+IDS={'lynx','scorpion','fishing_rod','nail_gun','toaster','medigun','players','weapons','terrain','cat_audio','crates','reticles','iron','glass','menu','sky','operator_arms','sonic_impact','tf2_medigun_audio'}
 MODELS={'scorpion','fishing_rod','nail_gun','toaster','medigun'}
 
 def log(message):print(message,flush=True)
@@ -268,6 +268,9 @@ def compose(config,state,saved,selected,addon,operator_assignments=None,tf2='',o
     if 'cat_audio' in selected:
         import cat_audio
         log('Building Lynx cat sounds...');s=settings('audio');s.update(source_assets=str(source_assets),source_sha256=digest(work/'root/audio'));cat_audio.build(c,s);merge(s)
+    if 'tf2_medigun_audio' in selected:
+        import tf2_audio
+        log('Building optional local-TF2 Medigun sounds...');s=settings('tf2-audio');s['source_sha256']=digest(work/'root/audio');tf2_audio.build(c,s,tf2);merge(s)
     if 'sky' in selected:
         from skybox import bundles as sky
         log('Building Minecraft-style sky cubemaps...');s=settings('sky');s.update(size=256,sources={rel:digest(work/rel) for rel in sky.TARGETS});sky.build(c,s);merge(s)

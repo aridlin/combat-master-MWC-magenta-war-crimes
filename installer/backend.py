@@ -36,11 +36,13 @@ def main():
         operators['titanfall_pilot']={'vertices':len(mesh.vertices),'triangles':len(mesh.faces),'hashes_verified':True,'rig_generated_locally':True,'native_geometry_bundled':False}
         from operators.first_person import validate_assignments
         from operators.viewmodel import settings as viewmodel_settings
-        import sonic_impact
+        import sonic_impact,tf2_audio,audio_pcm
+        audio_map=json.loads((ROOT/'config/tf2-audio-map.json').read_text())
+        if tf2_audio.BUNDLE!='root/audio' or len(audio_map['clips'])!=4:raise ValueError('Incomplete local TF2 audio module')
         targets=json.loads((ROOT/'config/operator-first-person-targets.json').read_text())['operators']
         if len(targets)!=32:raise ValueError('Incomplete first-person operator index')
         validate_assignments({'operator_0':'titanfall_pilot','operator_30':'shrek'},targets)
-        print(json.dumps({'model_assets_verified':rows,'operator_sources_verified':operators,'viewmodel_volume':{name:viewmodel_settings(name) for name in ('shrek','titanfall_pilot')},'sonic_visual_module_imported':sonic_impact.BUNDLE=='src/weapons/weapons','renderer_bounds_root_probe_verified':True,'renderer_bounds_float32_stable':True,'sky_faces':len(faces(32)),'game_files_modified':False,'in_game_tested':False},indent=2));return
+        print(json.dumps({'model_assets_verified':rows,'operator_sources_verified':operators,'viewmodel_volume':{name:viewmodel_settings(name) for name in ('shrek','titanfall_pilot')},'tf2_audio':{'module_imported':True,'mapped_native_clips':len(audio_map['clips']),'requires_local_tf2':True,'audio_bundled':False},'sonic_visual_module_imported':sonic_impact.BUNDLE=='src/weapons/weapons','renderer_bounds_root_probe_verified':True,'renderer_bounds_float32_stable':True,'sky_faces':len(faces(32)),'game_files_modified':False,'in_game_tested':False},indent=2));return
     if a.status:
         from installer.mwc_installer.engine import discover
         from operators.assignments import load_plan,save_plan

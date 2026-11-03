@@ -45,10 +45,11 @@ def pcm_window(path,count):
     return np.clip(np.rint(a),-32768,32767).astype('<i2').tobytes(),start
 
 
-def replace_fsb(template,pcm):
+def replace_fsb(template,pcm,frequency=44100):
     if template[:4]!=b'FSB5' or struct.unpack_from('<4I',template,4)!=(1,1,36,0) or struct.unpack_from('<I',template,24)[0]!=2:raise ValueError('Unexpected original Lynx PCM container')
     mode=struct.unpack_from('<Q',template,60)[0]
-    if mode&((1<<34)-1)!=16:raise ValueError('Expected mono 44100Hz FSB5 without extra chunks')
+    expected_mode={22050:10,44100:16}.get(frequency)
+    if expected_mode is None or mode&((1<<34)-1)!=expected_mode:raise ValueError('Expected reviewed mono PCM FSB5 rate without extra chunks')
     count=mode>>34
     if len(pcm)!=count*2:raise ValueError('PCM duration mismatch')
     data=pcm+b'\0'*((-len(pcm))%32);header=bytearray(template[:96]);struct.pack_into('<I',header,20,len(data))
@@ -58,7 +59,7 @@ def replace_fsb(template,pcm):
     decoded=decode_fsb(encoded)
     if len(decoded)!=1:raise ValueError('Unexpected decoded subsound count')
     with wave.open(io.BytesIO(next(iter(decoded.values())))) as w:
-        if (w.getnchannels(),w.getframerate(),w.getsampwidth(),w.getnframes())!=(1,44100,2,count):raise ValueError('FMOD decoded a different audio format/duration')
+        if (w.getnchannels(),w.getframerate(),w.getsampwidth(),w.getnframes())!=(1,frequency,2,count):raise ValueError('FMOD decoded a different audio format/duration')
         if w.readframes(count)!=pcm:raise ValueError('FMOD PCM round-trip mismatch')
     return encoded
 

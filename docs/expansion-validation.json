@@ -181,5 +181,37 @@
     "windows_fmod_library_initialized": true,
     "game_files_modified": false,
     "windows_game_installation_tested": false
+  },
+  "development_after_v0_1_0": {
+    "automated_tests": {
+      "collected": 78,
+      "passed": 77,
+      "skipped": 1
+    },
+    "first_person_sweep": {
+      "models": 14,
+      "operator_identities": 32,
+      "unique_prefabs": 29,
+      "primary_renderers": 64,
+      "unrelated_objects_byte_exact": 144905,
+      "synthetic_arm_renders_reviewed": true,
+      "in_game_tested": false
+    },
+    "tf2_medigun_audio": {
+      "independent_default_off_option": true,
+      "local_VPK_clips": 4,
+      "PCM_FMOD_roundtrip_exact": true,
+      "native_clip_metadata_preserved": true,
+      "cat_only_removal_bundle_sha256": "552fa9b28d9381886672e5f9aa2fc32ff6235496baf7364a480f1061368b3053",
+      "all_seven_Lynx_samples_preserved": true,
+      "installed": false,
+      "in_game_auditioned": false
+    },
+    "linux_packaged_diagnostics": true,
+    "linux_new_card_virtual_display_review": true,
+    "both_frontends_compile": true,
+    "both_portable_archives_built_and_audited": true,
+    "Windows_new_build_runtime_tested": false,
+    "published": false
   }
 }

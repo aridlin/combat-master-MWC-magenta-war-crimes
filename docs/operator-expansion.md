@@ -1,5 +1,31 @@
 # Operator and model expansion — 3 November 2026
 
+## Current development checks (after v0.1.0-preview)
+
+The released installers remain the tested v0.1.0 preview. The following source
+changes are newer and have not been installed into the game or republished:
+
+- All 14 model choices built on private copies across all 32 operator identities
+  (29 unique first-person prefabs). This is a coverage sweep, not every possible
+  model/slot combination. All 64 primary renderer outputs passed geometry,
+  skin, material and reference checks; 144,905 other original objects remained
+  byte-identical. Synthetic arm renders were reviewed for gross deformation;
+  real grip, ADS and reload acceptance remain pending.
+- Rush contains one empty native arm LOD. It can use a real native mesh only
+  from a renderer with identical bone pointers, root bone and local frame.
+  Different frames or missing donors fail explicitly; binds are never guessed.
+- Optional **TF2 Medigun audio** replaces only three Minigun firing samples and
+  its barrel-spin sample, importing local TF2 WAV data. PCM/FMOD roundtrips and
+  exact native duration/metadata checks pass. Removing this option rebuilds the
+  exact prior cat-only bundle, preserving all seven Lynx samples. No new sound
+  is enabled automatically; in-game audition remains pending.
+
+**78 tests: 77 passed, one existing data-dependent test skipped.** Both frontends and portable packages build; Linux packaged asset/module
+diagnostics and virtual-display card rendering pass. The newer Windows build
+still needs a runtime retest. The menu thumbnail now shows the current original-scene
+halftone artwork rather than the superseded dot preview. See [the sound module](tf2-audio.md) for its source,
+processing and restoration behavior.
+
 ## Applied character/material correction
 
 The three-bundle correction was **installed after the user exited**, then all
@@ -25,8 +51,8 @@ the native arm skeleton and retains weapon IK/camera/controller data. Ranger's
 pilot arms and Dozer's Shrek hands/sleeves pass serialized geometry, skin,
 material and reference checks. All 32 operator identities are indexed; three
 shared-prefab cases require compatible assignments and fail explicitly if a
-choice would silently change an unselected operator. Other character/rig
-combinations still need first-person visual and in-game grip testing.
+choice would silently change an unselected operator. The broader synthetic sweep is described above; all combinations still need
+in-game grip testing.
 
 Pilot fitting uses a private local native skin reference. Packaged sources
 contain no native geometry or bind matrices. Offline reviews caught and fixed
@@ -48,7 +74,7 @@ prior hashes and operator-assignment metadata restored.
 | Feature | Status |
 |---|---|
 | Dozer → Shrek + rust shooting glasses | Applied to operator 30 only. Native mesh/skin/submesh/reference verification passed. Original outfit retained. In-game acceptance pending. |
-| Ranger → Fishguy | Applied to operator 0. Existing muscular body, loose blue trousers, actual low-poly sardine head, flat blue/silver/white finish and separate eye rings. In-game acceptance pending. |
+| Earlier Ranger → Fishguy (reverted) | Replaced by the magenta Stim pilot after user feedback; Fishguy is now optional only. Earlier operator 0 prototype: Existing muscular body, loose blue trousers, actual low-poly sardine head, flat blue/silver/white finish and separate eye rings. In-game acceptance pending. |
 | MP7 → authored power nailer | Applied. Proper Poons 460 model by Liberi Arcano, CC BY 4.0. Replaces the previous procedural geometry. |
 | Minigun → actual TF2 Medigun | Applied from the local TF2 installation. Rigid visual follows the existing weapon root; weapon behavior is retained. In-game alignment/reload acceptance pending. |
 | All nine TF2 mercenaries | Optional per-operator choices. Actual local VPK imports, native bundle and synthetic articulation tests passed; offline previews reviewed. Clothing/collar clipping and in-game animation acceptance still need work. |
@@ -56,7 +82,7 @@ prior hashes and operator-assignment metadata restored.
 | Minecraft Steve | Optional choice. Existing classic mesh/pixel skin; explicit rig and interpolated elbow/knee cuts added. Native bundle and synthetic articulation checks passed; in-game untested. |
 | Titanfall pilot | Authored Stim pilot rigged locally, native bundle and offline deformation checks passed. Ranger correction applied and hash-verified; in-game acceptance pending. |
 | Sonic impact grenade | Authored 5,979-triangle spin ball. Independent manager option; three held LOD renderers and the thrown filter/material are file-verified. Sonic+nailer then nailer-only composition preserves the nailer. Not installed; in-game untested. |
-| Audiojungle / extra TF2 sounds | Correct CoopDogger Audiojungle project identified. Further source/rights review and optional audio integration remain unfinished. Existing Lynx sounds preserved. |
+| Audiojungle / extra TF2 sounds | Optional local TF2 Medigun audio now passes private build/removal verification; not installed or auditioned. Audiojungle source/rights review remains unfinished. Existing Lynx sounds preserved. |
 | Per-model magenta and separate native-operator control | Implemented after the applied checkpoint. Independent source-color/magenta builds and pristine native-color restoration passed bundle verification. In-game untested. |
 
 The current Lynx cat, full tail and cat audio were preserved. The complete
@@ -84,11 +110,10 @@ scripts, collision and unrelated operators are checked byte-for-byte. New
 references resolve and mesh positions/normals/UV/skin/submesh triangles roundtrip
 exactly. This proves file integrity, not animation quality or gameplay visuals.
 
-**63 automated tests collected: 62 passed, one existing data-dependent test
-skipped.** Linux and Windows frontends compile. Linux packaged asset diagnostics
-pass. The expanded Windows package has not yet passed current VM/runtime/game
-acceptance. The VM was found aborted, and the desktop was locked during the
-attempted native game UI check; no in-game success is claimed.
+**Earlier checkpoint:** 63 tests collected, 62 passed and one skipped. The
+initial VM attempt was unavailable. The later v0.1.0 Windows GUI/backend test
+passed in the Windows 11 VM, including saved model/color choices and FMOD
+initialization. Windows game installation and in-game acceptance remain untested.
 
 ## Manager use
 

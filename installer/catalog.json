@@ -182,5 +182,16 @@
     "default": false,
     "target": "Resolved impact ContactGrenade and its thrown projectile only",
     "status": "built and file-verified; in-game untested"
+  },
+  {
+    "id": "tf2_medigun_audio",
+    "title": "TF2 Medigun sounds / Minigun",
+    "group": "Extras",
+    "description": "Optional beam firing and charged barrel-spin sounds imported from local TF2. Original timing and spatial/event metadata retained.",
+    "thumbnail": "assets/tf2_medigun_audio.png",
+    "preview_kind": "Original MWC icon; actual local TF2 audio",
+    "default": false,
+    "target": "Four exact Minigun AudioClip slots; Lynx sounds preserved",
+    "status": "private PCM/FMOD verification passed; in-game audition pending"
   }
 ]

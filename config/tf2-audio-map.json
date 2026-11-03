@@ -1,0 +1,11 @@
+{
+  "build_id": "24397779",
+  "pack": "TF2 Medigun sounds for the Minigun",
+  "source": "Read only from the user's local TF2 VPK; no Valve audio is bundled.",
+  "clips": [
+    {"id": "4859583122294578521", "name": "Maxim Minigun Fire 1", "source": "sound/weapons/medigun_heal.wav", "offset_seconds": 0.0},
+    {"id": "893290358152688782", "name": "Maxim Minigun Fire 2", "source": "sound/weapons/medigun_heal.wav", "offset_seconds": 1.0},
+    {"id": "-8658787078477535653", "name": "Maxim Minigun Fire 3", "source": "sound/weapons/medigun_heal.wav", "offset_seconds": 2.0},
+    {"id": "-8961853817115462631", "name": "MinigunBarrelSpin", "source": "sound/weapons/medigun_charged.wav", "offset_seconds": 0.0}
+  ]
+}

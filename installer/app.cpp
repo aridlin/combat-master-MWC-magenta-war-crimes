@@ -86,7 +86,7 @@ int main(int argc,char**argv){
   const char*tabs[]={"Weapon models","Textures","Extras","Operators"};ft::tabs(tabs,4,&tab);
   if(tab==3){
    ft::text_wrapped("Choose each operator's model. Previews show source colors; Magenta applies at install. In-game tests remain pending.");
-   ft::input("Local TF2 folder for mercenary models (blank = Steam detection)",tf2,sizeof(tf2));
+   ft::input("Local TF2 folder for models and sound (blank = Steam detection)",tf2,sizeof(tf2));
    if(busy)ft::begin_disabled();if(ft::button("Import TF2 previews (game files unchanged)"))start("preview_tf2");if(busy)ft::end_disabled();
    if(busy)ft::begin_disabled();ft::checkbox("Magenta for unmodified in-game operator models",&native_magenta);if(busy)ft::end_disabled();
    for(auto&m:mods)if(m.id=="operator_arms"){if(busy)ft::begin_disabled();ft::checkbox("Matching first-person arms (grip testing pending)",&m.selected);if(busy)ft::end_disabled();}

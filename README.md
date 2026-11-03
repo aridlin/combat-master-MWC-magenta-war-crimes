@@ -261,3 +261,5 @@ Authored scorpion, fishing rod and toaster models replace three procedural weapo
 Current operator/model status, source credits and acceptance limits are in [the operator expansion report](docs/operator-expansion.md). The source test suite has 75 tests: 74 pass, one existing data-dependent test is skipped. Color controls distinguish replacement models from unmodified in-game operator models; matching authored first-person arms are independently selectable (in-game grip testing pending).
 
 Portable preview downloads: [Linux and Windows installers](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.0-preview). Extract the whole archive. Public builds import your local M1A0 archive for Lynx/cat audio; TF2 models require local TF2.
+
+Development source after v0.1.0 adds optional locally imported TF2 Medigun sounds and broader first-person arm coverage. These changes are not in the v0.1.0 downloads; see [current verification status](docs/operator-expansion.md) and [audio details](docs/tf2-audio.md).

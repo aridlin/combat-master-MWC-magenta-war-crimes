@@ -2,7 +2,7 @@
 import argparse,hashlib,json,shutil,struct,subprocess,sys,tarfile,zipfile
 from pathlib import Path
 R=Path(__file__).resolve().parents[1];I=R/'installer';DIST=I/'dist'
-SOURCES=['bundle_utils.py','configure.py','deploy_halftone.py','menu_background.py','sight_customization.py','helicopter_windows.py','crate_colors.py','cat_audio.py','sonic_impact.py','catgun','weapon_models','skybox','operators','model_import','halftone','installer/mwc_installer','installer/__init__.py','config','assets/branding','assets/authored-weapons','assets/operator-sources']
+SOURCES=['bundle_utils.py','configure.py','deploy_halftone.py','menu_background.py','sight_customization.py','helicopter_windows.py','crate_colors.py','cat_audio.py','audio_pcm.py','tf2_audio.py','sonic_impact.py','catgun','weapon_models','skybox','operators','model_import','halftone','installer/mwc_installer','installer/__init__.py','config','assets/branding','assets/authored-weapons','assets/operator-sources']
 def copy_sources(dest):
     for name in SOURCES:
         p=R/name;target=dest/name
@@ -30,7 +30,7 @@ def common(dest,windows,bundle_addon=True):
     shutil.copytree(R/'assets/operator-sources/licenses',dest/'operator-licenses',dirs_exist_ok=True)
     (dest/'WEAPON-ASSET-CREDITS.md').write_text((R/'assets/authored-weapons/ATTRIBUTION.md').read_text().replace('licenses/','weapon-licenses/'))
     shutil.copytree(R/'assets/authored-weapons/licenses',dest/'weapon-licenses',dirs_exist_ok=True)
-    (dest/'EDITION.json').write_text(json.dumps({'m1a0_archive_bundled':bool(bundle_addon),'game_bundles_bundled':False,'valve_tf2_models_bundled':False},indent=2)+'\n')
+    (dest/'EDITION.json').write_text(json.dumps({'m1a0_archive_bundled':bool(bundle_addon),'game_bundles_bundled':False,'valve_tf2_models_bundled':False,'valve_tf2_audio_bundled':False},indent=2)+'\n')
 def build(windows,output=None,bundle_addon=True):
     destination_root=Path(output).resolve() if output else DIST
     dest=destination_root/('MWC-Windows-x64' if windows else 'MWC-Linux-x64')
@@ -54,7 +54,7 @@ def build(windows,output=None,bundle_addon=True):
             cmd+=['--add-data',str(R/name)+':'+target]
         for pkg in ['UnityPy','numpy','PIL','texture2ddecoder','etcpak','astc_encoder','fmod_toolkit','pyfmodex','tpk_ar','archspec','installer.mwc_installer']:cmd+=['--collect-all',pkg]
         # Builders are imported inside branches, and all must be visible to analysis.
-        for name in ['catgun.operations','catgun.bundle','catgun.import_addon','weapon_models.bundles','weapon_models.local_tf2','sight_customization','helicopter_windows','crate_colors','cat_audio','menu_background','halftone.arrays','halftone.shared','skybox.bundles','weapon_models.imported','operators.assignments','operators.inventory','operators.retarget','model_import.tf2','operators.assets','operators.bundles','operators.library','operators.profiles','operators.skinning','operators.styles','operators.native_colors','operators.previews']:cmd+=['--hidden-import',name]
+        for name in ['catgun.operations','catgun.bundle','catgun.import_addon','weapon_models.bundles','weapon_models.local_tf2','sight_customization','helicopter_windows','crate_colors','cat_audio','audio_pcm','tf2_audio','menu_background','halftone.arrays','halftone.shared','skybox.bundles','weapon_models.imported','operators.assignments','operators.inventory','operators.retarget','model_import.tf2','operators.assets','operators.bundles','operators.library','operators.profiles','operators.skinning','operators.styles','operators.native_colors','operators.previews']:cmd+=['--hidden-import',name]
         subprocess.run(cmd+[str(I/'backend.py')],check=True,cwd=R)
         shutil.copytree(I/'build/backend-dist/mwc-backend',dest/'backend',symlinks=True)
         import archspec
