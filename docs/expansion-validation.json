@@ -235,5 +235,24 @@
       "manager_mod_implemented": false,
       "installed": false
     }
+  },
+  "shooting_lens_correction": {
+    "status": "applied_and_hash_verified",
+    "native_shader": "Universal Render Pipeline/Lit",
+    "previous_body_graph_fixed_opaque_state_confirmed": true,
+    "changed_owned_MWC_materials": 1,
+    "all_other_TPS_objects_byte_exact": 34595,
+    "managed_installed_original_entries_verified": 81,
+    "private_apply_restore_exact": true,
+    "head_reference_render_reviewed": true,
+    "head_preview_does_not_claim_game_capture": true,
+    "all_other_bundle_hashes_and_preferences_preserved": true,
+    "deterministic_two_process_seeds_bundle_sha256": "493dd8279046dcff5119e8e9e6a07525728e02e3245abcde7d9a060cb8925fb8",
+    "automated_tests": {
+      "collected": 81,
+      "passed": 80,
+      "skipped": 1
+    },
+    "in_game_tested": false
   }
 }

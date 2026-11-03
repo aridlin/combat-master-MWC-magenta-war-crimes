@@ -12,6 +12,22 @@ from .skinning import cpu_skin
 from .retarget import native_frame
 
 
+def material_appearance(tree):
+    props=tree['m_SavedProperties'];colors=dict(props['m_Colors']);floats=dict(props['m_Floats'])
+    color=next((colors[k] for k in ('_BaseColor','_Color','AlbedoColor') if k in colors),dict(r=1,g=1,b=1,a=1))
+    result={'name':tree['m_Name'],'base_color_linear':[color[k] for k in 'rgba'],'shader_pointer':tree['m_Shader']}
+    if floats.get('_Surface')==1:
+        shader=tree['m_Shader']['m_PathID']
+        if shader in (-1264317247848577453,4545324427977414316):
+            if floats.get('_SrcBlend')!=5 or floats.get('_DstBlend')!=10 or floats.get('_ZWrite')!=0:raise ValueError('Unreviewed lens alpha blend state')
+            result.update(transparent=True,alpha_mode='blend',cull_backfaces=floats.get('_Cull')==2,roughness=1-floats.get('_Smoothness',.5),casts_shadow='shadowcaster' not in {p.lower() for p in tree.get('disabledShaderPasses',[])})
+        elif shader==9216735585210638481:
+            # The native body graph has fixed opaque state, regardless of floats.
+            result['base_color_linear'][3]=1.;result['declared_transparent_but_shader_opaque']=True
+        else:raise ValueError('Unknown transparent shader needs explicit preview support')
+    return result
+
+
 def articulated_pose(bind,parents,names,rotations):
     rest=np.linalg.inv(bind);pose=np.zeros_like(rest);done=set()
     clean=[n.split(':')[-1] for n in names]
@@ -64,10 +80,9 @@ def export(stage,output,pose_name='bind'):
         to_native=np.eye(4);to_native[:3,:3]=frame*units;review_bind=bind@to_native
         out=output/record['model'];out.mkdir(parents=True,exist_ok=True);materials=[]
         for mi,ptr in enumerate(renderer['m_Materials']):
-            mat=objects[ptr['m_PathID']].read_typetree();props=mat['m_SavedProperties'];color=next((c for key,c in props['m_Colors'] if key in ('_BaseColor','_Color','AlbedoColor')),dict(r=1,g=1,b=1,a=1));m={'name':mat['m_Name'],'base_color_linear':[color[k] for k in 'rgba']};texture=next((slot['m_Texture']['m_PathID'] for key,slot in props['m_TexEnvs'] if key in ('_BaseMap','_MainTex','Albedo') and slot['m_Texture']['m_PathID']),0)
+            mat=objects[ptr['m_PathID']].read_typetree();props=mat['m_SavedProperties'];m=material_appearance(mat);texture=next((slot['m_Texture']['m_PathID'] for key,slot in props['m_TexEnvs'] if key in ('_BaseMap','_MainTex','Albedo') and slot['m_Texture']['m_PathID']),0)
             if texture:
                 filename=f'material-{mi}.png';objects[texture].read().image.save(out/filename);m['image']=filename
-            if any(key=='_Surface' and value==1 for key,value in props['m_Floats']):m['transparent']=True
             materials.append(m)
         np.savez_compressed(out/'source.npz',positions=v,normals=n,uv=np.asarray(h.m_UV0,dtype='<f4')[:,:2],faces=faces,face_materials=fm,bone_indices=bi,bone_weights=bw,inverse_bind=review_bind)
         meta={'id':record['model'],'coordinate_system':'z_up','materials':materials,'bone_names':names,'bone_parents':parents,'review_pose':pose_name,'source_bundle_sha256':row['output_sha256'],'private_native_rig_data':True,'in_game_tested':False};(out/'source.json').write_text(json.dumps(meta,indent=2)+'\n');reports.append({'model':record['model'],'operator':record['operator'],'vertices':len(v),'pose':pose_name,'finite':True,'bind_identity_checked':pose_name=='bind'})

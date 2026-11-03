@@ -1,5 +1,25 @@
 # Operator and model expansion — 3 November 2026
 
+## Applied shooting-lens correction
+
+Shrek's rust shield now uses the game's shipped **URP Lit** shader with real
+alpha blending, transparent queue, no depth write and no opaque depth/shadow
+passes. The old character Custom Lit graph has fixed One/Zero blending, so its
+added alpha settings could not make glass transparent. The preview exporter now
+checks the actual shader instead of trusting those unsupported floats.
+
+Only one owned MWC lens material changed; the other **34,595 character-bundle
+objects** compare byte-exact. A private apply/restore returned the exact prior
+bundle and choices. The correction is installed while the game was closed,
+with all **81 managed installed/original bundle entries** hash-verified. Lynx
+model/audio, other operators, arms and weapon transforms remain unchanged.
+Close-up serialized-mesh reference renders show the eyes through the rust tint;
+actual game sorting, lighting and helicopter appearance remain untested.
+
+Two independent full character builds with different Python hash seeds now
+produce the same bundle hash; newly added material properties are written in
+stable order. **81 tests: 80 passed, one existing test skipped.**
+
 ## Current development checks (after v0.1.0-preview)
 
 The released installers remain the tested v0.1.0 preview. The following source

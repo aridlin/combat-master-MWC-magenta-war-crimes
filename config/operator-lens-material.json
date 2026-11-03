@@ -1,0 +1,13 @@
+{
+  "build_id": "24397779",
+  "native_template_id": "6583200678349467227",
+  "native_template_name": "Eye",
+  "native_template_sha256": "ee17e4c8db19d6f3a5486cf60ad9aacbe4571695bb4ccfd6bf0ecb1c4fa55541",
+  "shader": {
+    "m_FileID": 2,
+    "m_PathID": -1264317247848577453
+  },
+  "shader_name": "Universal Render Pipeline/Lit",
+  "shader_archive": "CAB-416f3adfc9eb51cde84d97b6a0d31644",
+  "transparency_evidence": "The same native shader is used with _SURFACE_TYPE_TRANSPARENT and alpha blending by MH6LittleBird_Glass; character Custom Lit has fixed opaque state."
+}

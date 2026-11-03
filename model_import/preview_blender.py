@@ -27,7 +27,17 @@ if source.is_dir():
    m.node_tree.links.new(tex.outputs['Color'],bsdf.inputs['Base Color'])
    m.node_tree.links.new(tex.outputs['Alpha'],bsdf.inputs['Alpha'])
   if mat.get('transparent'):
-   bsdf.inputs['Transmission Weight'].default_value=.65;bsdf.inputs['Roughness'].default_value=.15;bsdf.inputs['IOR'].default_value=1.49
+   bsdf.inputs['Roughness'].default_value=mat.get('roughness',.15);bsdf.inputs['IOR'].default_value=1.49
+   if mat.get('alpha_mode')=='blend':
+    # Native URP alpha blending is not refractive glass transmission.
+    bsdf.inputs['Transmission Weight'].default_value=0.
+    if mat.get('cull_backfaces'):
+     geometry=m.node_tree.nodes.new('ShaderNodeNewGeometry');mask=m.node_tree.nodes.new('ShaderNodeMath');mask.operation='SUBTRACT';mask.inputs[0].default_value=1;alpha=m.node_tree.nodes.new('ShaderNodeMath');alpha.operation='MULTIPLY';alpha.inputs[1].default_value=mat.get('base_color_linear',[1,1,1,1])[3];m.node_tree.links.new(geometry.outputs['Backfacing'],mask.inputs[1]);m.node_tree.links.new(mask.outputs[0],alpha.inputs[0]);m.node_tree.links.new(alpha.outputs[0],bsdf.inputs['Alpha'])
+    if not mat.get('casts_shadow',True):
+     lightpath=m.node_tree.nodes.new('ShaderNodeLightPath');shadow=m.node_tree.nodes.new('ShaderNodeMath');shadow.operation='SUBTRACT';shadow.inputs[0].default_value=1;combine=m.node_tree.nodes.new('ShaderNodeMath');combine.operation='MULTIPLY';combine.inputs[0].default_value=mat.get('base_color_linear',[1,1,1,1])[3]
+     if mat.get('cull_backfaces'):m.node_tree.links.new(alpha.outputs[0],combine.inputs[0])
+     m.node_tree.links.new(lightpath.outputs['Is Shadow Ray'],shadow.inputs[1]);m.node_tree.links.new(shadow.outputs[0],combine.inputs[1]);m.node_tree.links.new(combine.outputs[0],bsdf.inputs['Alpha'])
+   else:bsdf.inputs['Transmission Weight'].default_value=.65
   mesh.materials.append(m)
  mesh.normals_split_custom_set([tuple(d['normals'][loop.vertex_index]) for loop in mesh.loops])
 elif source.suffix.lower() in ('.glb','.gltf'):

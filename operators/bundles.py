@@ -40,7 +40,7 @@ def material(template,objects,label,texture,rgba=(1.,1.,1.,1.),alpha_clip=False,
     seen=set()
     for i,(slot,value) in enumerate(m.m_SavedProperties.m_Floats):
         if slot in values:m.m_SavedProperties.m_Floats[i]=(slot,values[slot]);seen.add(slot)
-    for slot in values.keys()-seen:m.m_SavedProperties.m_Floats.append((slot,values[slot]))
+    for slot in sorted(values.keys()-seen):m.m_SavedProperties.m_Floats.append((slot,values[slot]))
     for slot,c in m.m_SavedProperties.m_Colors:
         if slot in ('_BaseColor','_Color','AlbedoColor'):c.r,c.g,c.b,c.a=rgba
         if slot=='_EmissionColor':c.r=c.g=c.b=0
@@ -115,7 +115,8 @@ def build(config,settings):
         if pointer['m_FileID']!=0:raise ValueError('External operator material needs explicit handling')
         material_template=objects[key(donor['mesh_object'].assets_file.name,pointer['m_PathID'])];body_mat=material(material_template,objects,'MWC_OperatorMaterial_'+identifier,tex_obj.path_id,alpha_clip=meta['alpha_clip_required'],data_maps=data_maps);added.append(key(body_mat.assets_file.name,body_mat.path_id));frame_mat=lens_mat=None
         if spec.get('glasses') and not first_person:
-            frame_mat=material(material_template,objects,'MWC_OperatorFrame_'+identifier,0,(.012,.016,.020,1.),data_maps=data_maps);lens_mat=material(material_template,objects,'MWC_OperatorRustShield_'+identifier,0,(.32,.095,.035,.40),transparent=True,data_maps=data_maps);added.extend(key(o.assets_file.name,o.path_id) for o in (frame_mat,lens_mat))
+            from .lenses import template as lens_template,configure as configure_lens
+            frame_mat=material(material_template,objects,'MWC_OperatorFrame_'+identifier,0,(.012,.016,.020,1.),data_maps=data_maps);lens_mat=configure_lens(material(lens_template(rig['objects']),objects,'MWC_OperatorRustShield_'+identifier,0,(.32,.095,.035,.40),transparent=True,data_maps=data_maps));added.extend(key(o.assets_file.name,o.path_id) for o in (frame_mat,lens_mat))
         model_records=[]
         for rid,tree in rig['renderers'].items():
             template=rig['meshes'][rid];new_mesh=new_object(template,'MWC_OperatorMesh_'+identifier+'_'+str(rid),objects)
@@ -174,5 +175,9 @@ def build(config,settings):
     local_objects={obj.path_id:obj for obj in checked.objects}
     for oid in added:
         obj=new[oid]
-        if obj.type.name=='Material':verify_material_data(obj,local_objects,require_albedo=obj.peek_name().startswith('MWC_OperatorMaterial_'))
+        if obj.type.name=='Material':
+            verify_material_data(obj,local_objects,require_albedo=obj.peek_name().startswith('MWC_OperatorMaterial_'))
+            if obj.peek_name().startswith('MWC_OperatorRustShield_'):
+                from .lenses import verify as verify_lens
+                verify_lens(obj)
     report={'build_id':version,'first_person':first_person,'operators':records,'files':[{'bundle':bundle,'backup':str(backup.resolve()),'output':str(target_path.resolve()),'source_sha256':digest(backup),'output_sha256':digest(target_path),'changes':allowed,'added':added}],'verification':{'all_other_original_objects_byte_exact':untouched,'renderer_field_whitelist':['m_Mesh','m_Materials','m_AABB'],'geometry_uv_skin_exact_roundtrip':True,'original_meshes_materials_skeletons_animations_scripts_collision_retained':True,'all_new_local_references_resolve':True},'in_game_tested':False,'lens_transparency_in_game_tested':False};dump(output/'manifest.json',report);return report
