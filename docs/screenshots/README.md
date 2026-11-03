@@ -34,3 +34,47 @@ window decoration was cropped; colors were not edited.
 This preview uses the full locally imported M1A0 mesh and ginger diffuse,
 including its original tail. It is not an in-game capture. Source assets and
 credits are described in [the import guide](../m1a0-local-import.md).
+
+## Current operator and installer runtime checks — November 3
+
+![Ranger as the magenta Stim pilot in the actual offline menu](ranger-stim-offline-menu.png)
+
+The background uses the original game scene with the existing halftone treatment.
+The oval Fishguy seal is deliberately kept stretched at the user's request.
+
+![Dozer as Shrek with transparent rust shooting lenses](shrek-glasses-offline-showcase.png)
+
+These are real native Linux game captures at 1280×720, using the installed
+bundles mounted read-only, a copied profile, a separate headless NVIDIA/Vulkan
+display, no host audio, and a network namespace with no external connectivity.
+Only ordinary menu/showcase controls were used. No purchase, reward claim,
+match, movement or shooting was performed. The original profile's hashes stayed
+unchanged. Ranger/Dozer identity and visible lens transparency are confirmed;
+helicopter scenes, full animations, first-person alignment and 4K performance
+remain untested. The game exited normally; the private Gamescope compositor
+returned 139 on shutdown, so this does not establish general runtime stability.
+
+![Native Windows installer operator choices after Save](windows-installer-operators.png)
+
+The current Windows package rendered in the user's Windows 11 VM and its actual
+Save button preserved model choices, independent colors, the 19-mod catalog and
+the optional Medigun audio selection. Packaged module/assets diagnostics and
+synthetic FMOD PCM round-trips at 44,100 and 22,050 Hz passed without playback.
+No Windows game installation was performed. The test files were removed, the
+temporary share detached and the VM returned to its original powered-off state.
+
+## Current weapon menu checks — November 3
+
+![Authored scorpion in the actual Scorpion Evo showcase](scorpion-offline-showcase.png)
+
+![Authored Poons power nailer in the actual MP7 showcase](nailer-offline-showcase.png)
+
+![M1A0 cat with its full rear body and tail in the actual Lynx armory](m1a0-offline-armory.png)
+
+The same isolated native setup also rendered the fishing rod and red toaster.
+These checks cover preview appearance only. The toaster's broad plain side
+faces the showcase camera, hiding much of its detail. Native gold attachments
+are intentionally separate from the replacement bodies. ADS, reloads, hipfire,
+all attachment/LOD combinations, sound playback and performance remain
+unchecked. The Minigun Kill Chains UI shows a static promotional image, so it
+cannot verify the installed Medigun mesh. No match was entered.

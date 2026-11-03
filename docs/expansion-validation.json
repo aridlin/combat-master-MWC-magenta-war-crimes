@@ -2,8 +2,8 @@
   "date": "2026-11-03",
   "game_build": "24397779",
   "tests": {
-    "collected": 75,
-    "passed": 74,
+    "collected": 82,
+    "passed": 81,
     "skipped": 1
   },
   "correction": {
@@ -133,7 +133,7 @@
     "in_game_tested": false
   },
   "linux_installer_render": "isolated Xvfb screenshot reviewed; pilot thumbnail and independent arms toggle visible",
-  "windows": "frontend cross-compiles; current expanded Windows UI/game acceptance pending",
+  "windows": "Latest native FT window, Save action, 19-mod request and both FMOD PCM rates verified in Windows 11 VM; Windows game installation untested.",
   "preserved": "Existing Lynx model, full tail and audio; native skeletons, controllers, collision and gameplay objects",
   "sonic": "Authored spin ball; 5 exact held/thrown visual bindings file-verified. Sonic+nailer to nailer-only selection preserves nailer. Not installed; in-game untested.",
   "live_verification": {
@@ -184,8 +184,8 @@
   },
   "development_after_v0_1_0": {
     "automated_tests": {
-      "collected": 78,
-      "passed": 77,
+      "collected": 82,
+      "passed": 81,
       "skipped": 1
     },
     "first_person_sweep": {
@@ -211,7 +211,7 @@
     "linux_new_card_virtual_display_review": true,
     "both_frontends_compile": true,
     "both_portable_archives_built_and_audited": true,
-    "Windows_new_build_runtime_tested": false,
+    "Windows_new_build_runtime_tested": true,
     "published": false,
     "first_person_full_fit_matrix": {
       "models": 14,
@@ -253,6 +253,82 @@
       "passed": 80,
       "skipped": 1
     },
-    "in_game_tested": false
+    "in_game_tested": true,
+    "in_game_test_scope": "Offline native Dozer menu and showcase, eyes visible through tinted lens; animation/helicopter/sorting across all poses untested."
+  },
+  "offline_native_menu": {
+    "environment": "private Gamescope headless / NVIDIA Vulkan, network namespace isolated",
+    "resolution": [
+      1280,
+      720
+    ],
+    "original_profile_unchanged": true,
+    "source_game_mount_read_only": true,
+    "original_stub_exact": true,
+    "game_exit": 0,
+    "compositor_exit": 139,
+    "checks": {
+      "Ranger_mapped_to_magenta_Stim_pilot_in_native_menu": true,
+      "Dozer_mapped_to_Shrek_in_native_operator_menu": true,
+      "Dozer_rust_lenses_alpha_blend_eyes_visible": true,
+      "Shrek_original_outfit_and_gold_weapon_present": true,
+      "native_default_Ranger_not_Fishguy": true,
+      "stretch_seal_intentionally_kept_per_user": true
+    },
+    "not_tested": [
+      "helicopter_intro",
+      "running_jumping_sliding",
+      "ADS_and_first_person_grips",
+      "maps_and_combat",
+      "all_other_model_assignments",
+      "4K_performance"
+    ],
+    "notes": [
+      "Menu idle/showcase inspection only; no purchase, reward claim, public match, movement or shooting inputs.",
+      "Game shut down with exit 0; Gamescope compositor returned 139 during shutdown. This limits the harness, and is not reported as a game/model acceptance pass."
+    ]
+  },
+  "windows_lens_audio_retest": {
+    "native_FT_UI_rendered": true,
+    "Save_button_preserved_19_mod_catalog_and_new_audio_selection": true,
+    "model_and_color_preferences_preserved": true,
+    "packaged_lens_module_and_assets_verified": true,
+    "FSB_PCM_roundtrip_rates": [
+      44100,
+      22050
+    ],
+    "audio_output": "NOSOUND",
+    "user_game_files_modified": false,
+    "Windows_game_installation_tested": false,
+    "guest_generated_test_files_cleaned": true,
+    "VM_restored_to_poweroff_and_transient_share_removed": true
+  },
+  "shrek_seam_audit": {
+    "coincident_source_groups": 5066,
+    "rest_splits_over_1mm": 0,
+    "mapped_weight_variations_over_005": 0,
+    "note": "No seam discontinuity found by this diagnostic; does not establish full animation quality."
+  },
+  "native_weapon_menu": {
+    "date": "2026-11-03",
+    "environment": "native Linux, NVIDIA Vulkan, isolated network and private headless 1280x720 display",
+    "original_profile_unchanged": true,
+    "game_files_read_only": true,
+    "game_exit": 0,
+    "compositor_exit": 139,
+    "appearance_verified": [
+      "Scorpion Evo authored scorpion in armory and showcase",
+      "Kar98k authored fishing rod/reel in armory with rolled pose",
+      "MP7 Poons power nailer in armory and showcase",
+      "P90 authored red toaster in armory/showcase, detail hidden by current camera angle",
+      "Lynx M1A0 ginger cat rear body and full tail in armory"
+    ],
+    "not_verified": [
+      "ADS/reload/hipfire clearance",
+      "Minigun Medigun visual (Kill Chains UI is a static image)",
+      "audio playback",
+      "4K performance",
+      "all skin/attachment/LOD combinations"
+    ]
   }
 }

@@ -20,7 +20,7 @@ Install Python 3.12 dependencies from the repository's `requirements.txt`. Insta
 
 `python installer/package.py` creates the Linux portable distribution. `python installer/package.py --windows` creates the Windows distribution from the official CPython 3.12.10 embeddable ZIP in `installer/downloads/`, dependency wheels in `win-wheels/` and `pure-wheels/`, and the local M1A0 archive at `external-assets/m1a0/M1A0-Cat-Gun.bin`. Downloads are build inputs, excluded from Git. Runtime distributions retain dependency license/metadata files. The Linux packager clears only the executable-stack flag on private ELF runtime copies when present, because current glibc rejects the portable CPython build's unnecessary executable-stack request.
 
-The menu builder in `tools/menu_artwork.py` takes an original extracted LobbyBG2 PNG and the supplied sticker. It produces a deterministic grayscale AM halftone at original dimensions, with a file-hash provenance record. It does not redraw the original scene or use AI generation.
+The menu builder in `tools/menu_artwork.py` takes an original extracted LobbyBG2 PNG and the supplied sticker. It produces a deterministic grayscale AM halftone at original dimensions, with a file-hash provenance record. It does not redraw the original scene or use AI generation. The in-game seal intentionally keeps the original background stretch, as requested by the user.
 
 ## Recovery and verification
 
@@ -49,4 +49,4 @@ Sonic spin ball is an independent weapon-model card for the impact grenade. Held
 
 Public release builds use `python installer/package.py --without-addon` (add `--windows` for Windows). This edition excludes the M1A0 archive because MWC has no recorded redistribution grant; local import remains supported. The default local build retains the requested bundled edition.
 
-Development source adds an independent **TF2 Medigun audio** Extras card. It reads only a local TF2 installation and bundles no Valve sound data. Three Minigun firing slots and barrel spin keep their native durations and event metadata. Disabling it preserves Lynx cat audio. This newer option has private file/composition verification; in-game audition and a new packaged release remain pending.
+Development source adds an independent **TF2 Medigun audio** Extras card. It reads only a local TF2 installation and bundles no Valve sound data. Three Minigun firing slots and barrel spin keep their native durations and event metadata. Disabling it preserves Lynx cat audio. This newer option has private file/composition verification and Windows VM selection/PCM decoding checks; in-game audition remains pending.

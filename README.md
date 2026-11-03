@@ -14,14 +14,14 @@ retexture work, not the cat prototype. More captures are in
 | Feature | State |
 | --- | --- |
 | Fine / Quiet Light-Dot Halftone | Implemented and applied locally; gameplay captures available |
-| Authored weapon upgrades | Scorpion, fishing rod, toaster and MP7 power nailer installed/file-verified. Local TF2 Medigun visual also installed. In-game testing pending. |
+| Authored weapon upgrades | Scorpion, fishing rod, toaster and MP7 power nailer installed/file-verified. Local TF2 Medigun visual also installed. Native offline armory/showcase appearance checked for Scorpion, rod, nailer and toaster; ADS/reload and Medigun world appearance pending. |
 | Minecraft-style sky | Independent sky-only cubemap module; installed/file-verified, in-game rendering untested |
-| Operator expansion | Dozer/Shrek retained; magenta Ranger/Stim pilot, non-metallic materials and matching arms installed/hash-verified. Slimmer first-person arms and shaft-preserving rod roll applied. Fishguy optional. All nine TF2 mercenaries, Mario and Steve are optional per-operator choices. In-game acceptance pending. |
+| Operator expansion | Dozer/Shrek retained; magenta Ranger/Stim pilot, non-metallic materials and matching arms installed/hash-verified. Slimmer first-person arms and shaft-preserving rod roll applied. Fishguy optional. All nine TF2 mercenaries, Mario and Steve are optional per-operator choices. Ranger/pilot and Dozer/Shrek checked in the native offline menu; full animation/helicopter/first-person acceptance pending. |
 | FT mod manager | Individual cards, previews, per-operator assignments and independent magenta controls; verified backups/transactions. Linux UI tested; Windows VM UI/preferences/runtime checked; Windows game edits untested. |
 | Shared albedo separation | Implemented with category-specific copies and verified material bindings |
 | Map texture arrays | Implemented for the four inspected BC7 albedo arrays, 50 layers |
 | Lynx cat geometry | Actual M1A0 ginger cat imported locally; original tail and full body preserved |
-| Lynx bundle prototype | M1A0 v5 installed and file-verified; current first-person testing pending |
+| Lynx bundle prototype | M1A0 v5 installed; full rear body/tail visible in native armory; current first-person testing pending |
 | Procedural fallback | Earlier gray-cat showcase verified; source OBJ/GLB remains available |
 | Cat firing, reload, ADS and muzzle alignment | **Not verified**; isolated guest profile has the weapon locked |
 | Bright blue CombatZone loot crates | Three materials installed and file-verified; world appearance not yet tested |

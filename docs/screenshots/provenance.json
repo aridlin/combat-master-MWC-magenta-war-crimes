@@ -82,5 +82,47 @@
     ],
     "color_editing": false,
     "caption": "Actual game preview; firing, reload and ADS untested."
+  },
+  {
+    "file": "ranger-stim-offline-menu.png",
+    "source": "Codex isolated runtime inspection, 2026-11-03",
+    "color_editing": false,
+    "sha256": "a97c1125ae00252b008eff97e2f11922234ae51b05125707cac98fabd7f21387",
+    "caption": "Actual native Linux offline menu: magenta Ranger/Stim pilot, gold weapon, intentionally stretched seal. Not a gameplay/performance test."
+  },
+  {
+    "file": "shrek-glasses-offline-showcase.png",
+    "source": "Codex isolated runtime inspection, 2026-11-03",
+    "color_editing": false,
+    "sha256": "f0def531aeea516c13cece9715663ae583f08cfbea69babc06d2fc1470041260",
+    "caption": "Actual native Linux offline Dozer showcase: Shrek with rust-tinted transparent shooting lenses and gold weapon. No helicopter or movement acceptance claimed."
+  },
+  {
+    "file": "windows-installer-operators.png",
+    "source": "Codex isolated runtime inspection, 2026-11-03",
+    "color_editing": false,
+    "sha256": "a840f9a6b916218f99d1062910dd13557162bd46a83479fa1903b2d8dc759b3a",
+    "caption": "Actual Windows 11 VM installer window after saving model/color preferences; no game assets installed."
+  },
+  {
+    "file": "scorpion-offline-showcase.png",
+    "source": "Codex isolated native menu inspection, 2026-11-03",
+    "color_editing": false,
+    "sha256": "fdc6830459653bcd2d8380fa115d5037e154c7fb926cc59d8623aff8d25fe21f",
+    "caption": "Actual native Scorpion Evo showcase with authored scorpion and preserved gold sights; ADS/reload untested."
+  },
+  {
+    "file": "m1a0-offline-armory.png",
+    "source": "Codex isolated native menu inspection, 2026-11-03",
+    "color_editing": false,
+    "sha256": "42ff67cb14331729e0bf67719087cfb19cc46af5abd707e5fe454a407ce6bab8",
+    "caption": "Actual native Lynx armory view: full original M1A0 rear body and tail preserved; firing/reload not tested."
+  },
+  {
+    "file": "nailer-offline-showcase.png",
+    "source": "Codex isolated native menu inspection, 2026-11-03",
+    "color_editing": false,
+    "sha256": "2e46f5b8eb9a769cfee91731b222349cba9db2221c9b77f524ab726c46c30fe6",
+    "caption": "Actual native MP7 showcase with authored Poons power nailer; ADS/reload untested."
   }
 ]

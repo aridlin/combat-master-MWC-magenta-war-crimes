@@ -26,6 +26,8 @@ def halftone(original,sticker,output,pitch=7):
     pixels=np.rint(coverage*255).astype(np.uint8)
     art=Image.fromarray(pixels).convert('RGBA')
     with Image.open(sticker) as src:seal=src.convert('RGBA')
+    # Intentionally retain the native background stretch: the user prefers
+    # the seal's comedic oval appearance at 16:9. Do not precompensate it.
     side=round(w*.18);seal.thumbnail((side,side),Image.Resampling.LANCZOS)
     art.alpha_composite(seal,(round(w*.65-seal.width/2),round(h*.15-seal.height/2)))
     target=Path(output);target.parent.mkdir(parents=True,exist_ok=True);art.convert('RGB').save(target)
