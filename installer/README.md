@@ -62,5 +62,11 @@ Native Titanfall pilots have a prepared-source import control on the Operators
 tab. Importing verifies and privately caches sources and previews, leaving the
 installed selection and assignments unchanged. No EA assets are bundled. See
 [the native pilot workflow](../docs/titanfall-native-import.md) for preparation,
-revision backups, separate model choices and the remaining decoder/Windows gates.
+revision backups, separate model choices and the remaining decoder/gameplay gates.
 The packager now compiles the matching frontend before bundling the backend.
+
+The native pilot prepared-source workflow passed Linux and Windows GUI
+import/save checks, including re-import while previews are loaded. The frontend
+releases preview image handles before import and reloads them after either
+success or failure; this avoids Windows PNG replacement locks. Windows game
+installation/editing is still untested.

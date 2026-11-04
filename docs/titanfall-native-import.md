@@ -60,8 +60,7 @@ assignments or appearance preferences is rejected by the current backend.
 
 This is a **prepared-source** workflow. Automatic import directly from a Steam
 Titanfall 2 folder is not yet included in the portable installer; the reviewed
-local decompression tools are still separate development inputs. Windows GUI
-runtime validation of this new import control remains pending.
+local decompression tools are still separate development inputs. Windows 11 VM checks passed for both prepared-source import and the GUI import/save controls, including both independent assignments, previews and magenta defaults. Windows game-bundle editing remains untested.
 
 ## Checks completed on 2026-11-04
 
@@ -90,3 +89,9 @@ Format references: [Northstar MDL documentation](https://docs.northstar.tf/Moddi
 [RSX format definitions](https://github.com/r-ex/rsx/tree/18cd364421c883d475a78643e3796caf19204355/src/game/rtech/utils/studio).
 Only binary layout facts were used for the original Python MDL implementation;
 RSX exporter code is not included in it.
+
+The Windows GUI re-import test exposed loaded preview images preventing atomic
+PNG replacement. The frontend now releases preview handles before either local
+preview-import worker starts, and reloads on success or failure. Re-import with
+both pilot previews already loaded and subsequent saving passed in the VM.
+Thirty-two focused regressions also passed in its packaged Python runtime.
