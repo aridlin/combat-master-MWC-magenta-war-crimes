@@ -38,11 +38,52 @@ separately licensed source-built decoder remains a private development tool;
 its public installer integration has not been completed. The standalone decoder ran in a
 network-isolated read-only sandbox and was not linked into the MIT installer.
 
-Remaining work includes a supported local-import workflow on Linux/Windows,
-material-preserving mesh packing, native world/first-person bundle checks,
-independent installer options/previews, magenta defaults, and offline animation,
-arm-volume and helicopter-introduction review. Existing Stim remains available;
-Dozer/Shrek and Lynx/audio are preserved.
+## Prepared-source import in the manager
+
+The Operators tab now has two distinct choices: **Titanfall Grapple pilot** and
+**Titanfall female Pulse Blade**. Both default to magenta, independently of the
+legacy Stim option. Neither is assigned to an operator automatically.
+
+Enter the parent folder containing `titanfall_grapple/` and
+`titanfall_pulseblade_female/`, then choose **Import prepared pilots**. Each
+prepared model contains exactly `source.json`, `source.npz` and `albedo.png`,
+as produced by `model_import.titanfall2.import_models`. The manager verifies
+identity, hashes, bounded arrays, bone correspondence and weights before copying
+sources into its private `operator-imports` directory. It creates local thumbnails
+and retains replaced source revisions under `operator-imports/history`.
+
+Importing does not install bundles or change operator assignments, color choices
+or enabled mods. Choose the operator slot, Magenta setting and matching arms,
+then Apply to compose those choices with the other enabled mods. Shared-prefab
+conflicts fail explicitly. A frontend that omits models already used in saved
+assignments or appearance preferences is rejected by the current backend.
+
+This is a **prepared-source** workflow. Automatic import directly from a Steam
+Titanfall 2 folder is not yet included in the portable installer; the reviewed
+local decompression tools are still separate development inputs. Windows GUI
+runtime validation of this new import control remains pending.
+
+## Checks completed on 2026-11-04
+
+Both pilots passed world and first-person bundle serialization, reference and
+unchanged-object checks. The private world build retained 34,566 unrelated
+objects byte-for-byte; first-person retained 144,986. These builds change owned
+visual renderer mesh/material/bounds fields while preserving the native rig,
+animations and gameplay components.
+
+The native Linux game rendered the Grapple on Ranger and the female Pulse Blade
+on a private Rush test slot, including recognizable front and back armor and
+weapon-holding idle poses. The private session also rendered the new magenta
+pilot arms in stationary first person. This was a network-isolated 1280x720,
+30-FPS-capped test; it is not a performance benchmark. Full running, jumping,
+sliding, aiming, reload and helicopter-introduction acceptance remains pending.
+The game exited with code 0; Gamescope exited with 139 during shutdown. The host
+profile and installed operator assignments were unchanged. In particular, the
+female pilot has not been assigned to the user's Rush slot.
+
+Existing Stim remains selectable. Dozer/Shrek and Lynx/audio are preserved.
+The development test suite completed 130 tests: 129 passed and one existing
+data-dependent test skipped.
 
 Format references: [Northstar MDL documentation](https://docs.northstar.tf/Modding/guides/tools/MDLModding/),
 [tf2vpk MIT source](https://github.com/pg9182/tf2vpk), and

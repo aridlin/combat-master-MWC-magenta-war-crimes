@@ -63,6 +63,14 @@ def main():
         games=discover();a.status.parent.mkdir(parents=True,exist_ok=True);a.status.write_text(games[0] if len(games)==1 else '',encoding='utf8');return
     if not a.request:p.error('--request or --status required')
     request=json.loads(a.request.read_text(encoding='utf8'))
+    if request.get('action')=='import_pilots':
+        from operators.local_pilots import register
+        from operators.previews import generate_native_pilots
+        rows=register(request['state'],request.get('pilot_sources',''))
+        with engine.locked(Path(request['state'])):
+            generate_native_pilots(request['state'],[row['model'] for row in rows])
+            Path(request['state'],'pilot-sources.txt').write_text(request.get('pilot_sources',''),encoding='utf8')
+        print('Imported '+str(len(rows))+' private pilot sources and previews. Game files and assignments unchanged.',flush=True);return
     if request.get('action')=='preview_tf2':
         from operators.previews import generate
         with engine.locked(Path(request['state'])):models=generate(request['state'],request.get('tf2',''))

@@ -13,6 +13,7 @@ class OperatorStyles(unittest.TestCase):
         self.assertFalse(plain['game_customs_magenta']);self.assertTrue(painted['game_customs_magenta'])
         for name in ['fishguy','shrek','mario','minecraft_steve']:self.assertFalse(plain['model_magenta'][name])
         self.assertTrue(plain['model_magenta']['tf2_heavy'])
+        for name in ('titanfall_pilot','titanfall_grapple','titanfall_pulseblade_female'):self.assertTrue(plain['model_magenta'][name])
 
     def test_model_and_native_preferences_are_independent_and_roundtrip(self):
         with tempfile.TemporaryDirectory() as directory:

@@ -1,6 +1,6 @@
 # MWC modular installer (preview)
 
-The native Windows and Linux interface uses the user's FT C++17 library. Weapon, texture and extra cards are independently selectable. All four earlier weapon placeholders now use authored models; Minigun can use the actual Medigun imported from a local TF2 installation. The Operators tab assigns Shrek, Fishguy, Mario, Minecraft Steve, the Titanfall Stim pilot or any of the nine locally imported TF2 mercenaries to individual game operators. Pending models are labeled and cannot silently substitute a placeholder.
+The native Windows and Linux interface uses the user's FT C++17 library. Weapon, texture and extra cards are independently selectable. All four earlier weapon placeholders now use authored models; Minigun can use the actual Medigun imported from a local TF2 installation. The Operators tab assigns Shrek, Fishguy, Mario, Minecraft Steve, the legacy Titanfall Stim pilot, locally prepared armored Grapple and female Pulse Blade pilots, or any of the nine locally imported TF2 mercenaries to individual game operators. Pending models are labeled and cannot silently substitute a placeholder.
 
 Opening the installer does not install mods. Apply builds a complete desired selection from immutable original snapshots; removing one choice preserves the other enabled choices. Restore all originals removes the managed selection. Close Combat Master before applying or restoring. Use these visual experiments offline or in an explicitly authorized environment.
 
@@ -57,3 +57,10 @@ hands keep radius 1.0 after this fit; arms retain radius 0.60. Native menu appea
 and serialized/synthetic checks passed; actual first-person grip and full animation
 acceptance remain pending. This applies only when Fishguy is selected, and does not
 assign him to Ranger or any other default automatically.
+
+Native Titanfall pilots have a prepared-source import control on the Operators
+tab. Importing verifies and privately caches sources and previews, leaving the
+installed selection and assignments unchanged. No EA assets are bundled. See
+[the native pilot workflow](../docs/titanfall-native-import.md) for preparation,
+revision backups, separate model choices and the remaining decoder/Windows gates.
+The packager now compiles the matching frontend before bundling the backend.

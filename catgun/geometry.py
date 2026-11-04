@@ -140,7 +140,7 @@ def export(mesh,directory,texture=None,prefix="cat",description="Original MWC ca
     return stats
 
 
-def render(mesh,path,eye=(.9,.8,.45),width=1000,height=700,texture=None,label=None,target=None):
+def render(mesh,path,eye=(.9,.8,.45),width=1000,height=700,texture=None,label=None,target=None,lighting='default'):
     """Small deterministic shaded preview, explicitly not a game screenshot."""
     v,n,uv,faces=mesh.arrays(); eye=np.asarray(eye,dtype=float);target=np.asarray([0,.17,.025] if target is None else target,dtype=float);tex=np.asarray(texture.convert('RGB')) if texture is not None else None
     forward=target-eye;forward/=np.linalg.norm(forward);right=np.cross(forward,[0,0,1]);right/=np.linalg.norm(right);up=np.cross(right,forward)
@@ -148,8 +148,10 @@ def render(mesh,path,eye=(.9,.8,.45),width=1000,height=700,texture=None,label=No
     scale=min((width-80)/np.ptp(projected[:,0]),(height-100)/np.ptp(projected[:,1]))
     p=projected.copy();center_xy=(projected[:,:2].min(axis=0)+projected[:,:2].max(axis=0))/2
     p[:,0]=width/2+(p[:,0]-center_xy[0])*scale;p[:,1]=height/2-(p[:,1]-center_xy[1])*scale
-    zbuffer=np.full((height,width),np.inf);pixels=np.full((height,width,3),(28,34,42),dtype=np.uint8)
-    light=np.array([.25,.1,.96]);light/=np.linalg.norm(light)
+    if lighting not in ('default','studio'):raise ValueError('Unknown preview lighting preset')
+    studio=lighting=='studio';ambient=.55 if studio else .23
+    zbuffer=np.full((height,width),np.inf);pixels=np.full((height,width,3),(96,102,110) if studio else (28,34,42),dtype=np.uint8)
+    light=np.array([.4,-.8,.6] if studio else [.25,.1,.96]);light/=np.linalg.norm(light)
     for face in faces:
         a,b,c=p[face];ns=n[face]
         if np.dot(ns.mean(axis=0),eye-v[face].mean(axis=0))<=0: continue
@@ -164,7 +166,7 @@ def render(mesh,path,eye=(.9,.8,.45),width=1000,height=700,texture=None,label=No
         depth=w0*a[2]+w1*b[2]+w2*c[2];region=zbuffer[y0:y1+1,x0:x1+1]
         mask=(w0>=0)&(w1>=0)&(w2>=0)&(depth<region)
         normal=w0[...,None]*ns[0]+w1[...,None]*ns[1]+w2[...,None]*ns[2];normal/=np.maximum(np.linalg.norm(normal,axis=-1,keepdims=True),1e-8)
-        diffuse=.23+.77*np.maximum(0,normal@light)
+        diffuse=ambient+(1-ambient)*np.maximum(0,normal@light)
         if texture is None:
             base=np.array(PALETTE[min(len(PALETTE)-1,int(uv[face[0],0]*len(PALETTE)))])/255
             base=base[None,None,:]

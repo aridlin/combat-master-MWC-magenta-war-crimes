@@ -70,6 +70,16 @@
       "thumbnail": "assets/operators/titanfall_pilot.png"
     },
     {
+      "id": "titanfall_grapple",
+      "name": "Titanfall 2 / Armored human Grapple pilot",
+      "status": "Prepared local Titanfall 2 import required. Native animation test pending."
+    },
+    {
+      "id": "titanfall_pulseblade_female",
+      "name": "Titanfall 2 / Female Pulse Blade pilot",
+      "status": "Prepared local Titanfall 2 import required. Native animation test pending."
+    },
+    {
       "id": "mario",
       "name": "Mario",
       "status": "Authored Mario. Native preview checked; framing/grip work pending.",

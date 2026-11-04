@@ -5,7 +5,7 @@ from .assignments import catalogue
 
 
 def normalize(value=None,players=False):
-    _,models=catalogue();defaults={m['id']:m['id'].startswith('tf2_') or m['id']=='titanfall_pilot' for m in models if m['id']!='original'}
+    _,models=catalogue();defaults={m['id']:m['id'].startswith(('tf2_','titanfall_')) for m in models if m['id']!='original'}
     if value is None:return {'model_magenta':defaults,'game_customs_magenta':bool(players)}
     if not isinstance(value,dict) or set(value)-{'model_magenta','game_customs_magenta'}:raise ValueError('Invalid operator appearance preferences')
     choices=value.get('model_magenta',{})

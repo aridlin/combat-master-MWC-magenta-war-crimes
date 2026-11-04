@@ -70,6 +70,15 @@ class Transactions(unittest.TestCase):
         self.assertEqual(same['operator_assignments'],chosen)
         restored=e.transaction(self.config,self.state,same,{r:self.state/'originals'/r for r in self.saved['originals']},set(),{})
         self.assertEqual(restored['operator_assignments'],{});self.assertEqual(restored['installed'],self.saved['installed'])
+    def test_outdated_model_catalogue_cannot_drop_a_native_pilot_or_its_color(self):
+        saved={'selected':[],'operator_assignments':{'operator_0':'titanfall_grapple'},'operator_appearance':{'model_magenta':{'titanfall_pulseblade_female':False}}}
+        request={'supported_mods':sorted(e.IDS),'operator_assignments':{},'operator_appearance':{}}
+        with self.assertRaisesRegex(ValueError,'operator model catalogue'):e.validate_frontend(saved,request)
+        request['supported_operator_models']=['titanfall_pilot','titanfall_grapple']
+        with self.assertRaisesRegex(ValueError,'models/colors'):e.validate_frontend(saved,request)
+        request['supported_operator_models'].append('titanfall_pulseblade_female')
+        e.validate_frontend(saved,request)  # Current UI can intentionally choose originals.
+
     def test_current_frontend_can_intentionally_deselect_any_supported_mod(self):
         e.validate_frontend({'selected':['sky','lynx']},{'supported_mods':sorted(e.IDS),'selected':['lynx']})
     def test_catalog_has_every_mod_and_existing_preview(self):

@@ -41,6 +41,8 @@ def prepare(config,assignments,work,tf2='',appearance=None):
     if 'titanfall_pilot' in required:
         from .autorig import build as pilot_rig
         source=pilot_rig(config,ROOT/'assets/operator-sources/titanfall_pilot',Path(work)/'operator-sources/titanfall_pilot');result['titanfall_pilot']={'source':str(source),'profile':'titanfall_transfer','style':'magenta'}
+    from .local_pilots import sources as native_pilots
+    result.update(native_pilots(config,required))
     missing=required-result.keys()
     if missing:raise ValueError('These models are still being prepared and cannot be installed yet: '+', '.join(sorted(missing)))
     for model,spec in result.items():spec['style']='magenta' if appearance['model_magenta'][model] else 'original'

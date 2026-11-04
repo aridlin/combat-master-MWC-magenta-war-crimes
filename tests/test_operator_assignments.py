@@ -22,6 +22,10 @@ class Assignments(unittest.TestCase):
             with self.assertRaises(ValueError):save_plan(d,{'operator_30':'unknown'})
             self.assertEqual((Path(d)/'operator-plan.json').read_bytes(),before)
 
+    def test_native_pilot_choices_are_separate_and_keep_dozer_shrek(self):
+        choices={'operator_0':'titanfall_grapple','operator_1':'titanfall_pulseblade_female','operator_30':'shrek'}
+        self.assertEqual(validate(choices),choices)
+
     def test_shared_renderer_conflict_is_explicit(self):
         targets,models=catalogue();targets=copy.deepcopy(targets[:2]);targets[1]['renderers']=copy.deepcopy(targets[0]['renderers'])
         with self.assertRaisesRegex(ValueError,'asset conflict'):validate({'operator_0':'tf2_heavy','operator_1':'tf2_scout'},targets,models)

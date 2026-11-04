@@ -200,7 +200,7 @@ def compose(config,state,saved,selected,addon,operator_assignments=None,tf2='',o
     # Copies are private. Builders never receive the actual game path.
     for rel in saved['originals']:
         p=work/rel;p.parent.mkdir(parents=True,exist_ok=True);copy_private(state/'originals'/rel,p)
-    c=copy.deepcopy(config);c['bundle_root']=str(work);c['source_overrides']={};c['operator_original_root']=str(state/'originals')
+    c=copy.deepcopy(config);c['bundle_root']=str(work);c['source_overrides']={};c['operator_original_root']=str(state/'originals');c['titanfall2_source_root']=str(state/'operator-imports')
     c['paths']={n:str(run/n) for n in ('reports','output','backups','canonical')}
     if operator_assignments is None:operator_assignments=saved.get('operator_assignments',{})
     from operators.styles import normalize as appearance_defaults
@@ -296,6 +296,14 @@ def validate_frontend(saved,request):
     if missing:raise ValueError('Outdated installer cannot represent installed mods: '+', '.join(sorted(missing))+'. Reopen the current installer before applying a selection.')
     if saved.get('operator_assignments') and 'operator_assignments' not in request:raise ValueError('Outdated installer cannot represent installed operator assignments; reopen the current installer')
     if saved.get('operator_appearance') and 'operator_appearance' not in request:raise ValueError('Outdated installer cannot represent installed operator colors; reopen the current installer')
+    colors=saved.get('operator_appearance',{}).get('model_magenta',{})
+    installed_models=set(saved.get('operator_assignments',{}).values())|set(colors)
+    if installed_models:
+        represented=request.get('supported_operator_models')
+        if not isinstance(represented,list) or not all(isinstance(x,str) for x in represented):
+            raise ValueError('Outdated installer does not declare its operator model catalogue; reopen the current installer')
+        missing=installed_models-set(represented)
+        if missing:raise ValueError('Outdated installer cannot represent installed operator models/colors: '+', '.join(sorted(missing)))
 
 def execute(request):
     game=request.get('game','')

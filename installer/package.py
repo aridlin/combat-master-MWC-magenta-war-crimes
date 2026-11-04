@@ -30,10 +30,13 @@ def common(dest,windows,bundle_addon=True):
     shutil.copytree(R/'assets/operator-sources/licenses',dest/'operator-licenses',dirs_exist_ok=True)
     (dest/'WEAPON-ASSET-CREDITS.md').write_text((R/'assets/authored-weapons/ATTRIBUTION.md').read_text().replace('licenses/','weapon-licenses/'))
     shutil.copytree(R/'assets/authored-weapons/licenses',dest/'weapon-licenses',dirs_exist_ok=True)
-    (dest/'EDITION.json').write_text(json.dumps({'m1a0_archive_bundled':bool(bundle_addon),'game_bundles_bundled':False,'valve_tf2_models_bundled':False,'valve_tf2_audio_bundled':False},indent=2)+'\n')
+    (dest/'EDITION.json').write_text(json.dumps({'m1a0_archive_bundled':bool(bundle_addon),'game_bundles_bundled':False,'valve_tf2_models_bundled':False,'valve_tf2_audio_bundled':False,'respawn_titanfall_models_bundled':False,'titanfall_pilots_require_local_import':True},indent=2)+'\n')
 def build(windows,output=None,bundle_addon=True):
     destination_root=Path(output).resolve() if output else DIST
     dest=destination_root/('MWC-Windows-x64' if windows else 'MWC-Linux-x64')
+    # Always pair the backend/catalogue with a frontend compiled from the same
+    # source. Reusing an earlier executable can silently omit request fields.
+    subprocess.run([sys.executable,str(I/'build_frontend.py')]+(['--windows'] if windows else []),check=True,cwd=R)
     if dest.exists():shutil.rmtree(dest)
     common(dest,windows,bundle_addon)
     if windows:
@@ -54,7 +57,7 @@ def build(windows,output=None,bundle_addon=True):
             cmd+=['--add-data',str(R/name)+':'+target]
         for pkg in ['UnityPy','numpy','PIL','texture2ddecoder','etcpak','astc_encoder','fmod_toolkit','pyfmodex','tpk_ar','archspec','installer.mwc_installer']:cmd+=['--collect-all',pkg]
         # Builders are imported inside branches, and all must be visible to analysis.
-        for name in ['catgun.operations','catgun.bundle','catgun.import_addon','weapon_models.bundles','weapon_models.local_tf2','sight_customization','helicopter_windows','crate_colors','cat_audio','audio_pcm','tf2_audio','menu_background','halftone.arrays','halftone.shared','skybox.bundles','weapon_models.imported','operators.assignments','operators.inventory','operators.retarget','model_import.tf2','operators.assets','operators.bundles','operators.library','operators.profiles','operators.skinning','operators.styles','operators.native_colors','operators.previews']:cmd+=['--hidden-import',name]
+        for name in ['catgun.operations','catgun.bundle','catgun.import_addon','weapon_models.bundles','weapon_models.local_tf2','sight_customization','helicopter_windows','crate_colors','cat_audio','audio_pcm','tf2_audio','menu_background','halftone.arrays','halftone.shared','skybox.bundles','weapon_models.imported','operators.assignments','operators.inventory','operators.retarget','model_import.tf2','operators.assets','operators.bundles','operators.library','operators.profiles','operators.skinning','operators.styles','operators.native_colors','operators.previews','operators.local_pilots','model_import.titanfall2','model_import.respawn_vpk','model_import.respawn_rpak']:cmd+=['--hidden-import',name]
         subprocess.run(cmd+[str(I/'backend.py')],check=True,cwd=R)
         shutil.copytree(I/'build/backend-dist/mwc-backend',dest/'backend',symlinks=True)
         import archspec

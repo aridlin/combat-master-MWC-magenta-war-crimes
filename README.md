@@ -15,7 +15,7 @@ retexture work, not the cat prototype. More captures are in
 | --- | --- |
 | Fine / Quiet Light-Dot Halftone | Implemented and applied locally; gameplay captures available |
 | Authored weapon upgrades | Scorpion, fishing rod, toaster and MP7 power nailer installed/file-verified. Local TF2 Medigun visual also installed. Native offline armory/showcase appearance checked for Scorpion, rod, nailer and toaster; ADS/reload and Medigun world appearance pending. |
-| Minecraft-style sky | Independent sky-only cubemap module; installed/file-verified, in-game rendering untested |
+| Minecraft-style sky | Independent sky-only module; newer coverage fix shows square clouds in a native private Parvis session. Six-sided maps, square sun/moon and broader exposure review pending; released preview predates this fix. |
 | Operator expansion | Dozer/Shrek retained; magenta Ranger/Stim pilot, non-metallic materials and matching arms installed/hash-verified. Slimmer first-person arms and shaft-preserving rod roll applied. Fishguy optional. All nine TF2 mercenaries, Mario and Steve are optional per-operator choices. Ranger/pilot and Dozer/Shrek checked in the native offline menu; full animation/helicopter/first-person acceptance pending. |
 | FT mod manager | Individual cards, previews, per-operator assignments and independent magenta controls; verified backups/transactions. Linux UI tested; Windows VM UI/preferences/runtime checked; Windows game edits untested. |
 | Shared albedo separation | Implemented with category-specific copies and verified material bindings |
@@ -35,6 +35,8 @@ The inspected build is Steam **2281730**, build **24397779**, native Linux
 Unity **6000.3.19f1 / IL2CPP**. Unknown builds stop at the version/hash guards.
 There is no Mono loader, process injection, network modification or integrity
 bypass. Use these experiments offline or in an explicitly authorized setup.
+
+The source now also supports separately imported armored Grapple and female Pulse Blade pilots; see [native pilot import and test status](docs/titanfall-native-import.md). These source changes are newer than the current release.
 
 Current [Linux and Windows preview installers](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases) are available in Releases. Read the [native operator review](docs/operator-runtime-review.md) for material/headwear fixes, Fishguy wrist fitting and remaining deformation limits; each release identifies its source revision.
 

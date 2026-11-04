@@ -45,8 +45,12 @@ against private copies of all eight affected bundles. All original hashes were
 restored, backups retained and the transaction journal cleaned.
 
 These source changes are newer than the v0.1.2 installer binaries. They have
-not been installed into the user's running game. Actual native six-sided UV
-orientation/seams, exposure, sky appearance and runtime lighting behavior remain
-unverified. File checks prove the bindings and preserved assets; they do not
-prove the final rendered result. Current source tests: 106 run, 105 passed,
-one existing data-dependent skip.
+not been installed into the user's running game. A network-isolated native Linux Parvis test on 2026-11-04 now visibly shows the
+new blue sky and square cloud shapes at several stationary camera angles. The
+map's original material tint/exposure remains in place, producing more subdued
+colors than the source image. This confirms the Parvis cubemap replacement,
+not every map: actual native six-sided orientation/seams, square sun/moon and
+broader lighting review remain pending. No movement or firing inputs were sent.
+The game exited with code 0; Gamescope returned 139 during shutdown, and the
+host profile stayed unchanged. The capped 1280x720 run is not a 4K benchmark.
+Current source suite: 130 tests, 129 passed and one existing data-dependent skip.
