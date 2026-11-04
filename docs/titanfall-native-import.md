@@ -102,3 +102,12 @@ A narrowed six-bundle local update installed the pilot/sky changes while keeping
 all other 75 bundles and the existing cat/weapon/audio files byte-exact. The
 combined post-install runtime review is tracked separately from the earlier
 private pilot/sky prototype captures.
+
+Post-install review confirmed the actual 17-mod stack, without staged overrides:
+Ranger's armored human Grapple in the native menu, matching stationary first-
+person arms, gold/orange weapon appearance, halftone terrain and Parvis square
+clouds. The host profile stayed unchanged, the game exited with code 0 and
+Gamescope returned 139 during shutdown. A previous camera-range error was in the
+private QA harness; client prevalidation was added and checked against the live
+replacement session. Full animation, ADS/reload, helicopter and 4K testing remain
+pending. See [the installed captures](screenshots/README.md).

@@ -92,3 +92,20 @@ pilot arm replacement in the idle view; ADS, reload and 4K performance remain
 unverified. The capped 30 FPS is a test-display limit, not a performance result.
 See the [sky reference audit](../skybox-coverage.md) for the uncovered original
 Parvis sky and the newer source fix.
+
+## November 4 installed human pilot and sky check
+
+These captures use the actual installed 17-mod stack with no staged asset
+overrides, in a network-isolated native Linux session. Ranger uses the armored
+human Grapple; Dozer remains Shrek and the female Pulse Blade is optional. The
+pilot source is the user's local Titanfall 2 installation; no native model or
+texture source is distributed in MWC.
+
+![Installed magenta human Grapple on Ranger](grapple-ranger-installed-offline.png)
+
+![Installed Grapple arms, halftone surfaces and square clouds](grapple-arms-sky-installed-offline.png)
+
+The stationary captures establish those visible features together. They do not
+prove full movement, ADS/reload, helicopter appearance, audio playback or 4K
+performance. The test used 1280x720 with a 30-FPS cap and sent no movement or
+firing inputs. Source and test details: [native pilot workflow](../titanfall-native-import.md).
