@@ -44,8 +44,9 @@ installer composition and transaction functions applied and then removed Sky
 against private copies of all eight affected bundles. All original hashes were
 restored, backups retained and the transaction journal cleaned.
 
-These source changes are newer than the v0.1.2 installer binaries. They have
-not been installed into the user's running game. A network-isolated native Linux Parvis test on 2026-11-04 now visibly shows the
+These changes are newer than the v0.1.2 binaries and are included in v0.1.3.
+The local six-bundle pilot/sky update is now installed, with all original/undo
+hashes verified and all unrelated weapon/audio files retained exactly. A network-isolated native Linux Parvis test on 2026-11-04 now visibly shows the
 new blue sky and square cloud shapes at several stationary camera angles. The
 map's original material tint/exposure remains in place, producing more subdued
 colors than the source image. This confirms the Parvis cubemap replacement,

@@ -68,7 +68,7 @@ Street Fighter replacement builds, and its Soldier/Engineer/Sniper headwear can
 misalign. Missing support fails before installation. Updated source includes
 these fixes; check each newer release's source revision and validation notes.
 
-The current suite runs 106 tests: 105 passed, one existing data-dependent skip.
+The November 3 snapshot ran 106 tests: 105 passed, one existing data-dependent skip. Current native-pilot/Lynx source has 132 tests, with 131 passed and one existing skip; all 34 final Windows regressions passed.
 Fishguy and other character hand deformation, remaining model previews, full
 animations/helicopter scenes, first-person grip/ADS/reload, optional audio
 playback and 4K performance remain open. Do not treat numeric fits or these menu
