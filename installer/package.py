@@ -24,7 +24,10 @@ def common(dest,windows,bundle_addon=True):
         (dest/'addons/LOCAL-ARCHIVE.txt').write_text('Public edition: choose your locally owned M1A0 Workshop .bin/.gma for Lynx and cat audio.\nhttps://steamcommunity.com/sharedfiles/filedetails/?id=827320827\nThe original archive has no redistribution grant recorded by MWC and is not bundled in public releases.\n')
     shutil.copyfile(I/'M1A0-CREDITS.txt',dest/'addons/M1A0-CREDITS.txt')
     shutil.copyfile(I/'catalog.json',dest/'catalog.json');shutil.copyfile(R/'LICENSE',dest/'MWC-LICENSE.txt')
-    if (I/'README.md').exists():shutil.copyfile(I/'README.md',dest/'README.md')
+    if (I/'README.md').exists():
+        # Portable archives do not contain the repository's parent docs folder.
+        text=(I/'README.md').read_text().replace('(../docs/','(https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/blob/main/docs/')
+        (dest/'README.md').write_text(text)
     shutil.copyfile(I/'vendor/PROVENANCE.md',dest/'FT-PROVENANCE.md')
     (dest/'OPERATOR-ASSET-CREDITS.md').write_text((R/'assets/operator-sources/ATTRIBUTION.md').read_text().replace('(licenses/','(operator-licenses/'))
     shutil.copytree(R/'assets/operator-sources/licenses',dest/'operator-licenses',dirs_exist_ok=True)
