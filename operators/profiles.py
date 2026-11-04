@@ -42,6 +42,43 @@ def inherited_mapping(names,parents,primary):
 
 def profile(name,meta):
     names=meta['bone_names'];parents=meta['bone_parents']
+    if name=='titanfall2_native':
+        if len(names)!=len(parents) or len(set(names))!=len(names):
+            raise ValueError('Unexpected Titanfall 2 skeleton')
+        central={'def_c_hip':'Root_M','def_c_spineA':'Spine1_M',
+                 'def_c_spineB':'Spine2_M','def_c_spineC':'Chest_M',
+                 'def_c_neckA':'Neck_M','def_c_head':'Head_M'}
+        primary={target:names.index(source) for source,target in central.items() if source in names}
+        for side in ('L','R'):
+            source_side=side.lower()
+            for source,target in (('clav','Scapula'),('shoulder','Shoulder'),
+                                  ('elbow','Elbow'),('wrist','Wrist'),
+                                  ('thigh','Hip'),('knee','Knee'),
+                                  ('ankle','Ankle'),('ball','Toes')):
+                source=f'def_{source_side}_{source}'
+                if source in names:primary[target+'_'+side]=names.index(source)
+            for source,target in (('Index','Index'),('Mid','Middle'),
+                                  ('Thumb','Thumb'),('Ring','Ring'),('Pinky','Pinky')):
+                for joint,letter in enumerate('ABC',1):
+                    source_name=f'def_{source_side}_fin{source}{letter}'
+                    if source_name in names:primary[f'{target}Finger{joint}_{side}']=names.index(source_name)
+        required=set(central.values())|{base+'_'+side for side in ('L','R')
+                 for base in ('Scapula','Shoulder','Elbow','Wrist','Hip','Knee','Ankle','Toes')}
+        if not required<=primary.keys() or any(p < -1 or p >= len(names) for p in parents):
+            raise ValueError('Titanfall 2 rig lacks reviewed humanoid anchors')
+        # Validate every chain, including otherwise unused source bones.
+        for i in range(len(names)):
+            seen=set()
+            while i>=0:
+                if i in seen:raise ValueError('Cyclic Titanfall 2 skeleton')
+                seen.add(i);i=int(parents[i])
+        semantics=inherited_mapping(names,parents,primary)
+        for side in ('L','R'):
+            helper=f'def_{side.lower()}_elbowB'
+            if helper in names:semantics[names.index(helper)]='Elbow_'+side
+        return dict(source_targets=semantics,primary_sources=primary,
+                    source_root=primary['Root_M'],source_head=primary['Head_M'],
+                    source_basis=[[-1,0,0],[0,0,-1],[0,1,0]])
     if name.startswith('tf2_'):
         semantics,primary=tf2_mapping(names,parents)
         return dict(source_targets=semantics,primary_sources=primary,source_root=names.index('bip_pelvis'),source_head=names.index('bip_head'),source_basis=[[-1,0,0],[0,0,-1],[0,1,0]])

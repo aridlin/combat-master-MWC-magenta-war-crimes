@@ -31,3 +31,9 @@ content. Locally generated previews remain in the user's manager state.
 
 Native Combat Master skeleton snapshots, original meshes, bundles and private
 review exports must not be committed or included in installer distributions.
+
+The native Titanfall 2 Grapple and female Pulse Blade importer reads the user's
+local Steam App 1237970 VPK/RPak/Starpak files. Those Respawn Entertainment / EA
+models, rigs and textures are **not shipped**. Local imports grant no new
+redistribution rights. They are distinct from the Paris CC-BY Stim fan model
+above. Import provenance records retain original model and texture mip hashes.
