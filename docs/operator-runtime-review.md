@@ -1,7 +1,10 @@
 # Native operator review — November 3, 2026
 
-The installed user selection remains **Ranger → magenta Stim pilot** and
-**Dozer → Shrek**. Fishguy is optional. The stretched Fishguy seal is intentional.
+The current local installation (November 4) is **Ranger → magenta armored human
+Grapple pilot** and **Dozer → Shrek**. The female Pulse Blade and Fishguy remain
+optional. The stretched Fishguy seal is intentional. See the [new native pilot
+workflow and testing scope](titanfall-native-import.md); the earlier review below
+records the November 3 roster and material work.
 
 The [current gallery](screenshots/README.md) includes real native game captures.
 The Linux game ran at 1280×720 through a private headless NVIDIA/Vulkan display,

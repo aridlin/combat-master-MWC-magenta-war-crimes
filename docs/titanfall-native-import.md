@@ -1,8 +1,7 @@
 # Native Titanfall 2 pilot import work
 
 The requested successor to the Stim default is the armored **human Grapple
-pilot**, with a **female Pulse Blade** option kept separate. The installed
-assignment has not changed while this importer is under development.
+pilot**, with a **female Pulse Blade** option kept separate. The local Ranger assignment now uses the human Grapple, with Dozer/Shrek retained. The female pilot remains optional.
 
 A local Titanfall 2 installation supplies the real geometry, rigs and original
 textures. No Respawn/EA model, texture, RPak, Starpak or VPK is bundled in this
@@ -94,4 +93,12 @@ The Windows GUI re-import test exposed loaded preview images preventing atomic
 PNG replacement. The frontend now releases preview handles before either local
 preview-import worker starts, and reloads on success or failure. Re-import with
 both pilot previews already loaded and subsequent saving passed in the VM.
-Thirty-two focused regressions also passed in its packaged Python runtime.
+Thirty-four focused regressions also passed in its packaged Python runtime.
+
+The completed full saved-selection build exposed and corrected an incomplete
+Lynx quaternion. The current Linux suite ran 132 tests, 131 passed and one
+existing skip; the final Windows package passed all 34 focused regressions.
+A narrowed six-bundle local update installed the pilot/sky changes while keeping
+all other 75 bundles and the existing cat/weapon/audio files byte-exact. The
+combined post-install runtime review is tracked separately from the earlier
+private pilot/sky prototype captures.

@@ -22,9 +22,11 @@ preview or serialized mesh check is not full animation acceptance.
 | Magenta, gold attachments, crates, menu, sights and helicopter glass | Existing independent controls and layers retained. Each module's file/reference checks are recorded. | Outstanding game-visible checks are listed in the linked feature documents |
 | Mod manager | Per-operator assignment, explicit shared-prefab conflicts, per-model Magenta and separate native-operator color control, verified backups, recovery journal and restoration. New pilot import and save controls tested in the packaged Linux GUI. | New pilot Windows GUI/import verification is in progress; Windows game editing remains untested |
 
-The newer native pilot/sky source is ahead of **v0.1.2-preview**. The user's
-installed assignment remains Ranger → legacy magenta Stim and Dozer → Shrek
-until the complete saved stack is rebuilt and installed. Private preview slot
+The newer native pilot/sky source is ahead of **v0.1.2-preview**. The local installation now assigns Ranger → magenta armored human Grapple and
+Dozer → Shrek. Its six-bundle update was installed through the existing journaled
+transaction engine; all 81 installed/original backup hashes and six undo copies
+were verified. The other 75 bundles, including Lynx/weapon bundles and cat audio,
+remain byte-exact. All 17 selected mods are retained. Private preview slot
 assignments never become user choices automatically. The intentionally stretched
 Fishguy seal is retained.
 
