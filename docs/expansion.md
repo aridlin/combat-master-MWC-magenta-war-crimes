@@ -28,7 +28,7 @@ until the complete saved stack is rebuilt and installed. Private preview slot
 assignments never become user choices automatically. The intentionally stretched
 Fishguy seal is retained.
 
-The current source suite ran **130 tests: 129 passed and one existing skip**.
+The current source suite ran **132 tests: 131 passed and one existing skip**.
 Native checks used a copied profile, read-only game overrides, an isolated
 network namespace and a private 1280x720 NVIDIA/Vulkan display capped at 30 FPS.
 No movement or firing inputs were sent. The host profile was unchanged and the
@@ -53,3 +53,9 @@ personal edition. Third-party assets retain their source licenses.
 The [initial November 3 report](expansion-2026-11-03-initial.md) is preserved as
 historical evidence; its blocked/download status predates the later imports and
 must not be read as the current feature state.
+
+A full saved-selection rebuild exposed a pre-existing incomplete Lynx rotation
+in the installer. The source now validates and supplies a complete native
+quaternion; see [the local cat import note](m1a0-local-import.md). The failed
+build stopped in private staging before installation. The previously verified
+texture stage is retained for hash-checked continuation of visual modules.
