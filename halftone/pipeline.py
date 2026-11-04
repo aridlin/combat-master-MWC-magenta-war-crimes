@@ -22,13 +22,35 @@ def build_id(config):
 
 
 def safe_output(path, config):
-    path=Path(path).resolve()
+    requested=Path(path)
+    path=requested.resolve()
     source=Path(config['bundle_root']).resolve()
     if path==source or source in path.parents:
         raise ValueError('Staged output/backup paths must be outside the Steam bundle tree')
     # Restrict this CLI to the project workspace for reviewable staged artifacts.
-    if Path.cwd().resolve() not in path.parents:
-        raise ValueError('Output and backup paths must stay inside the project workspace')
+    workspace=Path.cwd().resolve()
+    if workspace not in path.parents:
+        # Bulk work directories may live on another disk. Only explicitly
+        # registered workspace links qualify; an arbitrary symlink does not.
+        manifest=workspace/'.mwc-storage.json'
+        permitted=False
+        if manifest.is_file():
+            storage=json.loads(manifest.read_text())
+            if storage.get('version')!=1 or storage.get('workspace')!=str(workspace):
+                raise ValueError('Workspace storage manifest does not match this workspace')
+            for entry in storage.get('mounts',[]):
+                alias=Path(entry['alias'])
+                if alias.is_absolute() or '..' in alias.parts or not alias.parts:
+                    raise ValueError('Invalid workspace storage alias')
+                link=workspace/alias;target=Path(entry['target'])
+                if not target.is_absolute():raise ValueError('Storage target must be absolute')
+                target=target.resolve()
+                # Later pipeline steps reuse this resolved path, so both the
+                # workspace alias and its registered target must be accepted.
+                if link.is_symlink() and link.resolve()==target and (path==target or target in path.parents):
+                    permitted=True;break
+        if not permitted:
+            raise ValueError('Output and backup paths must stay inside the project workspace or registered storage')
     return path
 
 

@@ -43,6 +43,6 @@ UnityPlayer.*
 /installer/vm-*.json
 /installer/vm-*.ps1
 /installer/catalog.generated.hpp
-/installer/test-work/
+/installer/test-work
 
 /model_import/__pycache__/
