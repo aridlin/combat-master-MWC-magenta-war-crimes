@@ -6,7 +6,7 @@ The installed user selection remains **Ranger → magenta Stim pilot** and
 The [current gallery](screenshots/README.md) includes real native game captures.
 The Linux game ran at 1280×720 through a private headless NVIDIA/Vulkan display,
 with a copied profile, read-only game mounts and a separate network namespace.
-Normal menu selection, showcase and rotation controls were used. No match,
+For these roster previews, normal menu selection, showcase and rotation controls were used. No match,
 purchase, reward claim, movement or shooting was performed. The original
 profile stayed byte-identical. The game exited normally; Gamescope returned
 139 during shutdown. These are limited appearance checks, not full animation,
@@ -65,7 +65,7 @@ Street Fighter replacement builds, and its Soldier/Engineer/Sniper headwear can
 misalign. Missing support fails before installation. Updated source includes
 these fixes; check each newer release's source revision and validation notes.
 
-The current suite runs 102 tests: 101 passed, one existing data-dependent skip.
+The current suite runs 106 tests: 105 passed, one existing data-dependent skip.
 Fishguy and other character hand deformation, remaining model previews, full
 animations/helicopter scenes, first-person grip/ADS/reload, optional audio
 playback and 4K performance remain open. Do not treat numeric fits or these menu
@@ -115,7 +115,25 @@ proportions, but the native menu camera crops his hat and his grip needs review.
 The TF2 characters remain experimental for full animations, grip and helicopter
 scenes even though all nine have now rendered.
 
-The current source suite runs 102 tests: 101 passed, one existing data-dependent
+The current source suite runs 106 tests: 105 passed, one existing data-dependent
 skip. These hierarchy changes are newer than the published v0.1.1 binaries;
 release notes identify the source included in subsequent installers. No character source is replaced
 with primitive geometry, and no Valve model/audio binaries are published.
+
+## Stationary native first-person check — captured November 3
+
+A later isolated session loaded Parvis through the normal Private custom-game
+menu. The game populated its own bots; no bot behavior was modified and no
+movement or firing input was sent. The fixed view confirms that the installed
+magenta Stim pilot arm geometry replaces the standard first-person gloves. The
+map halftone surfaces and gold weapon also render. The original profile remained
+byte-identical at shutdown; native game exit was 0 and compositor exit was 139.
+
+![Pilot arms in the stationary native Parvis view](screenshots/pilot-arms-parvis-idle.png)
+
+This is an idle hipfire appearance check at a deliberately capped 1280×720/30 FPS.
+It does not establish ADS, reload, 4K performance or Fishguy's first-person
+appearance. A corrected Fishguy first-person test bundle is staged separately;
+it has not replaced Ranger in the installed game. The visible sky led to a
+[scene-reference audit and expanded sky bindings](skybox-coverage.md), which are
+newer than the v0.1.2 binaries and still need native sky acceptance.

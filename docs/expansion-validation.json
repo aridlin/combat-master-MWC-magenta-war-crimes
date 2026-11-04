@@ -2,8 +2,8 @@
   "date": "2026-11-03",
   "game_build": "24397779",
   "tests": {
-    "collected": 102,
-    "passed": 101,
+    "collected": 106,
+    "passed": 105,
     "skipped": 1
   },
   "correction": {
@@ -416,5 +416,38 @@
     "models": 14,
     "unique_prefabs": 29,
     "actual_first_person_grip_ADS_reload_tested": false
+  },
+  "last_updated": "2026-11-04",
+  "sky_reference_coverage": {
+    "render_settings_records": 22,
+    "scene_bundles": 21,
+    "assigned_skies": 19,
+    "all_assigned_skies_covered_by_source_targets": true,
+    "no_assigned_sky": [
+      "src/maps/map_artgalery_s",
+      "src/maps/map_hangar_s",
+      "src/maps/map_subwaystation_s"
+    ],
+    "installed_game_written": false,
+    "native_sky_acceptance": false,
+    "private_build_materials": 11,
+    "six_sided_materials": 2,
+    "cloned_2d_faces": 12,
+    "private_installer_apply_remove_original_hashes_restored": true,
+    "included_in_v0_1_2_binaries": false
+  },
+  "pilot_native_static_view": {
+    "captured": "2026-11-03",
+    "map": "Parvis",
+    "resolution": [
+      1280,
+      720
+    ],
+    "network_isolated": true,
+    "normal_private_custom_match": true,
+    "original_game_populated_bots": true,
+    "movement_or_firing_input_sent": false,
+    "pilot_authored_FP_arms_visible": true,
+    "ADS_reload_and_4K_performance_acceptance": false
   }
 }

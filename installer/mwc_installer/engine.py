@@ -273,7 +273,7 @@ def compose(config,state,saved,selected,addon,operator_assignments=None,tf2='',o
         log('Building optional local-TF2 Medigun sounds...');s=settings('tf2-audio');s['source_sha256']=digest(work/'root/audio');tf2_audio.build(c,s,tf2);merge(s)
     if 'sky' in selected:
         from skybox import bundles as sky
-        log('Building Minecraft-style sky cubemaps...');s=settings('sky');s.update(size=256,sources={rel:digest(work/rel) for rel in sky.TARGETS});sky.build(c,s);merge(s)
+        log('Building Minecraft-style skies...');s=settings('sky');s.update(size=256,sources={rel:digest(work/rel) for rel in sky.TARGETS});sky.build(c,s);merge(s)
     if 'menu' in selected:
         import menu_background
         log('Building Fishguy menu...');s=settings('menu');s.update(source_sha256=digest(work/'root/root'),image=str(ROOT/'assets/branding/menu-halftone.png'));menu_background.build(c,s);merge(s)

@@ -80,3 +80,15 @@ unchecked. The Minigun Kill Chains UI shows a static promotional image, so it
 cannot verify the installed Medigun mesh. No match was entered.
 
 For the private operator roster, confirmed Fishguy rear geometry, TF2 headwear corrections and remaining deformation problems, see [the native operator review](../operator-runtime-review.md). Those source-color test assignments were never installed as user defaults.
+
+## Stationary native pilot arms — Parvis
+
+![Magenta authored pilot arms in the native private Parvis session](pilot-arms-parvis-idle.png)
+
+Captured November 3 at 1280×720 in the isolated private session, with the
+installed visual bundles read-only and a copied guest profile. The game supplied
+its ordinary bots. No movement or firing input was sent. This confirms visible
+pilot arm replacement in the idle view; ADS, reload and 4K performance remain
+unverified. The capped 30 FPS is a test-display limit, not a performance result.
+See the [sky reference audit](../skybox-coverage.md) for the uncovered original
+Parvis sky and the newer source fix.

@@ -187,5 +187,12 @@
     "sha256": "9a7d8f683156c0c6d57ad4ae62597068844b519cb744426bb05ddb77361bbfb8",
     "color_editing": false,
     "caption": "Fishguy anatomical hand/wrist trial in rotated native showcase; source integration differs only by recorded rounding, full animation and first-person acceptance pending."
+  },
+  {
+    "file": "pilot-arms-parvis-idle.png",
+    "source": "Codex isolated native Linux private Parvis session, 2026-11-03; fixed idle view, copied guest profile",
+    "sha256": "9514a659738b91edbfed01fd8bf57579e69b80c37f96202dbd8f9688c239505b",
+    "color_editing": false,
+    "caption": "Installed magenta Stim pilot authored first-person arms and halftone terrain in a stationary native view. Normal game bots populated the private session. No movement or firing input; no ADS/reload/4K acceptance."
   }
 ]
