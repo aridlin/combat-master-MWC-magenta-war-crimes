@@ -50,3 +50,14 @@ visual testing. Earlier showcase screenshots show the procedural fallback.
 The importer also extracts the addon WAVs for the independent
 [cat audio module](cat-audio.md). It verifies every archive entry CRC before
 writing the allowlisted files.
+
+## Full-stack composition correction (development source)
+
+A full saved-selection rebuild exposed a three-component Lynx rotation in the
+installer, where Unity requires a four-component xyzw quaternion. The source
+now supplies the original complete `[0, sqrt(0.5), sqrt(0.5), 0]` rotation and
+rejects incomplete, non-finite or non-unit rotations before bundle access. This
+does not change the cat mesh, tail, position, animations or audio. The prior
+failed staged build did not modify the installed game. The regression suite now
+runs 132 tests: 131 passed and one existing skip. Public preview binaries
+predating this correction can fail a combined build when Lynx is selected.

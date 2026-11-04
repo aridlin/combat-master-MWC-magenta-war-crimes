@@ -225,6 +225,13 @@ def compose(config,state,saved,selected,addon,operator_assignments=None,tf2='',o
         verify(c)
         manifest=json.loads(mp.read_text())
         for b in manifest['bundles']:copy_private(b['output'],work/b['bundle'])
+    return _compose_modules(c,state,saved,selected,addon,operator_assignments,tf2,operator_appearance,run,work)
+
+
+def _compose_modules(c,state,saved,selected,addon,operator_assignments,tf2,operator_appearance,run,work):
+    """Compose visual modules onto the already verified private texture stage."""
+    from halftone.pipeline import build_id
+    if Path(c['bundle_root']).resolve()!=Path(work).resolve():raise ValueError('Visual module working tree mismatch')
     # Following modules must read the cumulative working bundle tree, not the
     # earlier halftone output paths stored in its report.
     def baseline():
@@ -246,7 +253,7 @@ def compose(config,state,saved,selected,addon,operator_assignments=None,tf2='',o
         log('Building blue crates...');baseline();s=settings('crates');s['color']='#008CFF';crate_colors.build(c,s);merge(s)
     if 'lynx' in selected:
         from catgun.bundle import build as catbuild
-        log('Building M1A0 Lynx with original tail...');baseline();s=settings('lynx');s.update(model='m1a0',source_assets=str(source_assets),tail_mode='original',scale=1.,position=[0.,0.,0.],rotation=[0.,.7071067811865476,.7071067811865476]);catbuild(c,s)
+        log('Building M1A0 Lynx with original tail...');baseline();s=settings('lynx');s.update(model='m1a0',source_assets=str(source_assets),tail_mode='original',scale=1.,position=[0.,0.,0.],rotation=[0.,.7071067811865476,.7071067811865476,0.]);catbuild(c,s)
         from catgun.operations import verify as catverify
         catverify(c,s);merge(s)
     if selected&{'reticles','iron'}:

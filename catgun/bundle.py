@@ -60,7 +60,17 @@ def verify_geometry(obj,mesh):
     if not np.array_equal(triangles,f): raise ValueError('Cat triangle indices did not round-trip')
 
 
+def visual_transform(settings):
+    position=np.asarray(settings.get('position',[0.,0.,0.]),dtype=float)
+    rotation=np.asarray(settings.get('rotation',[0.,2**-.5,2**-.5,0.]),dtype=float)
+    if position.shape!=(3,) or not np.isfinite(position).all():raise ValueError('Cat position must have three finite components')
+    if rotation.shape!=(4,) or not np.isfinite(rotation).all() or abs(float(np.linalg.norm(rotation))-1.)>1e-5:
+        raise ValueError('Cat rotation must be a finite unit quaternion with four xyzw components')
+    return dict(zip('xyz',map(float,position))),dict(zip('xyzw',map(float,rotation)))
+
+
 def build(config,cat_config):
+    position,rotation=visual_transform(cat_config)
     version=build_id(config);out=safe_output(cat_config['output'],config);report=out/'manifest.json'
     if report.exists(): raise ValueError('Existing cat build: choose a new output directory for a new variant')
     mesh,coat_image=load_cat(cat_config)
@@ -179,8 +189,8 @@ def build(config,cat_config):
                 go_tree['m_Component']=[{'component':{'m_FileID':0,'m_PathID':o.path_id}} for o in (new_t,new_r,new_f)]
                 write(new_go,go_tree)
                 td=old_t;td['m_GameObject']={'m_FileID':0,'m_PathID':new_go.path_id};td['m_Children']=[]
-                td['m_LocalPosition']=dict(zip('xyz',map(float,cat_config['position'])))
-                td['m_LocalRotation']=dict(zip('xyzw',map(float,cat_config.get('rotation',[0,2**-.5,2**-.5,0]))));td['m_LocalScale']={'x':1.,'y':1.,'z':1.};write(new_t,td)
+                td['m_LocalPosition']=position.copy()
+                td['m_LocalRotation']=rotation.copy();td['m_LocalScale']={'x':1.,'y':1.,'z':1.};write(new_t,td)
                 rd=parts['MeshRenderer'].read_typetree();rd['m_GameObject']={'m_FileID':0,'m_PathID':new_go.path_id};rd['m_Enabled']=True
                 rd['m_Materials']=[{'m_FileID':0,'m_PathID':material_obj.path_id}];write(new_r,rd)
                 fd=parts['MeshFilter'].read_typetree();fd['m_GameObject']={'m_FileID':0,'m_PathID':new_go.path_id};fd['m_Mesh']={'m_FileID':0,'m_PathID':cat_mesh.path_id};write(new_f,fd)
