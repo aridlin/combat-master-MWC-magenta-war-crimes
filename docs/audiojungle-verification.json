@@ -1,0 +1,120 @@
+{
+  "feature": "Optional local Audiojungle Medigun excerpts",
+  "source_commit": "94e8bca64b85de2e42a948fee4808f3c8b07e821",
+  "date": "2026-11-05",
+  "clean_source_tests": {
+    "run": 139,
+    "passed": 138,
+    "skipped": 1
+  },
+  "linux_installer_gui": {
+    "extras_card_checked": true,
+    "source_folder_preload_checked": true,
+    "apply_clicked": false
+  },
+  "linux_frozen_diagnostics_passed": true,
+  "windows_focused_audio_tests": {
+    "run": 10,
+    "passed": 10,
+    "runtime": "Official embedded Windows CPython 3.12.10 under Wine"
+  },
+  "actual_private_bundle_builds": {
+    "Linux": true,
+    "Windows_under_Wine": true
+  },
+  "verification": {
+    "changed_native_slots": 4,
+    "all_unrelated_objects_exact": true,
+    "complete_existing_resource_prefix_exact": true,
+    "all_seven_lynx_samples_exact": true,
+    "per_platform_FMOD_PCM_roundtrip_exact": true,
+    "native_rates_frames_duration_pitch_spatial_event_load_settings_preserved": true,
+    "deselection_restores_exact_baseline": true,
+    "vanilla_TF2_audio_regression_passed": true,
+    "shared_slot_conflict_explicit_before_build": true,
+    "source_audio_bundled": false,
+    "source_scripts_executed": false,
+    "private_unverified_hand_experiment_packaged": false
+  },
+  "native_slots": [
+    {
+      "name": "Maxim Minigun Fire 1",
+      "frames": 21871,
+      "rate": 44100,
+      "source_sha256": "dd49aa7c8a5386d8780669b409d2be7549c02a01e3cfd13e9589fdab4368cd72"
+    },
+    {
+      "name": "Maxim Minigun Fire 2",
+      "frames": 22095,
+      "rate": 44100,
+      "source_sha256": "d73dd5fe158bb6407b6a5225bc5f383fc2678d4b4224449fd0d3d29e2f585d92"
+    },
+    {
+      "name": "Maxim Minigun Fire 3",
+      "frames": 22095,
+      "rate": 44100,
+      "source_sha256": "f5d78ff8319084a02e7e7a4b3105426a339b8e51513e1ec1396698c91e3d5fde"
+    },
+    {
+      "name": "MinigunBarrelSpin",
+      "frames": 18230,
+      "rate": 22050,
+      "source_sha256": "5578c49ff7add1fb9eddab7eaa8530ceb1c6574c36b12ef02e96e176bb07d2b2"
+    }
+  ],
+  "cross_platform_waveform_comparison": [
+    {
+      "name": "Maxim Minigun Fire 1",
+      "frames": 21871,
+      "peak_difference_pcm16_units": 1.0,
+      "rms_difference_pcm16_units": 0.07650162575153042,
+      "signal_to_error_db": 101.28687664000347,
+      "correlation": 0.9999999999628892,
+      "fraction_samples_exact": 0.9941475012573727
+    },
+    {
+      "name": "Maxim Minigun Fire 2",
+      "frames": 22095,
+      "peak_difference_pcm16_units": 1.0,
+      "rms_difference_pcm16_units": 0.06129034179079003,
+      "signal_to_error_db": 104.54583369096173,
+      "correlation": 0.999999999982446,
+      "fraction_samples_exact": 0.9962434940031681
+    },
+    {
+      "name": "Maxim Minigun Fire 3",
+      "frames": 22095,
+      "peak_difference_pcm16_units": 1.0,
+      "rms_difference_pcm16_units": 0.0702370473120599,
+      "signal_to_error_db": 100.57615116796259,
+      "correlation": 0.9999999999562137,
+      "fraction_samples_exact": 0.9950667571848835
+    },
+    {
+      "name": "MinigunBarrelSpin",
+      "frames": 18230,
+      "peak_difference_pcm16_units": 0.0,
+      "rms_difference_pcm16_units": 0.0,
+      "signal_to_error_db": null,
+      "correlation": 1.0,
+      "fraction_samples_exact": 1.0
+    }
+  ],
+  "development_archives": [
+    {
+      "platform": "Linux",
+      "sha256": "b5e29fb41258c94ce2aeec9d77da2d454bce6c96a15c3cda1bec47fd0bc937d3"
+    },
+    {
+      "platform": "Windows",
+      "sha256": "993149f11a36a824e6fb72075b2f283c8599d6ed8a069ceb7c1e3713a691c6df"
+    }
+  ],
+  "limitations": {
+    "in_game_auditioned": false,
+    "native_Windows_game_tested": false,
+    "normal_user_game_modified": false,
+    "public_v014_release_includes_this_feature": false,
+    "TF2_random_event_scripts_ported": false
+  }
+}
