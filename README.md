@@ -267,3 +267,5 @@ Current operator/model status, source credits and acceptance limits are in [the 
 Portable preview downloads: [Linux and Windows installers](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.0-preview). Extract the whole archive. Public builds import your local M1A0 archive for Lynx/cat audio; TF2 models require local TF2.
 
 Development source after v0.1.0 adds optional locally imported TF2 Medigun sounds and broader first-person arm coverage. These changes are not in the v0.1.0 downloads; see [current verification status](docs/operator-expansion.md) and [audio details](docs/tf2-audio.md).
+
+Development source also includes independently selectable [local Audiojungle excerpts](docs/audiojungle-local-import.md), with explicit conflict handling against vanilla TF2 Medigun audio. Private build, Lynx preservation and exact deselection pass; in-game audition is pending. This addition is not included in the frontend-only v0.1.4-preview downloads.

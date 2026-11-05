@@ -193,5 +193,16 @@
     "default": false,
     "target": "Four exact Minigun AudioClip slots; Lynx sounds preserved",
     "status": "private PCM/FMOD verification passed; in-game audition pending"
+  },
+  {
+    "id": "audiojungle_medigun",
+    "title": "Audiojungle excerpts / Minigun",
+    "group": "Extras",
+    "description": "Four fixed excerpts from your extracted Audiojungle pack. Choose this or TF2 Medigun sounds. Lynx sounds and native event timing are preserved.",
+    "thumbnail": "assets/audiojungle.png",
+    "preview_kind": "Original MWC audio icon; local pack required",
+    "default": false,
+    "target": "Four reviewed Minigun AudioClip slots only",
+    "status": "private PCM/FMOD and deselection verification passed; in-game audition pending"
   }
 ]

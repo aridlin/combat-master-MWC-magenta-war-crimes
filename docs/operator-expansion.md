@@ -52,13 +52,14 @@ prefabs (covering all 32 identities). Native bind reproduction, finite bent
 poses and normalized normals passed. The 14 reviewed images are representative
 synthetic renders; every possible model/slot view has not been visually reviewed.
 
-Audiojungle's original TF2 archive has now been inspected privately. Its 3,123
-MP3s and 677 WAVs rely on TF2 sound-script randomization; three sample MP3s decode
-through the packaged FMOD dependency without playback. Porting full four-second
-sounds into native half-second firing slots would truncate the joke or require
-changing sound timing. No source scripts were executed, no pack assets are
-redistributed, and an Audiojungle manager mod is not implemented. See the
-[source investigation](audiojungle-research.md).
+Audiojungle's original TF2 archive was inspected privately. The independent
+**Audiojungle excerpts / Minigun** Extras option now reads four locally supplied
+samples, rejects its overlap with vanilla TF2 Medigun audio explicitly, preserves
+all seven Lynx samples, and restores the exact baseline when deselected. Native
+slot timing and metadata passed actual private-bundle verification. Source audio
+is not redistributed; this imports fixed excerpts rather than TF2's randomized
+sound-event system. It is not installed or auditioned in-game. See the
+[local importer](audiojungle-local-import.md) and [source investigation](audiojungle-research.md).
 
 ## Applied character/material correction
 
@@ -116,7 +117,7 @@ prior hashes and operator-assignment metadata restored.
 | Minecraft Steve | Optional choice. Existing classic mesh/pixel skin; explicit rig and interpolated elbow/knee cuts added. Native bundle and synthetic articulation checks passed; in-game untested. |
 | Titanfall pilot | Authored Stim pilot rigged locally, native bundle and offline deformation checks passed. Ranger correction applied and hash-verified; in-game acceptance pending. |
 | Sonic impact grenade | Authored 5,979-triangle spin ball. Independent manager option; three held LOD renderers and the thrown filter/material are file-verified. Sonic+nailer then nailer-only composition preserves the nailer. Not installed; in-game untested. |
-| Audiojungle / extra TF2 sounds | Optional local TF2 Medigun audio now passes private build/removal verification; not installed or auditioned. Audiojungle source/rights review remains unfinished. Existing Lynx sounds preserved. |
+| Audiojungle / extra TF2 sounds | Separate local TF2 and Audiojungle excerpt options pass private build/removal verification with explicit shared-slot conflict handling. Neither installed or auditioned in-game. Source audio is not bundled; Lynx samples remain exact. |
 | Per-model magenta and separate native-operator control | Implemented after the applied checkpoint. Independent source-color/magenta builds and pristine native-color restoration passed bundle verification. In-game untested. |
 
 The current Lynx cat, full tail and cat audio were preserved. The complete

@@ -72,3 +72,5 @@ success or failure; this avoids Windows PNG replacement locks. Windows game
 installation/editing is still untested.
 
 The installer fits its startup window to the monitor under the pointer, reserving space for the title bar and desktop panels. Small displays use the existing vertical scrollbar; the window remains resizable.
+
+The optional **Audiojungle excerpts / Minigun** Extras card reads an extracted local Audiojungle folder containing `sound/`. It preserves native slot durations and Lynx sounds; selecting it together with vanilla TF2 Medigun audio produces an explicit conflict. Source audio is not bundled. See [local import and verification](../docs/audiojungle-local-import.md). In-game audition remains pending.

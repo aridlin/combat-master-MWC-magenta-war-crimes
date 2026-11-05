@@ -1,0 +1,31 @@
+{
+  "build_id": "24397779",
+  "pack": "Audiojungle Medigun excerpts for the Minigun",
+  "source": "Local extracted CoopDogger Audiojungle TF2 pack. No source audio or sound scripts are bundled or executed.",
+  "clips": [
+    {
+      "id": "4859583122294578521",
+      "name": "Maxim Minigun Fire 1",
+      "source": "sound/ui/weapons/medigun/medigun_heal1.mp3",
+      "offset_seconds": 0.0
+    },
+    {
+      "id": "893290358152688782",
+      "name": "Maxim Minigun Fire 2",
+      "source": "sound/ui/weapons/medigun/medigun_heal2.mp3",
+      "offset_seconds": 0.0
+    },
+    {
+      "id": "-8658787078477535653",
+      "name": "Maxim Minigun Fire 3",
+      "source": "sound/ui/weapons/medigun/medigun_heal3.mp3",
+      "offset_seconds": 0.0
+    },
+    {
+      "id": "-8961853817115462631",
+      "name": "MinigunBarrelSpin",
+      "source": "sound/ui/weapons/medigun/medigun_charged.wav",
+      "offset_seconds": 0.0
+    }
+  ]
+}

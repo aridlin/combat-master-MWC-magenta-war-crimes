@@ -27,7 +27,10 @@ and would change the current timing behavior. That has not been implemented.
 
 No redistribution grant for this mixed-source archive has been recorded. MWC
 does not ship the archive, sampled sounds or its scripts. The independently
-implemented local **vanilla TF2 Medigun sound** option is a separate feature;
-it does not claim to be Audiojungle. A future Audiojungle option would need
-explicit sample choices, a local source import, conflict handling with that
-option, and in-game checks for repetition, clipping and playback cost.
+implemented local **vanilla TF2 Medigun sound** option remains separate.
+
+The subsequent [local Audiojungle excerpt importer](audiojungle-local-import.md)
+now implements four fixed samples with explicit slot-conflict handling and the
+same timing-preserving writer. Actual private-bundle composition, Lynx sample
+preservation and exact deselection passed. This is not the entire randomized
+TF2 sound-event system; in-game sound quality and playback cost remain untested.

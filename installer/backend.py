@@ -88,7 +88,7 @@ def main():
     Path(request['state'],'selected.txt').write_text('\n'.join(result['selected']),encoding='utf8')
     if request['action']=='apply':
         from operators.assignments import save_plan
-        save_plan(request['state'],result.get('operator_assignments',{}));Path(request['state'],'tf2.txt').write_text(request.get('tf2',''),encoding='utf8')
+        save_plan(request['state'],result.get('operator_assignments',{}));Path(request['state'],'tf2.txt').write_text(request.get('tf2',''),encoding='utf8');Path(request['state'],'audiojungle-source.txt').write_text(request.get('audiojungle_source',''),encoding='utf8')
     from operators.styles import save as save_styles
     save_styles(request['state'],result.get('operator_appearance'),players='players' in result['selected'])
 if __name__=='__main__':

@@ -8,7 +8,7 @@ from halftone.assets import dump
 from deploy_halftone import replace_verified
 
 ROOT=Path(__file__).resolve().parents[2]
-IDS={'lynx','scorpion','fishing_rod','nail_gun','toaster','medigun','players','weapons','terrain','cat_audio','crates','reticles','iron','glass','menu','sky','operator_arms','sonic_impact','tf2_medigun_audio'}
+IDS={'lynx','scorpion','fishing_rod','nail_gun','toaster','medigun','players','weapons','terrain','cat_audio','crates','reticles','iron','glass','menu','sky','operator_arms','sonic_impact','tf2_medigun_audio','audiojungle_medigun'}
 MODELS={'scorpion','fishing_rod','nail_gun','toaster','medigun'}
 
 def log(message):print(message,flush=True)
@@ -187,7 +187,7 @@ def transaction(config,state,saved,outputs,selected,operator_assignments=None,op
         recover(config,state);raise
     (state/'pending.json').unlink();return updated
 
-def compose(config,state,saved,selected,addon,operator_assignments=None,tf2='',operator_appearance=None):
+def compose(config,state,saved,selected,addon,operator_assignments=None,tf2='',operator_appearance=None,audiojungle_source=''):
     """Always compose from originals; no stale layer can overwrite another mod."""
     from halftone.pipeline import build_id
     from halftone.assets import scan
@@ -196,6 +196,7 @@ def compose(config,state,saved,selected,addon,operator_assignments=None,tf2='',o
     from halftone.materials import finalize
     from halftone.shared import separate_shared
     from halftone.arrays import apply_arrays
+    validate_audio_selection(selected,audiojungle_source)
     run=state/'builds'/uuid.uuid4().hex;work=run/'bundles';work.mkdir(parents=True)
     # Copies are private. Builders never receive the actual game path.
     for rel in saved['originals']:
@@ -225,10 +226,10 @@ def compose(config,state,saved,selected,addon,operator_assignments=None,tf2='',o
         verify(c)
         manifest=json.loads(mp.read_text())
         for b in manifest['bundles']:copy_private(b['output'],work/b['bundle'])
-    return _compose_modules(c,state,saved,selected,addon,operator_assignments,tf2,operator_appearance,run,work)
+    return _compose_modules(c,state,saved,selected,addon,operator_assignments,tf2,operator_appearance,run,work,audiojungle_source)
 
 
-def _compose_modules(c,state,saved,selected,addon,operator_assignments,tf2,operator_appearance,run,work):
+def _compose_modules(c,state,saved,selected,addon,operator_assignments,tf2,operator_appearance,run,work,audiojungle_source=''):
     """Compose visual modules onto the already verified private texture stage."""
     from halftone.pipeline import build_id
     if Path(c['bundle_root']).resolve()!=Path(work).resolve():raise ValueError('Visual module working tree mismatch')
@@ -278,6 +279,9 @@ def _compose_modules(c,state,saved,selected,addon,operator_assignments,tf2,opera
     if 'tf2_medigun_audio' in selected:
         import tf2_audio
         log('Building optional local-TF2 Medigun sounds...');s=settings('tf2-audio');s['source_sha256']=digest(work/'root/audio');tf2_audio.build(c,s,tf2);merge(s)
+    if 'audiojungle_medigun' in selected:
+        import audiojungle
+        log('Building optional local Audiojungle excerpts...');s=settings('audiojungle');s['source_sha256']=digest(work/'root/audio');audiojungle.build(c,s,audiojungle_source);merge(s)
     if 'sky' in selected:
         from skybox import bundles as sky
         log('Building Minecraft-style skies...');s=settings('sky');s.update(size=256,sources={rel:digest(work/rel) for rel in sky.TARGETS});sky.build(c,s);merge(s)
@@ -312,6 +316,14 @@ def validate_frontend(saved,request):
         missing=installed_models-set(represented)
         if missing:raise ValueError('Outdated installer cannot represent installed operator models/colors: '+', '.join(sorted(missing)))
 
+def validate_audio_selection(selected,source=''):
+    if {'tf2_medigun_audio','audiojungle_medigun'}<=set(selected):
+        raise ValueError('Choose either TF2 Medigun sounds or Audiojungle excerpts: both replace the same four Minigun sound slots')
+    if 'audiojungle_medigun' in selected:
+        from audiojungle import prepare
+        prepare(source)
+
+
 def execute(request):
     game=request.get('game','')
     if not game:
@@ -325,6 +337,7 @@ def execute(request):
     from operators.assignments import validate as validate_operators
     operator_assignments=validate_operators(request.get('operator_assignments',{}))
     if not selected<=IDS:raise ValueError('Unknown mod selection')
+    if request['action']=='apply':validate_audio_selection(selected,request.get('audiojungle_source',''))
     if request['action']=='apply' and not request.get('offline_authorized'):raise ValueError('Confirm an offline or explicitly authorized modding environment')
     with locked(state):
         if game_running(Path(config['bundle_root']).parents[2]):raise ValueError('Close Combat Master before applying changes')
@@ -335,7 +348,7 @@ def execute(request):
         operator_appearance=appearance_defaults(request.get('operator_appearance',saved.get('operator_appearance')),players='players' in selected)
         if request['action']=='apply':validate_frontend(saved,request)
         if request['action']=='restore':selected=set();operator_assignments={};operator_appearance=appearance_defaults(players=False);outputs={rel:state/'originals'/rel for rel in saved['originals']}
-        elif request['action']=='apply':outputs=compose(config,state,saved,selected,request.get('addon',''),operator_assignments,request.get('tf2',''),operator_appearance)
+        elif request['action']=='apply':outputs=compose(config,state,saved,selected,request.get('addon',''),operator_assignments,request.get('tf2',''),operator_appearance,request.get('audiojungle_source',''))
         else:raise ValueError('Unknown action')
         result=transaction(config,state,saved,outputs,selected,operator_assignments,operator_appearance)
         log('Complete. Selected mods: '+(', '.join(result['selected']) or 'none (originals restored)'))
