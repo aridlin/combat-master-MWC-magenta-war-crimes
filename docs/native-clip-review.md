@@ -43,9 +43,16 @@ unsupported cases. This checks only one frame per clip, not full animations.
 The initial AK12 idle
 inspection resolved all 237 transform bindings on the native Ranger hierarchy;
 seven separate Animator root channels were reported. CPU comparisons using
-idle, ADS and a reload frame exposed palm/finger stretching in the private
-hand-control-to-wrist-driver remap. That remap was rejected and production arm
-fitting restored; its earlier 928 numerical fits did not establish visual
+idle, ADS and a reload frame showed palm/finger stretching in the private
+hand-control-to-wrist-driver remap. The candidate was kept out of production.
+A later review also found hand separation on the **unmodified original native
+glove control** in these offline samples. Consequently, these images cannot
+settle whether the driver mapping is correct at runtime. The exact cause of
+the control discrepancy is unresolved; native animation layers, procedural
+transforms and IK are not reproduced. A fresh bounded native range comparison
+subsequently confirmed palm stretching in that direct-remap candidate, so it
+remains rejected. That native result does not make the offline sampler a
+validated deformation predictor. The earlier 928 numerical fits did not establish visual
 quality. A separate nearest-native-hand-weight experiment also remains private
 and unaccepted. Installed models and their original animation assets are
 unchanged.
