@@ -14,6 +14,7 @@
 #include <fcntl.h>
 #endif
 #include "catalog.generated.hpp"
+#include "window_fit.hpp"
 namespace fs=std::filesystem;
 static std::atomic<bool> busy{false};static std::atomic<int> result{-1};
 static std::string escape(const std::string&s){std::string o;for(unsigned char c:s){if(c=='"'||c=='\\'){o+='\\';o+=c;}else if(c=='\n')o+="\\n";else if(c=='\r')o+="\\r";else if(c=='\t')o+="\\t";else if(c<32)o+=' ';else o+=c;}return o;}
@@ -64,7 +65,9 @@ int main(int argc,char**argv){
  std::string capture;int tab=0;for(int n=1;n+1<argc;++n){if(std::string(argv[n])=="--capture")capture=argv[n+1];if(std::string(argv[n])=="--tab")tab=std::max(0,std::min(3,atoi(argv[n+1])));}
  bool authorized=false;std::thread worker;std::string job_action;std::string notice="Choose mods independently. Originals are backed up before installation.";
  ft::Config c;c.mode=ft::Mode::Gui;c.title="Combat Master MWC - Magenta War Crimes";c.width=1180;c.height=1400;c.window_opacity=1;c.enable_effects=false;c.fps_limit=30;
+ auto work_area=mwc_window::prepare(c);
  if(!ft::create_window(c))return 2;
+ mwc_window::place(work_area);
  auto seal=ft::load_image((home/"branding/fishguy-sticker.png").u8string().c_str());
  auto reload_previews=[&]{
   for(auto&m:mods){if(m.image)ft::free_image(m.image);auto local=state/"previews"/(m.id+".png");bool imported=fs::exists(local);m.image=ft::load_image((imported?local:home/fs::u8path(m.thumbnail)).u8string().c_str());if(imported){m.thumb_w=640;m.thumb_h=480;}}

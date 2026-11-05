@@ -70,3 +70,5 @@ import/save checks, including re-import while previews are loaded. The frontend
 releases preview image handles before import and reloads them after either
 success or failure; this avoids Windows PNG replacement locks. Windows game
 installation/editing is still untested.
+
+The installer fits its startup window to the monitor under the pointer, reserving space for the title bar and desktop panels. Small displays use the existing vertical scrollbar; the window remains resizable.
