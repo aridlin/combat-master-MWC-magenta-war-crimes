@@ -16,6 +16,8 @@ MODELS = {name: 'player/' + source for name, source in [
     ('scout','scout'), ('soldier','soldier'), ('pyro','pyro'), ('demoman','demo'),
     ('heavy','heavy'), ('engineer','engineer'), ('medic','medic'), ('sniper','sniper'), ('spy','spy')]}
 MODELS['medigun'] = 'weapons/c_models/c_medigun/c_medigun'
+ARM_MODELS = {name: 'weapons/c_models/c_' + ('demo' if name == 'demoman' else name) + '_arms'
+              for name in MODELS if name != 'medigun'}
 
 
 def flatten(source,output):
@@ -34,13 +36,14 @@ def flatten(source,output):
     return output
 
 
-def import_models(tf, output,names=None):
+def import_models(tf, output,names=None,*,first_person=False):
     tf, output = Path(tf).resolve(), Path(output).resolve()
     if tf == output or tf in output.parents: raise ValueError('Import output must be outside TF2')
+    models = ARM_MODELS if first_person else MODELS
+    if names is not None and not set(names)<=models.keys():raise ValueError('Unknown TF2 import selection')
     misc, textures = VPK(tf/'tf2_misc_dir.vpk'), VPK(tf/'tf2_textures_dir.vpk')
     report = []
-    if names is not None and not set(names)<=MODELS.keys():raise ValueError('Unknown TF2 import selection')
-    for name, model in MODELS.items():
+    for name, model in models.items():
         if names is not None and name not in names:continue
         out = output/name
         out.mkdir(parents=True, exist_ok=True)
@@ -64,6 +67,7 @@ def import_models(tf, output,names=None):
         arrays = {k:v for k,v in d.items() if isinstance(v, np.ndarray)}
         np.savez_compressed(out/'mesh.npz', **arrays)
         meta = {'id':'tf2_'+name,'title':name.title(),'author':'Valve Corporation','source':'Local Team Fortress 2 installation; Steam App 440','redistribution':'Valve content is not included in this project; local import only. No new license granted.', 'materials':mats,'bone_names':d['bone_names'],'parts':d['parts'],'vertices':len(d['positions']),'triangles':len(d['faces']),'source_sha256':{p:hashlib.sha256(b).hexdigest() for p,b in source.items()},'game_files_modified':False,'gameplay_data_imported':False,'in_game_tested':False}
+        meta['source_variant'] = 'first_person_arms' if first_person else 'world'
         (out/'source.json').write_text(json.dumps(meta,indent=2)+'\n')
         report.append({k:meta[k] for k in ('id','vertices','triangles','in_game_tested')})
         print(name,meta['vertices'],'vertices',meta['triangles'],'triangles',flush=True)

@@ -24,7 +24,7 @@ def discover_tf2(config,requested=''):
     return found[0]
 
 
-def prepare(config,assignments,work,tf2='',appearance=None):
+def prepare(config,assignments,work,tf2='',appearance=None,*,matching_arms=False):
     from .styles import normalize
     appearance=normalize(appearance)
     required=set(assignments.values());result={}
@@ -38,6 +38,15 @@ def prepare(config,assignments,work,tf2='',appearance=None):
         raw=Path(work)/'tf2-local';names=[name.removeprefix('tf2_') for name in tf_models];import_models(discover_tf2(config,tf2),raw,names)
         for model in tf_models:
             source=flatten(raw/model.removeprefix('tf2_'),Path(work)/'operator-sources'/model);result[model]={'source':str(source),'profile':model,'style':'magenta'}
+        # Medic's world-arm extraction showed a native forearm defect. The
+        # actual class-specific arm source was compared in the official range.
+        # Other classes retain their reviewed extraction until separately tested.
+        if matching_arms and 'tf2_medic' in tf_models:
+            from .tf2_arms import add_landmarks
+            arm_raw=Path(work)/'tf2-local-arms'
+            import_models(discover_tf2(config,tf2),arm_raw,['medic'],first_person=True)
+            arm_source=flatten(arm_raw/'medic',Path(work)/'operator-arm-sources/tf2_medic')
+            result['tf2_medic']['first_person_source']=str(add_landmarks(arm_source,result['tf2_medic']['source']))
     if 'titanfall_pilot' in required:
         from .autorig import build as pilot_rig
         source=pilot_rig(config,ROOT/'assets/operator-sources/titanfall_pilot',Path(work)/'operator-sources/titanfall_pilot');result['titanfall_pilot']={'source':str(source),'profile':'titanfall_transfer','style':'magenta'}

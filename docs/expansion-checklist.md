@@ -20,7 +20,7 @@ The corrected magenta Ranger/armored human Grapple pilot, matte materials, slimm
 - [x] Native offline menu: Ranger uses the magenta armored human Grapple pilot and Dozer uses Shrek; Fishguy remains optional.
 - [x] Native installed-stack stationary first-person check: Grapple arms and square-cloud sky on Parvis.
 - [x] Rejected the private Fishguy hand-driver remap after shipped-clip comparisons exposed palm/finger stretching; production fitter restored, retired probe disabled.
-- [ ] Baseline Fishguy hand grip and a suitable correction: native in-game appearance. The running normal game prevents concurrent private GPU validation; numerical tests alone do not establish visual acceptance.
+- [ ] Baseline Fishguy hand grip and a suitable correction: the official range now shows the baseline angular wrist; visual correction remains unresolved. Numerical tests alone do not establish acceptance.
 - [ ] Other assignments and full character animations in-game.
 - [ ] Shrek/Fishguy and other rebuilt characters no longer look metallic; rear surfaces have correct color.
 - [ ] Matching first-person arms: actual hand grip, finger deformation, watch/weapon clearance and ADS/reload.
@@ -40,3 +40,16 @@ November 5 audio development checks:
 - [ ] Native in-game Audiojungle audition, repeated-fire balance and performance. Not applied to the user installation; not part of v0.1.4-preview downloads.
 
 The clean Audiojungle source suite passes 139 tests (138 pass, one data-dependent skip). The Windows embedded runtime passes 10 focused audio tests under Wine and builds an actual private audio bundle. These checks do not establish native Windows game compatibility. Linux/Windows MP3-derived excerpts differ by at most one PCM16 unit in the measured comparison; rates and frame counts agree and each platform independently passes exact FMOD roundtrip. The original WAV-derived barrel-spin sample matches across both platforms.
+
+November 5 TF2 native first-person review:
+- [x] All nine optional mercenary arm sources built with exact geometry/UV/skin roundtrip and unrelated-original-object preservation.
+- [x] Each rendered in the official offline MP.V range; per-model captures and hashes recorded.
+- [x] Private aliases left the installed Ranger/Grapple default, host profile and installation unchanged.
+- [x] Medic uniform-albedo native control: dark forearm mark persists, so painted detail alone does not explain it.
+- [ ] Medic full grip/finger/skin deformation across animation states; the prior visible forearm patch is absent in the upgraded idle view.
+- [x] Genuine local Medic first-person model: stationary native range capture and byte-identical source-installer build; previous forearm patch absent in that view.
+- [ ] All weapons, ADS/reloads, animations/helicopter and 4K performance.
+
+See [the nine-model range review](tf2-first-person-review.md). The source suite
+passes 149 tests (148 pass, one existing skip). Linux and Windows frontends
+compiled; these checks do not establish native Windows game compatibility.

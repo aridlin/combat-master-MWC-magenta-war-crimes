@@ -109,3 +109,36 @@ The stationary captures establish those visible features together. They do not
 prove full movement, ADS/reload, helicopter appearance, audio playback or 4K
 performance. The test used 1280x720 with a 30-FPS cap and sent no movement or
 firing inputs. Source and test details: [native pilot workflow](../titanfall-native-import.md).
+
+### November 5 native range and Lynx inspection
+
+![Lynx cat, actual native offline showcase](../../installer/assets/lynx.png)
+
+The existing M1A0 Lynx still has its full ginger-cat body and original tail in
+the native showcase. This capture is also the source installer's Lynx thumbnail.
+The private guest profile shows the Lynx locked at level 26. Its selector and
+showcase expose Preview, without a Shooting Range control in those inspected
+screens. No unlock or inventory changes were made. First-person clearance and
+meow playback are not established by this showcase.
+
+![Private Fishguy arm baseline in the official range](fishguy-private-range-baseline-nov5.png)
+
+The official MP.V customization screen offers Shooting Range in the isolated
+offline profile. This stationary capture uses a **private Ranger arm alias**
+for the unchanged Fishguy baseline, with an angular wrist still visible. It is
+not the default installed operator: the user's Ranger remains the magenta human
+Grapple pilot. No movement or firing commands were sent. The 30 FPS label is the
+headless test cap, not a 4K performance result. Rejected remap/native-skin
+experiments were not applied.
+
+### Nine optional TF2 arm models — native range
+
+All nine optional mercenary arms now have individual native stationary range
+captures. See [the TF2 first-person review](../tf2-first-person-review.md) for the
+complete gallery, observations and verification limits. Each is a private
+first-person Ranger alias; the installed world/default operator stays Grapple.
+The screenshots establish idle appearance only, not ADS/reload acceptance.
+
+The source installer's Scorpion and nail-gun thumbnails now also use the native
+showcase captures above instead of software previews. Showcase screenshots do
+not establish first-person alignment or animation quality.

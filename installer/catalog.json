@@ -5,7 +5,7 @@
     "group": "Models",
     "description": "Existing ginger cat and original tail.",
     "thumbnail": "assets/lynx.png",
-    "preview_kind": "Existing M1A0 model preview",
+    "preview_kind": "Native offline showcase; first-person test pending",
     "default": false
   },
   {
@@ -14,10 +14,10 @@
     "group": "Models",
     "description": "Guillaume Englert / CC BY-SA 4.0",
     "thumbnail": "assets/scorpion.png",
-    "preview_kind": "Authored model; game test pending",
+    "preview_kind": "Native offline showcase; first-person test pending",
     "default": false,
     "target": "CZ_Scorpion_Base",
-    "status": "built and file-verified; in-game untested"
+    "status": "built and file-verified; native showcase checked; grip/ADS/reload pending"
   },
   {
     "id": "fishing_rod",
@@ -36,10 +36,10 @@
     "group": "Models",
     "description": "Authored Poons 460 power nailer by Liberi Arcano.",
     "thumbnail": "assets/nail_gun.png",
-    "preview_kind": "Authored model / software preview",
+    "preview_kind": "Native offline showcase; first-person test pending",
     "default": false,
     "target": "MP7_Base",
-    "status": "built and file-verified; in-game untested"
+    "status": "built and file-verified; native showcase checked; grip/ADS/reload pending"
   },
   {
     "id": "toaster",

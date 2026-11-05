@@ -243,3 +243,19 @@ third-party owners, but MWC has no recorded redistribution grant. Lynx and cat
 audio import a local archive instead. The user's local bundled edition retains
 the requested archive. Permitted character/prop sources and license records are
 included; Valve TF2 models import locally and are not redistributed.
+
+## November 5 native TF2 first-person evidence
+
+All nine optional TF2 arm models have now rendered in the official offline MP.V
+Shooting Range using separate private Ranger arm aliases. The user's installed
+Ranger remains Grapple. See [the native first-person review](tf2-first-person-review.md)
+for each capture, observed defects, source limits and process results. These
+stationary hipfire checks do not establish full grip, ADS, reload, movement,
+helicopter or 4K performance acceptance. No game installation update was made
+for this review.
+
+Medic's matching first-person arms now use his genuine local TF2 class-specific
+arm model. A native range comparison removed the previous forearm patch; the
+source-installer build matches that tested private bundle byte-for-byte. His
+world model and other classes' arm sources stay unchanged. Full grip/ADS/reload
+acceptance remains pending; see [the detailed review](tf2-first-person-review.md#medic-actual-first-person-source-integration).

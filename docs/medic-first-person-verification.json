@@ -1,0 +1,37 @@
+{
+  "integration": "standard operator library + existing independent matching arms option",
+  "native_tested_prototype_bundle_exact": true,
+  "bundle_sha256": "525a5faf147afad13865e8da9c97b4d022d3c0e9ebdaa1066828cb741bd23ff0",
+  "world_source_geometry_uv_skin_and_bind_unchanged": true,
+  "verification": {
+    "all_other_original_objects_byte_exact": 144988,
+    "renderer_field_whitelist": [
+      "m_Mesh",
+      "m_Materials",
+      "m_AABB"
+    ],
+    "geometry_uv_skin_exact_roundtrip": true,
+    "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+    "all_new_local_references_resolve": true
+  },
+  "actual_authored_arm_triangles": 2880,
+  "other_TF2_class_sources_unchanged": true,
+  "installed_game_changed": false,
+  "native_game_exit": 0,
+  "compositor_exit": 139,
+  "host_profile_unchanged": true,
+  "stationary_hipfire_observation": "Genuine first-person Medic arms render; prior triangular forearm patch absent in this view.",
+  "full_animation_or_ADS_reload_acceptance": false,
+  "screenshot": "screenshots/tf2-medic-authored-viewmodel-range-nov5.png",
+  "screenshot_sha256": "c921ebb0072738b1a6e53addf24122da86813b4e95bb9dbec818dc5c5ec8a955",
+  "source_tests": {
+    "run": 149,
+    "passed": 148,
+    "skipped": 1
+  },
+  "windows_runtime_tests": {
+    "run": 4,
+    "passed": 4,
+    "environment": "Embedded CPython 3.12.10 under Wine; not native Windows game"
+  }
+}

@@ -101,7 +101,7 @@ def build(config,settings):
     data_maps=neutral_maps(texture_template,objects);added.extend(key(o.assets_file.name,o.path_id) for o in data_maps.values())
     for identifier,model in assignments.items():
         if model not in settings['library']:raise ValueError('Model source is not available locally: '+model)
-        spec=settings['library'][model];directory=Path(spec['source']);target=targets[identifier]
+        spec=settings['library'][model];directory=Path(spec.get('first_person_source',spec['source']) if first_person else spec['source']);target=targets[identifier]
         if first_person and target['prefab_guid'] in completed_prefabs:
             record=copy.deepcopy(completed_prefabs[target['prefab_guid']]);record.update(operator=identifier,name=target['name'],shared_prefab=True);records.append(record);continue
         rig=native_rig(env,target,first_person=first_person);model_key=(model,spec.get('style','original'))
@@ -142,7 +142,7 @@ def build(config,settings):
                 model_records.append({'renderer':str(rid),'vertices':len(combined.vertices),'triangles':len(combined.faces),'submeshes':len(submeshes),'bones':len(native['bone_names']),'fit':fit_report})
             else:new_mesh.save_typetree(empty_visual(template.read_typetree()))
             fields['m_Mesh']={'m_FileID':0,'m_PathID':new_mesh.path_id};changed=copy.deepcopy(tree);changed.update(fields);obj=rig['objects'][rid];obj.save_typetree(changed);allowed[key(obj.assets_file.name,rid)]=fields;added.append(key(new_mesh.assets_file.name,new_mesh.path_id))
-        records.append({'operator':identifier,'name':target['name'],'model':model,'prefab_guid':target['prefab_guid'],'source_geometry_sha256':digest(directory/'source.npz'),'style':spec.get('style','original'),'glasses':bool(spec.get('glasses')),'material_template':material_record,'renderers':model_records,'original_renderers_changed':len(rig['renderers']),'skeleton_changed':False,'in_game_tested':False})
+        records.append({'operator':identifier,'name':target['name'],'model':model,'prefab_guid':target['prefab_guid'],'source_geometry_sha256':digest(directory/'source.npz'),'source_variant':meta.get('source_variant','packaged_or_world'),'first_person_source_override':bool(first_person and spec.get('first_person_source')),'style':spec.get('style','original'),'glasses':bool(spec.get('glasses')),'material_template':material_record,'renderers':model_records,'original_renderers_changed':len(rig['renderers']),'skeleton_changed':False,'in_game_tested':False})
         completed_prefabs[target['prefab_guid']]=records[-1]
     expected=copy.deepcopy(before)
     for oid in list(allowed)+added:

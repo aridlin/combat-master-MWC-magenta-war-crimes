@@ -294,7 +294,7 @@ def _compose_modules(c,state,saved,selected,addon,operator_assignments,tf2,opera
     if operator_assignments:
         from operators.library import prepare as operator_sources
         from operators.bundles import build as operator_build,BUNDLE
-        log('Building explicit per-operator replacements...');library=operator_sources(c,operator_assignments,run,tf2,operator_appearance);s=settings('operators');s.update(assignments=operator_assignments,source_sha256=digest(work/BUNDLE),library=library);operator_build(c,s);merge(s)
+        log('Building explicit per-operator replacements...');library=operator_sources(c,operator_assignments,run,tf2,operator_appearance,matching_arms='operator_arms' in selected);s=settings('operators');s.update(assignments=operator_assignments,source_sha256=digest(work/BUNDLE),library=library);operator_build(c,s);merge(s)
         if 'operator_arms' in selected:
             log('Building matching authored first-person arms on native weapon rigs...');s=settings('operator-arms');s.update(first_person=True,assignments=operator_assignments,source_sha256=digest(work/'src/first_person'),library=library);operator_build(c,s);merge(s)
     return {rel:work/rel for rel in saved['originals']}
