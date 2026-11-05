@@ -1,0 +1,43 @@
+{
+  "source_revision": "42826b7459723c0926daf6c33eb7fbf26b5ccec5",
+  "packages": [
+    {
+      "platform": "Linux",
+      "source_files_and_native_previews_match": true,
+      "private_hand_experiment_absent": true,
+      "local_source_archives_models_and_audio_absent": true
+    },
+    {
+      "platform": "Windows",
+      "source_files_and_native_previews_match": true,
+      "private_hand_experiment_absent": true,
+      "local_source_archives_models_and_audio_absent": true
+    }
+  ],
+  "checks": [
+    {
+      "Linux_packaged_diagnostics_exit": 0
+    },
+    {
+      "Windows_packaged_source_tests_under_Wine": 4,
+      "exit": 0,
+      "native_Windows_game_tested": false
+    }
+  ],
+  "game_installation_changed": false,
+  "published_as_release": false,
+  "artifacts": [
+    {
+      "platform": "Linux",
+      "sha256": "769b26ad77265e6046ae1e9ac82b07587616a029bff7292efaa0a71172199d17",
+      "size": 85027729,
+      "filename": "MWC-Linux-x64.tar.gz"
+    },
+    {
+      "platform": "Windows",
+      "sha256": "08b0aac13266ce03764d8551e8c0c27ed069e440e6d60ec880d3972463e6db6f",
+      "size": 71857329,
+      "filename": "MWC-Windows-x64.zip"
+    }
+  ]
+}

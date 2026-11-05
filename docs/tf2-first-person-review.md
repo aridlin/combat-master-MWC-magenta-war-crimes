@@ -98,3 +98,11 @@ embedded Python 3.12.10 runtime under Wine. That is runtime compatibility eviden
 not native Windows game acceptance. The source Linux installer displayed its
 updated Lynx and Scorpion native thumbnails in an isolated 1280×720 check; no
 Apply action or installation-state change was made.
+
+Fresh Linux and Windows development installer candidates were built from source
+`42826b7`. Linux's frozen backend diagnostics pass; four focused tests pass using
+the new Windows package's own source and embedded runtime under Wine. Both
+contain the new helper and native thumbnails and omit local TF2/audio/archive
+content and the rejected hand experiment. Their [hashes and packaging checks](medic-installer-candidate-verification.json)
+are recorded separately. They have not replaced the public v0.1.4-preview release
+or the user's existing personal installer.
