@@ -55,8 +55,9 @@ int main(int argc,char**argv){
  if(fs::exists(home/"backend/mwc-backend"))backend={(home/"backend/mwc-backend").u8string()};else backend={"python3",(home/"backend.py").u8string()};
 #endif
  auto statusargs=backend;statusargs.insert(statusargs.end(),{"--status",(state/"discovered.txt").u8string()});run(statusargs,state/"discovery.log");
- char game[4096]={},addon[4096]={},tf2[4096]={},pilot_sources[4096]={},audiojungle_source[4096]={};auto bundled=home/"addons/M1A0-Cat-Gun.bin";if(fs::exists(bundled))snprintf(addon,sizeof(addon),"%s",bundled.u8string().c_str());auto detected=read(state/"discovered.txt");snprintf(game,sizeof(game),"%s",detected.c_str());snprintf(tf2,sizeof(tf2),"%s",read(state/"tf2.txt").c_str());snprintf(pilot_sources,sizeof(pilot_sources),"%s",read(state/"pilot-sources.txt").c_str());
+ char game[4096]={},addon[4096]={},tf2[4096]={},pilot_sources[4096]={},audiojungle_source[4096]={},minecraft_source[4096]={};auto bundled=home/"addons/M1A0-Cat-Gun.bin";if(fs::exists(bundled))snprintf(addon,sizeof(addon),"%s",bundled.u8string().c_str());auto detected=read(state/"discovered.txt");snprintf(game,sizeof(game),"%s",detected.c_str());snprintf(tf2,sizeof(tf2),"%s",read(state/"tf2.txt").c_str());snprintf(pilot_sources,sizeof(pilot_sources),"%s",read(state/"pilot-sources.txt").c_str());
  snprintf(audiojungle_source,sizeof(audiojungle_source),"%s",read(state/"audiojungle-source.txt").c_str());
+ snprintf(minecraft_source,sizeof(minecraft_source),"%s",read(state/"minecraft-source.txt").c_str());
  auto saved=read(state/"selected.txt");for(auto&m:mods)m.selected=saved.find(m.id+"\n")!=std::string::npos||saved==m.id;
  std::istringstream choices(read(state/"operator-plan.tsv"));std::string line;while(std::getline(choices,line)){auto split=line.find('\t');if(split==std::string::npos)continue;for(auto&t:operator_targets)if(t.id==line.substr(0,split))for(size_t n=0;n<operator_models.size();++n)if(operator_models[n].id==line.substr(split+1))t.choice=int(n);}
  bool native_magenta=false;for(auto&m:mods)if(m.id=="players")native_magenta=m.selected;
@@ -83,7 +84,7 @@ int main(int argc,char**argv){
    for(auto&m:mods){if(m.image)ft::free_image(m.image);m.image=nullptr;}
    for(auto&m:operator_models){if(m.image)ft::free_image(m.image);m.image=nullptr;}
   }
-  std::ofstream f(state/"request.json");f<<"{\"action\":\""<<action<<"\",\"game\":\""<<escape(game)<<"\",\"addon\":\""<<escape(addon)<<"\",\"state\":\""<<escape(state.u8string())<<"\",\"tf2\":\""<<escape(tf2)<<"\",\"pilot_sources\":\""<<escape(pilot_sources)<<"\",\"audiojungle_source\":\""<<escape(audiojungle_source)<<"\",\"offline_authorized\":"<<(authorized?"true":"false")<<",\"selected\":[";bool first=true;for(auto&m:mods)if(m.selected){if(!first)f<<',';first=false;f<<'"'<<m.id<<'"';}f<<"],\"supported_mods\":[";first=true;for(auto&m:mods){if(!first)f<<',';first=false;f<<'"'<<m.id<<'"';}f<<"],\"supported_operator_models\":[";first=true;for(auto&m:operator_models){if(!first)f<<',';first=false;f<<'"'<<m.id<<'"';}f<<"],\"operator_assignments\":{";first=true;for(auto&t:operator_targets)if(t.choice){if(!first)f<<',';first=false;f<<'"'<<t.id<<"\":\""<<operator_models[t.choice].id<<'"';}f<<"}";write_appearance(f);f<<"}";f.close();
+  std::ofstream f(state/"request.json");f<<"{\"action\":\""<<action<<"\",\"game\":\""<<escape(game)<<"\",\"addon\":\""<<escape(addon)<<"\",\"state\":\""<<escape(state.u8string())<<"\",\"tf2\":\""<<escape(tf2)<<"\",\"pilot_sources\":\""<<escape(pilot_sources)<<"\",\"audiojungle_source\":\""<<escape(audiojungle_source)<<"\",\"minecraft_source\":\""<<escape(minecraft_source)<<"\",\"offline_authorized\":"<<(authorized?"true":"false")<<",\"selected\":[";bool first=true;for(auto&m:mods)if(m.selected){if(!first)f<<',';first=false;f<<'"'<<m.id<<'"';}f<<"],\"supported_mods\":[";first=true;for(auto&m:mods){if(!first)f<<',';first=false;f<<'"'<<m.id<<'"';}f<<"],\"supported_operator_models\":[";first=true;for(auto&m:operator_models){if(!first)f<<',';first=false;f<<'"'<<m.id<<'"';}f<<"],\"operator_assignments\":{";first=true;for(auto&t:operator_targets)if(t.choice){if(!first)f<<',';first=false;f<<'"'<<t.id<<"\":\""<<operator_models[t.choice].id<<'"';}f<<"}";write_appearance(f);f<<"}";f.close();
   auto args=backend;args.insert(args.end(),{"--request",(state/"request.json").u8string()});busy=true;result=-1;notice=job_action=="import_pilots"?"Importing local pilot sources and previews. Game files stay unchanged.":job_action=="save_operators"?"Saving operator choices. Game files stay unchanged.":"Working. Building and verifying bundles before installation...";worker=std::thread([&,args]{result=run(args,state/"install.log");busy=false;});
  };
  while(ft::pump()){
@@ -95,7 +96,13 @@ int main(int argc,char**argv){
   ft::input("M1A0 workshop .bin / .gma (needed only for Lynx / cat sounds)",addon,sizeof(addon));
   if(ft::button("Choose local M1A0 archive")){auto p=ft::open_file_dialog("M1A0 Cat Gun archive",nullptr,0);if(!p.empty())snprintf(addon,sizeof(addon),"%s",p.c_str());}
   const char*tabs[]={"Weapon models","Textures","Extras","Operators"};ft::tabs(tabs,4,&tab);
-  if(tab==2){if(ui_busy)ft::begin_disabled();ft::input("Extracted Audiojungle folder (contains sound/)",audiojungle_source,sizeof(audiojungle_source));if(ui_busy)ft::end_disabled();}
+  if(tab==2){
+   if(ui_busy)ft::begin_disabled();
+   ft::input("Extracted Audiojungle folder (contains sound/)",audiojungle_source,sizeof(audiojungle_source));
+   ft::input("Classic Minecraft .jar (blank = generated sky)",minecraft_source,sizeof(minecraft_source));
+   if(ft::button("Choose Minecraft client jar")){auto p=ft::open_file_dialog("Minecraft client jar",nullptr,0);if(!p.empty())snprintf(minecraft_source,sizeof(minecraft_source),"%s",p.c_str());}
+   if(ui_busy)ft::end_disabled();
+  }
   if(tab==3){
    ft::text_wrapped("Choose each operator's model. Previews show source colors; Magenta applies at install. In-game tests remain pending.");
    ft::input("Local TF2 folder for models and sound (blank = Steam detection)",tf2,sizeof(tf2));

@@ -6,7 +6,10 @@ Unity cubemap order is +X,-X,+Y,-Y,+Z,-Z. Encode each face via UnityPy.
 import numpy as np
 from PIL import Image
 NAMES=['positive-x','negative-x','positive-y','negative-y','positive-z','negative-z']
-def colors(directions,night=False):
+def colors(directions,night=False,assets=None):
+    if assets is not None:
+        from .minecraft import colors as vanilla_colors
+        return vanilla_colors(directions,night,assets)
     d=np.asarray(directions,dtype=float);d=d/np.linalg.norm(d,axis=-1,keepdims=True)
     height=np.clip(d[...,1],0,1)[...,None]
     top=np.array([12,20,48] if night else [115,164,255]);horizon=np.array([39,47,72] if night else [190,218,255]);rgb=horizon*(1-height)+top*height
@@ -30,7 +33,7 @@ def colors(directions,night=False):
 def face_directions(face,u,v):
     one=np.ones_like(u)
     return np.stack([(one,-v,-u),(-one,-v,u),(u,one,v),(u,-one,-v),(u,-v,one),(-u,-v,-one)][face],axis=-1)
-def faces(size=256,night=False):
+def faces(size=256,night=False,assets=None):
     if not 32<=size<=1024:raise ValueError('Skybox face size out of supported range')
     q=(np.arange(size)+.5)/size*2-1;u,v=np.meshgrid(q,q)
-    return [Image.fromarray(colors(face_directions(i,u,v),night)).convert('RGBA') for i in range(6)]
+    return [Image.fromarray(colors(face_directions(i,u,v),night,assets)).convert('RGBA') for i in range(6)]

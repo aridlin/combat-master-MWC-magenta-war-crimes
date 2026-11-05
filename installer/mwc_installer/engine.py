@@ -187,7 +187,7 @@ def transaction(config,state,saved,outputs,selected,operator_assignments=None,op
         recover(config,state);raise
     (state/'pending.json').unlink();return updated
 
-def compose(config,state,saved,selected,addon,operator_assignments=None,tf2='',operator_appearance=None,audiojungle_source=''):
+def compose(config,state,saved,selected,addon,operator_assignments=None,tf2='',operator_appearance=None,audiojungle_source='',minecraft_source=''):
     """Always compose from originals; no stale layer can overwrite another mod."""
     from halftone.pipeline import build_id
     from halftone.assets import scan
@@ -226,10 +226,10 @@ def compose(config,state,saved,selected,addon,operator_assignments=None,tf2='',o
         verify(c)
         manifest=json.loads(mp.read_text())
         for b in manifest['bundles']:copy_private(b['output'],work/b['bundle'])
-    return _compose_modules(c,state,saved,selected,addon,operator_assignments,tf2,operator_appearance,run,work,audiojungle_source)
+    return _compose_modules(c,state,saved,selected,addon,operator_assignments,tf2,operator_appearance,run,work,audiojungle_source,minecraft_source)
 
 
-def _compose_modules(c,state,saved,selected,addon,operator_assignments,tf2,operator_appearance,run,work,audiojungle_source=''):
+def _compose_modules(c,state,saved,selected,addon,operator_assignments,tf2,operator_appearance,run,work,audiojungle_source='',minecraft_source=''):
     """Compose visual modules onto the already verified private texture stage."""
     from halftone.pipeline import build_id
     if Path(c['bundle_root']).resolve()!=Path(work).resolve():raise ValueError('Visual module working tree mismatch')
@@ -284,7 +284,7 @@ def _compose_modules(c,state,saved,selected,addon,operator_assignments,tf2,opera
         log('Building optional local Audiojungle excerpts...');s=settings('audiojungle');s['source_sha256']=digest(work/'root/audio');audiojungle.build(c,s,audiojungle_source);merge(s)
     if 'sky' in selected:
         from skybox import bundles as sky
-        log('Building Minecraft-style skies...');s=settings('sky');s.update(size=256,sources={rel:digest(work/rel) for rel in sky.TARGETS});sky.build(c,s);merge(s)
+        log('Building skies from local Minecraft assets...' if minecraft_source else 'Building generated Minecraft-style skies...');s=settings('sky');s.update(size=256,minecraft_source=minecraft_source,sources={rel:digest(work/rel) for rel in sky.TARGETS});sky.build(c,s);merge(s)
     if 'menu' in selected:
         import menu_background
         log('Building Fishguy menu...');s=settings('menu');s.update(source_sha256=digest(work/'root/root'),image=str(ROOT/'assets/branding/menu-halftone.png'));menu_background.build(c,s);merge(s)
@@ -324,6 +324,13 @@ def validate_audio_selection(selected,source=''):
         prepare(source)
 
 
+def sky_source_path(request,state):
+    cache=Path(state)/'minecraft-source.txt'
+    value=request['minecraft_source'] if 'minecraft_source' in request else cache.read_text(encoding='utf8') if cache.is_file() else ''
+    if not isinstance(value,str) or len(value)>4095 or '\0' in value:raise ValueError('Minecraft source must be a local jar path or blank')
+    return value
+
+
 def execute(request):
     game=request.get('game','')
     if not game:
@@ -348,7 +355,7 @@ def execute(request):
         operator_appearance=appearance_defaults(request.get('operator_appearance',saved.get('operator_appearance')),players='players' in selected)
         if request['action']=='apply':validate_frontend(saved,request)
         if request['action']=='restore':selected=set();operator_assignments={};operator_appearance=appearance_defaults(players=False);outputs={rel:state/'originals'/rel for rel in saved['originals']}
-        elif request['action']=='apply':outputs=compose(config,state,saved,selected,request.get('addon',''),operator_assignments,request.get('tf2',''),operator_appearance,request.get('audiojungle_source',''))
+        elif request['action']=='apply':outputs=compose(config,state,saved,selected,request.get('addon',''),operator_assignments,request.get('tf2',''),operator_appearance,request.get('audiojungle_source',''),sky_source_path(request,state))
         else:raise ValueError('Unknown action')
         result=transaction(config,state,saved,outputs,selected,operator_assignments,operator_appearance)
         log('Complete. Selected mods: '+(', '.join(result['selected']) or 'none (originals restored)'))

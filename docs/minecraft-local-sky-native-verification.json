@@ -1,0 +1,41 @@
+{
+  "game_build": "24397779",
+  "backend": "native Linux / NVIDIA Vulkan / headless Gamescope",
+  "resolution": [
+    1280,
+    720
+  ],
+  "test_fps_cap": 30,
+  "source_client_version": "1.20.1",
+  "scope": "Stationary private Parvis sky appearance; original map surfaces, not full installed-layer coexistence",
+  "observed": {
+    "bright_blue_sky": true,
+    "square_clouds": true,
+    "isolated_square_sun": true
+  },
+  "tested_bundle_sha256": "e577f4034411e38b85056122cb28f47597e2a4785a3a75dbaf50569792e9cf69",
+  "full_eight_bundle_stage_contains_identical_parvis": true,
+  "captures": {
+    "parvis-stationary": "2f2df27782e5883d8a6f4eed15afbffc14d68eacc9ba86c0e40ccaeb0e661ad3",
+    "parvis-sky-high": "4c86d26853010560c197c05d8191d6ff798aa8919cb59b5c1bdbceeb21e809f9",
+    "parvis-sky-overhead": "cd6fc1b6cc6c27797f0802e42d635bd0037c323b649ef7ffafb4205bc95e122b",
+    "parvis-square-sun": "61f9a5fc53baefd893433d4ee2efcbc03732cf9de92a623b06e49edd961fe405"
+  },
+  "native_game_exit": 0,
+  "compositor_teardown_exit": 139,
+  "host_profile_unchanged": true,
+  "network_isolated": true,
+  "physical_output_used": false,
+  "movement_or_firing_inputs_sent": false,
+  "game_installation_modified": false,
+  "not_validated": [
+    "nighttime",
+    "day/night cycle",
+    "six-sided map orientation and seams",
+    "all maps",
+    "4K performance",
+    "native Windows game",
+    "all installed layers together"
+  ],
+  "raw_or_derived_minecraft_textures_in_repository": false
+}

@@ -270,3 +270,5 @@ Portable preview downloads: [Linux and Windows installers](https://github.com/ar
 Development source after v0.1.0 adds optional locally imported TF2 Medigun sounds and broader first-person arm coverage. These changes are not in the v0.1.0 downloads; see [current verification status](docs/operator-expansion.md) and [audio details](docs/tf2-audio.md).
 
 Development source also includes independently selectable [local Audiojungle excerpts](docs/audiojungle-local-import.md), with explicit conflict handling against vanilla TF2 Medigun audio. Private build, Lynx preservation and exact deselection pass; in-game audition is pending. This addition is not included in the frontend-only v0.1.4-preview downloads.
+
+Development source also supports [locally imported classic Minecraft sky artwork](docs/minecraft-local-sky.md) through the existing independent sky toggle. The source client jar and derived textures remain local; the v0.1.4-preview window-fix downloads do not contain this newer importer.

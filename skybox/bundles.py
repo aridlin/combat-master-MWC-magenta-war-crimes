@@ -3,7 +3,7 @@
 Original textures stay byte-exact so existing reflection/lighting references do
 not acquire the replacement image. Scene RenderSettings and lights are untouched.
 """
-import copy,gc,hashlib,json,shutil
+import copy,gc,hashlib,json,shutil,math
 from pathlib import Path
 import UnityPy
 from UnityPy.export.Texture2DConverter import image_to_texture2d
@@ -34,12 +34,42 @@ def texture_slots(tree):
     raise ValueError('Unsupported or ambiguous sky texture layout: '+tree['m_Name'])
 
 
-def encoded(size,night,face=None):
-    images=faces(size,night)
+def encoded(size,night,face=None,assets=None):
+    images=faces(size,night,assets)
     return b''.join(image_to_texture2d(image,4)[0] for image in (images if face is None else [images[face]]))
+
+def source_assets(settings,manifest=None):
+    assets=None;provenance={'kind':'mwc_generated'}
+    if settings.get('minecraft_source'):
+        from .minecraft import load
+        if Path(settings['output']).resolve().is_relative_to(Path(__file__).resolve().parents[1]):
+            raise ValueError('Local Minecraft sky output must stay outside the source/package tree')
+        assets=load(settings['minecraft_source']);provenance={**assets['provenance'],'sky_material_exposure':1.0,'sky_material_tint':[.5,.5,.5,.5]}
+    if manifest is not None and manifest.get('sky_source',{'kind':'mwc_generated'})!=provenance:
+        raise ValueError('Sky source does not match the build manifest')
+    return assets,provenance
+
+
+def sky_appearance(tree,enabled):
+    """Use the native sky shader's neutral defaults; retain scene lighting."""
+    if not enabled:return None
+    properties=tree['m_SavedProperties'];fields=properties['m_Floats']
+    matches=[i for i,(name,value) in enumerate(fields) if name=='_Exposure']
+    if len(matches)!=1:raise ValueError('Missing or ambiguous sky exposure: '+tree['m_Name'])
+    index=matches[0];old=fields[index][1]
+    if not isinstance(old,(int,float)) or not math.isfinite(old) or old<0:raise ValueError('Unsupported sky exposure')
+    colors=properties['m_Colors'];tints=[i for i,(name,value) in enumerate(colors) if name=='_Tint']
+    if len(tints)!=1:raise ValueError('Missing or ambiguous sky tint: '+tree['m_Name'])
+    tint_index=tints[0];old_tint=copy.deepcopy(colors[tint_index][1])
+    if set(old_tint)!={'r','g','b','a'} or not all(isinstance(v,(int,float)) and math.isfinite(v) for v in old_tint.values()):raise ValueError('Unsupported sky tint')
+    new_tint=dict.fromkeys(('r','g','b','a'),.5)
+    fields[index]=type(fields[index])(('_Exposure',1.0));colors[tint_index]=type(colors[tint_index])(('_Tint',new_tint))
+    return {'exposure':{'old':old,'new':1.0},'tint':{'old':old_tint,'new':new_tint}}
+
 
 def verify(settings):
     manifest=json.loads((Path(settings['output'])/'manifest.json').read_text());declared={x['new_id']:x for b in manifest['files'] for x in b['clones']};count=0;face_materials=0;face_textures=0
+    assets,provenance=source_assets(settings,manifest)
     for b in manifest['files']:
         if digest(Path(b['backup']))!=b['source_sha256'] or digest(Path(b['output']))!=b['output_sha256']:raise ValueError('Sky artifact hash mismatch')
         A=UnityPy.load(b['backup']);B=UnityPy.load(b['output']);old={key(o.assets_file.name,o.path_id):o for o in A.objects};new={key(o.assets_file.name,o.path_id):o for o in B.objects};clones={r['new_id']:r for r in b['clones']};edits={r['id']:r for r in b['changes']}
@@ -48,7 +78,9 @@ def verify(settings):
             if oid not in edits:
                 if o.get_raw_data()!=new[oid].get_raw_data():raise ValueError('Unrelated lighting/environment object changed: '+oid)
             else:
-                want=o.read_typetree();layout=texture_slots(want);sources={slot:pointer(value.m_Texture,o.assets_file) for slot,value in o.read().m_SavedProperties.m_TexEnvs}
+                want=o.read_typetree();exposure=sky_appearance(want,assets is not None)
+                if edits[oid].get('sky_appearance')!=exposure:raise ValueError('Unverified sky appearance change')
+                layout=texture_slots(want);sources={slot:pointer(value.m_Texture,o.assets_file) for slot,value in o.read().m_SavedProperties.m_TexEnvs}
                 bindings=edits[oid].get('bindings',[{'slot':'_Tex','new_pointer':edits[oid].get('new_pointer')}])
                 if {r['slot'] for r in bindings}!=set(layout) or len(bindings)!=len(layout):raise ValueError('Incomplete sky texture bindings')
                 for binding in bindings:
@@ -56,7 +88,7 @@ def verify(settings):
                     if len(matches)!=1:raise ValueError('Ambiguous sky texture binding')
                     if 'old_pointer' in binding and matches[0]['m_Texture']!=binding['old_pointer']:raise ValueError('Original sky binding changed')
                     matches[0]['m_Texture']=binding['new_pointer']
-                if want!=new[oid].read_typetree():raise ValueError('Sky change outside texture pointer')
+                if want!=new[oid].read_typetree():raise ValueError('Sky change outside reviewed texture bindings/neutral appearance')
                 for slot,value in new[oid].read().m_SavedProperties.m_TexEnvs:
                     reference=pointer(value.m_Texture,new[oid].assets_file)
                     if reference not in declared:raise ValueError('Sky binding does not resolve to declared cloned texture')
@@ -66,15 +98,15 @@ def verify(settings):
             t=new[oid].read_typetree();size=settings.get('size',256);raw=t['image data'];stride=size*size*4
             face=r.get('face');image_count=6 if face is None else 1;expected_type='Cubemap' if face is None else 'Texture2D'
             if new[oid].type.name!=expected_type or len(raw)!=stride*image_count or t['m_ImageCount']!=image_count or t['m_TextureFormat']!=4 or t['m_Width']!=size or t['m_Height']!=size or t['m_MipCount']!=1:raise ValueError('Invalid sky texture layout')
-            if bytes(raw)!=encoded(size,r['night'],face):raise ValueError('Sky face bytes mismatch')
+            if bytes(raw)!=encoded(size,r['night'],face,assets):raise ValueError('Sky face bytes mismatch')
             face_textures+=int(face is not None)
             original=old[r['source_id']]
             if original.get_raw_data()!=new[r['source_id']].get_raw_data():raise ValueError('Original sky/reflection texture was edited')
         count+=len(edits);del A,B,old,new;gc.collect()
-    return {'sky_materials':count,'six_sided_materials':face_materials,'cloned_2d_faces':face_textures,'original_cubemaps_lights_scene_settings_geometry_and_non_sky_objects_byte_exact':True,'original_sky_2d_textures_byte_exact':True,'in_game_tested':False,'lighting_runtime_behavior_tested':False}
+    return {'sky_materials':count,'six_sided_materials':face_materials,'cloned_2d_faces':face_textures,'original_cubemaps_lights_scene_settings_geometry_and_non_sky_objects_byte_exact':True,'original_sky_2d_textures_byte_exact':True,'sky_source':provenance,'reviewed_sky_appearance_normalized':assets is not None,'in_game_tested':False,'lighting_runtime_behavior_tested':False}
 
 def build(config,settings):
-    build_id(config);out=Path(settings['output']);out.mkdir(parents=True,exist_ok=True)
+    build_id(config);assets,provenance=source_assets(settings);out=Path(settings['output']);out.mkdir(parents=True,exist_ok=True)
     if (out/'manifest.json').exists():raise ValueError('Choose a fresh sky output directory')
     root=Path(config['bundle_root']);envs={};object_index={};before={};paths={};clone_requests={};bindings=[]
     for rel in TARGETS:
@@ -98,7 +130,7 @@ def build(config,settings):
     clones={};reports={rel:{'bundle':rel,'backup':str(paths[rel].resolve()),'changes':[],'clones':[]} for rel in TARGETS}
     for source_id,face,night in clone_requests:
         rel,o=object_index[source_id];objects={key(x.assets_file.name,x.path_id):x for x in envs[rel].objects};label='MWC-minecraft-sky-'+source_id+('' if face is None else ':face='+str(face))+(':night' if night else '');new=new_object(o,label,objects);t=copy.deepcopy(o.read_typetree());size=settings.get('size',256)
-        raw=encoded(size,night,face)
+        raw=encoded(size,night,face,assets)
         t.update(m_Name='MWC_MinecraftSky_'+o.peek_name(),m_Width=size,m_Height=size,m_CompleteImageSize=size*size*4,m_TextureFormat=4,m_MipCount=1,m_StreamingMipmaps=False,m_ColorSpace=1)
         t['image data']=raw;t['m_StreamData']={'offset':0,'size':0,'path':''};t['m_TextureSettings']['m_FilterMode']=0;new.save_typetree(t)
         clones[(source_id,face,night)]=new.path_id
@@ -107,12 +139,13 @@ def build(config,settings):
     for rel,o,slot_name,request in bindings:
         oid=key(o.assets_file.name,o.path_id);grouped.setdefault(oid,[]).append((rel,o,slot_name,request))
     for oid,group in grouped.items():
-        rel,o=group[0][:2];tree=o.read_typetree();edit={'id':oid,'name':o.peek_name(),'bindings':[]}
+        rel,o=group[0][:2];tree=o.read_typetree();edit={'id':oid,'name':o.peek_name(),'bindings':[]};exposure=sky_appearance(tree,assets is not None)
+        if exposure is not None:edit['sky_appearance']=exposure
         for _,_,slot_name,request in group:
             slot=next(v for slot,v in tree['m_SavedProperties']['m_TexEnvs'] if slot==slot_name);old=copy.deepcopy(slot['m_Texture']);slot['m_Texture']['m_PathID']=clones[request]
             edit['bindings'].append({'slot':slot_name,'old_pointer':old,'new_pointer':copy.deepcopy(slot['m_Texture'])})
         o.save_typetree(tree);reports[rel]['changes'].append(edit)
-    result={'files':[],'in_game_tested':False}
+    result={'files':[],'in_game_tested':False,'sky_source':provenance}
     for rel,env in envs.items():
         expected=copy.deepcopy(before[rel]);r=reports[rel]
         for o in env.objects:
@@ -121,5 +154,5 @@ def build(config,settings):
         if inventory(check)!=expected:raise ValueError('Sky serialized inventory mismatch')
         r.update(output=str(target.resolve()),source_sha256=digest(paths[rel]),output_sha256=digest(target));result['files'].append(r)
     dump(out/'manifest.json',result)
-    for name,image in zip(NAMES,faces(settings.get('size',256))):image.save(out/(name+'.png'))
+    for name,image in zip(NAMES,faces(settings.get('size',256),assets=assets)):image.save(out/(name+'.png'))
     del envs,object_index;gc.collect();return verify(settings)

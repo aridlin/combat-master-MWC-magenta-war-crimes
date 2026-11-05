@@ -13,6 +13,7 @@ def main():
     if a.diagnose:
         from weapon_models.bundles import model_asset,asset_kind,SPECS
         from skybox.pixels import faces
+        from skybox.minecraft import load as load_minecraft_sky
         rows={}
         for name in SPECS:
             if asset_kind({'models':{}},name)=='local_tf2':
@@ -53,7 +54,7 @@ def main():
         targets=json.loads((ROOT/'config/operator-first-person-targets.json').read_text())['operators']
         if len(targets)!=32:raise ValueError('Incomplete first-person operator index')
         validate_assignments({'operator_0':'titanfall_pilot','operator_30':'shrek'},targets)
-        print(json.dumps({'model_assets_verified':rows,'operator_sources_verified':operators,'viewmodel_volume':{name:viewmodel_settings(name) for name in ('shrek','fishguy','titanfall_pilot')},'fishguy_anatomical_wrist_fit':{'palm_landmarks_verified':True,'distal_forearm_transition_enabled':True},'shooting_lens_module_imported':True,'tf2_audio':{'module_imported':True,'mapped_native_clips':len(audio_map['clips']),'requires_local_tf2':True,'audio_bundled':False},'audiojungle':{'module_imported':True,'mapped_native_clips':len(jungle_map['clips']),'local_source_required':True,'audio_bundled':False,'fixed_excerpts_only':True},'sonic_visual_module_imported':sonic_impact.BUNDLE=='src/weapons/weapons','renderer_bounds_root_probe_verified':True,'renderer_bounds_float32_stable':True,'sky_faces':len(faces(32)),'game_files_modified':False,'in_game_tested':False},indent=2));return
+        print(json.dumps({'model_assets_verified':rows,'operator_sources_verified':operators,'viewmodel_volume':{name:viewmodel_settings(name) for name in ('shrek','fishguy','titanfall_pilot')},'fishguy_anatomical_wrist_fit':{'palm_landmarks_verified':True,'distal_forearm_transition_enabled':True},'shooting_lens_module_imported':True,'tf2_audio':{'module_imported':True,'mapped_native_clips':len(audio_map['clips']),'requires_local_tf2':True,'audio_bundled':False},'audiojungle':{'module_imported':True,'mapped_native_clips':len(jungle_map['clips']),'local_source_required':True,'audio_bundled':False,'fixed_excerpts_only':True},'sonic_visual_module_imported':sonic_impact.BUNDLE=='src/weapons/weapons','renderer_bounds_root_probe_verified':True,'renderer_bounds_float32_stable':True,'sky_faces':len(faces(32)),'minecraft_sky':{'local_client_importer':callable(load_minecraft_sky),'artwork_bundled':False,'default':'generated','nighttime_gameplay_tested':False},'game_files_modified':False,'in_game_tested':False},indent=2));return
     if a.status:
         from installer.mwc_installer.engine import discover
         from operators.assignments import load_plan,save_plan
@@ -89,6 +90,7 @@ def main():
     result=engine.execute(request)
     Path(request['state'],'selected.txt').write_text('\n'.join(result['selected']),encoding='utf8')
     if request['action']=='apply':
+        Path(request['state'],'minecraft-source.txt').write_text(engine.sky_source_path(request,request['state']),encoding='utf8')
         from operators.assignments import save_plan
         save_plan(request['state'],result.get('operator_assignments',{}));Path(request['state'],'tf2.txt').write_text(request.get('tf2',''),encoding='utf8');Path(request['state'],'audiojungle-source.txt').write_text(request.get('audiojungle_source',''),encoding='utf8')
     from operators.styles import save as save_styles

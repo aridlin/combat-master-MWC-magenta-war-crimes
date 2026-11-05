@@ -1,0 +1,48 @@
+{
+  "sky_materials": 11,
+  "six_sided_materials": 2,
+  "cloned_2d_faces": 12,
+  "original_cubemaps_lights_scene_settings_geometry_and_non_sky_objects_byte_exact": true,
+  "original_sky_2d_textures_byte_exact": true,
+  "sky_source": {
+    "kind": "local_minecraft_classic",
+    "version": "1.20.1",
+    "jar_sha256": "56b71336d2b4fdffd197f56595b0da93e32a946f78f382a299b8f4b92758bb0f",
+    "members": {
+      "assets/minecraft/textures/environment/clouds.png": "85e9fb5b4d09133981b567fce8980dba1f74e568b80cd861e4eff1c42bfe304d",
+      "assets/minecraft/textures/environment/sun.png": "d66e4fcc8b3c67fdc135ec7d421eee64e61bc55d18930c23c09fa962e617d05c",
+      "assets/minecraft/textures/environment/moon_phases.png": "8973233861e8ebe9351fcea08ebd9a68bd2a23086a3d44d73c574804b0bbaaf9",
+      "data/minecraft/worldgen/biome/plains.json": "3b69e899b89dfc1c9089b05ddf7dfb1798e4271618a79a675450692fa855832d",
+      "version.json": "a86e0d9d5ce09e2c92b7bab808e3604fd88cc9098f15de9d07b7b96b374e0137"
+    },
+    "sky_color": [
+      120,
+      167,
+      255
+    ],
+    "fog_color": [
+      192,
+      216,
+      255
+    ],
+    "assets_redistributed": false,
+    "license_url": "https://www.minecraft.net/en-us/eula",
+    "static_clouds_and_celestial_texture_adaptation": true,
+    "night_palette": "MWC adaptation; native nighttime environment not verified",
+    "sky_material_exposure": 1.0,
+    "sky_material_tint": [
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ]
+  },
+  "reviewed_sky_appearance_normalized": true,
+  "in_game_tested": false,
+  "lighting_runtime_behavior_tested": false,
+  "elapsed_seconds": 45.69,
+  "game_installation_modified": false,
+  "original_inputs_reused": true,
+  "bundles": 8,
+  "native_runtime_scope": "See minecraft-local-sky-native-verification.json; overall runtime acceptance remains incomplete"
+}
