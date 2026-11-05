@@ -52,14 +52,14 @@ prefabs (covering all 32 identities). Native bind reproduction, finite bent
 poses and normalized normals passed. The 14 reviewed images are representative
 synthetic renders; every possible model/slot view has not been visually reviewed.
 
-A later **private, unshipped** hand-driver candidate passed 928 numerical fits:
-16 source models on all 58 primary arm renderers in 29 unique native prefabs
-(32 operator identities). It changes a hand control's skin binding only when
-that native control has zero original skin weight and its wrist-twist driver
-has positive weight. Bind reproduction, finite synthetic bends and normalized
-normals pass. This is not visual acceptance; a fresh native game capture is
-still pending. The candidate is excluded from both published releases and the
-clean Audiojungle development packages.
+A private hand-driver candidate passed 928 numerical fits, but subsequent
+[offline review using shipped clips](native-clip-review.md) exposed palm/finger
+stretching. It was **rejected** and the production first-person fitter restored.
+The retired probe is disabled. A separate nearest-native-hand-weight transfer
+also remains private and unaccepted. Neither experiment entered a published
+installer, the Audiojungle development packages or the installed game. The
+baseline Fishguy grip still needs native in-game review; finite matrices and
+normalized normals alone do not establish acceptable hands.
 
 Audiojungle's original TF2 archive was inspected privately. The independent
 **Audiojungle excerpts / Minigun** Extras option now reads four locally supplied

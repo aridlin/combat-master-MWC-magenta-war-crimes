@@ -19,7 +19,8 @@ The corrected magenta Ranger/armored human Grapple pilot, matte materials, slimm
 
 - [x] Native offline menu: Ranger uses the magenta armored human Grapple pilot and Dozer uses Shrek; Fishguy remains optional.
 - [x] Native installed-stack stationary first-person check: Grapple arms and square-cloud sky on Parvis.
-- [ ] Pending Fishguy hand-driver candidate: fresh in-game appearance. The running normal game prevents concurrent private GPU validation; numeric checks do not establish visual acceptance.
+- [x] Rejected the private Fishguy hand-driver remap after shipped-clip comparisons exposed palm/finger stretching; production fitter restored, retired probe disabled.
+- [ ] Baseline Fishguy hand grip and a suitable correction: native in-game appearance. The running normal game prevents concurrent private GPU validation; numerical tests alone do not establish visual acceptance.
 - [ ] Other assignments and full character animations in-game.
 - [ ] Shrek/Fishguy and other rebuilt characters no longer look metallic; rear surfaces have correct color.
 - [ ] Matching first-person arms: actual hand grip, finger deformation, watch/weapon clearance and ADS/reload.

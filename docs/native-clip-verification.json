@@ -1,0 +1,53 @@
+{
+  "source_build_id": "24397779",
+  "source_bundle_sha256": "f29aacd79b4483e4232d77a1b24c50f9c15f3629c86f14b443fac9b26348ffc9",
+  "operator": "operator_0",
+  "clips_inspected": 1520,
+  "initial_frames_sampled": 1490,
+  "unresolved_or_unsupported_cases": 30,
+  "source_bundle_unchanged": true,
+  "native_reload_export": {
+    "clip": "AK12_Arms_Reload",
+    "frame": 15,
+    "time_seconds": 0.5,
+    "transform_bindings_resolved": 237,
+    "root_channels_reported_not_applied": 7,
+    "events_reported_not_invoked": 4
+  },
+  "source_unit_tests": {
+    "run": 145,
+    "passed": 144,
+    "skipped": 1
+  },
+  "rejected_hand_candidate_not_installed": true,
+  "production_first_person_fitter_restored": true,
+  "native_guide_transfer_experiment_unaccepted": true,
+  "native_game_validation": false,
+  "runtime_IK_blending_root_motion_camera_FOV_reproduced": false,
+  "unresolved_examples": [
+    {
+      "clip": "Knife_Arms_Crouch_End",
+      "id": "-9207467333278117460",
+      "status": "unsupported or invalid",
+      "reason": "ValueError: Clip path hash is absent or ambiguous: 202860601"
+    },
+    {
+      "clip": "Knife_Arms_Jump_Start",
+      "id": "-8757073935205368420",
+      "status": "unsupported or invalid",
+      "reason": "ValueError: Clip path hash is absent or ambiguous: 2088606902"
+    },
+    {
+      "clip": "SigMCX_Arms_Bash",
+      "id": "-7696029625627525472",
+      "status": "unsupported or invalid",
+      "reason": "ValueError: Clip path hash is absent or ambiguous: 3783112318"
+    },
+    {
+      "clip": "Knife_Arms_Jump_Loop",
+      "id": "-7240637005662224996",
+      "status": "unsupported or invalid",
+      "reason": "ValueError: Clip path hash is absent or ambiguous: 2088606902"
+    }
+  ]
+}
