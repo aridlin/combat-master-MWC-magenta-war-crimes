@@ -42,16 +42,18 @@ def main():
         if not fish_fit.get('fit_hands') or not fish_fit.get('wrist_transition'):raise ValueError('Fishguy anatomical wrist fit is unavailable')
         landmarks={joint+'_'+side for side in ('L','R') for joint in ('Elbow','Wrist','MiddleFinger1','IndexFinger1','PinkyFinger1')}
         if not landmarks.issubset(fish_fit['primary_sources']):raise ValueError('Fishguy palm landmarks are incomplete')
-        import sonic_impact,tf2_audio,audio_pcm
+        import sonic_impact,tf2_audio,audio_pcm,audiojungle
         from operators.lenses import SPEC as lens_spec
         from operators.review import material_appearance
         if lens_spec['shader_name']!='Universal Render Pipeline/Lit':raise ValueError('Shooting lens module uses the opaque body shader')
         audio_map=json.loads((ROOT/'config/tf2-audio-map.json').read_text())
         if tf2_audio.BUNDLE!='root/audio' or len(audio_map['clips'])!=4:raise ValueError('Incomplete local TF2 audio module')
+        jungle_map=json.loads((ROOT/'config/audiojungle-map.json').read_text())
+        if [(row['id'],row['name']) for row in jungle_map['clips']]!=[(row['id'],row['name']) for row in audio_map['clips']]:raise ValueError('Audiojungle must own the four reviewed Minigun audio slots')
         targets=json.loads((ROOT/'config/operator-first-person-targets.json').read_text())['operators']
         if len(targets)!=32:raise ValueError('Incomplete first-person operator index')
         validate_assignments({'operator_0':'titanfall_pilot','operator_30':'shrek'},targets)
-        print(json.dumps({'model_assets_verified':rows,'operator_sources_verified':operators,'viewmodel_volume':{name:viewmodel_settings(name) for name in ('shrek','fishguy','titanfall_pilot')},'fishguy_anatomical_wrist_fit':{'palm_landmarks_verified':True,'distal_forearm_transition_enabled':True},'shooting_lens_module_imported':True,'tf2_audio':{'module_imported':True,'mapped_native_clips':len(audio_map['clips']),'requires_local_tf2':True,'audio_bundled':False},'sonic_visual_module_imported':sonic_impact.BUNDLE=='src/weapons/weapons','renderer_bounds_root_probe_verified':True,'renderer_bounds_float32_stable':True,'sky_faces':len(faces(32)),'game_files_modified':False,'in_game_tested':False},indent=2));return
+        print(json.dumps({'model_assets_verified':rows,'operator_sources_verified':operators,'viewmodel_volume':{name:viewmodel_settings(name) for name in ('shrek','fishguy','titanfall_pilot')},'fishguy_anatomical_wrist_fit':{'palm_landmarks_verified':True,'distal_forearm_transition_enabled':True},'shooting_lens_module_imported':True,'tf2_audio':{'module_imported':True,'mapped_native_clips':len(audio_map['clips']),'requires_local_tf2':True,'audio_bundled':False},'audiojungle':{'module_imported':True,'mapped_native_clips':len(jungle_map['clips']),'local_source_required':True,'audio_bundled':False,'fixed_excerpts_only':True},'sonic_visual_module_imported':sonic_impact.BUNDLE=='src/weapons/weapons','renderer_bounds_root_probe_verified':True,'renderer_bounds_float32_stable':True,'sky_faces':len(faces(32)),'game_files_modified':False,'in_game_tested':False},indent=2));return
     if a.status:
         from installer.mwc_installer.engine import discover
         from operators.assignments import load_plan,save_plan
