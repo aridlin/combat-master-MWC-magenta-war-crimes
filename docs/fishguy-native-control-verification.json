@@ -1,0 +1,38 @@
+{
+  "controls": [
+    {
+      "session": "headless-original-arm-control-v27",
+      "game_exit": 0,
+      "compositor_exit": 139,
+      "host_profile_unchanged": true,
+      "capture_sha256": "aff2f13c6c9c31dd0252adb9e8ff64f4c14d849c8da57c03633e5fe07dd9e289",
+      "movement_or_firing_inputs_sent": false
+    },
+    {
+      "session": "headless-native-arm-roundtrip-v28",
+      "game_exit": 0,
+      "compositor_exit": 139,
+      "host_profile_unchanged": true,
+      "capture_sha256": "cb5cb1bd019348e38e8bed671d4e2f17295c11f21d439ed2a17d89948d3f94af",
+      "movement_or_firing_inputs_sent": false
+    },
+    {
+      "session": "headless-fish-lod0-only-v29",
+      "game_exit": 0,
+      "compositor_exit": 139,
+      "host_profile_unchanged": true,
+      "capture_sha256": "8cae7dc1bc87c9e16dcf1d3e07e5f3cf90071fcadfccb1988a710de546c39a31",
+      "movement_or_firing_inputs_sent": false
+    },
+    {
+      "session": "headless-fish-lod1-only-v30",
+      "game_exit": 0,
+      "compositor_exit": 139,
+      "host_profile_unchanged": true,
+      "capture_sha256": "b8a87959697b33503073dcb3efdd22c062352a4669e4f8053acfd9ca963759d5",
+      "movement_or_firing_inputs_sent": false
+    }
+  ],
+  "production_arm_geometry_or_weights_changed": false,
+  "full_animation_acceptance": false
+}
