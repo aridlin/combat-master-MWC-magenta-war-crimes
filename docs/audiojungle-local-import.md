@@ -38,7 +38,9 @@ composition test preserved all seven existing Lynx FSB sample hashes, rebuilt
 the vanilla TF2 option successfully, and returned to the exact baseline bundle
 when Audiojungle was deselected. The host installation was unchanged.
 
-Status: source tests and real private-bundle composition passed. In-game
+Status: clean source tests pass (139 run, one skip). Real private Linux and
+Windows-runtime bundle builds pass, and the packaged Windows runtime passes
+10 focused audio tests under Wine. Linux GUI source-field/card checks pass. In-game
 balance, repeated-fire sound quality and performance remain untested. This
 option has not been enabled in the user's game. Private source decoding and
 waveform checks are not an in-game audition.
@@ -51,3 +53,8 @@ To remove it, deselect the option and apply the remaining mods with the game
 closed. The manager rebuilds from verified originals. Restore all originals
 removes the complete managed selection. Retain the state directory and its
 backups until restoration finishes.
+
+Cross-platform comparison retained exact native rates and frame counts. The
+three MP3-derived excerpts differed by at most one PCM16 unit between the
+Linux and Windows FMOD builds; the WAV-derived spin sample matched exactly.
+Each platform independently passed exact container-to-PCM roundtrip checks.

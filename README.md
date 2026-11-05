@@ -18,6 +18,7 @@ retexture work, not the cat prototype. More captures are in
 | Minecraft-style sky | Independent sky-only module; v0.1.3 includes expanded coverage. Installed native Parvis check shows square clouds alongside the existing halftone terrain. Six-sided maps, sun/moon and broader exposure review remain pending. |
 | Operator expansion | Dozer/Shrek retained; magenta Ranger now uses the armored human Grapple. Female Pulse Blade and legacy Stim remain independent choices. Matching slimmer arms and matte materials are installed. Fishguy, all nine TF2 mercenaries, Mario and Steve are optional per-operator choices. Native menus and stationary Grapple arms checked; full animation, ADS/reload and helicopter acceptance pending. |
 | FT mod manager | Individual cards, previews, per-operator assignments and independent magenta controls; verified backups/transactions. Linux UI tested; Windows VM UI/preferences/runtime checked; Windows game edits untested. |
+| Optional Minigun audio | Local vanilla TF2 and Audiojungle excerpts have explicit slot conflict handling and private build/removal checks. Audiojungle development packages pass Linux and Windows-runtime checks; not installed or auditioned and excluded from v0.1.4-preview downloads. |
 | Shared albedo separation | Implemented with category-specific copies and verified material bindings |
 | Map texture arrays | Implemented for the four inspected BC7 albedo arrays, 50 layers |
 | Lynx cat geometry | Actual M1A0 ginger cat imported locally; original tail and full body preserved |
