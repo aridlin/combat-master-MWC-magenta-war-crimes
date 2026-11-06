@@ -1,0 +1,96 @@
+{
+  "packages": [
+    {
+      "platform": "Linux",
+      "archive": "MWC-Linux-x64.tar.gz",
+      "bytes": 85066293,
+      "sha256": "8054c3d22ff6f7b7e5566f24622def685813745247a93bd56dbb6c2940d1eb8b",
+      "source_modules_exact": {
+        "first_person.py": true,
+        "retarget.py": true,
+        "leaf_tips.py": true
+      },
+      "proprietary_local_archives_bundled": false
+    },
+    {
+      "platform": "Windows",
+      "archive": "MWC-Windows-x64.zip",
+      "bytes": 71864915,
+      "sha256": "406b92aa32d4a4282b9369ca31641204a521f9593ac468cd82782bcaad3f9869",
+      "source_modules_exact": {
+        "first_person.py": true,
+        "retarget.py": true,
+        "leaf_tips.py": true
+      },
+      "proprietary_local_archives_bundled": false
+    }
+  ],
+  "native_pose_verification": "finger-tip-native-verification.json",
+  "source_tests": {
+    "run": 169,
+    "passed": 168,
+    "skip": 1
+  },
+  "linux_packaged_apply_restore": {
+    "runtime": "Actual frozen Linux backend",
+    "apply_exit": 0,
+    "restore_exit": 0,
+    "real_original_bundles": 2,
+    "selected_model": "tf2_medic",
+    "frozen_integrated_arm_bundle_byte_identical_to_native_reviewed_stage": true,
+    "expected_first_person_sha256": "e0e1ecf34a409a27cc28f47af85fc9a25c783792f1e0e0fe47e3a6aa6d4f32fa",
+    "world_and_first_person_originals_restored_exactly": true,
+    "all_original_backups_verified": true,
+    "restore_works_without_tf2_source": true,
+    "pending_transaction": false,
+    "real_game_installation_modified": false
+  },
+  "windows_packaged_runtime": {
+    "runtime": "Packaged Windows embedded CPython 3.12.10 under Wine; not native Windows game",
+    "packaged_library_used": true,
+    "focused_tests": 5,
+    "exit_code": 0,
+    "temporary_tests_removed": true,
+    "real_game_installation_modified": false
+  },
+  "game_state_checks": {
+    "state_sha256": "237b7c7dd2d43a6aecd25bcb6917297a9c401eb02e1bd0c66c79f81ac3924432",
+    "installed_bundles_match_recorded_state": {
+      "root/audio": "552fa9b28d9381886672e5f9aa2fc32ff6235496baf7364a480f1061368b3053",
+      "src/first_person": "8bb80a441849206689fce9be5048e48393f48552e70bdc5b3876b0f9277712cf",
+      "src/weapons/weapons": "1d15a27a4a22970ed33de8b1ab986d601848323bb021c4ebc7a87f62dd0345f5",
+      "src/weapons/attachments": "9d214fea2b9580eebfdcadd986dece8d38b762eddf390092f0b8fd521870bc17"
+    },
+    "operator_assignments": {
+      "operator_0": "titanfall_grapple",
+      "operator_30": "shrek"
+    },
+    "selected_mods_unchanged": [
+      "cat_audio",
+      "crates",
+      "fishing_rod",
+      "glass",
+      "iron",
+      "lynx",
+      "medigun",
+      "menu",
+      "nail_gun",
+      "operator_arms",
+      "players",
+      "reticles",
+      "scorpion",
+      "sky",
+      "terrain",
+      "toaster",
+      "weapons"
+    ]
+  },
+  "game_installation_changed": false,
+  "native_windows_game_tested": false,
+  "full_animation_acceptance": false,
+  "source_modules_sha256": {
+    "first_person.py": "17fbc3a33120ea88e9bf8d12258758668a790d9f1cfad0a463ae5c83f46f2082",
+    "retarget.py": "131967bb872303e31653bdcbd2fb834c1a18a0a5be37d5119abec97020ddfd54",
+    "leaf_tips.py": "31fef4d702062f30e731d8353400446da9a6f7e94db5d0831e4da1826e22a433"
+  }
+}

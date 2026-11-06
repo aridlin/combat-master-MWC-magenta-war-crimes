@@ -73,5 +73,38 @@
       "host_profile_unchanged": true
     }
   ],
-  "native_topology_projection": "Rejected before native testing: 7.8 percent of projected faces opposed the reference normal; fold guard retained."
+  "native_topology_projection": "Rejected before native testing: 7.8 percent of projected faces opposed the reference normal; fold guard retained.",
+  "forearm_twist_controls": [
+    {
+      "candidate": "forearm-only twist",
+      "observed": "Thin overlapping-looking wrist lines less apparent in this view, but angular forearm-to-palm transition remains; partial diagnostic, not accepted.",
+      "accepted": false,
+      "capture_sha256": "922801d72ad035e20de52e86cf5978be58889445b601184968b8c8edbf5b70de",
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "input_audit": {
+        "menu_route_only": true
+      },
+      "production_or_installed_fitter_changed": false
+    },
+    {
+      "candidate": "twist plus post-radius transition",
+      "observed": "Visible long forearm seam persists; rejected.",
+      "accepted": false,
+      "capture_sha256": "15b250d882161892022b965771786cbfc20609dbc526bfa4eef49d4885817c16",
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "input_audit": {
+        "post_range_menu_target_click_did_not_leave_range": true,
+        "possible_weapon_click_delivery": "unknown",
+        "explicit_firing_or_movement_test_requested": false,
+        "terminal_after_uncertain_route": true
+      },
+      "production_or_installed_fitter_changed": false
+    }
+  ],
+  "scope": "Earlier wrist and skin controls only; the later fingertip source correction is recorded separately",
+  "later_fingertip_review": "finger-tip-native-verification.json"
 }

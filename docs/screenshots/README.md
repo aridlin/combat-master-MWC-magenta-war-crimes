@@ -142,3 +142,10 @@ The screenshots establish idle appearance only, not ADS/reload acceptance.
 The source installer's Scorpion and nail-gun thumbnails now also use the native
 showcase captures above instead of software previews. Showcase screenshots do
 not establish first-person alignment or animation quality.
+
+### Stationary ADS controls and fingertip correction, November 6
+
+[Original-arm pose controls](../native-pose-controls.md) establish the private
+empty-range ADS inspection path. [Fishguy and Medic before/after evidence](../finger-tip-native-verification.json) records the reviewed fingertip improvement;
+full grip, reload and motion remain pending. [The Medigun artwork control](../weapon-models.md#medigun-artwork-control-november-6) is a private MP.V alias and does not prove
+actual Minigun placement.

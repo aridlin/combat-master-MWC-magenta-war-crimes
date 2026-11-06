@@ -1,0 +1,104 @@
+{
+  "date": "2026-11-06",
+  "scope": "Native Linux Vulkan stationary MP.V hipfire/ADS/return at 1280x720; copied guest profile, network isolated",
+  "production_models_enabled": [
+    "fishguy",
+    "tf2_medic"
+  ],
+  "other_models_use_previous_leaf_fit": true,
+  "medic_before": {
+    "screenshot": "screenshots/medic-before-leaf-fit-ads-nov6.png",
+    "sha256": "4a6146a95a7f050e7ed18068f301eec46e725993542be5e2c360abe3f24b78bf"
+  },
+  "controls": [
+    {
+      "model": "Fishguy",
+      "review": "Distal fingers now curl around the MP.V instead of protruding beside it in the captured ADS pose. Center stays clear. Fishguy retains an angular wrist seam; Medic retains its authored open cuff.",
+      "stationary_mp_v_ads_improvement_reviewed": true,
+      "full_grip_animation_acceptance": false,
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "pose_requests": 2,
+      "game_installation_modified": false,
+      "captures": [
+        {
+          "screenshot": "screenshots/fish-fullcap-hipfire-nov6.png",
+          "sha256": "72ba4c70c701e02a39d33b83db1eb967ca8b3a39a90b873aff8d6f62133023ca"
+        },
+        {
+          "screenshot": "screenshots/fish-fullcap-ads-nov6.png",
+          "sha256": "d47ab8d5993fbb961690cd6f340ef74973edb4282ea3d40f7ea6ff48c4660ef9"
+        },
+        {
+          "screenshot": "screenshots/fish-fullcap-hipfire-return-nov6.png",
+          "sha256": "2b4836275e23bd0253e1e0e4dc2f271694f3fa342773795f2787163ff8f5884b"
+        }
+      ],
+      "native_reviewed_bundle_sha256": "7f28ab4352d156c9ec1a39c6adb330be82a67407f3f1d08043d806fc4aebdcbc",
+      "integrated_bundle_byte_identical_to_reviewed_prototype": true,
+      "build_verification": {
+        "all_other_original_objects_byte_exact": 144988,
+        "renderer_field_whitelist": [
+          "m_Mesh",
+          "m_Materials",
+          "m_AABB"
+        ],
+        "geometry_uv_skin_exact_roundtrip": true,
+        "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+        "all_new_local_references_resolve": true
+      }
+    },
+    {
+      "model": "Medic",
+      "review": "Distal fingers now curl around the MP.V instead of protruding beside it in the captured ADS pose. Center stays clear. Fishguy retains an angular wrist seam; Medic retains its authored open cuff.",
+      "stationary_mp_v_ads_improvement_reviewed": true,
+      "full_grip_animation_acceptance": false,
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "pose_requests": 2,
+      "game_installation_modified": false,
+      "captures": [
+        {
+          "screenshot": "screenshots/medic-fullcap-hipfire-nov6.png",
+          "sha256": "25986f7e3dfbc58f668ec574508176abb5afae7e44e16bf8fe2f7e98c41a3106"
+        },
+        {
+          "screenshot": "screenshots/medic-fullcap-ads-nov6.png",
+          "sha256": "2aefc75d195b286ec7c95a2b77676979895e0aaec5581b3417e6a4bf4d72cd23"
+        },
+        {
+          "screenshot": "screenshots/medic-fullcap-hipfire-return-nov6.png",
+          "sha256": "84fc12f4b572cdb595af0a6565b440be0fae66aabc1d7fd3d15ff768c7e8b68a"
+        }
+      ],
+      "native_reviewed_bundle_sha256": "e0e1ecf34a409a27cc28f47af85fc9a25c783792f1e0e0fe47e3a6aa6d4f32fa",
+      "integrated_bundle_byte_identical_to_reviewed_prototype": true,
+      "build_verification": {
+        "all_other_original_objects_byte_exact": 144988,
+        "renderer_field_whitelist": [
+          "m_Mesh",
+          "m_Materials",
+          "m_AABB"
+        ],
+        "geometry_uv_skin_exact_roundtrip": true,
+        "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+        "all_new_local_references_resolve": true
+      }
+    }
+  ],
+  "source_tests": {
+    "run": 169,
+    "passed": 168,
+    "existing_skip": 1
+  },
+  "installed_game_changed": false,
+  "remaining": [
+    "Fishguy angular wrist transition",
+    "Other TF2 classes ADS review",
+    "Other weapons and attachments",
+    "Movement, reload, helicopter, 4K performance",
+    "Native Windows game acceptance"
+  ]
+}

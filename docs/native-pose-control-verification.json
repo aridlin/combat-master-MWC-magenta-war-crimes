@@ -1,0 +1,31 @@
+{
+  "scope": "Unmodified native first-person arms; original empty-range camera pose control, not a custom-model ADS acceptance",
+  "date": "2026-11-06",
+  "environment": "Native Linux / NVIDIA Vulkan / isolated 1280x720 official range",
+  "captures": [
+    {
+      "screenshot": "screenshots/native-pose-control-range-stationary-nov6.png",
+      "sha256": "6d0a8f836443d855f95b320ee9ba7627d2c9671fbc84222f8e842cc32e320777"
+    },
+    {
+      "screenshot": "screenshots/native-pose-control-native-ads-baseline-nov6.png",
+      "sha256": "7571ea343e6746ef15e6dcf78020b142d599d5b67f58744bdf3216568b57c751"
+    },
+    {
+      "screenshot": "screenshots/native-pose-control-native-hipfire-return-nov6.png",
+      "sha256": "d5ef05a7020bdf90c72d9ff596d0c4aa7abfea431c765ceaa45172661275934a"
+    }
+  ],
+  "native_game_exit": 0,
+  "compositor_teardown_exit": 139,
+  "host_profile_unchanged": true,
+  "native_ads_render_reviewed": true,
+  "native_hipfire_return_reviewed": true,
+  "aim_mode_observed": "Toggle; physical button release does not return camera to hipfire",
+  "explicit_pose_requests": 2,
+  "movement_or_firing_test_inputs_sent": false,
+  "post_range_menu_click_guard_verified": true,
+  "malformed_or_unready_pose_requests_rejected_before_dispatch": 2,
+  "production_or_game_installation_changed": false,
+  "full_animation_acceptance": false
+}

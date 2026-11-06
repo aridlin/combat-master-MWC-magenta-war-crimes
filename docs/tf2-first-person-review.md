@@ -1,5 +1,30 @@
 # Nine TF2 first-person options — native range review
 
+## Source update: Medic fingertips, November 6
+
+A fresh native ADS check exposed fingers sticking out beside the MP.V on the
+released Medic fitting. The source fitter now uses the actual native fingertip
+surface to orient distal segments, which have no child joint to guide the old
+fit. The corrected fingers curl around the gun in the reviewed pose. Glove
+geometry, skin weights, native skeleton and animations are retained. The open
+cuff remains part of the authored source.
+
+![Medic before fingertip fitting](screenshots/medic-before-leaf-fit-ads-nov6.png)
+
+![Medic after fingertip fitting](screenshots/medic-fullcap-ads-nov6.png)
+
+[Native captures and integration checks](finger-tip-native-verification.json)
+prove this localized stationary MP.V improvement. The integrated bundle is
+byte-identical to the reviewed prototype. Other TF2 classes keep the prior fit
+until their own ADS review; full grip across weapons, motion and reloads remains
+open. Public v0.1.6-preview packages predate this fingertip correction. Fresh Linux
+and Windows installer candidates contain it: the frozen Linux backend applied
+Medic to disposable copies of the two real bundles, reproduced the reviewed
+first-person bundle exactly, and restored both originals with TF2 unavailable.
+Five focused tests pass in the packaged Windows runtime under Wine.
+[Package checks](finger-tip-installer-verification.json) are separate from native
+Windows game acceptance.
+
 ## Genuine class-specific viewmodels, November 6
 
 The source installer now imports the actual local `c_*_arms` model for **all

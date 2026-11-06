@@ -1,0 +1,176 @@
+{
+  "native_pose_controls": [
+    {
+      "model": "Baseline Fishguy",
+      "observed": "ADS sight stays clear, but fingers protrude around the weapon and the wrist remains angular.",
+      "accepted_as_fix": false,
+      "captures": [
+        {
+          "screenshot": "screenshots/fish-baseline-range-stationary-nov6.png",
+          "sha256": "f66be4c806fb8977f2fcc16f65583529dc7ec1c3abfc515211318d80ee8f4f8c"
+        },
+        {
+          "screenshot": "screenshots/fish-baseline-fish-baseline-ads-nov6.png",
+          "sha256": "dfe0940731c44e3f6dd1c14dd0176f0085b25acb6c41394c22a553f3bfe0d6f7"
+        },
+        {
+          "screenshot": "screenshots/fish-baseline-fish-baseline-hipfire-return-nov6.png",
+          "sha256": "603d4b727a3b910d7df9c5f0ed88c88be91e6ff5f85cceee074c8e0a9238f7ac"
+        }
+      ],
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "bounded_aim_pose_requests": 2,
+      "movement_or_firing_test_inputs_sent": false,
+      "game_installation_changed": false
+    },
+    {
+      "model": "Native anatomical hand/forearm skin field",
+      "observed": "Finger protrusion remains in ADS and a forearm opening remains; not accepted.",
+      "accepted_as_fix": false,
+      "captures": [
+        {
+          "screenshot": "screenshots/fish-handfield-range-stationary-nov6.png",
+          "sha256": "cfbe24e820afcc6c85e1595fcebd6490c1e219150c90f15729ea388f462a3a36"
+        },
+        {
+          "screenshot": "screenshots/fish-handfield-fish-handfield-ads-nov6.png",
+          "sha256": "1f40de2167a8867a9c90a690ceef5e062be9a906177824792d7e3be121b35bb6"
+        },
+        {
+          "screenshot": "screenshots/fish-handfield-fish-handfield-hipfire-return-nov6.png",
+          "sha256": "49bff77c2fd72f9f5e5cee1dc5994acb506bb4e0a080fa4696b12c8b080ced32"
+        }
+      ],
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "bounded_aim_pose_requests": 2,
+      "movement_or_firing_test_inputs_sent": false,
+      "game_installation_changed": false
+    }
+  ],
+  "projection_controls": [
+    {
+      "candidate": "bare",
+      "rejected_before_native_test": true,
+      "triangles": 3163,
+      "opposed_faces": 235,
+      "degenerate_faces": 40,
+      "fold_fraction": 0.07429655390452103,
+      "fold_guard_preserved": 0.05
+    },
+    {
+      "candidate": "oriented",
+      "rejected_before_native_test": true,
+      "triangles": 3163,
+      "opposed_faces": 178,
+      "degenerate_faces": 76,
+      "fold_fraction": 0.05627568763831805,
+      "fold_guard_preserved": 0.05
+    },
+    {
+      "candidate": "leaf plus oriented projection",
+      "rejected_before_native_test": true,
+      "triangles": 3163,
+      "opposed_faces": 164,
+      "degenerate_faces": 42,
+      "fold_fraction": 0.05184950995889978,
+      "fold_guard_preserved": 0.05
+    }
+  ],
+  "production_fitter_changed": true,
+  "leaf_tip_static_audit": {
+    "observation": "Current retarget leaf branch has no native child and retains the whole-palm rotation/scale, unlike non-leaf segments",
+    "rows": [
+      {
+        "finger": "ThumbFinger3_L",
+        "native_tip_projection_length": 0.036942932827392506,
+        "native_support_vertices": 78,
+        "source_authored_tip_length": 0.029563837216164453,
+        "current_leaf_to_native_axis_angle_degrees": 49.65893960832995,
+        "current_scaled_leaf_length": 0.026715120329786464
+      },
+      {
+        "finger": "IndexFinger3_L",
+        "native_tip_projection_length": 0.0273297663316134,
+        "native_support_vertices": 48,
+        "source_authored_tip_length": 0.028242692370886228,
+        "current_leaf_to_native_axis_angle_degrees": 32.976683056590375,
+        "current_scaled_leaf_length": 0.025521278567750678
+      },
+      {
+        "finger": "MiddleFinger3_L",
+        "native_tip_projection_length": 0.02614793734540563,
+        "native_support_vertices": 50,
+        "source_authored_tip_length": 0.030273546869063445,
+        "current_leaf_to_native_axis_angle_degrees": 72.68737873644984,
+        "current_scaled_leaf_length": 0.02735644366808576
+      },
+      {
+        "finger": "RingFinger3_L",
+        "native_tip_projection_length": 0.03298571770576066,
+        "native_support_vertices": 64,
+        "source_authored_tip_length": 0.02964876421512289,
+        "current_leaf_to_native_axis_angle_degrees": 65.87182917299756,
+        "current_scaled_leaf_length": 0.026791863919592925
+      },
+      {
+        "finger": "PinkyFinger3_L",
+        "native_tip_projection_length": 0.02819490656663973,
+        "native_support_vertices": 59,
+        "source_authored_tip_length": 0.02459718449682494,
+        "current_leaf_to_native_axis_angle_degrees": 79.78269397109712,
+        "current_scaled_leaf_length": 0.022227045116029402
+      },
+      {
+        "finger": "ThumbFinger3_R",
+        "native_tip_projection_length": 0.03289325040025843,
+        "native_support_vertices": 59,
+        "source_authored_tip_length": 0.030984816004252076,
+        "current_leaf_to_native_axis_angle_degrees": 45.42490381956314,
+        "current_scaled_leaf_length": 0.02924116720410135
+      },
+      {
+        "finger": "IndexFinger3_R",
+        "native_tip_projection_length": 0.02729412748109058,
+        "native_support_vertices": 55,
+        "source_authored_tip_length": 0.02887827134818095,
+        "current_leaf_to_native_axis_angle_degrees": 31.716494006277383,
+        "current_scaled_leaf_length": 0.02725316687185381
+      },
+      {
+        "finger": "MiddleFinger3_R",
+        "native_tip_projection_length": 0.026154250913385524,
+        "native_support_vertices": 50,
+        "source_authored_tip_length": 0.030208783828290016,
+        "current_leaf_to_native_axis_angle_degrees": 72.86737449090704,
+        "current_scaled_leaf_length": 0.028508805694839677
+      },
+      {
+        "finger": "RingFinger3_R",
+        "native_tip_projection_length": 0.03320332904726901,
+        "native_support_vertices": 68,
+        "source_authored_tip_length": 0.029351335783953,
+        "current_leaf_to_native_axis_angle_degrees": 58.138386291840014,
+        "current_scaled_leaf_length": 0.02769960993812298
+      },
+      {
+        "finger": "PinkyFinger3_R",
+        "native_tip_projection_length": 0.031976248382051355,
+        "native_support_vertices": 79,
+        "source_authored_tip_length": 0.025075143625450772,
+        "current_leaf_to_native_axis_angle_degrees": 79.45637855964436,
+        "current_scaled_leaf_length": 0.02366405749571147
+      }
+    ],
+    "game_modified": false
+  },
+  "leaf_tip_native_candidate": "Full 3D native-cap fingertip fit integrated for Fishguy and Medic; native stationary MP.V improvement reviewed, full grip/animation acceptance pending",
+  "leaf_tip_review": "finger-tip-native-verification.json",
+  "axis_only_leaf_native_control": {
+    "observed": "Fingers curl more, but protrusion remains; partial diagnostic superseded by full 3D cap fit",
+    "accepted_as_fix": false
+  }
+}

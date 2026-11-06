@@ -61,7 +61,10 @@ def fit(base,source_indices,source_weights,meta,source_bind,native,options,model
     extended=np.concatenate([bind,np.linalg.inv(virtual)]);target_names+=['Root_M','Head_M']
     mapping={i:arms[i] for i in range(len(names))};mapping[source_root]='Root_M';mapping[source_head]='Head_M'
     anchors={name:i for name,i in primary.items() if arms.get(i)==name};anchors.update(Root_M=source_root,Head_M=source_head)
-    v,n,indices,weights,report=adapt(mesh.vertices,mesh.normals,names,source_bind,bi,bw,target_names,extended,source_targets=mapping,source_basis=options.get('source_basis'),primary_sources=anchors,source_root=source_root,source_head=source_head,fit_hands=options.get('fit_hands',False),wrist_transition=options.get('wrist_transition',False),source_faces=mesh.faces)
+    from .leaf_tips import REVIEWED_MODELS,tips
+    leaf=tips(base,source_indices,source_weights,source_bind,native,options) if model in REVIEWED_MODELS else {}
+    v,n,indices,weights,report=adapt(mesh.vertices,mesh.normals,names,source_bind,bi,bw,target_names,extended,source_targets=mapping,source_basis=options.get('source_basis'),primary_sources=anchors,source_root=source_root,source_head=source_head,fit_hands=options.get('fit_hands',False),wrist_transition=options.get('wrist_transition',False),source_faces=mesh.faces,leaf_tips=leaf)
+    if leaf:report['finger_tip_fit']={'tips':list(leaf.values()),'native_skeleton_animations_unchanged':True,'source_skin_weights_unchanged':True,'method':'full 3D native distal mesh caps'}
     if np.any(indices>=len(bind)):raise ValueError('Virtual torso landmarks leaked into serialized arm weights')
     from .viewmodel import slim,settings
     v,n,volume=slim(v,n,indices,weights,native,**settings(model));report['viewmodel_volume']=volume

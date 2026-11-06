@@ -1,0 +1,20 @@
+{
+  "scope": "Native artwork/shader inspection only; existing Medigun art privately parented under MP5 roots",
+  "screenshot": "screenshots/medigun-native-art-alias-nov6.png",
+  "screenshot_sha256": "0893d7f6cdc34daac8ef40941fbc2e20f39ce6f75cb4d7ad1d8999525766f8cc",
+  "private_bundle_sha256": "863b6cbeee821ce0da1ab422921dc234a8a7a96e367c8e27eb189f19abf7282e",
+  "original_installed_bundle_sha256": "1d15a27a4a22970ed33de8b1ab986d601848323bb021c4ebc7a87f62dd0345f5",
+  "source_artwork_rebuilt_or_changed": false,
+  "original_MP5_attachments_remain_visible": true,
+  "preview_alias_installed": false,
+  "actual_minigun_pose_grip_animation_or_world_acceptance": false,
+  "native_game_exit": 0,
+  "compositor_teardown_exit": 139,
+  "host_profile_unchanged": true,
+  "game_installation_changed": false,
+  "static_hierarchy_coverage": {
+    "replacement_children": 2,
+    "intended_original_roots": 2,
+    "all_owned_original_minigun_visuals_under_replaced_roots": true
+  }
+}

@@ -56,7 +56,7 @@ def rotation_between(a,b):
     return np.eye(3)+k+k@k/(1+c)
 
 
-def adapt(positions,normals,source_names,source_inverse_bind,source_indices,source_weights,target_names,target_inverse_bind,*,source_targets=None,source_basis=None,primary_sources=None,source_root=None,source_head=None,fit_hands=False,wrist_transition=False,source_faces=None):
+def adapt(positions,normals,source_names,source_inverse_bind,source_indices,source_weights,target_names,target_inverse_bind,*,source_targets=None,source_basis=None,primary_sources=None,source_root=None,source_head=None,fit_hands=False,wrist_transition=False,source_faces=None,leaf_tips=None):
     # Compiled TF2 reference pose: +Y up, +X character-left. Combat Master's
     # renderer-local bind pose: +Z up, -X character-left, -Y forward.
     basis=np.asarray(source_basis if source_basis is not None else [[-1.,0.,0.],[0.,0.,-1.],[0.,1.,0.]])
@@ -119,6 +119,15 @@ def adapt(positions,normals,source_names,source_inverse_bind,source_indices,sour
                 direction=a/np.linalg.norm(a);ratio=np.clip(np.linalg.norm(b)/(np.linalg.norm(a)*region_scale),.4,2.5)
                 if tn.endswith('_M'):ratio=1.
                 linear=rotation_between(region_rotation@a,b)@region_rotation@(np.eye(3)+(ratio-1)*np.outer(direction,direction))*region_scale
+        elif leaf_tips and i in leaf_tips:
+            tip=leaf_tips[i]
+            if not finger or finger[2]!='3':raise ValueError('Leaf endpoint applied to a non-leaf source')
+            a=np.asarray(tip['source'])@basis.T-sp[i];b=np.asarray(tip['target'])-tp[ti]
+            if min(np.linalg.norm(a),np.linalg.norm(b))<1e-6:raise ValueError('Degenerate fingertip fit')
+            direction=a/np.linalg.norm(a);ratio=np.linalg.norm(b)/(np.linalg.norm(a)*region_scale)
+            if not .4<=ratio<=2.5:raise ValueError('Fingertip fit exceeds existing segment scale guard')
+            linear=rotation_between(region_rotation@a,b)@region_rotation@(np.eye(3)+(ratio-1)*np.outer(direction,direction))*region_scale
+            if not np.allclose(linear@a,b,atol=1e-6,rtol=0):raise ValueError('Fingertip endpoint did not fit the native cap')
         matrices.append((linear,tp[ti]-linear@sp[i]))
     # Accessory roots keep their offset from the torso/limb instead of collapsing
     # each pouch, grenade and collar onto the same target joint.
@@ -127,7 +136,10 @@ def adapt(positions,normals,source_names,source_inverse_bind,source_indices,sour
         # Multiple real TF2 spine nodes can share Chest_M. They remain part of
         # the continuous torso fit, not secondary props snapped to one anchor.
         if semantic in primary and i!=primary[semantic] and name not in CENTRAL:
-            anchor=primary[semantic];linear,_=matrices[anchor]
+            anchor=primary[semantic]
+            if leaf_tips and anchor in leaf_tips and i==leaf_tips[anchor]['tip_index']:
+                matrices[i]=matrices[anchor];continue
+            linear,_=matrices[anchor]
             if semantic in ('Root_M','Spine1_M','Spine2_M','Chest_M','Neck_M','Head_M','Jaw_M'):
                 # These primary regions already use a continuous uniform fit.
                 # Preserve that fitted frame, including its translation. A
@@ -156,7 +168,7 @@ def adapt(positions,normals,source_names,source_inverse_bind,source_indices,sour
     if wrist_transition:
         if not fit_hands or source_faces is None:raise ValueError('Wrist transition requires hand fitting and source triangle topology')
         from .hand_fit import transition
-        baseline=adapt(positions,normals,source_names,source_inverse_bind,source_indices,source_weights,target_names,target_inverse_bind,source_targets=source_targets,source_basis=source_basis,primary_sources=primary_sources,source_root=source_root,source_head=source_head)
+        baseline=adapt(positions,normals,source_names,source_inverse_bind,source_indices,source_weights,target_names,target_inverse_bind,source_targets=source_targets,source_basis=source_basis,primary_sources=primary_sources,source_root=source_root,source_head=source_head,leaf_tips=leaf_tips)
         if not np.array_equal(baseline[2],out_indices) or not np.array_equal(baseline[3],out_weights):raise ValueError('Hand fitting changed skin weights')
         faces=np.asarray(source_faces)
         if faces.ndim!=2 or faces.shape[1]!=3 or not faces.size or faces.dtype.kind not in 'iu' or faces.min()<0 or faces.max()>=len(p):raise ValueError('Invalid source triangle topology')
