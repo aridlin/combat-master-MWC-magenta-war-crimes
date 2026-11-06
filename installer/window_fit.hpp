@@ -54,29 +54,51 @@ inline Rect work_area() {
 #endif
 }
 
-inline Rect prepare(ft::Config& config) {
+inline Rect prepare(ft::Config& config,bool& maximize) {
     auto work=work_area();
 #ifdef _WIN32
     float scale=GetDpiForSystem()/96.f;
     auto target=fit(work,int(config.width*scale),int(config.height*scale),int(48*scale),int(12*scale),int(12*scale));
+    maximize=target.w<int(config.width*scale)||target.h<int(config.height*scale);
     config.width=std::max(1,int(target.w/scale));config.height=std::max(1,int(target.h/scale));
 #else
     // X11 dimensions are pixels; leave room for the window manager's decoration.
     auto target=fit(work,config.width,config.height,48,12,8);
+    maximize=target.w<config.width||target.h<config.height;
     config.width=target.w;config.height=target.h;
 #endif
     config.center_window=false;return work;
 }
 
-inline void place(Rect work) {
+inline void place(Rect work,bool maximize) {
 #ifdef _WIN32
     auto window=(HWND)ft::native_window();RECT r{};GetWindowRect(window,&r);
     auto target=fit(work,r.right-r.left,r.bottom-r.top);
     SetWindowPos(window,nullptr,target.x,target.y,target.w,target.h,SWP_NOZORDER|SWP_NOACTIVATE);
+    if(maximize)ShowWindow(window,SW_MAXIMIZE);
 #else
     auto& p=ftui::internal::g_platform;
     auto target=fit(work,p.width,p.height,48,12,8);
     ft::set_window_position(target.x,target.y);
+    if(maximize) {
+        // Let the desktop account for the real title bar, panels and scaling.
+        // Set the initial property as well as sending the mapped-window request:
+        // FT maps the window before returning, so the WM may not have managed it yet.
+        auto* dpy=p.display;auto window=p.window;
+        Atom state=XInternAtom(dpy,"_NET_WM_STATE",False);
+        Atom states[]={XInternAtom(dpy,"_NET_WM_STATE_MAXIMIZED_VERT",False),
+                       XInternAtom(dpy,"_NET_WM_STATE_MAXIMIZED_HORZ",False)};
+        XChangeProperty(dpy,window,state,XA_ATOM,32,PropModeReplace,
+                        reinterpret_cast<unsigned char*>(states),2);
+        XEvent event{};event.xclient.type=ClientMessage;event.xclient.window=window;
+        event.xclient.message_type=state;event.xclient.format=32;
+        event.xclient.data.l[0]=1; // _NET_WM_STATE_ADD
+        event.xclient.data.l[1]=states[0];event.xclient.data.l[2]=states[1];
+        event.xclient.data.l[3]=1; // Application request
+        XSendEvent(dpy,DefaultRootWindow(dpy),False,
+                   SubstructureRedirectMask|SubstructureNotifyMask,&event);
+        XFlush(dpy);
+    }
 #endif
 }
 }

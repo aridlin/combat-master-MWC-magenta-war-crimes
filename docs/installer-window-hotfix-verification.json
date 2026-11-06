@@ -1,0 +1,134 @@
+{
+  "release": "v0.1.9-preview",
+  "base_release": "v0.1.8-preview",
+  "scope": "Frontend-only small-screen maximize hotfix; existing backend and mod payloads unchanged",
+  "linux": [
+    {
+      "screen": [
+        1024,
+        600
+      ],
+      "client": [
+        0,
+        21,
+        1024,
+        579
+      ],
+      "frame_extents": [
+        0,
+        0,
+        21,
+        0
+      ],
+      "outer_frame": [
+        0,
+        0,
+        1024,
+        600
+      ],
+      "maximized": true,
+      "actual_window_manager": "Openbox on isolated Xvfb with native decorations",
+      "game_or_installer_state_changed": false
+    },
+    {
+      "screen": [
+        1280,
+        720
+      ],
+      "client": [
+        0,
+        21,
+        1280,
+        699
+      ],
+      "frame_extents": [
+        0,
+        0,
+        21,
+        0
+      ],
+      "outer_frame": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "maximized": true,
+      "actual_window_manager": "Openbox on isolated Xvfb with native decorations",
+      "game_or_installer_state_changed": false
+    }
+  ],
+  "windows_wine": [
+    {
+      "screen": [
+        1280,
+        720
+      ],
+      "window": [
+        -4,
+        -4,
+        1284,
+        724
+      ],
+      "workarea": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "dpi": 96,
+      "passed": true,
+      "platform": "Windows executable under Wine, not native Windows"
+    },
+    {
+      "screen": [
+        1024,
+        600
+      ],
+      "window": [
+        -4,
+        -4,
+        1028,
+        604
+      ],
+      "workarea": [
+        0,
+        0,
+        1024,
+        600
+      ],
+      "dpi": 96,
+      "passed": true,
+      "platform": "Windows executable under Wine, not native Windows"
+    }
+  ],
+  "native_windows_tested": false,
+  "physical_KDE_desktop_tested": false,
+  "isolated_KWin_attempt": "Failed before app startup due to Xwayland DMA-BUF import; excluded from acceptance",
+  "screenshots_reviewed": true,
+  "packages": [
+    {
+      "platform": "Linux",
+      "changed_files": [
+        "MWC-Installer"
+      ],
+      "all_other_files_sha256_unchanged": true,
+      "verified_files": 1712,
+      "executable_sha256": "3d93425922b45602b644c51b6336a242a003a3c430dd0312f4d210e911538647",
+      "archive_sha256": "8243c046bb98c2bd619d977ed5ecc78fef70788162b358f611ebd4ff5253c9a1"
+    },
+    {
+      "platform": "Windows",
+      "changed_files": [
+        "MWC-Installer.exe"
+      ],
+      "all_other_files_sha256_unchanged": true,
+      "verified_files": 1733,
+      "executable_sha256": "ce30e16ff009e16b6cd2e914f0a3fe80186d844987236ec7ce7d00baf2c1a50f",
+      "archive_sha256": "513fb46d3b0a9a2bddce35d8a9950e02aaaf51a509ae4cf19b79aedbee5e81cb"
+    }
+  ],
+  "personal_frontends_updated": true,
+  "installer_state_unchanged": true,
+  "game_installation_changed": false
+}

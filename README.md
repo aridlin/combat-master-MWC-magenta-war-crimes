@@ -265,7 +265,7 @@ Authored Scorpion, fishing rod, P90 toaster and MP7 nailer models replace the ea
 
 Current operator sources, credits and acceptance limits are in [the operator expansion report](docs/operator-expansion.md). The source test suite has 169 tests: 168 pass and one existing data-dependent test is skipped. Color controls distinguish replacement models from unmodified in-game operator models. Matching first-person arms remain independently selectable; full grip/ADS/reload acceptance is pending.
 
-Portable preview downloads: [v0.1.8 Linux and Windows installers](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.8-preview). Extract the whole archive. Public builds import local M1A0, TF2, prepared Titanfall and Minecraft sources where required.
+Portable preview downloads: [v0.1.9 Linux and Windows installers](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.9-preview). Extract the whole archive. Public builds import local M1A0, TF2, prepared Titanfall and Minecraft sources where required.
 
 This preview includes actual local [viewmodel arms for all nine TF2 classes](docs/tf2-first-person-review.md), optional [TF2 Medigun audio](docs/tf2-audio.md) and [Audiojungle excerpts](docs/audiojungle-local-import.md). The two Minigun audio packs conflict explicitly. Native stationary arm captures, packaged Linux apply/restoration and Windows runtime checks pass; full animations and native audio audition remain pending.
 
