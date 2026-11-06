@@ -1,5 +1,66 @@
 # Nine TF2 first-person options — native range review
 
+## Genuine class-specific viewmodels, November 6
+
+The source installer now imports the actual local `c_*_arms` model for **all
+nine** selected TF2 classes when Matching first-person arms is enabled. This
+replaces the previous world-body arm extraction, retaining recognizable cuffs,
+gloves, hand wraps and sleeve detail. World operator models, assignments,
+independent magenta controls and native animations remain unchanged. The
+geometry-review captures below use original colors; TF2 magenta remains the
+default and can still be disabled per model.
+
+All nine genuine sources were reviewed in the native stationary official range:
+
+| Model | Native capture | Fitted triangles per renderer |
+|---|---|---:|
+| Scout | [Taped hands](screenshots/tf2-scout-authored-viewmodel-range-nov6.png) | 4,482 |
+| Soldier | [Sleeve and hand](screenshots/tf2-soldier-authored-viewmodel-range-nov6.png) | 4,074 |
+| Pyro | [Glove and cuff](screenshots/tf2-pyro-authored-viewmodel-range-nov6.png) | 2,804 |
+| Demoman | [Wrapped forearm](screenshots/tf2-demoman-authored-viewmodel-range-nov6.png) | 3,362 |
+| Heavy | [Glove and bare forearm](screenshots/tf2-heavy-authored-viewmodel-range-nov6.png) | 5,244 |
+| Engineer | [Bare left forearm](screenshots/tf2-engineer-authored-viewmodel-range-nov6.png) | 3,912 |
+| Medic | [Genuine glove, November 5](screenshots/tf2-medic-authored-viewmodel-range-nov5.png) | 2,880 |
+| Sniper | [Watch and glove](screenshots/tf2-sniper-authored-viewmodel-range-nov6.png) | 3,332 |
+| Spy | [Pinstripe sleeve and glove](screenshots/tf2-spy-authored-viewmodel-range-nov6.png) | 3,880 |
+
+Each keeps the center clear in the captured hipfire view. This does not prove
+finger contact across weapons, movement, ADS, reloads, helicopter views or 4K
+performance. The deliberate 30-FPS test cap is not a benchmark. All nine native
+games exited 0 and retained the host profile; Gamescope teardown returned 139.
+Only menu navigation and capture controls were used.
+
+Arm-only sources now receive two explicitly virtual, **unweighted** bookkeeping
+references derived from their actual arm segments. They never become native
+skin bones. Five classes have different world/viewmodel proportions, so their
+world pose is not assumed. Authored geometry, bind rotations and skin arrays
+remain exact. For Scout, Heavy, Medic and Sniper the resulting fitted positions,
+normals, UVs, faces and weights are exactly equal to the prior verified-frame
+method. The actual installer library reproduces all nine prepared sources.
+Missing, invalid or wrong-class sources fail explicitly, with no body-arm
+fallback. Disabling Matching first-person arms avoids the arm import entirely.
+
+[The evidence index](tf2-authored-arms-verification.json) records native captures,
+bundle hashes, preservation checks and real local-import comparisons. The source
+suite runs 164 tests, with 163 passing and one existing data-dependent skip.
+Public v0.1.5-preview packages predate this all-class upgrade; their genuine
+viewmodel import covers Medic only. The sections below retain earlier controls.
+
+![Genuine Scout viewmodel with magenta enabled](screenshots/tf2-scout-authored-magenta-range-nov6.png)
+
+A separate native Scout check confirms the default magenta appearance on the
+upgraded source alongside the existing gold weapon. Fresh Linux and Windows
+installer candidates contain the matching source modules. The actual frozen
+Linux backend applied a Scout world/viewmodel selection to disposable copies
+of two real original bundles, produced a first-person bundle byte-identical to
+the reviewed candidate, then restored both originals exactly without needing
+the TF2 source. Eleven focused tests passed in the packaged Windows runtime
+under Wine; native Windows game testing remains open.
+[Package hashes and checks](tf2-authored-arms-installer-verification.json) also
+record unchanged hashes for all 81 installed bundles and all 81 original backups.
+
+## Earlier world-arm extraction review
+
 All nine optional mercenary arm models rendered in the native Linux game's
 **official MP.V Shooting Range** on November 5. These are screenshots, not
 software renders. The source models come from the user's local Team Fortress 2

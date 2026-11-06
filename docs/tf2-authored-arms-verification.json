@@ -1,0 +1,375 @@
+{
+  "scope": "Private native Linux/Vulkan official MP.V Shooting Range; stationary hipfire only",
+  "date": "2026-11-06",
+  "medic_capture_date": "2026-11-05",
+  "resolution": [
+    1280,
+    720
+  ],
+  "display_fps_cap": 30,
+  "performance_measured": false,
+  "source": "User-owned local Team Fortress 2 installation; no Valve model/texture binaries distributed",
+  "rows": [
+    {
+      "model": "tf2_scout",
+      "source_variant": "first_person_arms",
+      "screenshot": "screenshots/tf2-scout-authored-viewmodel-range-nov6.png",
+      "screenshot_sha256": "70dac694e1eccd2e7692297b3b8c1b641a358885b5b3f7f8f01b202f82abdef7",
+      "bundle_sha256": "b00cc582f9d567ca387ad783c79e7b98686505921ddef30762687769c422bd99",
+      "fitted_triangles": [
+        4482,
+        4482
+      ],
+      "stationary_observation": "Taped hand and slim bare forearm; center clear.",
+      "stationary_capture_reviewed": true,
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "installed_game_modified": false,
+      "full_animation_acceptance": false,
+      "verification": {
+        "all_other_original_objects_byte_exact": 144988,
+        "renderer_field_whitelist": [
+          "m_Mesh",
+          "m_Materials",
+          "m_AABB"
+        ],
+        "geometry_uv_skin_exact_roundtrip": true,
+        "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+        "all_new_local_references_resolve": true
+      }
+    },
+    {
+      "model": "tf2_soldier",
+      "source_variant": "first_person_arms",
+      "screenshot": "screenshots/tf2-soldier-authored-viewmodel-range-nov6.png",
+      "screenshot_sha256": "a0a1364e57b8d45fb4b8146f77f209bcdd670fa641d4a2e61975da2061278c74",
+      "bundle_sha256": "90f89d90cd67a6854a956f7106f5ada9aa404d437e994149d3e1b69454dd0744",
+      "fitted_triangles": [
+        4074,
+        4074
+      ],
+      "stationary_observation": "Sleeve, wrist and hand visible; center clear.",
+      "stationary_capture_reviewed": true,
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "installed_game_modified": false,
+      "full_animation_acceptance": false,
+      "verification": {
+        "all_other_original_objects_byte_exact": 144988,
+        "renderer_field_whitelist": [
+          "m_Mesh",
+          "m_Materials",
+          "m_AABB"
+        ],
+        "geometry_uv_skin_exact_roundtrip": true,
+        "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+        "all_new_local_references_resolve": true
+      }
+    },
+    {
+      "model": "tf2_pyro",
+      "source_variant": "first_person_arms",
+      "screenshot": "screenshots/tf2-pyro-authored-viewmodel-range-nov6.png",
+      "screenshot_sha256": "a683b40468f7425cf5400211cef535771bfdcc87bed3502f92cdb87740c65c14",
+      "bundle_sha256": "1fa653bc3943fec5fe699287ab14c3ebc9af99e8a9d8653b7e4ea231dc66edca",
+      "fitted_triangles": [
+        2804,
+        2804
+      ],
+      "stationary_observation": "Broad glove and cuff visible; center clear.",
+      "stationary_capture_reviewed": true,
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "installed_game_modified": false,
+      "full_animation_acceptance": false,
+      "verification": {
+        "all_other_original_objects_byte_exact": 144988,
+        "renderer_field_whitelist": [
+          "m_Mesh",
+          "m_Materials",
+          "m_AABB"
+        ],
+        "geometry_uv_skin_exact_roundtrip": true,
+        "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+        "all_new_local_references_resolve": true
+      }
+    },
+    {
+      "model": "tf2_demoman",
+      "source_variant": "first_person_arms",
+      "screenshot": "screenshots/tf2-demoman-authored-viewmodel-range-nov6.png",
+      "screenshot_sha256": "4d346537250c12bad6cf2b926a84d14c65d717c853e46ccd82b386908ffbd0a0",
+      "bundle_sha256": "636ba772f79973894241d43e47e17fb0b557291f9ba163f1f04bea32354b2a8a",
+      "fitted_triangles": [
+        3362,
+        3362
+      ],
+      "stationary_observation": "Wrapped forearm and dark hand visible; center clear in this view.",
+      "stationary_capture_reviewed": true,
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "installed_game_modified": false,
+      "full_animation_acceptance": false,
+      "verification": {
+        "all_other_original_objects_byte_exact": 144988,
+        "renderer_field_whitelist": [
+          "m_Mesh",
+          "m_Materials",
+          "m_AABB"
+        ],
+        "geometry_uv_skin_exact_roundtrip": true,
+        "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+        "all_new_local_references_resolve": true
+      }
+    },
+    {
+      "model": "tf2_heavy",
+      "source_variant": "first_person_arms",
+      "screenshot": "screenshots/tf2-heavy-authored-viewmodel-range-nov6.png",
+      "screenshot_sha256": "b2ba981b893190083c951e952442c23dd54ee8983fda261c2ca058275632b073",
+      "bundle_sha256": "3c387f45f13235c7236e7018deff0793292a32bc603b23718c69a05dc804f71a",
+      "fitted_triangles": [
+        5244,
+        5244
+      ],
+      "stationary_observation": "Bare forearm and open glove cuff visible; center clear.",
+      "stationary_capture_reviewed": true,
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "installed_game_modified": false,
+      "full_animation_acceptance": false,
+      "verification": {
+        "all_other_original_objects_byte_exact": 144988,
+        "renderer_field_whitelist": [
+          "m_Mesh",
+          "m_Materials",
+          "m_AABB"
+        ],
+        "geometry_uv_skin_exact_roundtrip": true,
+        "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+        "all_new_local_references_resolve": true
+      }
+    },
+    {
+      "model": "tf2_engineer",
+      "source_variant": "first_person_arms",
+      "screenshot": "screenshots/tf2-engineer-authored-viewmodel-range-nov6.png",
+      "screenshot_sha256": "2d8327c9bfd0efb09a713d3970d655c54e1bea26d738a41b337ac99c3d52e58f",
+      "bundle_sha256": "ced90db56cdda1cad44cc90356eeac1a8ad2087f80d7fad13ca00f5f4021f272",
+      "fitted_triangles": [
+        3912,
+        3912
+      ],
+      "stationary_observation": "Bare left forearm and hand visible; center clear.",
+      "stationary_capture_reviewed": true,
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "installed_game_modified": false,
+      "full_animation_acceptance": false,
+      "verification": {
+        "all_other_original_objects_byte_exact": 144988,
+        "renderer_field_whitelist": [
+          "m_Mesh",
+          "m_Materials",
+          "m_AABB"
+        ],
+        "geometry_uv_skin_exact_roundtrip": true,
+        "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+        "all_new_local_references_resolve": true
+      }
+    },
+    {
+      "model": "tf2_medic",
+      "source_variant": "first_person_arms",
+      "screenshot": "screenshots/tf2-medic-authored-viewmodel-range-nov5.png",
+      "screenshot_sha256": "c921ebb0072738b1a6e53addf24122da86813b4e95bb9dbec818dc5c5ec8a955",
+      "bundle_sha256": "525a5faf147afad13865e8da9c97b4d022d3c0e9ebdaa1066828cb741bd23ff0",
+      "fitted_triangles": [
+        2880,
+        2880
+      ],
+      "stationary_observation": "Prior triangular forearm patch absent in the stationary view.",
+      "stationary_capture_reviewed": true,
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "installed_game_modified": false,
+      "full_animation_acceptance": false,
+      "verification": {
+        "all_other_original_objects_byte_exact": 144988,
+        "renderer_field_whitelist": [
+          "m_Mesh",
+          "m_Materials",
+          "m_AABB"
+        ],
+        "geometry_uv_skin_exact_roundtrip": true,
+        "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+        "all_new_local_references_resolve": true
+      }
+    },
+    {
+      "model": "tf2_sniper",
+      "source_variant": "first_person_arms",
+      "screenshot": "screenshots/tf2-sniper-authored-viewmodel-range-nov6.png",
+      "screenshot_sha256": "a1913ca4450d1d491a30d2662c5d8a42642ad99b61ee665d9e39d498f82ca220",
+      "bundle_sha256": "12a61c392c40961c8ce70381647a22b74f30b4bb69489707fd05c99e4c4d335d",
+      "fitted_triangles": [
+        3332,
+        3332
+      ],
+      "stationary_observation": "Watch/cuff, glove and bare forearm visible; center clear.",
+      "stationary_capture_reviewed": true,
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "installed_game_modified": false,
+      "full_animation_acceptance": false,
+      "verification": {
+        "all_other_original_objects_byte_exact": 144988,
+        "renderer_field_whitelist": [
+          "m_Mesh",
+          "m_Materials",
+          "m_AABB"
+        ],
+        "geometry_uv_skin_exact_roundtrip": true,
+        "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+        "all_new_local_references_resolve": true
+      }
+    },
+    {
+      "model": "tf2_spy",
+      "source_variant": "first_person_arms",
+      "screenshot": "screenshots/tf2-spy-authored-viewmodel-range-nov6.png",
+      "screenshot_sha256": "9010f63893a841304993d303cc438422c083fc6c32d7c811145d9384db0b4078",
+      "bundle_sha256": "fa2d07d958d0e534f893afcf48cd75435d5af430bdfc03fc48a121e6212a42e0",
+      "fitted_triangles": [
+        3880,
+        3880
+      ],
+      "stationary_observation": "Pinstripe sleeve, white cuff and glove visible; center clear.",
+      "stationary_capture_reviewed": true,
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "installed_game_modified": false,
+      "full_animation_acceptance": false,
+      "verification": {
+        "all_other_original_objects_byte_exact": 144988,
+        "renderer_field_whitelist": [
+          "m_Mesh",
+          "m_Materials",
+          "m_AABB"
+        ],
+        "geometry_uv_skin_exact_roundtrip": true,
+        "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+        "all_new_local_references_resolve": true
+      }
+    }
+  ],
+  "virtual_references_equivalence": [
+    {
+      "model": "tf2_scout",
+      "maximum_vertex_difference": 0.0,
+      "maximum_normal_difference": 0.0,
+      "indices_weights_uvs_and_faces_exact": true
+    },
+    {
+      "model": "tf2_heavy",
+      "maximum_vertex_difference": 0.0,
+      "maximum_normal_difference": 0.0,
+      "indices_weights_uvs_and_faces_exact": true
+    },
+    {
+      "model": "tf2_medic",
+      "maximum_vertex_difference": 0.0,
+      "maximum_normal_difference": 0.0,
+      "indices_weights_uvs_and_faces_exact": true
+    },
+    {
+      "model": "tf2_sniper",
+      "maximum_vertex_difference": 0.0,
+      "maximum_normal_difference": 0.0,
+      "indices_weights_uvs_and_faces_exact": true
+    }
+  ],
+  "installer_library_actual_import": [
+    {
+      "model": "tf2_scout",
+      "source_variant": "first_person_arms",
+      "all_arrays_equal_private_prepared_source": true,
+      "authored_triangles": 4482
+    },
+    {
+      "model": "tf2_soldier",
+      "source_variant": "first_person_arms",
+      "all_arrays_equal_private_prepared_source": true,
+      "authored_triangles": 4358
+    },
+    {
+      "model": "tf2_pyro",
+      "source_variant": "first_person_arms",
+      "all_arrays_equal_private_prepared_source": true,
+      "authored_triangles": 2804
+    },
+    {
+      "model": "tf2_demoman",
+      "source_variant": "first_person_arms",
+      "all_arrays_equal_private_prepared_source": true,
+      "authored_triangles": 3362
+    },
+    {
+      "model": "tf2_heavy",
+      "source_variant": "first_person_arms",
+      "all_arrays_equal_private_prepared_source": true,
+      "authored_triangles": 5244
+    },
+    {
+      "model": "tf2_engineer",
+      "source_variant": "first_person_arms",
+      "all_arrays_equal_private_prepared_source": true,
+      "authored_triangles": 3912
+    },
+    {
+      "model": "tf2_medic",
+      "source_variant": "first_person_arms",
+      "all_arrays_equal_private_prepared_source": true,
+      "authored_triangles": 2880
+    },
+    {
+      "model": "tf2_sniper",
+      "source_variant": "first_person_arms",
+      "all_arrays_equal_private_prepared_source": true,
+      "authored_triangles": 3332
+    },
+    {
+      "model": "tf2_spy",
+      "source_variant": "first_person_arms",
+      "all_arrays_equal_private_prepared_source": true,
+      "authored_triangles": 3880
+    }
+  ],
+  "all_native_skeletons_animations_collision_statistics_retained": true,
+  "default_tf2_magenta_preserved": true,
+  "geometry_review_captures_use_original_colors": true,
+  "full_movement_ADS_reload_helicopter_or_4k_acceptance": false,
+  "source_tests": {
+    "run": 164,
+    "passed": 163,
+    "skipped": 1
+  },
+  "native_magenta_coexistence": {
+    "model": "tf2_scout",
+    "screenshot": "screenshots/tf2-scout-authored-magenta-range-nov6.png",
+    "screenshot_sha256": "a9985234584b2cbae72bb885b3695b445a1d2307334a28b8e2cb57a832ae381c",
+    "observed": "Genuine taped-hand source retains bright magenta appearance and clear center with gold weapon; stationary hipfire only",
+    "native_game_exit": 0,
+    "compositor_teardown_exit": 139,
+    "host_profile_unchanged": true
+  }
+}

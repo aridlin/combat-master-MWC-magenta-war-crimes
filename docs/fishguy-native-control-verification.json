@@ -34,5 +34,44 @@
     }
   ],
   "production_arm_geometry_or_weights_changed": false,
-  "full_animation_acceptance": false
+  "full_animation_acceptance": false,
+  "additional_controls": [
+    {
+      "session": "headless-fish-dense-source-v35",
+      "observed": "Fourfold rest-surface tessellation with interpolated authored weights: wrist crease remains.",
+      "accepted": false,
+      "capture_sha256": "0c6dc421024b61b3c7798e13621940c6c2458a7ea273a84f925f884881e01509",
+      "game_exit": 0,
+      "compositor_exit": 139,
+      "host_profile_unchanged": true
+    },
+    {
+      "session": "headless-fish-dense-native-v36",
+      "observed": "Dense native skin field: wrist opening/crease remains.",
+      "accepted": false,
+      "capture_sha256": "e84404c49ab42a7c4e158f99b1d21e090945c6634847fb3486c8c564d7182eae",
+      "game_exit": 0,
+      "compositor_exit": 139,
+      "host_profile_unchanged": true
+    },
+    {
+      "session": "headless-fish-anatomical-skin-v37",
+      "observed": "Anatomically selected native forearm/hand skin field: opening remains.",
+      "accepted": false,
+      "capture_sha256": "3982e34a1e9e67ef343c5a89353c9d0e61ccf558524cdc06a2155cb9fdc2d46f",
+      "game_exit": 0,
+      "compositor_exit": 139,
+      "host_profile_unchanged": true
+    },
+    {
+      "session": "headless-fish-four-bone-v38",
+      "observed": "Only renderer skin quality forced to four bones: crease remains.",
+      "accepted": false,
+      "capture_sha256": "9b766712da06958749f92e2b126d13652760d42cfd64022f43bfd2183283775e",
+      "game_exit": 0,
+      "compositor_exit": 139,
+      "host_profile_unchanged": true
+    }
+  ],
+  "native_topology_projection": "Rejected before native testing: 7.8 percent of projected faces opposed the reference normal; fold guard retained."
 }

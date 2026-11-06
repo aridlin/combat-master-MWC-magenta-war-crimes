@@ -2,7 +2,7 @@ import json,tempfile,unittest
 from pathlib import Path
 from unittest.mock import patch
 import numpy as np
-from operators.tf2_arms import add_landmarks
+from operators.tf2_arms import add_landmarks,add_virtual_landmarks
 from model_import.tf2 import import_models
 
 
@@ -53,6 +53,39 @@ class AuthoredTF2Arms(unittest.TestCase):
             bind[0,0,3]+=1
             np.savez_compressed(world/'source.npz',inverse_bind=bind)
             with self.assertRaisesRegex(ValueError,'coordinate mismatch'):add_landmarks(source,world)
+
+    def test_virtual_references_preserve_all_authored_data(self):
+        with tempfile.TemporaryDirectory() as root:
+            source,world,before=self.fixture(root);add_virtual_landmarks(source)
+            with np.load(source/'source.npz',allow_pickle=False) as after:
+                for name,value in before.items():
+                    np.testing.assert_array_equal(after[name][:6] if name in ('inverse_bind','bone_parents') else after[name],value)
+                self.assertEqual(after['inverse_bind'].shape,(8,4,4))
+                self.assertLess(int(after['bone_indices'].max()),6)
+            meta=json.loads((source/'source.json').read_text())
+            self.assertFalse(meta['fit_landmarks']['world_pose_assumed'])
+            self.assertTrue(meta['fit_landmarks']['actual_scale_from_authored_arm_segments'])
+            with self.assertRaisesRegex(ValueError,'already-added'):add_virtual_landmarks(source)
+
+    def test_virtual_references_reject_world_source_before_any_write(self):
+        with tempfile.TemporaryDirectory() as root:
+            source,world,_=self.fixture(root);p=source/'source.json';meta=json.loads(p.read_text());meta['source_variant']='world';p.write_text(json.dumps(meta));before=(source/'source.npz').read_bytes()
+            with self.assertRaisesRegex(ValueError,'first-person source'):add_virtual_landmarks(source)
+            self.assertEqual((source/'source.npz').read_bytes(),before)
+
+    def test_virtual_references_reject_wrong_selected_class_before_write(self):
+        with tempfile.TemporaryDirectory() as root:
+            source,world,_=self.fixture(root);before=(source/'source.npz').read_bytes()
+            with self.assertRaisesRegex(ValueError,'selected class'):
+                add_virtual_landmarks(source,expected_model='tf2_spy')
+            self.assertEqual((source/'source.npz').read_bytes(),before)
+
+    def test_virtual_references_reject_degenerate_arm_segment_before_write(self):
+        with tempfile.TemporaryDirectory() as root:
+            source,world,arrays=self.fixture(root);arrays['inverse_bind'][1]=arrays['inverse_bind'][0]
+            np.savez_compressed(source/'source.npz',**arrays);before=(source/'source.npz').read_bytes()
+            with self.assertRaisesRegex(ValueError,'Degenerate'):add_virtual_landmarks(source)
+            self.assertEqual((source/'source.npz').read_bytes(),before)
 
     def test_arm_import_rejects_weapon_before_reading_vpk(self):
         with tempfile.TemporaryDirectory() as root,patch('model_import.tf2.VPK') as vpk:

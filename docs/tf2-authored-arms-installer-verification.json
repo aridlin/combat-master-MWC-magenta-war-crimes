@@ -1,0 +1,106 @@
+{
+  "packages": [
+    {
+      "platform": "Linux",
+      "archive": "MWC-Linux-x64.tar.gz",
+      "bytes": 85049472,
+      "sha256": "533a737493a7674a494976e4ca057d8bcd22b5158231967385437ea346c54beb",
+      "source_modules_exact": true,
+      "local_proprietary_content_excluded": true,
+      "edition": {
+        "m1a0_archive_bundled": false,
+        "game_bundles_bundled": false,
+        "valve_tf2_models_bundled": false,
+        "valve_tf2_audio_bundled": false,
+        "respawn_titanfall_models_bundled": false,
+        "titanfall_pilots_require_local_import": true,
+        "minecraft_artwork_bundled": false,
+        "minecraft_classic_sky_requires_local_client_jar": true
+      }
+    },
+    {
+      "platform": "Windows",
+      "archive": "MWC-Windows-x64.zip",
+      "bytes": 71862527,
+      "sha256": "d8e595868c926b9d12e0ed77c5de29fe385c45944d728e8b0e5c3d3391d9f2dd",
+      "source_modules_exact": true,
+      "local_proprietary_content_excluded": true,
+      "edition": {
+        "m1a0_archive_bundled": false,
+        "game_bundles_bundled": false,
+        "valve_tf2_models_bundled": false,
+        "valve_tf2_audio_bundled": false,
+        "respawn_titanfall_models_bundled": false,
+        "titanfall_pilots_require_local_import": true,
+        "minecraft_artwork_bundled": false,
+        "minecraft_classic_sky_requires_local_client_jar": true
+      }
+    }
+  ],
+  "source_module_sha256": {
+    "operators/library.py": "d8592ebd08541b31c0a33162ce488ea18e124124604dc29cbacb8ae13f6fe54a",
+    "operators/tf2_arms.py": "9e805887b61123d04564c65be7a0f5bfaef801b832a2eca221a82e0cff28c667"
+  },
+  "source_tests": {
+    "run": 164,
+    "passed": 163,
+    "skipped": 1
+  },
+  "linux_transaction": {
+    "runtime": "Actual frozen Linux backend",
+    "apply_exit": 0,
+    "restore_exit": 0,
+    "real_original_bundles": 2,
+    "selected_model": "tf2_scout",
+    "frozen_integrated_arm_bundle_byte_identical_to_native_reviewed_stage": true,
+    "expected_first_person_sha256": "b00cc582f9d567ca387ad783c79e7b98686505921ddef30762687769c422bd99",
+    "world_and_first_person_originals_restored_exactly": true,
+    "all_original_backups_verified": true,
+    "restore_works_without_tf2_source": true,
+    "pending_transaction": false,
+    "real_game_installation_modified": false
+  },
+  "windows_runtime": {
+    "runtime": "Packaged Windows embedded CPython 3.12.10 under Wine; not native Windows game",
+    "packaged_library_used": true,
+    "focused_tests": 11,
+    "exit_code": 0,
+    "temporary_tests_removed": true,
+    "real_game_installation_modified": false
+  },
+  "native_windows_game_tested": false,
+  "new_source_models_redistributed": false,
+  "real_installation_preservation": {
+    "verified_files": {
+      "installed": 81,
+      "original": 81
+    },
+    "selected": [
+      "cat_audio",
+      "crates",
+      "fishing_rod",
+      "glass",
+      "iron",
+      "lynx",
+      "medigun",
+      "menu",
+      "nail_gun",
+      "operator_arms",
+      "players",
+      "reticles",
+      "scorpion",
+      "sky",
+      "terrain",
+      "toaster",
+      "weapons"
+    ],
+    "assignments": {
+      "operator_0": "titanfall_grapple",
+      "operator_30": "shrek"
+    },
+    "state_sha256": "237b7c7dd2d43a6aecd25bcb6917297a9c401eb02e1bd0c66c79f81ac3924432",
+    "installed_first_person_sha256": "8bb80a441849206689fce9be5048e48393f48552e70bdc5b3876b0f9277712cf",
+    "installed_audio_sha256": "552fa9b28d9381886672e5f9aa2fc32ff6235496baf7364a480f1061368b3053",
+    "state_and_game_modified": false
+  }
+}

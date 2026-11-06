@@ -19,6 +19,15 @@ recorded separately:
 | Uniform joint fitting and smaller hands | Fold remains; rejected |
 | Native triangle-surface weight transfer | Palm improves, forearm crease remains; rejected |
 | Harmonic weight-field smoothing | Crease remains; rejected |
+| Fourfold surface tessellation with authored weights | Crease remains; rejected |
+| Dense native skin-field transfer | Wrist opening/crease remains; rejected |
+| Anatomically selected native bare-forearm/hand skin field | Opening remains; rejected |
+| Renderer skin quality explicitly set to four bones | Crease remains; rejected |
+
+A native-topology projection was also rejected before launching the game:
+7.8% of its projected faces opposed the reference normal. The fold guard was
+retained. Rest-surface audits found no inconsistent weights at coincident
+Fishguy vertices; this does not establish correct animated deformation.
 
 These are bounded 1280×720 native Linux/Vulkan observations in a private guest
 profile, with no network, host audio, player movement or weapon input. The original, writer-roundtrip and two LOD controls exited the game with code 0 and retained the host profile
