@@ -1,0 +1,35 @@
+{
+  "candidate_bundle_sha256": "990b21130cf96d414db8ada37ab1879e2899613c49057277bea70eb0d606057c",
+  "renderer_changes": [
+    {
+      "renderer": "-6446956547449719539",
+      "m_CastShadows_before": 2,
+      "m_CastShadows_after": 0,
+      "m_ReceiveShadows_unchanged": 1,
+      "all_other_renderer_fields_exact": true
+    },
+    {
+      "renderer": "2264244255083033869",
+      "m_CastShadows_before": 2,
+      "m_CastShadows_after": 0,
+      "m_ReceiveShadows_unchanged": 1,
+      "all_other_renderer_fields_exact": true
+    }
+  ],
+  "all_meshes_skins_textures_materials_bones_animations_byte_exact": true,
+  "all_other_objects_byte_exact": 144994,
+  "native_game_exit": 0,
+  "compositor_exit": 139,
+  "host_profile_unchanged": true,
+  "network_isolated": true,
+  "movement_firing_or_reload_inputs_sent": false,
+  "ADS_and_hipfire_reviewed": true,
+  "slit_still_visible": true,
+  "render_flag_runtime_override_or_actual_shadow_contribution_independently_verified": false,
+  "all_shadow_or_shading_causes_ruled_out": false,
+  "accepted_or_installed": false,
+  "capture_sha256": {
+    "fish-shadow-ads": "0805f74291570562bc27b7585cdabb1aaf0a367d30d7727b106d03bd4a8ca465",
+    "fish-shadow-hipfire": "716b581ecebc0a51848bef8b0074e55dd27fa637761bf2a91de30681f19c24fe"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "controls": [
+    {
+      "session": "headless-tf2-fishtangents-fp-v102",
+      "stage": {
+        "source_sha256": "8d1884baf79531e1fb9477baafbaadee17fc92db710fed279d7c8ffc3c0e1ddd",
+        "only_tangents_changed": [
+          {
+            "mesh": "5230127721016582",
+            "vertices": 4704,
+            "only_tangent_vertex_bytes_changed": true,
+            "nondegenerate_uv_triangles": 1568,
+            "degenerate_uv_triangles": 0,
+            "vertices_using_canonical_orthogonal_fallback": 0,
+            "maximum_normal_dot_tangent": 4.700266359458638e-08
+          },
+          {
+            "mesh": "46601627037003775",
+            "vertices": 4704,
+            "only_tangent_vertex_bytes_changed": true,
+            "nondegenerate_uv_triangles": 1568,
+            "degenerate_uv_triangles": 0,
+            "vertices_using_canonical_orthogonal_fallback": 0,
+            "maximum_normal_dot_tangent": 4.700266359458638e-08
+          }
+        ],
+        "all_positions_normals_UV_faces_skin_binds_materials_textures_animations_byte_exact": true,
+        "all_other_objects_byte_exact": 144994,
+        "installed_game_changed": false
+      },
+      "candidate_bundle_sha256": "d93e4ed4c0bcfb928707b0c0151e192b25d668e951f8cc4a57a999b329c7770c",
+      "native_game_exit": 0,
+      "compositor_exit": 139,
+      "host_profile_unchanged": true,
+      "network_isolated": true,
+      "movement_or_firing_inputs_sent": false,
+      "native_ADS_and_hipfire_reviewed": true,
+      "slit_still_visible": true,
+      "capture_sha256": {
+        "fish-tangent-ads": "1e6dc30a3839dc64eb6970f5301346f85e8c519d157691f2dad62c001485fe64",
+        "fish-tangent-hipfire": "9e55a0e9f6db290f40edbcb3d8dfde9a0aced6988a63eb348dbbc1e48421f85d"
+      },
+      "accepted_or_installed": false
+    },
+    {
+      "session": "headless-tf2-fishupperarm-fp-v103",
+      "stage": {
+        "source_sha256": "8d1884baf79531e1fb9477baafbaadee17fc92db710fed279d7c8ffc3c0e1ddd",
+        "only_upperarm_related_triangle_indices_hidden": [
+          {
+            "renderer": "-6446956547449719539",
+            "mesh": "46601627037003775",
+            "original_triangles": 1568,
+            "hidden_triangles": 368,
+            "retained_triangles": 1200,
+            "all_vertex_attributes_bone_data_and_materials_unchanged": true
+          },
+          {
+            "renderer": "2264244255083033869",
+            "mesh": "5230127721016582",
+            "original_triangles": 1568,
+            "hidden_triangles": 368,
+            "retained_triangles": 1200,
+            "all_vertex_attributes_bone_data_and_materials_unchanged": true
+          }
+        ],
+        "all_other_objects_byte_exact": 144994,
+        "installed_game_changed": false,
+        "purpose": "Isolate possible upper-arm/cut-surface occlusion from distal wrist/forearm deformation; never install as accepted model"
+      },
+      "candidate_bundle_sha256": "cbb7d21829f7fb10e6a6e7b623a9d56e2f7ab468752c13bee032b1a57ce74602",
+      "native_game_exit": 0,
+      "compositor_exit": 139,
+      "host_profile_unchanged": true,
+      "network_isolated": true,
+      "movement_or_firing_inputs_sent": false,
+      "native_ADS_and_hipfire_reviewed": true,
+      "slit_still_visible": true,
+      "capture_sha256": {
+        "fish-upperarm-ads": "45a08c587d7ebcc15f1f31c3dc85f0bf0b44dc1560342d49b668a9a431a5fe91",
+        "fish-upperarm-hipfire": "02d78ac28bc43bef0bcd6d0b9c717f0d5193a77d0218cba9a173c2dd12743005"
+      },
+      "accepted_or_installed": false
+    }
+  ],
+  "tangent_owned_math_control": {
+    "owned_plane_fixture_only": true,
+    "regular_UV_tangent_and_handedness_exact": true,
+    "mirrored_UV_handedness_exact": true,
+    "degenerate_UV_fallback_finite_unit_and_orthogonal": true
+  },
+  "scope": "These controls retain the slit. They do not rule out every shading contribution or establish a complete cause. No diagnostic is installed."
+}

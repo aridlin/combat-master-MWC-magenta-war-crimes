@@ -1,0 +1,91 @@
+{
+  "candidate_bundle_sha256": "b4340d02109c556013b6bc1ddd8bed1fe4238f9a09a296636fc46fc6161709cb",
+  "stage_integrity": {
+    "all_other_original_objects_byte_exact": 144988,
+    "renderer_field_whitelist": [
+      "m_Mesh",
+      "m_Materials",
+      "m_AABB"
+    ],
+    "geometry_uv_skin_exact_roundtrip": true,
+    "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+    "all_new_local_references_resolve": true
+  },
+  "owned_math": {
+    "owned_cube_reference_only": true,
+    "rigid_rotation_translation_max_error": 2.6645352591003757e-15,
+    "translation_equivariance_max_error": 2.4868995751603507e-14,
+    "Dirichlet_fixed_vertices_exact": true,
+    "every_global_step_energy_guard_passed": true,
+    "native_game_or_model_acceptance": false
+  },
+  "native_game_exit": 0,
+  "compositor_exit": 139,
+  "host_profile_unchanged": true,
+  "network_isolated": true,
+  "movement_firing_reload_inputs_sent": false,
+  "ADS_and_hipfire_reviewed": true,
+  "native_observation": "Forearm slit remains, with faceting; not accepted or installed",
+  "capture_sha256": {
+    "fish-source-metric-ads": "b486adfc7d22fbbe56abf5e5341dadba6015aa8e4e6acd784394566b022617c1",
+    "fish-source-metric-hipfire": "4f793837aa20932bc366c748669c7e783b039e36e580cbccba62669a5d9b78c9"
+  },
+  "production_fitter_installer_and_installed_game_changed": false,
+  "prior_soft_boundary_variant_rejected_before_bundling": {
+    "opposed_faces": 2,
+    "location": "protected thumb/pinky regions",
+    "minimum_area_ratio": 0.04749979888245022
+  },
+  "exact_boundary_guard_scope": "All faces incident to changed forearm vertices; every other vertex stays exact. No claim that pre-existing fitted hand defects were repaired.",
+  "registration_LODs": [
+    {
+      "iterations": 38,
+      "matrix_condition": 35.07399733067407,
+      "dirichlet_boundary_exact": true,
+      "positive_regularized_edges": 2378,
+      "method": "Authored-source-metric ARAP with exact fitted palm/proximal Dirichlet constraints",
+      "free_unique_vertices": 56,
+      "opposed_nondegenerate_faces": 0,
+      "minimum_area_ratio": 0.24406959388649702,
+      "maximum_area_ratio": 1.0100158230065552,
+      "maximum_displacement_from_production": 0.033555286463658296,
+      "maximum_fixed_anchor_residual": 0.0,
+      "source_topology_UV_and_native_rig_unchanged": true,
+      "protected_geometry_byte_exact": true,
+      "guard_scope": "Every face incident to a changed forearm vertex; every other face stays exact",
+      "changed_faces": 163,
+      "in_game_tested": false,
+      "opposed_faces": []
+    },
+    {
+      "iterations": 38,
+      "matrix_condition": 35.07399733067426,
+      "dirichlet_boundary_exact": true,
+      "positive_regularized_edges": 2378,
+      "method": "Authored-source-metric ARAP with exact fitted palm/proximal Dirichlet constraints",
+      "free_unique_vertices": 56,
+      "opposed_nondegenerate_faces": 0,
+      "minimum_area_ratio": 0.2440695938864767,
+      "maximum_area_ratio": 1.0100158230066612,
+      "maximum_displacement_from_production": 0.03355528646365858,
+      "maximum_fixed_anchor_residual": 0.0,
+      "source_topology_UV_and_native_rig_unchanged": true,
+      "protected_geometry_byte_exact": true,
+      "guard_scope": "Every face incident to a changed forearm vertex; every other face stays exact",
+      "changed_faces": 163,
+      "in_game_tested": false,
+      "opposed_faces": []
+    }
+  ],
+  "installed_invariants": {
+    "installed_critical_bundle_sha256": {
+      "root/audio": "552fa9b28d9381886672e5f9aa2fc32ff6235496baf7364a480f1061368b3053",
+      "src/first_person": "8bb80a441849206689fce9be5048e48393f48552e70bdc5b3876b0f9277712cf",
+      "src/thrid_person": "94d280d31fa266c46165484ff892627c2fa9e6be5c81bb90ef266b93b97f511c",
+      "src/weapons/weapons": "1d15a27a4a22970ed33de8b1ab986d601848323bb021c4ebc7a87f62dd0345f5"
+    },
+    "installer_state_sha256": "237b7c7dd2d43a6aecd25bcb6917297a9c401eb02e1bd0c66c79f81ac3924432",
+    "all_match_prior_baseline": true,
+    "game_assets_or_installer_state_modified": false
+  }
+}

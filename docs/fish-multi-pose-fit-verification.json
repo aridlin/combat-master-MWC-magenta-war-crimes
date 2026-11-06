@@ -1,0 +1,252 @@
+{
+  "method": "Multi-pose source-metric rest fitting with production four-weight skin unchanged",
+  "poses": 19,
+  "solve": {
+    "method": "Authored-source-metric ARAP with exact fitted palm/proximal Dirichlet constraints",
+    "poses": 19,
+    "free_unique_vertices": 56,
+    "matrix_condition": 40.02185624013907,
+    "iterations": 45,
+    "protected_geometry_exact": true,
+    "native_game_tested": false,
+    "opposed_nondegenerate_faces": 0,
+    "minimum_area_ratio": 0.19650990161585796,
+    "maximum_area_ratio": 1.4825962319416153,
+    "maximum_displacement_from_production": 0.0540238328365717,
+    "maximum_fixed_anchor_residual": 0.0,
+    "source_topology_UV_and_native_rig_unchanged": true,
+    "protected_geometry_byte_exact": true,
+    "guard_scope": "Every face incident to a changed forearm vertex; every other face stays exact",
+    "changed_faces": 163,
+    "in_game_tested": false,
+    "opposed_faces": []
+  },
+  "rest_check": {
+    "method": "Authored-source-metric ARAP with exact fitted palm/proximal Dirichlet constraints",
+    "poses": 19,
+    "free_unique_vertices": 56,
+    "matrix_condition": 40.02185624013907,
+    "iterations": 45,
+    "protected_geometry_exact": true,
+    "native_game_tested": false,
+    "opposed_nondegenerate_faces": 0,
+    "minimum_area_ratio": 0.19650990161585796,
+    "maximum_area_ratio": 1.4825962319416153,
+    "maximum_displacement_from_production": 0.0540238328365717,
+    "maximum_fixed_anchor_residual": 0.0,
+    "source_topology_UV_and_native_rig_unchanged": true,
+    "protected_geometry_byte_exact": true,
+    "guard_scope": "Every face incident to a changed forearm vertex; every other face stays exact",
+    "changed_faces": 163,
+    "in_game_tested": false,
+    "opposed_faces": []
+  },
+  "pose_checks": [
+    {
+      "clip": "bind_geometry_control",
+      "seconds": 0.0,
+      "changed_face_opposed_count": 0,
+      "all_forearm_opposed_count": 0,
+      "changed_face_crossings": 0,
+      "all_forearm_crossings": 0,
+      "minimum_changed_face_area_ratio": 1.0,
+      "maximum_changed_face_area_ratio": 1.0
+    },
+    {
+      "clip": "AK12_Arms_Idle",
+      "seconds": 0.0,
+      "changed_face_opposed_count": 2,
+      "all_forearm_opposed_count": 2,
+      "changed_face_crossings": 0,
+      "all_forearm_crossings": 0,
+      "minimum_changed_face_area_ratio": 0.2400653730438897,
+      "maximum_changed_face_area_ratio": 2.9653969190992826
+    },
+    {
+      "clip": "AK12_Arms_Idle",
+      "seconds": 0.5,
+      "changed_face_opposed_count": 2,
+      "all_forearm_opposed_count": 2,
+      "changed_face_crossings": 0,
+      "all_forearm_crossings": 0,
+      "minimum_changed_face_area_ratio": 0.24085008230554225,
+      "maximum_changed_face_area_ratio": 2.9550765669466426
+    },
+    {
+      "clip": "AK12_Arms_Idle",
+      "seconds": 1.0,
+      "changed_face_opposed_count": 2,
+      "all_forearm_opposed_count": 2,
+      "changed_face_crossings": 0,
+      "all_forearm_crossings": 0,
+      "minimum_changed_face_area_ratio": 0.22900664156916709,
+      "maximum_changed_face_area_ratio": 2.983566483901888
+    },
+    {
+      "clip": "AK12_Arms_ADSLoop",
+      "seconds": 0.0,
+      "changed_face_opposed_count": 3,
+      "all_forearm_opposed_count": 3,
+      "changed_face_crossings": 0,
+      "all_forearm_crossings": 0,
+      "minimum_changed_face_area_ratio": 0.22505672730868853,
+      "maximum_changed_face_area_ratio": 3.3589630749121797
+    },
+    {
+      "clip": "AK12_Arms_ADSLoop",
+      "seconds": 0.5,
+      "changed_face_opposed_count": 3,
+      "all_forearm_opposed_count": 3,
+      "changed_face_crossings": 0,
+      "all_forearm_crossings": 0,
+      "minimum_changed_face_area_ratio": 0.2257657888846007,
+      "maximum_changed_face_area_ratio": 3.36040502335658
+    },
+    {
+      "clip": "AK12_Arms_ADSLoop",
+      "seconds": 1.0,
+      "changed_face_opposed_count": 3,
+      "all_forearm_opposed_count": 3,
+      "changed_face_crossings": 0,
+      "all_forearm_crossings": 0,
+      "minimum_changed_face_area_ratio": 0.2252482718397816,
+      "maximum_changed_face_area_ratio": 3.3587707459259013
+    },
+    {
+      "clip": "AK12_Arms_Reload",
+      "seconds": 0.0,
+      "changed_face_opposed_count": 2,
+      "all_forearm_opposed_count": 2,
+      "changed_face_crossings": 0,
+      "all_forearm_crossings": 0,
+      "minimum_changed_face_area_ratio": 0.2400653730438897,
+      "maximum_changed_face_area_ratio": 2.9653969190992826
+    },
+    {
+      "clip": "AK12_Arms_Reload",
+      "seconds": 0.5,
+      "changed_face_opposed_count": 3,
+      "all_forearm_opposed_count": 5,
+      "changed_face_crossings": 7,
+      "all_forearm_crossings": 11,
+      "minimum_changed_face_area_ratio": 0.1954885934743413,
+      "maximum_changed_face_area_ratio": 2.9159098224610376
+    },
+    {
+      "clip": "AK12_Arms_Reload",
+      "seconds": 1.0,
+      "changed_face_opposed_count": 3,
+      "all_forearm_opposed_count": 4,
+      "changed_face_crossings": 3,
+      "all_forearm_crossings": 4,
+      "minimum_changed_face_area_ratio": 0.17796784051207493,
+      "maximum_changed_face_area_ratio": 2.9551127726242954
+    },
+    {
+      "clip": "Kar98k_Arms_Idle1",
+      "seconds": 0.0,
+      "changed_face_opposed_count": 2,
+      "all_forearm_opposed_count": 2,
+      "changed_face_crossings": 0,
+      "all_forearm_crossings": 0,
+      "minimum_changed_face_area_ratio": 0.06311171049478671,
+      "maximum_changed_face_area_ratio": 2.6498782061644186
+    },
+    {
+      "clip": "Kar98k_Arms_Idle1",
+      "seconds": 0.5,
+      "changed_face_opposed_count": 2,
+      "all_forearm_opposed_count": 2,
+      "changed_face_crossings": 0,
+      "all_forearm_crossings": 0,
+      "minimum_changed_face_area_ratio": 0.06057814132769046,
+      "maximum_changed_face_area_ratio": 2.6539992437770104
+    },
+    {
+      "clip": "Kar98k_Arms_Idle1",
+      "seconds": 1.0,
+      "changed_face_opposed_count": 2,
+      "all_forearm_opposed_count": 2,
+      "changed_face_crossings": 0,
+      "all_forearm_crossings": 0,
+      "minimum_changed_face_area_ratio": 0.06149857389275415,
+      "maximum_changed_face_area_ratio": 2.6520758636037214
+    },
+    {
+      "clip": "Kar98k_Arms_Reload",
+      "seconds": 0.0,
+      "changed_face_opposed_count": 2,
+      "all_forearm_opposed_count": 2,
+      "changed_face_crossings": 0,
+      "all_forearm_crossings": 0,
+      "minimum_changed_face_area_ratio": 0.06311220732769593,
+      "maximum_changed_face_area_ratio": 2.649878277068171
+    },
+    {
+      "clip": "Kar98k_Arms_Reload",
+      "seconds": 0.5,
+      "changed_face_opposed_count": 0,
+      "all_forearm_opposed_count": 0,
+      "changed_face_crossings": 0,
+      "all_forearm_crossings": 0,
+      "minimum_changed_face_area_ratio": 0.14604354164600042,
+      "maximum_changed_face_area_ratio": 2.298631859910796
+    },
+    {
+      "clip": "Kar98k_Arms_Reload",
+      "seconds": 1.0,
+      "changed_face_opposed_count": 0,
+      "all_forearm_opposed_count": 1,
+      "changed_face_crossings": 0,
+      "all_forearm_crossings": 0,
+      "minimum_changed_face_area_ratio": 0.162180130662829,
+      "maximum_changed_face_area_ratio": 2.4231751211724277
+    },
+    {
+      "clip": "Dual1911_Arms_ADSLoop",
+      "seconds": 0.0,
+      "changed_face_opposed_count": 0,
+      "all_forearm_opposed_count": 0,
+      "changed_face_crossings": 0,
+      "all_forearm_crossings": 0,
+      "minimum_changed_face_area_ratio": 0.37491502576679414,
+      "maximum_changed_face_area_ratio": 2.443794779534534
+    },
+    {
+      "clip": "Dual1911_Arms_ADSLoop",
+      "seconds": 0.5,
+      "changed_face_opposed_count": 0,
+      "all_forearm_opposed_count": 0,
+      "changed_face_crossings": 0,
+      "all_forearm_crossings": 0,
+      "minimum_changed_face_area_ratio": 0.3751182316238948,
+      "maximum_changed_face_area_ratio": 2.444583963818384
+    },
+    {
+      "clip": "Dual1911_Arms_ADSLoop",
+      "seconds": 1.0,
+      "changed_face_opposed_count": 0,
+      "all_forearm_opposed_count": 0,
+      "changed_face_crossings": 0,
+      "all_forearm_crossings": 0,
+      "minimum_changed_face_area_ratio": 0.36814100456301035,
+      "maximum_changed_face_area_ratio": 2.4418910155174305
+    }
+  ],
+  "runtime_IK_or_layers_evaluated": false,
+  "native_game_tested": false,
+  "local_modified_region_passed": false,
+  "whole_forearm_pose_gate_passed": false,
+  "coplanar_boundary_contacts_and_adjacent_crossings_not_tested": true,
+  "owned_kernel_math": {
+    "owned_cube_fixture_only": true,
+    "two_pose_rigid_maximum_error": 1.5543122344752192e-15,
+    "coordinate_translation_equivariance_error": 4.973799150320701e-14,
+    "protected_vertices_exact": true,
+    "each_global_energy_guard_passed": true,
+    "not_model_or_native_game_acceptance": true
+  },
+  "bundle_written": false,
+  "installed_game_changed": false,
+  "acceptance": "Rejected by isolated-pose surface gates before bundling"
+}

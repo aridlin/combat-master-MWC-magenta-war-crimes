@@ -185,3 +185,60 @@ regions and the expected loaded avatar before navigating; a separate range
 gate remains mandatory before bounded ADS. No movement or firing was sent.
 [Exact evidence and limits](fish-surface-material-controls-verification.json)
 record these private controls. None is installed or selectable as a finished fix.
+
+## Authored-metric and isolated-pose follow-up
+
+A later fit used the original authored arm's intrinsic shape rather than the
+already-fitted wrist as its ARAP reference. Its first soft-boundary variant
+failed the fold guard at two protected hand faces and was not bundled. An
+exact Dirichlet-boundary solve then kept all protected vertices byte-exact,
+passed the unchanged fold/area/displacement bounds on every face incident to
+a modified forearm vertex, and passed independent owned rigid-motion and
+translation checks. It still shows the native slit and additional faceting in
+ADS/hipfire, so it remains rejected. This does not claim that pre-existing
+hand defects were repaired. [The exact limits and results](fish-authored-metric-verification.json)
+are recorded separately.
+
+![Rejected source-metric fit in native hipfire](screenshots/fish-source-metric-rejected-hipfire-nov6.png)
+
+Two further controls changed only UV-derived orthogonal tangent bytes, or only
+hid upper-arm-related triangle indices. Both retain the slit in the native
+ADS/hipfire views. The visibility control is an intentionally incomplete
+diagnostic, not a proposed model replacement. Neither control is installed.
+[Preservation checks and native results](fish-tangent-upperarm-controls-verification.json)
+record these tests; they do not rule out every shading contribution.
+
+The corrected isolated-clip sampler now permits a more discriminating surface
+check. Across six clips at three times, the original native bare-forearm control
+has zero strict noncoplanar crossings. The authored production and private
+union-field arms develop crossings and faces opposed to their blended rest
+normals in several poses. Most crossing pairs involve an upper-arm face, but
+some remain without one. Results vary by clip; the clean pistol control does
+not establish acceptance of the AK12/Kar98 poses.
+
+[Per-pose counts and the owned triangle controls](fish-posed-surface-verification.json)
+are numerical diagnostics, not proof of the complete native cause. This scoped
+intersection test excludes adjacent welded faces, coplanar overlaps and
+boundary-only contacts. The rest source and fitted meshes also differ: no
+strict source-arm crossing was found, while five fitted hand-region pairs were
+found before articulation. Runtime IK and blending remain unevaluated. No game
+movement or reload input was sent to collect these isolated clip samples.
+
+A renderer-only control subsequently requested [shadow casting off](https://docs.unity.com/en-us/engine/6000.3/script-reference/unityengine/rendering/shadowcastingmode) (`2 → 0`)
+on the two private first-person renderers. Every mesh, material, texture, skin
+and animation stayed byte-exact. The slit remains in native ADS and hipfire.
+Runtime overrides and the actual shadow contribution were not independently
+measured, so this does not rule out all shading causes. The game exited 0,
+compositor teardown returned 139, and host profile hashes stayed unchanged.
+[The renderer-control evidence](fish-shadow-control-verification.json) records
+this uninstalled diagnostic.
+
+A new coupled rest-shape solve then used the production four-weight skin and
+all 18 isolated clip poses plus a bind-geometry control. The block solver passed
+owned two-pose rigid-motion, coordinate-translation and exact-boundary tests.
+Its fitted model nevertheless retains opposed faces and crossing pairs under
+the isolated poses. Both the modified-region and whole-forearm surface gates
+failed. No bundle was written or native game launched for this candidate.
+[Its per-pose rejection](fish-multi-pose-fit-verification.json) keeps the solver's
+math checks separate from model acceptance. The remaining work includes
+motion-aware skin/shape fitting; a rest-shape pass alone is insufficient.
