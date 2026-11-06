@@ -22,7 +22,7 @@ preview or serialized mesh check is not full animation acceptance.
 | Magenta, gold attachments, crates, menu, sights and helicopter glass | Existing independent controls and layers retained. Each module's file/reference checks are recorded. | Outstanding game-visible checks are listed in the linked feature documents |
 | Mod manager | Per-operator assignment, explicit shared-prefab conflicts, per-model Magenta and separate native-operator color control, verified backups, recovery journal and restoration. New pilot import and save controls tested in the packaged Linux GUI. | Packaged GUI/runtime checks distinguish Linux from Wine; native Windows game editing remains untested |
 
-The [v0.1.5-preview installers](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.5-preview) include local classic sky import, genuine Medic viewmodel arms and optional Audiojungle excerpts. The local installation now assigns Ranger → magenta armored human Grapple and
+The [v0.1.6-preview installers](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.6-preview) include local classic sky import, genuine viewmodel arms for all nine TF2 classes and optional Audiojungle excerpts. The local installation now assigns Ranger → magenta armored human Grapple and
 Dozer → Shrek. Its six-bundle update was installed through the existing journaled
 transaction engine; all 81 installed/original backup hashes and six undo copies
 were verified. The other 75 bundles, including Lynx/weapon bundles and cat audio,
