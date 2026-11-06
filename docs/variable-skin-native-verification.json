@@ -1,0 +1,294 @@
+{
+  "date": "2026-11-06",
+  "scope": "Experimental variable-weight serialization and private native extra-influence activation; not an accepted Fishguy repair",
+  "Editor_oracle": {
+    "reference": {
+      "editorVersion": "6000.6.5f1",
+      "bonesPerVertex": [
+        1,
+        4,
+        8
+      ],
+      "boneIndices": [
+        0,
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "weights": [
+        1.0,
+        0.4000000059604645,
+        0.3000076413154602,
+        0.20000000298023224,
+        0.09999237209558487,
+        0.2222171425819397,
+        0.19444571435451508,
+        0.16667430102825165,
+        0.13888761401176453,
+        0.1111162006855011,
+        0.08332952111959457,
+        0.05555810034275055,
+        0.027771420776844025
+      ],
+      "unlimitedBakeMaximumError": 0.0,
+      "fourBoneBakeMaximumError": 0.032835640013217926,
+      "referenceOnly": true
+    },
+    "Python_authored_API_readback": {
+      "editorVersion": "6000.6.5f1",
+      "bonesPerVertex": [
+        1,
+        5,
+        7
+      ],
+      "boneIndices": [
+        7,
+        4,
+        2,
+        6,
+        0,
+        5,
+        1,
+        3,
+        5,
+        7,
+        0,
+        2,
+        6
+      ],
+      "weights": [
+        1.0,
+        0.3333333432674408,
+        0.2666666805744171,
+        0.20000000298023224,
+        0.13333334028720856,
+        0.06666667014360428,
+        0.2500038146972656,
+        0.21428243815898895,
+        0.17857633531093597,
+        0.1428549587726593,
+        0.10714884847402573,
+        0.07142747938632965,
+        0.035706110298633575
+      ],
+      "unlimitedBakeMaximumError": 1.1920928955078125e-07,
+      "fourBoneBakeMaximumError": 0.012890673242509365,
+      "referenceOnly": true
+    },
+    "packed_words_and_float32_API_values_exact": true,
+    "duplicate_transform_alias_cpu_error_m": 1.02990489e-05
+  },
+  "codec": {
+    "source": "operators/variable_skin.py",
+    "enabled_by_installer": false,
+    "production_four_weight_writer_unchanged": true,
+    "serialized_public_writer_matches_private_native_candidate": [
+      {
+        "mesh": "5230127721016582",
+        "vertices": 4704,
+        "maximum_influences": 4,
+        "public_writer_serialized_bytes_match_native_tested_candidate": true
+      },
+      {
+        "mesh": "46601627037003775",
+        "vertices": 4704,
+        "maximum_influences": 6,
+        "public_writer_serialized_bytes_match_native_tested_candidate": true
+      }
+    ],
+    "focused_tests_passed": 8,
+    "source_suite": {
+      "tests": 177,
+      "passed": 176,
+      "existing_skips": 1
+    }
+  },
+  "private_quality_copy": {
+    "output_sha256": "4ad318802b3bca4cab708e30a595077bba85f0f0f325d33d61c38cadc0215361",
+    "original_sha256": "5168ea31c82558c80bd4795fd073e513e9223c8aa098b54a5862839f22e7f692",
+    "container": "data.unity3d",
+    "serialized_file": "globalgamemanagers",
+    "changes": [
+      {
+        "name": "Mobile",
+        "old_skinWeights": 2,
+        "new_skinWeights": 255
+      },
+      {
+        "name": "Standalone",
+        "old_skinWeights": 4,
+        "new_skinWeights": 255
+      }
+    ],
+    "all_other_original_objects_byte_exact": 11743,
+    "other_container_entries_byte_exact": 8,
+    "all_container_entry_flags_preserved": true,
+    "source_not_encrypted": true,
+    "only_quality_skinWeights_changed": true,
+    "game_installation_changed": false,
+    "native_game_tested": false
+  },
+  "strong_diagnostic": {
+    "bundle_sha256": "e54d527dd7661531363ce90623489aae557d4c10aea3fd6d0bc049244ac07c23",
+    "rows": [
+      {
+        "renderer": "-6446956547449719539",
+        "eight_weight_vertices": 2823,
+        "extra_mass_min": 0.10404623999637543,
+        "extra_mass_max": 0.4736842105263158,
+        "alias_reference_count": 147,
+        "renderer_bone_reference_count": 227,
+        "actual_native_transform_count_unchanged": 80,
+        "native_vertices": 2823,
+        "fallback_max_weight_error": 2.4616718292236328e-05,
+        "renderer_fields_changed": [
+          "m_Mesh",
+          "m_Bones"
+        ],
+        "original_bone_pointer_prefix_and_all_actual_transforms_unchanged": true,
+        "original_geometry_normals_UV_faces_and_native_skeleton_preserved": true
+      },
+      {
+        "renderer": "2264244255083033869",
+        "eight_weight_vertices": 6426,
+        "extra_mass_min": 0.10404623999637543,
+        "extra_mass_max": 0.4736842105263158,
+        "alias_reference_count": 147,
+        "renderer_bone_reference_count": 227,
+        "actual_native_transform_count_unchanged": 80,
+        "native_vertices": 6426,
+        "fallback_max_weight_error": 2.4139881134033203e-05,
+        "renderer_fields_changed": [
+          "m_Mesh",
+          "m_Bones"
+        ],
+        "original_bone_pointer_prefix_and_all_actual_transforms_unchanged": true,
+        "original_geometry_normals_UV_faces_and_native_skeleton_preserved": true
+      }
+    ],
+    "actual_native_transforms_skeleton_animation_objects_unchanged": true,
+    "production_or_installed_game_changed": false
+  },
+  "native_controls": [
+    {
+      "control": "weak-four",
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "range_image_gate_scores": [
+        1.0,
+        1.0
+      ],
+      "captures": [],
+      "observed": "Clean original native arm in stationary views",
+      "movement_firing_reload_inputs_sent": false
+    },
+    {
+      "control": "weak-full",
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "range_image_gate_scores": [
+        1.0,
+        1.0
+      ],
+      "captures": [],
+      "observed": "Format loaded; small visual difference was not treated as conclusive activation evidence",
+      "movement_firing_reload_inputs_sent": false
+    },
+    {
+      "control": "strong-four",
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "range_image_gate_scores": [
+        1.0,
+        1.0
+      ],
+      "captures": [
+        {
+          "path": "screenshots/variable-skin-strong-four-ads-nov6.png",
+          "sha256": "254626dc644480ca224574ff1938d2773cfcf991d031a1ad9640b64f20022039"
+        },
+        {
+          "path": "screenshots/variable-skin-strong-four-hipfire-return-nov6.png",
+          "sha256": "55bb5166ced5e71390bdf45ef10331c517a869f3cedb808d5ecf0d2f745bda92"
+        }
+      ],
+      "observed": "Clean original native arm in stationary views",
+      "movement_firing_reload_inputs_sent": false
+    },
+    {
+      "control": "strong-full",
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "range_image_gate_scores": [
+        1.0,
+        1.0
+      ],
+      "captures": [
+        {
+          "path": "screenshots/variable-skin-strong-full-ads-nov6.png",
+          "sha256": "01b4a66b2a36764f5f23a84c6cc5fe61f51f53925c70301ffce61bd0adb84a24"
+        },
+        {
+          "path": "screenshots/variable-skin-strong-full-hipfire-return-nov6.png",
+          "sha256": "ce2a2a1cd0d693c425242db6edc91c2d83e89f5e6b2c87e1b4f619fc4e4fb465"
+        }
+      ],
+      "observed": "Extra field visibly changes the arm; strong control decisively distinct from identical four-cap mesh",
+      "movement_firing_reload_inputs_sent": false
+    }
+  ],
+  "native_extra_field_activation_observed": true,
+  "native_full_field_numerical_matrix_accuracy_measured": false,
+  "performance_or_full_animation_acceptance": false,
+  "source_originals_or_installer_game_state_changed": false,
+  "limits": [
+    "Private copied profiles; network-isolated headless NVIDIA Vulkan at 1280x720 and 30 FPS",
+    "Renderer Auto quality; diagnostic aliases refer to existing native Transforms only",
+    "Global private quality cap affects all skinned renderers and is not installer-integrated",
+    "Native extra-field activation does not prove an acceptable authored fit",
+    "Gamescope teardown returned 139 separately from native game exit 0"
+  ],
+  "preservation_check": {
+    "installed_key_bundles": [
+      {
+        "bundle": "root/audio",
+        "sha256": "552fa9b28d9381886672e5f9aa2fc32ff6235496baf7364a480f1061368b3053",
+        "matches_saved_installed_state": true
+      },
+      {
+        "bundle": "src/first_person",
+        "sha256": "8bb80a441849206689fce9be5048e48393f48552e70bdc5b3876b0f9277712cf",
+        "matches_saved_installed_state": true
+      },
+      {
+        "bundle": "src/thrid_person",
+        "sha256": "94d280d31fa266c46165484ff892627c2fa9e6be5c81bb90ef266b93b97f511c",
+        "matches_saved_installed_state": true
+      },
+      {
+        "bundle": "src/weapons/weapons",
+        "sha256": "1d15a27a4a22970ed33de8b1ab986d601848323bb021c4ebc7a87f62dd0345f5",
+        "matches_saved_installed_state": true
+      }
+    ],
+    "operator_assignments": {
+      "operator_0": "titanfall_grapple",
+      "operator_30": "shrek"
+    },
+    "installer_state_sha256": "237b7c7dd2d43a6aecd25bcb6917297a9c401eb02e1bd0c66c79f81ac3924432",
+    "installed_game_changed": false
+  }
+}

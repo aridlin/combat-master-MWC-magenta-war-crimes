@@ -1,0 +1,377 @@
+{
+  "date": "2026-11-06",
+  "scope": "Rejected private authored Fishguy wrist candidates; no gameplay or installation changes",
+  "native_field_self_checks": [
+    {
+      "variant": 1,
+      "method": "Original cross-surface blend",
+      "rows": [
+        {
+          "renderer": "-6446956547449719539",
+          "vertices": 2025,
+          "max_L1_weight_change": 0.33250510692596436,
+          "vertices_over_10_percent_L1": 24,
+          "median_L1": 0.0
+        },
+        {
+          "renderer": "2264244255083033869",
+          "vertices": 5593,
+          "max_L1_weight_change": 0.35085105895996094,
+          "vertices_over_10_percent_L1": 50,
+          "median_L1": 0.0
+        }
+      ]
+    },
+    {
+      "variant": 2,
+      "method": "Bare union plus overbroad metacarpal family restriction; rejected before runtime",
+      "rows": [
+        {
+          "renderer": "-6446956547449719539",
+          "vertices": 2025,
+          "max_L1_weight_change": 1.3548387289047241,
+          "vertices_over_10_percent_L1": 145,
+          "median_L1": 0.0
+        },
+        {
+          "renderer": "2264244255083033869",
+          "vertices": 5593,
+          "max_L1_weight_change": 2.0,
+          "vertices_over_10_percent_L1": 412,
+          "median_L1": 0.0
+        }
+      ]
+    },
+    {
+      "variant": 3,
+      "method": "Bare union with original finger-family restriction",
+      "rows": [
+        {
+          "renderer": "-6446956547449719539",
+          "vertices": 2025,
+          "max_L1_weight_change": 5.960464477539063e-08,
+          "vertices_over_10_percent_L1": 0,
+          "median_L1": 0.0
+        },
+        {
+          "renderer": "2264244255083033869",
+          "vertices": 5593,
+          "max_L1_weight_change": 0.3225806653499603,
+          "vertices_over_10_percent_L1": 1,
+          "median_L1": 0.0
+        }
+      ]
+    }
+  ],
+  "self_check_limit": "One LOD1 vertex retains ambiguous nearest-surface weights; source/reference skin identity is not universally proven",
+  "candidates": [
+    {
+      "method": "continuous rest flow + original anatomical blend",
+      "bundle_sha256": "dc60bc39239862fd2f8a1e87c0db54989f1c6a6a7b5496eb6832109e56c41407",
+      "geometry_and_original_object_verification": {
+        "all_other_original_objects_byte_exact": 144988,
+        "renderer_field_whitelist": [
+          "m_Mesh",
+          "m_Materials",
+          "m_AABB"
+        ],
+        "geometry_uv_skin_exact_roundtrip": true,
+        "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+        "all_new_local_references_resolve": true
+      },
+      "full_field": [
+        {
+          "sides": [
+            {
+              "side": "L",
+              "forearm_component": 648,
+              "forearm_triangles": 144,
+              "hand_component": 82,
+              "hand_triangles": 1404,
+              "changed_vertices": 1909,
+              "maximum_weight_discard": 0.0,
+              "maximum_blended_surface_distance": 0.08072974990466092
+            },
+            {
+              "side": "R",
+              "forearm_component": 1978,
+              "forearm_triangles": 145,
+              "hand_component": 2209,
+              "hand_triangles": 1470,
+              "changed_vertices": 1924,
+              "maximum_weight_discard": 0.0,
+              "maximum_blended_surface_distance": 0.09308742840545758
+            }
+          ],
+          "method": "Full native bare-forearm and hand components with continuous anatomical transition; clothing excluded; no influence truncation",
+          "geometry_normals_uv_faces_unchanged": true,
+          "native_skeleton_and_animations_unchanged": true,
+          "in_game_tested": false,
+          "variable_format": "Unity-authored-reference-verified packed UNorm16 field",
+          "maximum_full_field_L1_quantization_error": 3.147125244140625e-05,
+          "maximum_influences": 6,
+          "four_weight_fallback_maximum_discard": 0.13531700617990394,
+          "geometry_identity": "af7163be21c9cf226dea8f80de88544858acad0bfd23d517c2dd37e8fb29e667"
+        },
+        {
+          "sides": [
+            {
+              "side": "L",
+              "forearm_component": 2444,
+              "forearm_triangles": 320,
+              "hand_component": 268,
+              "hand_triangles": 4462,
+              "changed_vertices": 1909,
+              "maximum_weight_discard": 0.0,
+              "maximum_blended_surface_distance": 0.08076753345256332
+            },
+            {
+              "side": "R",
+              "forearm_component": 3166,
+              "forearm_triangles": 320,
+              "hand_component": 3294,
+              "hand_triangles": 4676,
+              "changed_vertices": 1918,
+              "maximum_weight_discard": 0.0,
+              "maximum_blended_surface_distance": 0.08640897505975106
+            }
+          ],
+          "method": "Full native bare-forearm and hand components with continuous anatomical transition; clothing excluded; no influence truncation",
+          "geometry_normals_uv_faces_unchanged": true,
+          "native_skeleton_and_animations_unchanged": true,
+          "in_game_tested": false,
+          "variable_format": "Unity-authored-reference-verified packed UNorm16 field",
+          "maximum_full_field_L1_quantization_error": 2.6929439627565444e-05,
+          "maximum_influences": 4,
+          "four_weight_fallback_maximum_discard": 0.0,
+          "geometry_identity": "948ffa9211c0faa6c1ce3d0d34dc91188ed1216978409b3cbe5af807150c7b6a"
+        }
+      ],
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "range_image_gate_scores": [
+        1.0,
+        1.0
+      ],
+      "captures": [
+        {
+          "path": "screenshots/fish-full-flow-ads-nov6.png",
+          "sha256": "3f436577d8cda0b9dc738f810b185bdd7c7ccd2a482b51266773b925f4b1f20b"
+        },
+        {
+          "path": "screenshots/fish-full-flow-hipfire-return-nov6.png",
+          "sha256": "d11142101f55b7d28403adb46851a375e711fe4d601014cb03e6bc1cca8915ee"
+        }
+      ],
+      "observed": "Severe forearm spikes in ADS and hipfire; rejected",
+      "accepted_or_installed": false
+    },
+    {
+      "method": "continuous rest flow + corrected bare-surface union",
+      "bundle_sha256": "2ec563676d11c3694d0add14437882bdc37c808c2bcda05bec06ca8988f364b8",
+      "geometry_and_original_object_verification": {
+        "all_other_original_objects_byte_exact": 144988,
+        "renderer_field_whitelist": [
+          "m_Mesh",
+          "m_Materials",
+          "m_AABB"
+        ],
+        "geometry_uv_skin_exact_roundtrip": true,
+        "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+        "all_new_local_references_resolve": true
+      },
+      "full_field": [
+        {
+          "sides": [
+            {
+              "side": "L",
+              "forearm_component": 648,
+              "forearm_triangles": 144,
+              "hand_component": 82,
+              "hand_triangles": 1404,
+              "changed_vertices": 1909,
+              "maximum_weight_discard": 0.0,
+              "maximum_blended_surface_distance": 0.08072974990466092
+            },
+            {
+              "side": "R",
+              "forearm_component": 1978,
+              "forearm_triangles": 145,
+              "hand_component": 2209,
+              "hand_triangles": 1470,
+              "changed_vertices": 1924,
+              "maximum_weight_discard": 0.0,
+              "maximum_blended_surface_distance": 0.09308742840545758
+            }
+          ],
+          "method": "Closest native bare-forearm and hand union without an artificial cross-surface blend; clothing excluded; full weights retained",
+          "geometry_normals_uv_faces_unchanged": true,
+          "native_skeleton_and_animations_unchanged": true,
+          "in_game_tested": false,
+          "variable_format": "Unity-authored-reference-verified packed UNorm16 field",
+          "maximum_full_field_L1_quantization_error": 3.147125244140625e-05,
+          "maximum_influences": 6,
+          "four_weight_fallback_maximum_discard": 0.13531700617990394,
+          "geometry_identity": "af7163be21c9cf226dea8f80de88544858acad0bfd23d517c2dd37e8fb29e667"
+        },
+        {
+          "sides": [
+            {
+              "side": "L",
+              "forearm_component": 2444,
+              "forearm_triangles": 320,
+              "hand_component": 268,
+              "hand_triangles": 4462,
+              "changed_vertices": 1909,
+              "maximum_weight_discard": 0.0,
+              "maximum_blended_surface_distance": 0.08076753345256332
+            },
+            {
+              "side": "R",
+              "forearm_component": 3166,
+              "forearm_triangles": 320,
+              "hand_component": 3294,
+              "hand_triangles": 4676,
+              "changed_vertices": 1918,
+              "maximum_weight_discard": 0.0,
+              "maximum_blended_surface_distance": 0.08640897505975106
+            }
+          ],
+          "method": "Closest native bare-forearm and hand union without an artificial cross-surface blend; clothing excluded; full weights retained",
+          "geometry_normals_uv_faces_unchanged": true,
+          "native_skeleton_and_animations_unchanged": true,
+          "in_game_tested": false,
+          "variable_format": "Unity-authored-reference-verified packed UNorm16 field",
+          "maximum_full_field_L1_quantization_error": 2.6929439627565444e-05,
+          "maximum_influences": 4,
+          "four_weight_fallback_maximum_discard": 0.0,
+          "geometry_identity": "948ffa9211c0faa6c1ce3d0d34dc91188ed1216978409b3cbe5af807150c7b6a"
+        }
+      ],
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "range_image_gate_scores": [
+        1.0,
+        1.0
+      ],
+      "captures": [
+        {
+          "path": "screenshots/fish-union-flow-ads-nov6.png",
+          "sha256": "e306a703b99178ef0483c34b367f6bcba4e9798f846aa92eeebba90ae4f81e64"
+        },
+        {
+          "path": "screenshots/fish-union-flow-hipfire-return-nov6.png",
+          "sha256": "7b1566def026a93fd01489f31808c056f6ceea9cbb85b7af1804910cc5e0c6ea"
+        }
+      ],
+      "observed": "Severe forearm distortion remains; rejected",
+      "accepted_or_installed": false
+    },
+    {
+      "method": "production rest shape + corrected bare-surface union",
+      "bundle_sha256": "4a9ce01ace161081efba0569fb0cb033e8c98f967f7b194385b3855ccc05f84d",
+      "geometry_and_original_object_verification": {
+        "all_other_original_objects_byte_exact": 144988,
+        "renderer_field_whitelist": [
+          "m_Mesh",
+          "m_Materials",
+          "m_AABB"
+        ],
+        "geometry_uv_skin_exact_roundtrip": true,
+        "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+        "all_new_local_references_resolve": true
+      },
+      "full_field": [
+        {
+          "sides": [
+            {
+              "side": "L",
+              "forearm_component": 648,
+              "forearm_triangles": 144,
+              "hand_component": 82,
+              "hand_triangles": 1404,
+              "changed_vertices": 1882,
+              "maximum_weight_discard": 0.0,
+              "maximum_blended_surface_distance": 0.09289976868252615
+            },
+            {
+              "side": "R",
+              "forearm_component": 1978,
+              "forearm_triangles": 145,
+              "hand_component": 2209,
+              "hand_triangles": 1470,
+              "changed_vertices": 1882,
+              "maximum_weight_discard": 0.0,
+              "maximum_blended_surface_distance": 0.09777576132207397
+            }
+          ],
+          "method": "Closest native bare-forearm and hand union without an artificial cross-surface blend; clothing excluded; full weights retained",
+          "geometry_normals_uv_faces_unchanged": true,
+          "native_skeleton_and_animations_unchanged": true,
+          "in_game_tested": false,
+          "variable_format": "Unity-authored-reference-verified packed UNorm16 field",
+          "maximum_full_field_L1_quantization_error": 2.7526170015335083e-05,
+          "maximum_influences": 6,
+          "four_weight_fallback_maximum_discard": 0.04138246738384066,
+          "geometry_identity": "938f7a43f8517d3383442d374017493402c5d48148d99060e83db94d0f662ab3"
+        },
+        {
+          "sides": [
+            {
+              "side": "L",
+              "forearm_component": 2444,
+              "forearm_triangles": 320,
+              "hand_component": 268,
+              "hand_triangles": 4462,
+              "changed_vertices": 1882,
+              "maximum_weight_discard": 0.0,
+              "maximum_blended_surface_distance": 0.09290984022420375
+            },
+            {
+              "side": "R",
+              "forearm_component": 3166,
+              "forearm_triangles": 320,
+              "hand_component": 3294,
+              "hand_triangles": 4676,
+              "changed_vertices": 1882,
+              "maximum_weight_discard": 0.0,
+              "maximum_blended_surface_distance": 0.09749502687220425
+            }
+          ],
+          "method": "Closest native bare-forearm and hand union without an artificial cross-surface blend; clothing excluded; full weights retained",
+          "geometry_normals_uv_faces_unchanged": true,
+          "native_skeleton_and_animations_unchanged": true,
+          "in_game_tested": false,
+          "variable_format": "Unity-authored-reference-verified packed UNorm16 field",
+          "maximum_full_field_L1_quantization_error": 1.9677287127706222e-05,
+          "maximum_influences": 4,
+          "four_weight_fallback_maximum_discard": 0.0,
+          "geometry_identity": "cf585d9f7c8e85dee6d9d8889c4634f4c313547d0c10efaef91bc32de228fb9a"
+        }
+      ],
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "range_image_gate_scores": [
+        1.0,
+        1.0
+      ],
+      "captures": [
+        {
+          "path": "screenshots/fish-union-skin-ads-nov6.png",
+          "sha256": "bd3504ffeb92abe0955f09948a7af0cbc7923d7b30e69d7e8248a4108d17279e"
+        },
+        {
+          "path": "screenshots/fish-union-skin-hipfire-return-nov6.png",
+          "sha256": "fc4394b9e6954ec6b39e782d329171f46fbb4f59508b0da4b409fbce1c267a6c"
+        }
+      ],
+      "observed": "Forearm opening/crease remains; not accepted",
+      "accepted_or_installed": false
+    }
+  ],
+  "production_fitter_or_installed_game_changed": false,
+  "next_constraint": "Verified full weight activation and corrected bare-surface sampling are insufficient; rest geometry versus animated skin consistency still needs investigation"
+}

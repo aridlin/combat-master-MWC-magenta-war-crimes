@@ -1,7 +1,7 @@
 # Fishguy first-person controls
 
 The native wrist crease remains unresolved. A separate fingertip correction is
-now integrated in source for Fishguy and Medic after native stationary ADS
+now integrated in source for Fishguy and all nine TF2 classes after native stationary ADS
 review; the rejected wrist and skin experiments below remain disabled. No new
 bundle from this investigation is installed. Ranger remains the armored Grapple
 pilot; Fishguy remains an optional assignment.
@@ -146,3 +146,12 @@ retained-weight guard before a bundle was written; the guard was not relaxed.
 [Exact preflight results, captures and terminal results](fish-continuous-fit-rejection-nov6.json)
 record these private experiments. None changed the production fitter, the
 installed game or the existing source-color Fishguy world model.
+
+## Variable-weight format investigation
+
+A separate Editor oracle and strong native controls now verify a variable-weight
+serialization path. Identical native geometry stays clean at the original cap
+and visibly responds to deliberately large extra influences at the private
+unlimited cap. The codec is experimental and disabled in the installer; this
+activation result does not establish a Fishguy wrist repair. See
+[the reference data, native controls and limits](variable-skinning-investigation.md).
