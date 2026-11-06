@@ -42,3 +42,19 @@ itself still uses a static picture.
 scope. The native game exited 0 and the host profile stayed exact; Gamescope
 teardown returned 139. A separate [original-arm ADS control](native-pose-controls.md)
 now establishes a bounded pose-inspection path for subsequent model checks.
+
+## Official Kar preview and held-view limit, November 6
+
+![Installed fishing rod in the official Kar98K showcase](screenshots/fishing-rod-official-preview-nov6.png)
+
+The installed rod and native scope render through the game's own Preview button.
+The isolated guest retains the Kar98K Level 17 lock; the observed Preview screen
+is a rotating showcase with no range control. A separate unchanged copy of the
+current local profile still opens as a level-1 guest in this network-isolated
+setup. No authenticated owned-weapon session was established and progression
+was not edited.
+
+This adds native showcase evidence, not held/ADS alignment acceptance. The rod's
+reel clearance and the nailer/toaster sight support remain pending a permitted
+owned-weapon range test. [Captures and exact limits](weapon-preview-limits-verification.json)
+record both native exits and unchanged host profiles.

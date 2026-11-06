@@ -1,0 +1,87 @@
+{
+  "scope": "All-nine-class fingertip extension; source code/config at 3167cb1, packaged runtime checks below",
+  "packages": [
+    {
+      "platform": "Linux",
+      "archive": "MWC-Linux-x64.tar.gz",
+      "bytes": 85067871,
+      "sha256": "ef1b040b3e9da0d1a3efa22bc465dd4314e9c8f2ad083b8c22ec0cd03c2f9378",
+      "operator_source_modules_sha256": {
+        "first_person.py": "17fbc3a33120ea88e9bf8d12258758668a790d9f1cfad0a463ae5c83f46f2082",
+        "retarget.py": "131967bb872303e31653bdcbd2fb834c1a18a0a5be37d5119abec97020ddfd54",
+        "leaf_tips.py": "a52e2243c68ff7a8ce61ca7e53cc2ced6e5fcac1199baa716548af23bef7b7ca"
+      },
+      "source_modules_exact": true,
+      "local_proprietary_source_archives_bundled": false,
+      "untracked_config_bundled": false,
+      "WRAD_experiment_bundled": false
+    },
+    {
+      "platform": "Windows",
+      "archive": "MWC-Windows-x64.zip",
+      "bytes": 71864964,
+      "sha256": "5022d85e45349ecab1b2e6b0ad4680720ff62b17c004248c8cd7252f8b9215cd",
+      "operator_source_modules_sha256": {
+        "first_person.py": "17fbc3a33120ea88e9bf8d12258758668a790d9f1cfad0a463ae5c83f46f2082",
+        "retarget.py": "131967bb872303e31653bdcbd2fb834c1a18a0a5be37d5119abec97020ddfd54",
+        "leaf_tips.py": "a52e2243c68ff7a8ce61ca7e53cc2ced6e5fcac1199baa716548af23bef7b7ca"
+      },
+      "source_modules_exact": true,
+      "local_proprietary_source_archives_bundled": false,
+      "untracked_config_bundled": false,
+      "WRAD_experiment_bundled": false
+    }
+  ],
+  "source_tests": {
+    "run": 169,
+    "pass": 168,
+    "existing_skip": 1
+  },
+  "native_all_class_review": "tf2-fingertip-native-verification.json",
+  "source_geometry_exact_to_16_native_reviewed_meshes": true,
+  "frozen_linux": {
+    "runtime": "Actual frozen Linux backend",
+    "apply_exit": 0,
+    "restore_exit": 0,
+    "real_original_bundles": 2,
+    "selected_model": "tf2_scout",
+    "frozen_integrated_arm_bundle_byte_identical_to_native_reviewed_stage": true,
+    "expected_first_person_sha256": "38b905b0c70fde76bdc2e12787f5f778e05967200e49454552bb25e72c227402",
+    "world_and_first_person_originals_restored_exactly": true,
+    "all_original_backups_verified": true,
+    "restore_works_without_tf2_source": true,
+    "pending_transaction": false,
+    "real_game_installation_modified": false
+  },
+  "windows_embedded_runtime": {
+    "runtime": "Packaged Windows embedded CPython 3.12.10 under Wine; not native Windows game",
+    "packaged_library_used": true,
+    "focused_tests": 16,
+    "exit_code": 0,
+    "fixture_outside_distribution": true,
+    "real_game_installation_modified": false,
+    "test_result": {
+      "tests_run": 16,
+      "success": true
+    }
+  },
+  "earlier_windows_attempt": {
+    "verification_complete": false,
+    "error": "Cold Wine launch timed out; temporary test fixture was not importable. No passing-test claim from that attempt.",
+    "rerun": "Persistent fixture in previously verified isolated Wine prefix; 16 tests passed, exit 0"
+  },
+  "installed_critical_bundles_preserved": {
+    "root/audio": "552fa9b28d9381886672e5f9aa2fc32ff6235496baf7364a480f1061368b3053",
+    "src/first_person": "8bb80a441849206689fce9be5048e48393f48552e70bdc5b3876b0f9277712cf",
+    "src/weapons/weapons": "1d15a27a4a22970ed33de8b1ab986d601848323bb021c4ebc7a87f62dd0345f5",
+    "src/weapons/attachments": "9d214fea2b9580eebfdcadd986dece8d38b762eddf390092f0b8fd521870bc17"
+  },
+  "state_sha256_preserved": "237b7c7dd2d43a6aecd25bcb6917297a9c401eb02e1bd0c66c79f81ac3924432",
+  "operator_assignments_preserved": {
+    "operator_0": "titanfall_grapple",
+    "operator_30": "shrek"
+  },
+  "game_installation_changed": false,
+  "native_windows_game_tested": false,
+  "full_grip_animation_acceptance": false
+}

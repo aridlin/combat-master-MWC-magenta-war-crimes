@@ -1,0 +1,41 @@
+{
+  "scope": "Official offline guest Kar98K preview only; no held/ADS acceptance",
+  "observed_guest_Kar98K_level_lock": 17,
+  "official_preview_shows_installed_fishing_rod_and_native_scope": true,
+  "official_preview_observed": "Rotating showcase; no Shooting Range control on the observed preview screen",
+  "current_local_profile_copy_result": "Still starts as a level-1 guest in this network-isolated setup; no authenticated owned-weapon session was established",
+  "held_ADS_alignment_verified": false,
+  "unlock_or_server_validation_bypass_attempted": false,
+  "controls": [
+    {
+      "session": "headless-tf2-weaponplacement-fp-v79",
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "network_isolated": true,
+      "game_installation_changed": false,
+      "progression_edited": false,
+      "ADS_inspection_sent": false
+    },
+    {
+      "session": "headless-tf2-ownedweapons-fp-v82",
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "network_isolated": true,
+      "game_installation_changed": false,
+      "progression_edited": false,
+      "ADS_inspection_sent": false
+    }
+  ],
+  "captures": [
+    {
+      "screenshot": "screenshots/kar-official-locked-preview-nov6.png",
+      "sha256": "f0ea32abdf97fa963d0f07491ed6d6c2a414f64ddc91c5729e34d128a074f7c1"
+    },
+    {
+      "screenshot": "screenshots/fishing-rod-official-preview-nov6.png",
+      "sha256": "4669ade791b32e52a41d3aedf445e79ce99283d06f393b8d0fd4c56d44e31e31"
+    }
+  ]
+}

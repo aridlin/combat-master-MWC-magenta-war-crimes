@@ -17,10 +17,14 @@ candidate. Sixteen games exited 0 and retained the host profile; Gamescope
 teardown returned 139 separately. The source suite passes 168 tests with one
 existing skip. The separate Medic/Fishguy review is retained below.
 
-**Distribution status:** public v0.1.7-preview and the current personal installers
-include the fingertip correction for Fishguy and Medic. This later all-class
-extension is in source and has not yet been packaged into a new release. No new
-selection or bundle was applied to the actual game during these tests.
+**Distribution status:** the later all-class extension is now packaged in fresh
+Linux and Windows candidates. The actual frozen Linux backend reproduced the
+reviewed Scout bundle and restored both original bundles with TF2 unavailable;
+16 focused checks passed in the packaged Windows runtime under Wine.
+[Package validation](tf2-fingertip-installer-verification.json) records exact
+hashes and source exclusions. Public v0.1.7-preview predates this all-class
+extension and includes the earlier Fishguy/Medic correction. No new selection
+or bundle was applied to the actual game during these tests.
 
 ## Earlier two-model fingertip correction, November 6
 
