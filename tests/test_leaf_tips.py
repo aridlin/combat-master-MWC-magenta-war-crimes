@@ -3,6 +3,7 @@ import unittest
 import numpy as np
 from operators.leaf_tips import cap
 from operators.retarget import adapt
+from operators.viewmodel import slim
 
 
 class LeafTips(unittest.TestCase):
@@ -43,6 +44,24 @@ class LeafTips(unittest.TestCase):
         args,options,_=self.fixture()
         for a,b in zip(adapt(*args,**options)[:4],adapt(*args,**options,leaf_tips={})[:4]):
             self.assertEqual(a.tobytes(),b.tobytes())
+
+    def test_radius_pass_preserves_the_fitted_off_axis_cap(self):
+        args,options,leaf=self.fixture()
+        vertices,normals,indices,weights,_=adapt(*args,**options,leaf_tips=leaf)
+        rest=np.concatenate([np.linalg.inv(args[7]),np.eye(4)[None]])
+        rest[3,:3,3]=[0,.1,.48]
+        native={'bone_names':['unused_root','unused_head','j_index_3_L','j_index_2_L'],
+                'inverse_bind':np.linalg.inv(rest)}
+        endpoint=np.asarray(leaf[2]['target'])
+        before=copy.deepcopy(native)
+        old=slim(vertices[:2],normals[:2],indices[:2],weights[:2],native,.65,.7)[0]
+        self.assertGreater(np.linalg.norm(old[0]-endpoint),.004)
+        result=slim(vertices[:2],normals[:2],indices[:2],weights[:2],native,.65,.7,
+                    leaf_endpoints={'IndexFinger3_L':endpoint})
+        np.testing.assert_allclose(result[0],[endpoint]*2,atol=1e-7)
+        np.testing.assert_allclose(np.linalg.norm(result[1],axis=1),1,atol=1e-7)
+        np.testing.assert_array_equal(native['inverse_bind'],before['inverse_bind'])
+        self.assertEqual(result[2]['leaf_cap_axes'],['IndexFinger3_L'])
 
     def test_degenerate_or_excessive_leaf_fit_fails_instead_of_clamping(self):
         args,options,leaf=self.fixture()

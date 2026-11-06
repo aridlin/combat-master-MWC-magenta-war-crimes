@@ -1,0 +1,712 @@
+{
+  "date": "2026-11-06",
+  "source_baseline_commit": "ebcb81d789636cdc2ce17e4a44a0ed23c497ac52",
+  "implemented_method": "Smoothstep between previous-joint and full-3D cap radius frames; blend differential included in normals",
+  "source_models": [
+    {
+      "model": "tf2_scout",
+      "renderers": [
+        {
+          "renderer": "-6446956547449719539",
+          "vertices": 13446,
+          "changed_vertices": 6688,
+          "maximum_vertex_change_m": 0.007303423085900285,
+          "previous_maximum_single_bone_cap_drift_m": 0.0069728969615155765,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 21,
+          "new_faces_opposed_to_pre_radius_normal": 21,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": null
+        },
+        {
+          "renderer": "2264244255083033869",
+          "vertices": 13446,
+          "changed_vertices": 6676,
+          "maximum_vertex_change_m": 0.007647907256524852,
+          "previous_maximum_single_bone_cap_drift_m": 0.007301572685204598,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 21,
+          "new_faces_opposed_to_pre_radius_normal": 21,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": null
+        }
+      ]
+    },
+    {
+      "model": "tf2_soldier",
+      "renderers": [
+        {
+          "renderer": "-6446956547449719539",
+          "vertices": 12222,
+          "changed_vertices": 5504,
+          "maximum_vertex_change_m": 0.007447314653439286,
+          "previous_maximum_single_bone_cap_drift_m": 0.0069728969615155765,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 38,
+          "new_faces_opposed_to_pre_radius_normal": 38,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": null
+        },
+        {
+          "renderer": "2264244255083033869",
+          "vertices": 12222,
+          "changed_vertices": 5498,
+          "maximum_vertex_change_m": 0.007798027179840372,
+          "previous_maximum_single_bone_cap_drift_m": 0.007301572685204598,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 38,
+          "new_faces_opposed_to_pre_radius_normal": 38,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": null
+        }
+      ]
+    },
+    {
+      "model": "tf2_pyro",
+      "renderers": [
+        {
+          "renderer": "-6446956547449719539",
+          "vertices": 8412,
+          "changed_vertices": 1843,
+          "maximum_vertex_change_m": 0.007223266576311174,
+          "previous_maximum_single_bone_cap_drift_m": 0.0069728969615155765,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 14,
+          "new_faces_opposed_to_pre_radius_normal": 14,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": null
+        },
+        {
+          "renderer": "2264244255083033869",
+          "vertices": 8412,
+          "changed_vertices": 1843,
+          "maximum_vertex_change_m": 0.007554435530225918,
+          "previous_maximum_single_bone_cap_drift_m": 0.007301572685204598,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 14,
+          "new_faces_opposed_to_pre_radius_normal": 14,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": null
+        }
+      ]
+    },
+    {
+      "model": "tf2_demoman",
+      "renderers": [
+        {
+          "renderer": "-6446956547449719539",
+          "vertices": 10086,
+          "changed_vertices": 4841,
+          "maximum_vertex_change_m": 0.007498512530828532,
+          "previous_maximum_single_bone_cap_drift_m": 0.0069728969615155765,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 22,
+          "new_faces_opposed_to_pre_radius_normal": 22,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": null
+        },
+        {
+          "renderer": "2264244255083033869",
+          "vertices": 10086,
+          "changed_vertices": 4834,
+          "maximum_vertex_change_m": 0.007852219434574214,
+          "previous_maximum_single_bone_cap_drift_m": 0.007301572685204598,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 22,
+          "new_faces_opposed_to_pre_radius_normal": 22,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": null
+        }
+      ]
+    },
+    {
+      "model": "tf2_heavy",
+      "renderers": [
+        {
+          "renderer": "-6446956547449719539",
+          "vertices": 15732,
+          "changed_vertices": 5655,
+          "maximum_vertex_change_m": 0.007260689435893553,
+          "previous_maximum_single_bone_cap_drift_m": 0.0069728969615155765,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 28,
+          "new_faces_opposed_to_pre_radius_normal": 28,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": null
+        },
+        {
+          "renderer": "2264244255083033869",
+          "vertices": 15732,
+          "changed_vertices": 5655,
+          "maximum_vertex_change_m": 0.007602323499546585,
+          "previous_maximum_single_bone_cap_drift_m": 0.007301572685204598,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 28,
+          "new_faces_opposed_to_pre_radius_normal": 28,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": null
+        }
+      ]
+    },
+    {
+      "model": "tf2_engineer",
+      "renderers": [
+        {
+          "renderer": "-6446956547449719539",
+          "vertices": 11736,
+          "changed_vertices": 3920,
+          "maximum_vertex_change_m": 0.007348493348253455,
+          "previous_maximum_single_bone_cap_drift_m": 0.0069728969615155765,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 21,
+          "new_faces_opposed_to_pre_radius_normal": 21,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": null
+        },
+        {
+          "renderer": "2264244255083033869",
+          "vertices": 11736,
+          "changed_vertices": 3908,
+          "maximum_vertex_change_m": 0.007687995808675812,
+          "previous_maximum_single_bone_cap_drift_m": 0.007301572685204598,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 21,
+          "new_faces_opposed_to_pre_radius_normal": 21,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": null
+        }
+      ]
+    },
+    {
+      "model": "tf2_medic",
+      "renderers": [
+        {
+          "renderer": "-6446956547449719539",
+          "vertices": 8640,
+          "changed_vertices": 1927,
+          "maximum_vertex_change_m": 0.007296911859424825,
+          "previous_maximum_single_bone_cap_drift_m": 0.0069728969615155765,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 16,
+          "new_faces_opposed_to_pre_radius_normal": 16,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": null
+        },
+        {
+          "renderer": "2264244255083033869",
+          "vertices": 8640,
+          "changed_vertices": 1927,
+          "maximum_vertex_change_m": 0.007641571312462703,
+          "previous_maximum_single_bone_cap_drift_m": 0.007301572685204598,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 16,
+          "new_faces_opposed_to_pre_radius_normal": 16,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": null
+        }
+      ]
+    },
+    {
+      "model": "tf2_sniper",
+      "renderers": [
+        {
+          "renderer": "-6446956547449719539",
+          "vertices": 9996,
+          "changed_vertices": 4236,
+          "maximum_vertex_change_m": 0.007511957409659908,
+          "previous_maximum_single_bone_cap_drift_m": 0.0069728969615155765,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 16,
+          "new_faces_opposed_to_pre_radius_normal": 16,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": null
+        },
+        {
+          "renderer": "2264244255083033869",
+          "vertices": 9996,
+          "changed_vertices": 4224,
+          "maximum_vertex_change_m": 0.007866515536895635,
+          "previous_maximum_single_bone_cap_drift_m": 0.007301572685204598,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 16,
+          "new_faces_opposed_to_pre_radius_normal": 16,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": null
+        }
+      ]
+    },
+    {
+      "model": "tf2_spy",
+      "renderers": [
+        {
+          "renderer": "-6446956547449719539",
+          "vertices": 11640,
+          "changed_vertices": 2025,
+          "maximum_vertex_change_m": 0.0071394121956297185,
+          "previous_maximum_single_bone_cap_drift_m": 0.0069728969615155765,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 7,
+          "new_faces_opposed_to_pre_radius_normal": 7,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": null
+        },
+        {
+          "renderer": "2264244255083033869",
+          "vertices": 11640,
+          "changed_vertices": 2055,
+          "maximum_vertex_change_m": 0.007475793596248722,
+          "previous_maximum_single_bone_cap_drift_m": 0.007301572685204598,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 7,
+          "new_faces_opposed_to_pre_radius_normal": 7,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": null
+        }
+      ]
+    },
+    {
+      "model": "fishguy",
+      "renderers": [
+        {
+          "renderer": "-6446956547449719539",
+          "vertices": 4704,
+          "changed_vertices": 0,
+          "maximum_vertex_change_m": 0.0,
+          "previous_maximum_single_bone_cap_drift_m": 0.0,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 0,
+          "new_faces_opposed_to_pre_radius_normal": 0,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": true
+        },
+        {
+          "renderer": "2264244255083033869",
+          "vertices": 4704,
+          "changed_vertices": 0,
+          "maximum_vertex_change_m": 0.0,
+          "previous_maximum_single_bone_cap_drift_m": 0.0,
+          "cap_axes_carried_through": 10,
+          "faces_opposed_to_previous_rest_face_normal": 0,
+          "old_faces_opposed_to_pre_radius_normal": 0,
+          "new_faces_opposed_to_pre_radius_normal": 0,
+          "newly_opposed_to_pre_radius_normal": 0,
+          "non_distal_geometry_byte_identical": true,
+          "skin_weights_indices_uv_topology_unchanged": true,
+          "fishguy_geometry_byte_identical": true
+        }
+      ]
+    }
+  ],
+  "source_tests": {
+    "run": 181,
+    "passed": 180,
+    "existing_skip": 1
+  },
+  "abrupt_axis_candidate_rejected": {
+    "new_faces_opposed_to_pre_radius_normal": 63,
+    "native_medic_game_exit": 0,
+    "installed": false
+  },
+  "rest_surface_crossing_comparison": [
+    {
+      "source": "fishguy_2264244255083033869.npz",
+      "before": {
+        "AABB_nonadjacent_candidates": 2161,
+        "strict_crossing_face_pairs": 5,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "after": {
+        "AABB_nonadjacent_candidates": 2161,
+        "strict_crossing_face_pairs": 5,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "new_strict_crossing_pairs": 0,
+      "removed_strict_crossing_pairs": 0
+    },
+    {
+      "source": "tf2_demoman_2264244255083033869.npz",
+      "before": {
+        "AABB_nonadjacent_candidates": 5074,
+        "strict_crossing_face_pairs": 54,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "after": {
+        "AABB_nonadjacent_candidates": 5245,
+        "strict_crossing_face_pairs": 54,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "new_strict_crossing_pairs": 0,
+      "removed_strict_crossing_pairs": 0
+    },
+    {
+      "source": "tf2_engineer_2264244255083033869.npz",
+      "before": {
+        "AABB_nonadjacent_candidates": 8366,
+        "strict_crossing_face_pairs": 156,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "after": {
+        "AABB_nonadjacent_candidates": 8306,
+        "strict_crossing_face_pairs": 156,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "new_strict_crossing_pairs": 0,
+      "removed_strict_crossing_pairs": 0
+    },
+    {
+      "source": "tf2_heavy_2264244255083033869.npz",
+      "before": {
+        "AABB_nonadjacent_candidates": 12652,
+        "strict_crossing_face_pairs": 485,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "after": {
+        "AABB_nonadjacent_candidates": 12713,
+        "strict_crossing_face_pairs": 482,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "new_strict_crossing_pairs": 3,
+      "removed_strict_crossing_pairs": 6
+    },
+    {
+      "source": "tf2_medic_2264244255083033869.npz",
+      "before": {
+        "AABB_nonadjacent_candidates": 6162,
+        "strict_crossing_face_pairs": 125,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "after": {
+        "AABB_nonadjacent_candidates": 6130,
+        "strict_crossing_face_pairs": 125,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "new_strict_crossing_pairs": 0,
+      "removed_strict_crossing_pairs": 0
+    },
+    {
+      "source": "tf2_pyro_2264244255083033869.npz",
+      "before": {
+        "AABB_nonadjacent_candidates": 5385,
+        "strict_crossing_face_pairs": 122,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "after": {
+        "AABB_nonadjacent_candidates": 5359,
+        "strict_crossing_face_pairs": 122,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "new_strict_crossing_pairs": 0,
+      "removed_strict_crossing_pairs": 0
+    },
+    {
+      "source": "tf2_scout_2264244255083033869.npz",
+      "before": {
+        "AABB_nonadjacent_candidates": 4867,
+        "strict_crossing_face_pairs": 164,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "after": {
+        "AABB_nonadjacent_candidates": 4826,
+        "strict_crossing_face_pairs": 164,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "new_strict_crossing_pairs": 0,
+      "removed_strict_crossing_pairs": 0
+    },
+    {
+      "source": "tf2_sniper_2264244255083033869.npz",
+      "before": {
+        "AABB_nonadjacent_candidates": 5409,
+        "strict_crossing_face_pairs": 19,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "after": {
+        "AABB_nonadjacent_candidates": 5419,
+        "strict_crossing_face_pairs": 19,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "new_strict_crossing_pairs": 0,
+      "removed_strict_crossing_pairs": 0
+    },
+    {
+      "source": "tf2_soldier_2264244255083033869.npz",
+      "before": {
+        "AABB_nonadjacent_candidates": 6155,
+        "strict_crossing_face_pairs": 190,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "after": {
+        "AABB_nonadjacent_candidates": 6357,
+        "strict_crossing_face_pairs": 190,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "new_strict_crossing_pairs": 0,
+      "removed_strict_crossing_pairs": 0
+    },
+    {
+      "source": "tf2_spy_2264244255083033869.npz",
+      "before": {
+        "AABB_nonadjacent_candidates": 22859,
+        "strict_crossing_face_pairs": 196,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "after": {
+        "AABB_nonadjacent_candidates": 22905,
+        "strict_crossing_face_pairs": 196,
+        "coplanar_and_boundary_only_contacts_tested": false,
+        "adjacent_welded_faces_excluded": true
+      },
+      "new_strict_crossing_pairs": 0,
+      "removed_strict_crossing_pairs": 0
+    }
+  ],
+  "crossing_scope": "Strict noncoplanar triangle-interior crossings; adjacent welded faces, coplanar overlaps and boundary-only contacts excluded. Counts do not prove a clean mesh.",
+  "native_pairs": [
+    {
+      "model": "tf2_medic",
+      "scope": "Native Linux Vulkan stationary MP.V hipfire / ADS / return at 1280x720",
+      "full_grip_and_animation_acceptance": false,
+      "variants": [
+        {
+          "variant": "before",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "stationary_ads_requests": 2,
+          "quality_bundle_overridden": false,
+          "bundle_sha256": "e0e1ecf34a409a27cc28f47af85fc9a25c783792f1e0e0fe47e3a6aa6d4f32fa",
+          "serialization_verification": {
+            "all_other_original_objects_byte_exact": 144988,
+            "renderer_field_whitelist": [
+              "m_Mesh",
+              "m_Materials",
+              "m_AABB"
+            ],
+            "geometry_uv_skin_exact_roundtrip": true,
+            "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+            "all_new_local_references_resolve": true
+          },
+          "captures": [
+            {
+              "screenshot": "screenshots/medic-radius-before-hipfire-nov6.png",
+              "sha256": "7559aac0be2fccfede2442bb772273e939c15902c51287fb0f0e46c4ea40b2da"
+            },
+            {
+              "screenshot": "screenshots/medic-radius-before-ads-nov6.png",
+              "sha256": "1d1b4e56cbbce6213f9d973db452321438a90db3f37be04e64b92b5a07694498"
+            },
+            {
+              "screenshot": "screenshots/medic-radius-before-return-nov6.png",
+              "sha256": "4761549d16b4ba930397eb38d02968aecace667f060b4b4c8be5b4e9f31fd084"
+            }
+          ]
+        },
+        {
+          "variant": "after",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "stationary_ads_requests": 2,
+          "quality_bundle_overridden": false,
+          "bundle_sha256": "bbff27520f4ec32d707f57aeb5b06c3b4622385e9d2c95bd8522f839e7b37b92",
+          "serialization_verification": {
+            "all_other_original_objects_byte_exact": 144988,
+            "renderer_field_whitelist": [
+              "m_Mesh",
+              "m_Materials",
+              "m_AABB"
+            ],
+            "geometry_uv_skin_exact_roundtrip": true,
+            "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+            "all_new_local_references_resolve": true
+          },
+          "captures": [
+            {
+              "screenshot": "screenshots/medic-radius-after-hipfire-nov6.png",
+              "sha256": "ab75470a2eadcf7f7f9bd200792d6536b5029b0b28077ccfdcbbeef300a1a6f2"
+            },
+            {
+              "screenshot": "screenshots/medic-radius-after-ads-nov6.png",
+              "sha256": "da4345859646399fa384b65ee35d3190d3ccb3130ffa3ef6b2819421405cd596"
+            },
+            {
+              "screenshot": "screenshots/medic-radius-after-return-nov6.png",
+              "sha256": "9becd9c23e6f6a4525f059140d85b7930f2b3ef7c6a756fb6af9ecde2948eb70"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model": "tf2_scout",
+      "scope": "Native Linux Vulkan stationary MP.V hipfire / ADS / return at 1280x720",
+      "full_grip_and_animation_acceptance": false,
+      "variants": [
+        {
+          "variant": "before",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "stationary_ads_requests": 2,
+          "quality_bundle_overridden": false,
+          "bundle_sha256": "5ea9b7f153cfc5b21962b4e3afd510bd0f1afca09e180e52c6e91dffb8bb67b8",
+          "serialization_verification": {
+            "all_other_original_objects_byte_exact": 144988,
+            "renderer_field_whitelist": [
+              "m_Mesh",
+              "m_Materials",
+              "m_AABB"
+            ],
+            "geometry_uv_skin_exact_roundtrip": true,
+            "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+            "all_new_local_references_resolve": true
+          },
+          "captures": [
+            {
+              "screenshot": "screenshots/scout-radius-before-hipfire-nov6.png",
+              "sha256": "c1e0dcbbfdf162a9f613b5eb7e42baa501444bfea735e2673d9160b67cb5e2af"
+            },
+            {
+              "screenshot": "screenshots/scout-radius-before-ads-nov6.png",
+              "sha256": "a79da2ffd59a005e2932b815aff7c64c139c5f651e864b8dc89624dfc07a7640"
+            },
+            {
+              "screenshot": "screenshots/scout-radius-before-return-nov6.png",
+              "sha256": "29be6df2692c8c02a23604794829f30e4769667dcb43d5847d6373f63fdbaff9"
+            }
+          ]
+        },
+        {
+          "variant": "after",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "stationary_ads_requests": 2,
+          "quality_bundle_overridden": false,
+          "bundle_sha256": "5bd141563bdfbfad2b3e8cabbf4202d12159fcc480ad2f88180b5ee1e97d8526",
+          "serialization_verification": {
+            "all_other_original_objects_byte_exact": 144988,
+            "renderer_field_whitelist": [
+              "m_Mesh",
+              "m_Materials",
+              "m_AABB"
+            ],
+            "geometry_uv_skin_exact_roundtrip": true,
+            "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+            "all_new_local_references_resolve": true
+          },
+          "captures": [
+            {
+              "screenshot": "screenshots/scout-radius-after-hipfire-nov6.png",
+              "sha256": "918115c48754da5aa794020d1729e2d11fc325abed4e0dc17d628b674a7d720b"
+            },
+            {
+              "screenshot": "screenshots/scout-radius-after-ads-nov6.png",
+              "sha256": "445313743165c510021455285f37d2e8b7284d209dd8bdb74c6c1464d3b1587b"
+            },
+            {
+              "screenshot": "screenshots/scout-radius-after-return-nov6.png",
+              "sha256": "3fdb7bac2fe4ef934ac04599cb0b613ce6ed6031556e89f2c1f4383f157d6346"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "installed_invariants_sha256": {
+    "installer_state": "237b7c7dd2d43a6aecd25bcb6917297a9c401eb02e1bd0c66c79f81ac3924432",
+    "StreamingAssets/Bundles/root/audio": "552fa9b28d9381886672e5f9aa2fc32ff6235496baf7364a480f1061368b3053",
+    "StreamingAssets/Bundles/src/first_person": "8bb80a441849206689fce9be5048e48393f48552e70bdc5b3876b0f9277712cf",
+    "StreamingAssets/Bundles/src/thrid_person": "94d280d31fa266c46165484ff892627c2fa9e6be5c81bb90ef266b93b97f511c",
+    "StreamingAssets/Bundles/src/weapons/weapons": "1d15a27a4a22970ed33de8b1ab986d601848323bb021c4ebc7a87f62dd0345f5",
+    "data.unity3d": "5168ea31c82558c80bd4795fd073e513e9223c8aa098b54a5862839f22e7f692"
+  },
+  "game_installation_changed": false,
+  "public_binary_updated": false,
+  "personal_binary_updated": false,
+  "remaining": [
+    "Seven TF2 native radius reviews",
+    "Heavy crossing changes need review",
+    "Package apply/restoration checks for this change",
+    "Other weapons and attachments",
+    "Movement, reload, helicopter, 4K performance",
+    "Native Windows game acceptance",
+    "Fishguy wrist deformation"
+  ]
+}

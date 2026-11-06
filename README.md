@@ -263,7 +263,7 @@ procedural assets; the game and captured game content retain their own owners.
 
 Authored Scorpion, fishing rod, P90 toaster and MP7 nailer models replace the earlier procedural prototypes. The Lynx cat/audio remain preserved. Operator and weapon implementations now have native menu/range checks with explicit animation limits; see [current expansion status](docs/expansion.md), [weapon attribution](assets/authored-weapons/ATTRIBUTION.md) and [installer instructions](installer/README.md).
 
-Current operator sources, credits and acceptance limits are in [the operator expansion report](docs/operator-expansion.md). The source test suite has 169 tests: 168 pass and one existing data-dependent test is skipped. Color controls distinguish replacement models from unmodified in-game operator models. Matching first-person arms remain independently selectable; full grip/ADS/reload acceptance is pending.
+Current operator sources, credits and acceptance limits are in [the operator expansion report](docs/operator-expansion.md). The source test suite has 181 tests: 180 pass and one existing data-dependent test is skipped. Color controls distinguish replacement models from unmodified in-game operator models. Matching first-person arms remain independently selectable; full grip/ADS/reload acceptance is pending.
 
 Portable preview downloads: [v0.1.9 Linux and Windows installers](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.9-preview). Extract the whole archive. Public builds import local M1A0, TF2, prepared Titanfall and Minecraft sources where required.
 
@@ -272,3 +272,5 @@ This preview includes actual local [viewmodel arms for all nine TF2 classes](doc
 The independent sky toggle now supports [local classic Minecraft artwork](docs/minecraft-local-sky.md), with bright blue sky, square clouds and sun observed in native Parvis. Source artwork remains local. A later native Parvis overlay also retained the installed halftone terrain, magenta arms and gold attachments. Six-sided maps, nighttime, all-map coverage and a full saved-selection rebuild remain unaccepted. The [package hashes and runtime checks](docs/minecraft-local-sky-installer-verification.json) distinguish Linux tests from Windows tests under Wine.
 
 Source extends the [native-reviewed fingertip correction to all nine TF2 classes](docs/tf2-fingertip-native-verification.json), alongside Fishguy. Fingers protrude less beside the MP.V in stationary ADS; wrist/cuff issues and full grip/animation acceptance remain open. [v0.1.8-preview installers](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.8-preview) include the all-class correction, with native capture and packaged apply/restoration checks.
+
+The later [fingertip radius correction](docs/fingertip-radius-review.md) preserves the cap direction during slimming. Its native review is separate; released installer payloads do not yet include it.

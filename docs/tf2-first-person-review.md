@@ -1,5 +1,12 @@
 # Nine TF2 first-person options — native range review
 
+## Current source: preserve the cap through radius reduction
+
+The source includes a later [fingertip radius correction](fingertip-radius-review.md).
+It prevents the slimming pass from shifting the fitted distal cap. Its native
+review and distribution status are recorded separately; the released installer
+still contains the earlier all-class fitting described below.
+
 ## Source update: fingertip fitting for all nine classes
 
 All nine genuine TF2 viewmodels now use the full 3D native fingertip surface for

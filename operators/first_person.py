@@ -67,7 +67,7 @@ def fit(base,source_indices,source_weights,meta,source_bind,native,options,model
     if leaf:report['finger_tip_fit']={'tips':list(leaf.values()),'native_skeleton_animations_unchanged':True,'source_skin_weights_unchanged':True,'method':'full 3D native distal mesh caps'}
     if np.any(indices>=len(bind)):raise ValueError('Virtual torso landmarks leaked into serialized arm weights')
     from .viewmodel import slim,settings
-    v,n,volume=slim(v,n,indices,weights,native,**settings(model));report['viewmodel_volume']=volume
+    v,n,volume=slim(v,n,indices,weights,native,**settings(model),leaf_endpoints={tip['name']:tip['target'] for tip in leaf.values()});report['viewmodel_volume']=volume
     mesh.vertices=v.tolist();mesh.normals=n.tolist()
     if np.linalg.det(basis)<0:mesh.faces=np.asarray(mesh.faces)[:,[0,2,1]].tolist()
     validate_weights(indices,weights,len(v),len(bind));report.update(authored_arm_triangles=len(selected),source_triangles=len(faces),native_bones_preserved=len(bind),virtual_landmarks_not_serialized=True,in_game_tested=False)
