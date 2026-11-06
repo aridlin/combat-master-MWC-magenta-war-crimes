@@ -57,3 +57,12 @@ coexistence check of every installed layer. Day/night cycling, nighttime, native
 six-sided orientation/seams, full map coverage and 4K performance remain
 unaccepted. Tests and previews are not full in-game acceptance. These changes
 are newer than the frontend-only v0.1.4-preview release.
+
+Separate Linux and Windows installer candidates were built from source commit
+`5a9373d`. The [package hashes and runtime checks](minecraft-local-sky-installer-verification.json)
+record 167/168 matching source files, actual Linux backend apply/restore of all
+eight real bundles, and eight packaged Windows importer tests under Wine. The
+Windows Extras field was visually reviewed under Wine, not native Windows.
+Candidate archives exclude local Minecraft artwork, M1A0, Valve and Respawn
+imports. The personal installer was not replaced. All 81 installed bundles and
+81 original backups still match their recorded hashes.

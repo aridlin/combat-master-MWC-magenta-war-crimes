@@ -1,0 +1,87 @@
+{
+  "source_commit": "5a9373d0345777cd831dafdbaa4554fc53667bd1",
+  "packages": [
+    {
+      "platform": "Linux",
+      "source_files_matched": 167,
+      "archive": "MWC-Linux-x64.tar.gz",
+      "size_bytes": 85045307,
+      "sha256": "59700bab63cf9758c73f41aaf4cdbfc35f310f6258552b251da16d1f248c8bc8",
+      "archived_importer_and_engine_match_source": true,
+      "minecraft_artwork_bundled": false,
+      "valve_tf2_or_titanfall_models_bundled": false,
+      "m1a0_archive_bundled": false
+    },
+    {
+      "platform": "Windows",
+      "source_files_matched": 168,
+      "archive": "MWC-Windows-x64.zip",
+      "size_bytes": 71861755,
+      "sha256": "5f19e831380dc089b12418d242f0de5fc61f95307aab3932c6a3a6dd4cb5743b",
+      "archived_importer_and_engine_match_source": true,
+      "minecraft_artwork_bundled": false,
+      "valve_tf2_or_titanfall_models_bundled": false,
+      "m1a0_archive_bundled": false
+    }
+  ],
+  "linux_packaged_diagnostics_exit": 0,
+  "real_game_installation_modified": false,
+  "packaged_linux_apply_restore": {
+    "runtime": "Actual packaged Linux backend",
+    "apply_exit": 0,
+    "restore_exit": 0,
+    "real_bundles": 8,
+    "full_backend_request_and_source_preference_tested": true,
+    "applied_outputs_byte_identical_to_verified_stage": true,
+    "all_original_hashes_restored": true,
+    "original_backups_retained": true,
+    "restore_with_missing_source_jar_succeeded": true,
+    "transaction_journal_cleaned": true,
+    "disposable_fixture_removed_after_verification": true,
+    "elapsed_seconds": 50.04,
+    "real_game_installation_modified": false
+  },
+  "packaged_windows_importer_tests": {
+    "runtime": "Packaged Windows embedded CPython 3.12.10 under Wine; not native Windows game",
+    "packaged_importer_used": true,
+    "focused_tests": 8,
+    "exit_code": 0,
+    "temporary_tests_removed_from_candidate": true,
+    "game_installation_modified": false
+  },
+  "windows_gui": {
+    "platform": "Actual Windows installer executable under Wine; not native Windows",
+    "extras_tab_opened": true,
+    "window_bounds": {
+      "window": [
+        366,
+        16,
+        1554,
+        1450
+      ],
+      "workarea": [
+        0,
+        0,
+        1920,
+        1600
+      ],
+      "dpi": 96
+    },
+    "apply_clicked": false,
+    "game_installation_modified": false,
+    "saved_local_jar_field_visually_reviewed": true
+  },
+  "source_suite": {
+    "tests": 157,
+    "passed": 156,
+    "skipped": 1
+  },
+  "installed_preservation": {
+    "installed_bundles": 81,
+    "verified_original_backups": 81,
+    "all_recorded_hashes_match": true,
+    "installed_game_modified": false,
+    "personal_installer_replaced": false
+  },
+  "release_published": false
+}
