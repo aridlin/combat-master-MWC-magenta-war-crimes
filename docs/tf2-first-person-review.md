@@ -17,8 +17,7 @@ candidate. Sixteen games exited 0 and retained the host profile; Gamescope
 teardown returned 139 separately. The source suite passes 168 tests with one
 existing skip. The separate Medic/Fishguy review is retained below.
 
-**Distribution status:** the later all-class extension is now packaged in fresh
-Linux and Windows candidates. The actual frozen Linux backend reproduced the
+**Distribution status:** [public v0.1.8-preview](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.8-preview) and the current personal Linux/Windows installers include the all-class extension. The actual frozen Linux backend reproduced the
 reviewed Scout bundle and restored both original bundles with TF2 unavailable;
 16 focused checks passed in the packaged Windows runtime under Wine.
 [Package validation](tf2-fingertip-installer-verification.json) records exact
