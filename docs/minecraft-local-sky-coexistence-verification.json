@@ -1,0 +1,56 @@
+{
+  "scope": "Native stationary Parvis coexistence with verified installed visual layers",
+  "source_client_version": "1.20.1",
+  "resolution": [
+    1280,
+    720
+  ],
+  "test_fps_cap": 30,
+  "native_backend": "Linux / NVIDIA Vulkan / headless Gamescope",
+  "observed": {
+    "blue_sky_and_square_clouds": true,
+    "existing_halftone_terrain": true,
+    "magenta_grapple_first_person_arms": true,
+    "gold_weapon_and_attachments": true,
+    "ginger_lynx_cat_visible_on_native_results_podium": true
+  },
+  "limited_or_unproven": {
+    "Fuji": "The observed roof and small sky opening do not establish source-art or orientation acceptance",
+    "native_six_sided_orientation_and_seams": false,
+    "all_maps": false,
+    "nighttime": false,
+    "full_animations": false,
+    "4K_performance": false
+  },
+  "candidate_bundles": [
+    {
+      "bundle": "src/maps/maps",
+      "baseline_sha256": "6cce0c39a87b9a76216a95e1f9b68b422c4589d26d658d8cafb7ee65133e704d",
+      "output_sha256": "282f5efb00b9300ee1242f5b6323bd8991f37a229857ab1f5ffb302d197f0de8"
+    },
+    {
+      "bundle": "src/maps/map_electro_s",
+      "baseline_sha256": "ff1c1ec5900724c8cfbbbda83132b89d74b6f980c43551d5ff2261269daa8393",
+      "output_sha256": "57863a07e2cf375ef6f60e46b69dc3b6dadb9721d69b8a838142848fd3458d1e"
+    },
+    {
+      "bundle": "src/maps/map_talencecm_s",
+      "baseline_sha256": "b9f0927b44fdec91383add6e5389e4d3a5106ade88a9fa572a07989ed7b43c6b",
+      "output_sha256": "954c4d515162fdc841f3386f01a6f3bc2ce586e125c63b054cb30280a8e01f1b"
+    }
+  ],
+  "captures": {
+    "parvis-installed-layers": "d7092ebab720e2e8ac3a5b4766a3fd71509793d963f2526a86f4d39062d3a6c3",
+    "parvis-installed-sky": "9601d5a41a62d842af870d2756718caa5138b3207060e9e3ca84d37ecde42cbb",
+    "after-parvis-test": "f57cb8213d3463edab30550f04fedbcc657e20488d7bfbff7521a395c0d84694",
+    "fuji-installed-layers": "a835bbab3b269310fa9321c6b9f42a583b06695db90d0ae3205b50720febba19",
+    "fuji-installed-sky": "aa2731db01e181ad70d226497ef25537b5bb9515cbac3f02dc5a197bf4e472df"
+  },
+  "native_game_exit": 0,
+  "compositor_teardown_exit": 139,
+  "host_profile_unchanged": true,
+  "installed_game_modified": false,
+  "operator_assignments_modified": false,
+  "movement_or_firing_inputs_sent": false,
+  "network_isolated": true
+}

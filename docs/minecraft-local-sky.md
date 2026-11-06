@@ -52,10 +52,12 @@ these runs do not establish general stability.
 The native check used a copied guest profile, read-only asset mounts, NVIDIA
 Vulkan and a 1280×720 headless display with a 30 FPS test cap. It sent only menu
 and bounded camera-look inputs. The tested Parvis bundle used original map
-surfaces, rather than the installed halftone terrain, so this is not yet a native
-coexistence check of every installed layer. Day/night cycling, nighttime, native
-six-sided orientation/seams, full map coverage and 4K performance remain
-unaccepted. Tests and previews are not full in-game acceptance. This importer is included in
+surfaces, rather than the installed halftone terrain, so that initial run alone
+did not establish native coexistence with installed terrain. A later private overlay test confirmed local sky, halftone terrain,
+magenta Grapple arms and gold weapon/attachments together on Parvis; see the
+[coexistence capture hashes](minecraft-local-sky-coexistence-verification.json).
+Day/night cycling, nighttime, native six-sided orientation/seams, a full
+saved-selection rebuild, all-map coverage and 4K performance remain unaccepted. Tests and previews are not full in-game acceptance. This importer is included in
 [v0.1.5-preview](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.5-preview).
 
 Separate Linux and Windows installer candidates were built from source commit
@@ -66,3 +68,11 @@ Windows Extras field was visually reviewed under Wine, not native Windows.
 Candidate archives exclude local Minecraft artwork, M1A0, Valve and Respawn
 imports. The personal installer was not replaced. All 81 installed bundles and
 81 original backups still match their recorded hashes.
+
+The later Parvis coexistence candidate was built over three hash-verified
+installed map bundles, preserving every non-sky object byte-for-byte. It was
+mounted read-only in a copied-profile private native session; the actual
+installation was not updated. Fuji was also opened, but its observed roof/small
+sky opening does not establish source-art or six-sided orientation acceptance.
+The same results screen showed the existing ginger Lynx cat on a native operator
+weapon, adding a limited world-view check rather than reload/ADS acceptance.
