@@ -1,6 +1,7 @@
-import copy,struct,unittest,zlib
+import copy,json,struct,unittest,zlib
+from pathlib import Path
 import numpy as np
-from operators.clip_review import sample_channels,sample_world,euler_zxy,quaternion_matrix
+from operators.clip_review import sample_channels,sample_world,euler_xyz,quaternion_matrix
 
 
 def binding(path,attribute):
@@ -29,14 +30,25 @@ class NativeClipReview(unittest.TestCase):
         self.assertEqual(report['transform_bindings'],3)
         np.testing.assert_allclose(sample_channels(tree,1)[0][0][2],[9,10,0])
 
-    def test_world_hierarchy_uses_native_parent_transform_and_zxy_order(self):
+    def test_world_hierarchy_uses_native_parent_transform_and_xyz_order(self):
         tree=fixture();nodes={1:transform(10,children=[2]),2:transform(20,1)};names={10:'root',20:'child'};nodes[2]['m_LocalPosition']['x']=1
         before=copy.deepcopy(nodes);world,report=sample_world(tree,.5,nodes,names,1)
         np.testing.assert_allclose(world[2][:3,3],[8,12,0],atol=1e-10)
         self.assertEqual(nodes,before);self.assertEqual(report['resolved_transform_bindings'],3)
-        # Extrinsic Z, then X, then Y: a Y basis vector ends up on +Z.
-        np.testing.assert_allclose(euler_zxy([90,90,90])@[0,1,0],[0,0,1],atol=1e-10)
+        # Packed XYZ is distinct from the usual Quaternion.Euler ZXY API.
+        np.testing.assert_allclose(euler_xyz([90,90,90])@[0,1,0],[0,1,0],atol=1e-10)
         np.testing.assert_allclose(quaternion_matrix([0,0,2**-.5,2**-.5])@[1,0,0],[0,1,0],atol=1e-10)
+
+    def test_mixed_axis_packed_euler_matches_independent_unity_xyz_reference(self):
+        reference=json.loads((Path(__file__).parent/'fixtures/clip-review/euler-xyz-reference.json').read_text())
+        rotation=np.asarray(reference['matrix']).reshape(4,4)[:3,:3]
+        np.testing.assert_allclose(euler_xyz(reference['angles']),rotation,atol=3e-7,rtol=0)
+        tree=fixture();tree['m_MuscleClip']['m_Clip']['data']['m_DenseClip']['m_SampleArray'][3:6]=reference['angles']
+        nodes={1:transform(10,children=[2]),2:transform(20,1)};names={10:'root',20:'child'};nodes[2]['m_LocalPosition'].update(x=1,y=.25,z=-.5)
+        world,report=sample_world(tree,.5,nodes,names,1)
+        expected=rotation@np.array([2.,.25,-.5])+[8,10,0]
+        np.testing.assert_allclose(world[2][:3,3],expected,atol=6e-7,rtol=0)
+        self.assertEqual(report['packed_euler_order'],'XYZ')
 
     def test_unknown_and_ambiguous_hashes_fail_instead_of_using_last_node(self):
         tree=fixture();nodes={1:transform(10,children=[2,4]),2:transform(20,1,[3]),3:transform(30,2),4:transform(40,1,[5]),5:transform(50,4)};names={10:'root',20:'a',30:'hand',40:'b',50:'hand'}

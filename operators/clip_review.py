@@ -8,13 +8,18 @@ import struct,zlib
 import numpy as np
 
 
-def euler_zxy(degrees):
+def euler_xyz(degrees):
+    """Reviewed packed generic Euler curves use XYZ, not Quaternion.Euler's ZXY.
+
+    Verified against the original clips and Avatar through Unity's native
+    AnimationClipPlayable evaluator; this is not a universal clip convention.
+    """
     x,y,z=np.deg2rad(np.asarray(degrees,dtype=float))
     cx,cy,cz=np.cos([x,y,z]);sx,sy,sz=np.sin([x,y,z])
     rx=np.array([[1,0,0],[0,cx,-sx],[0,sx,cx]])
     ry=np.array([[cy,0,sy],[0,1,0],[-sy,0,cy]])
     rz=np.array([[cz,-sz,0],[sz,cz,0],[0,0,1]])
-    return ry@rx@rz
+    return rz@ry@rx
 
 
 def quaternion_matrix(value):
@@ -84,7 +89,7 @@ def sample_channels(tree,time):
         if len(value)!=width:raise ValueError('Binding exceeds packed clip channels')
         if kind==4:output.append((int(binding['path']),attribute,value.copy()))
     if cursor!=len(values):raise ValueError('Packed clip channels exceed declared bindings')
-    return output,{'clip':tree['m_Name'],'time':float(time),'transform_bindings':len(output),'ignored_root_channels':ignored,'runtime_IK_blending_events_and_root_motion_not_evaluated':True,'in_game_tested':False}
+    return output,{'clip':tree['m_Name'],'time':float(time),'transform_bindings':len(output),'packed_euler_order':'XYZ','ignored_root_channels':ignored,'runtime_IK_blending_events_and_root_motion_not_evaluated':True,'in_game_tested':False}
 
 
 def hierarchy(transforms,names,root):
@@ -119,7 +124,7 @@ def sample_world(tree,time,transforms,names,root):
         native=transforms[node];attrs=overrides.get(node,{})
         position=attrs.get(1,[native['m_LocalPosition'][k] for k in 'xyz'])
         scale=attrs.get(3,[native['m_LocalScale'][k] for k in 'xyz'])
-        rotation=euler_zxy(attrs[4]) if 4 in attrs else quaternion_matrix(attrs.get(2,[native['m_LocalRotation'][k] for k in 'xyzw']))
+        rotation=euler_xyz(attrs[4]) if 4 in attrs else quaternion_matrix(attrs.get(2,[native['m_LocalRotation'][k] for k in 'xyzw']))
         local=np.eye(4);local[:3,:3]=rotation@np.diag(scale);local[:3,3]=position
         if not np.isfinite(local).all():raise ValueError('Nonfinite clip transform')
         parent=native['m_Father']['m_PathID'];world[node]=world[parent]@local if parent in world else local

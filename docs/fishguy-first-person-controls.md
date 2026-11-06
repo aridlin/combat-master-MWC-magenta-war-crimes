@@ -64,9 +64,12 @@ writer-roundtrip and two LOD controls exited the game with code 0 and retained t
 hashes. Gamescope teardown separately returned 139; these runs do not establish
 long-session stability, performance or animation acceptance.
 
-The offline clip sampler also separates hands on an unmodified native glove
-control. Its images therefore cannot establish correct runtime deformation.
-See [the sampler limits](native-clip-review.md). Native observations narrow the
+The original offline clip sampler separated hands on an unmodified native
+glove control. A later native-Avatar comparison traced that false control
+separation to the sampler's Euler rotation order and corrected it. The updated
+isolated-clip sampler matches 2,880 Editor bone matrices, while runtime layers
+and IK remain outside its scope. See [the comparison and limits](native-clip-review.md).
+Native observations narrow the
 problem toward imported geometry/retargeting/skin fitting, but do not identify a
 single proven cause. Full movement, ADS, reloads and helicopter views remain
 unaccepted.
@@ -155,3 +158,30 @@ and visibly responds to deliberately large extra influences at the private
 unlimited cap. The codec is experimental and disabled in the installer; this
 activation result does not establish a Fishguy wrist repair. See
 [the reference data, native controls and limits](variable-skinning-investigation.md).
+
+## Surface and material controls after the clip correction
+
+A positive-cotangent ARAP rest-surface fit passed its independent rigid-motion
+and translation controls, retained authored topology/UVs, and produced zero
+opposed nondegenerate rest faces. Its native ADS and hipfire views still show
+the forearm slit. Passing those rest checks is insufficient for acceptance.
+
+![Rejected surface fit after returning to hipfire](screenshots/fish-arap-hipfire-return-nov6.png)
+
+Two controls then kept all mesh positions, normals, weights, bones and
+animations byte-identical to the previous native-union-field candidate. A flat
+gray body albedo still shows the slit. Adding a material `_Cull=0` request also
+leaves it visible; whether this particular shader honored that request is
+unproven, so the latter is not proof of two-sided rendering. The gray control
+rejects an albedo-only explanation, not a broader shading contribution.
+
+![Flat gray material control, native hipfire](screenshots/fish-gray-hipfire-return-nov6.png)
+
+All three native games exited 0 and preserved host profile hashes; compositor
+teardown returned 139. An earlier gray attempt failed its range-image gate
+after a delayed startup offer and is excluded from deformation evidence.
+The private route now requires two fresh main-menu frames, matching header
+regions and the expected loaded avatar before navigating; a separate range
+gate remains mandatory before bounded ADS. No movement or firing was sent.
+[Exact evidence and limits](fish-surface-material-controls-verification.json)
+record these private controls. None is installed or selectable as a finished fix.

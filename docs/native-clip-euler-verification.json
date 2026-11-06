@@ -1,0 +1,50 @@
+{
+  "public_sampler_used_without_monkeypatch": true,
+  "editor_version": "6000.6.5f1",
+  "unique_clips": 6,
+  "pose_times": 18,
+  "renderer_pose_comparisons": 36,
+  "bone_matrix_comparisons": 2880,
+  "maximum_position_error_m": 7.614716838588855e-07,
+  "maximum_matrix_error": 1.7938073196832605e-06,
+  "native_Avatar_and_original_packed_clips_used": true,
+  "game_scripts_or_animation_events_executed": false,
+  "runtime_IK_layering_or_native_game_acceptance": false,
+  "clips": [
+    "AK12_Arms_ADSLoop",
+    "AK12_Arms_Idle",
+    "AK12_Arms_Reload",
+    "Dual1911_Arms_ADSLoop",
+    "Kar98k_Arms_Idle1",
+    "Kar98k_Arms_Reload"
+  ],
+  "sample_seconds": [
+    0.0,
+    0.5,
+    1.0
+  ],
+  "game_unity_version": "6000.3.19f1",
+  "game_build": "24397779",
+  "previous_conversion": "ZXY",
+  "corrected_packed_conversion": "XYZ",
+  "owned_mixed_axis_fixture": "tests/fixtures/clip-review/euler-xyz-reference.json",
+  "full_suite": {
+    "tests": 178,
+    "skipped": 1,
+    "result": "passed"
+  },
+  "private_editor_terminal_codes": [
+    139,
+    143
+  ],
+  "standalone_cooked_clip_import_and_SampleAnimation_excluded": "Zero-motion results; not a valid reference for packed clips",
+  "production_fitter_installer_and_installed_game_changed": false,
+  "private_evidence_sha256": {
+    "EditorNativeAvatarCorpusPoses.json": "84455dea56ad5fd6e21265bbc1d87e90d67ad0ddf846805ca2284cc6b44454b8",
+    "hierarchy.json": "cf12d4b1a77c7dab214aefe7628a21550135677f3615a02ea792e1ae0387a45a"
+  },
+  "offline_control_images_sha256": {
+    "native-glove-corrected-offline-idle-nov6.png": "04da201275b216d51913adf4ec7ba1568fb4e299ae335f0751f221055b2fb4de",
+    "native-glove-corrected-offline-ads-nov6.png": "ac03b643b53be22f927910a134005424c3bebc399075fb89f18f37f32a14bf37"
+  }
+}

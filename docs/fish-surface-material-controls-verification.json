@@ -1,0 +1,146 @@
+{
+  "native_controls": [
+    {
+      "private_session": "headless-tf2-fisharap-fp-v97",
+      "control": "positive-cotangent rest-surface registration with native union field",
+      "bundle_sha256": "0c3416bfb34c1f9bf7a968b030fa9bfe5e123cd12b799c47fae8c0f222af18cc",
+      "native_game_exit": 0,
+      "compositor_exit": 139,
+      "host_profile_unchanged": true,
+      "network_isolated": true,
+      "movement_or_firing_inputs_sent": false,
+      "ADS_then_hipfire_return_reviewed": true,
+      "capture_sha256": {
+        "fish-arap-ads": "a5234f4c258a60c2219e0af1ddfb66f0631f3f2fd5121f0587883bfcdba77003",
+        "fish-arap-hipfire-return": "88977f8b3d9c48a03eef069be9f9e2818f1ee144af115e1e21ece285b48cb42e"
+      },
+      "observed_result": "Forearm slit/crease persists; not accepted",
+      "installed_game_or_assignments_changed": false
+    },
+    {
+      "private_session": "headless-tf2-fishgrayretry-fp-v100",
+      "control": "flat gray albedo only",
+      "bundle_sha256": "8d1884baf79531e1fb9477baafbaadee17fc92db710fed279d7c8ffc3c0e1ddd",
+      "native_game_exit": 0,
+      "compositor_exit": 139,
+      "host_profile_unchanged": true,
+      "network_isolated": true,
+      "movement_or_firing_inputs_sent": false,
+      "ADS_then_hipfire_return_reviewed": true,
+      "capture_sha256": {
+        "fish-gray-ads": "410efbfb77e222cc0e5f193bc136b7e2bb46fcd07c81df8eafd3b7f67671776b",
+        "fish-gray-hipfire-return": "8e38110405e0efd0af3a0e8d83ec2fbf0ba5fbc0a30ce45729435360c3e5eaa1"
+      },
+      "observed_result": "Forearm slit/crease persists; not accepted",
+      "installed_game_or_assignments_changed": false
+    },
+    {
+      "private_session": "headless-tf2-fishgraytwo-fp-v99",
+      "control": "flat gray plus _Cull=0 request; shader response unproven",
+      "bundle_sha256": "6aac88b181f04665ffe5e2830a818920cb9249182ddd583faae42f09296f4ba8",
+      "native_game_exit": 0,
+      "compositor_exit": 139,
+      "host_profile_unchanged": true,
+      "network_isolated": true,
+      "movement_or_firing_inputs_sent": false,
+      "ADS_then_hipfire_return_reviewed": true,
+      "capture_sha256": {
+        "fish-gray-two-ads": "e266b34e7963946485b1f41e582ba59c328bf8d0b051c68b8ed1e4a11249cb20",
+        "fish-gray-two-hipfire-return": "1e35214520f87318322545f89aaaedc1fef83e4a42256e04cce2f85cc2f3a703"
+      },
+      "observed_result": "Forearm slit/crease persists; not accepted",
+      "installed_game_or_assignments_changed": false
+    }
+  ],
+  "excluded_failed_route": {
+    "session": "headless-tf2-fishgray-fp-v98",
+    "actual_range_gate_scores": [
+      0.01974074074074074,
+      0.0
+    ],
+    "required_scores": 0.98,
+    "ADS_sent": false,
+    "asset_or_deformation_evidence": false,
+    "reason": "Delayed startup offer prevented the expected menu route"
+  },
+  "fresh_main_menu_gate": {
+    "frames_required": 2,
+    "spacing_seconds": 2,
+    "header_match_required": 0.98,
+    "avatar_presence_required_for_these_runs": true,
+    "gray_retry_header_scores": [
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "gray_retry_magenta_avatar_pixel_counts": [
+      38374,
+      38872
+    ],
+    "range_gate_still_required_before_ADS": true
+  },
+  "surface_math_control": {
+    "independent_rigid_rotation_translation_error": 1.5677334056676862e-09,
+    "translation_equivariance_error": 1.4654943925052066e-14,
+    "global_step_energy_never_increased": true,
+    "iterations": 7,
+    "proper_rotation_maximum_determinant_error": 2.220446049250313e-15,
+    "not_a_game_or_replacement_model_test": true
+  },
+  "surface_registration": {
+    "iterations": 24,
+    "energy": [
+      0.04010157351455636,
+      0.03435721128484011,
+      0.03407859908202633,
+      0.03404509465075608,
+      0.03403852157350648,
+      0.034036800970397706,
+      0.03403626575332194,
+      0.03403607999627015,
+      0.0340360104397399,
+      0.034035982884976695,
+      0.03403597148796329,
+      0.03403596661446445,
+      0.034035964476385884,
+      0.03403596351971298,
+      0.034035963085110484,
+      0.03403596288534162,
+      0.0340359627926663,
+      0.03403596274935734,
+      0.03403596272899849,
+      0.03403596271938177,
+      0.03403596271482094,
+      0.03403596271265058,
+      0.03403596271161479,
+      0.034035962711119236
+    ],
+    "matrix_condition": 513.466002581203,
+    "positive_regularized_edges": 2378,
+    "minimum_edge_weight": 0.001,
+    "unique_vertices": 812,
+    "source_vertices": 4704,
+    "source_triangles": 1568,
+    "opposed_nondegenerate_faces": 0,
+    "minimum_area_ratio": 0.44816728830623215,
+    "maximum_area_ratio": 2.1227780057535193,
+    "maximum_displacement": 0.02976004922627543,
+    "maximum_initial_guide_distance": 0.09777576132207397,
+    "mean_target_residual": 0.0021451617048489587,
+    "topology_UV_and_native_rig_unchanged": true,
+    "global_self_intersections_tested": false,
+    "native_game_tested": false
+  },
+  "flat_material_object_preservation": {
+    "gray_unchanged_objects": 144995,
+    "gray_cull_request_unchanged_objects": 144994,
+    "all_meshes_bones_animations_normals_weights_unchanged": true
+  },
+  "normal_host_game_profile_and_installer_state_changed": false,
+  "native_full_animation_or_4k_performance_acceptance": false
+}
