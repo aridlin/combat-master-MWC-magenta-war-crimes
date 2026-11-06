@@ -1,0 +1,111 @@
+{
+  "scope": "Native Linux/Vulkan 1280x720 stationary MP.V control poses; original native arm geometry",
+  "network_isolated": true,
+  "host_audio_and_physical_display_used": false,
+  "movement_or_firing_inputs_sent": false,
+  "native_skeleton_animations_collision_and_weapon_statistics_unchanged": true,
+  "controls": [
+    {
+      "control": "writer",
+      "session": "headless-tf2-nativewriter-fp-v86",
+      "bundle_sha256": "3b4183f6d023fc1c7441088d00ce54d4eb1b1d361405c67ac58fc2b2876c9f3d",
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "installed_game_changed": false,
+      "range_gate": {
+        "reference": "headless-native-ads-control-v51/range-stationary.png",
+        "scores": [
+          1.0,
+          1.0
+        ],
+        "threshold": 0.98
+      },
+      "captures_personally_reviewed": true,
+      "observation": "Original geometry and original skin through the mesh writer remain clean in stationary ADS and hipfire.",
+      "captures": [
+        {
+          "path": "screenshots/native-binding-writer-ads-nov6.png",
+          "sha256": "dfa187d1ab0a031002aa938858a0008b707ab6cafcdeaf1d9c6609f90a6e7ee2",
+          "pose": "ads"
+        },
+        {
+          "path": "screenshots/native-binding-writer-hipfire-return-nov6.png",
+          "sha256": "8f712ef7a4f74529e9a17624d0f7b8cd3dfa5897553dfc1eb0dcd0f9d5d1c309",
+          "pose": "hipfire-return"
+        }
+      ],
+      "production_repair_accepted": false
+    },
+    {
+      "control": "palm",
+      "session": "headless-tf2-nativepalm-fp-v83",
+      "bundle_sha256": "08be0df3700006dd75534b1e820c1f23fc34c25407760cca5ef17a13caed3ba2",
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "installed_game_changed": false,
+      "range_gate": {
+        "reference": "headless-native-ads-control-v51/range-stationary.png",
+        "scores": [
+          1.0,
+          1.0
+        ],
+        "threshold": 0.98
+      },
+      "captures_personally_reviewed": true,
+      "observation": "Collapsing wristfronttwist1 influences onto hand controllers produces a visible wrist/forearm bulge on the original mesh. Not a proposed repair.",
+      "captures": [
+        {
+          "path": "screenshots/native-binding-palm-ads-nov6.png",
+          "sha256": "bd43bdd16572aa30cff12f5adf3feea09f5ed7efb16fdb193b1676e5019646d3",
+          "pose": "ads"
+        },
+        {
+          "path": "screenshots/native-binding-palm-hipfire-return-nov6.png",
+          "sha256": "b050264b8a44e6737a63de9ee49dc4d2456f47aa1aceebf55ba5d8fbae4e8cf8",
+          "pose": "hipfire-return"
+        }
+      ],
+      "production_repair_accepted": false
+    },
+    {
+      "control": "shoulder",
+      "session": "headless-tf2-nativeshoulder-fp-v84",
+      "bundle_sha256": "28b44cdefba6b02cfb33050b78ffba598e450b50b2c1a99940c3ec2132fdd35d",
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "installed_game_changed": false,
+      "range_gate": {
+        "reference": "headless-native-ads-control-v51/range-stationary.png",
+        "scores": [
+          1.0,
+          1.0
+        ],
+        "threshold": 0.98
+      },
+      "captures_personally_reviewed": true,
+      "observation": "Collapsing shoulder-twist influences onto shoulder controllers does not reproduce the palm-control bulge in these captured views. Upper-arm motion is not covered.",
+      "captures": [
+        {
+          "path": "screenshots/native-binding-shoulder-ads-nov6.png",
+          "sha256": "8bb58b39b69a1aadd866cf911351f268dd7b228a03d520b55f90cff4712c133d",
+          "pose": "ads"
+        },
+        {
+          "path": "screenshots/native-binding-shoulder-hipfire-return-nov6.png",
+          "sha256": "bfe301238371227ca1e771e5514418e96c2e47d4d6cf0b03289ea6ae9dfe1532",
+          "pose": "hipfire-return"
+        }
+      ],
+      "production_repair_accepted": false
+    }
+  ],
+  "inference": "The writer alone does not reproduce the fold; native palm drivers visibly affect wrist shape. These inverse controls do not establish a Fishguy repair.",
+  "limits": [
+    "No full animation, other-weapon, 4K or Windows-game acceptance",
+    "Gamescope teardown returned 139 independently of native game exit 0",
+    "The earlier v85 menu route failed its range gate and provided no pose result"
+  ]
+}

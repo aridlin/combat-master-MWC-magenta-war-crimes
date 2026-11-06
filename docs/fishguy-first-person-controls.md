@@ -105,3 +105,44 @@ alone is insufficient, without establishing one cause.
 
 [Capture hashes, licensing provenance and limits](wrad-arm-control-verification.json)
 record both controls. No new model is silently substituted.
+
+## Original-geometry binding controls, November 6
+
+The mesh-writer control was repeated in stationary ADS and hipfire. The original
+glove and forearm still look clean. Two inverse controls then kept the same
+native geometry and numerical weights while changing only the selected skin
+indices. Moving wrist-front-twist influences onto the hand controllers produces
+a visible wrist/forearm bulge. Moving shoulder-twist influences onto shoulder
+controllers does not reproduce that bulge in these views.
+
+![Original native writer control in ADS](screenshots/native-binding-writer-ads-nov6.png)
+![Inverse palm binding control in ADS](screenshots/native-binding-palm-ads-nov6.png)
+
+This confirms that the native palm drivers affect the rendered shape; it does
+not establish a Fishguy repair or justify the previously rejected direct remap.
+The controls do not cover upper-arm motion or a full animation set. All three
+native game processes exited with code 0, retained host profile hashes and used
+read-only installed assets. Gamescope teardown separately returned 139.
+[Capture hashes and exact limits](native-binding-control-verification.json)
+record the six reviewed images. An earlier menu-route failure stopped before
+pose input and supplies no deformation evidence.
+
+## Continuous rest-shape registration controls
+
+A separate one-step cubic landmark field was rejected before bundling: 18
+vertices had non-positive local Jacobian determinants. A gradual 64-step RK4
+landmark flow then passed both LODs with positive local Jacobians, zero opposed
+nondegenerate triangles and exact landmark fitting. Source UVs, topology and
+skin weights stayed intact. Its affine point/Jacobian control also passed.
+
+The native renderer nevertheless showed severe forearm spikes in both ADS and
+hipfire. This candidate is rejected. Static rest-shape orientation checks do
+not establish acceptable animated skin deformation. Combining that field with
+the existing anatomical native-skin sampler then failed the four-influence
+retained-weight guard before a bundle was written; the guard was not relaxed.
+
+![Rejected continuous fit in native ADS](screenshots/fish-rejected-continuous-flow-ads-nov6.png)
+
+[Exact preflight results, captures and terminal results](fish-continuous-fit-rejection-nov6.json)
+record these private experiments. None changed the production fitter, the
+installed game or the existing source-color Fishguy world model.

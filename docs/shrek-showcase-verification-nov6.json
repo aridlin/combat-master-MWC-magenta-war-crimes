@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-06",
+  "session": "headless-tf2-shrekmenu-fp-v88",
+  "scope": "Installed Dozer\u2192Shrek in native official operator selection/showcase; front, rear and both oblique sides at 1280x720",
+  "observations": [
+    "Dozer label confirms the targeted identity; Ranger remains the magenta armored human Grapple pilot",
+    "Eyes visible through the rust shooting lens from frontal and oblique angles",
+    "Rear vest, tunic and green head surfaces present and textured; no missing gray back in these views",
+    "Body has diffuse-looking shading rather than the gold weapon reflection in the captured showcase; not a material acceptance across all lighting",
+    "World-hand grip and sleeve/neck intersections still need refinement"
+  ],
+  "initial_selection_note": "The bottom card was Pincushion, not Dozer. The third card in the top row was then confirmed as Dozer from its displayed name. Catalogue order is not the internal operator index.",
+  "captures_personally_reviewed": true,
+  "captures": [
+    {
+      "path": "screenshots/dozer-confirmed-nov6.png",
+      "sha256": "3a80ff512b8065c4a8512b5945ebb131e36dd19c7eb44a4dc1f3c5e63a3dd855"
+    },
+    {
+      "path": "screenshots/shrek-showcase-front-nov6.png",
+      "sha256": "8fa91f9caf88ff4779d7852a56d312c645a336053f2359312c7597dea9905607"
+    },
+    {
+      "path": "screenshots/shrek-showcase-rotated-nov6.png",
+      "sha256": "63cc4dd46fe944da70bfe9b8959b2a265e7378043500541ead4e1d0b4bd6d8b0"
+    },
+    {
+      "path": "screenshots/shrek-showcase-rear-angle-nov6.png",
+      "sha256": "3e7ee66a515b862095de6ebb731789b8a9ed0b6709ad48cf5e7783f44b776b70"
+    },
+    {
+      "path": "screenshots/shrek-showcase-back-nov6.png",
+      "sha256": "bab5bb888df005ad7a530502de36969722b722ac2ea6977470bf0e3f3bdf10ce"
+    },
+    {
+      "path": "screenshots/shrek-showcase-opposite-side-nov6.png",
+      "sha256": "ed85ce4282a7fec4f07b134512ee19f0b906f4ae16f0f6e3e014902a2b92e517"
+    }
+  ],
+  "native_game_exit": 0,
+  "compositor_teardown_exit": 139,
+  "network_isolated": true,
+  "physical_display_or_host_audio_used": false,
+  "host_profile_unchanged": true,
+  "installed_game_changed": false,
+  "purchase_equip_reward_match_movement_or_firing_actions_sent": false,
+  "helicopter_or_full_animation_acceptance": false,
+  "limits": [
+    "Menu showcase only; no helicopter, movement, ADS, reload or 4K performance acceptance",
+    "Gamescope teardown returned 139 separately from native exit 0"
+  ]
+}

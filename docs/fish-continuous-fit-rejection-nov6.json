@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-06",
+  "scope": "Rejected private rest-shape experiments on the proper authored Fishguy arms; no replacement model or gameplay changes",
+  "one_step_field": {
+    "method": "Cubic radial basis field with affine tail, 50 anatomical landmarks",
+    "preflight": {
+      "method": "one cubic radial basis rest-shape field with affine tail",
+      "landmarks": 50,
+      "vertices": 4704,
+      "minimum_Jacobian_determinant": -0.0388756290096045,
+      "nonpositive_Jacobians": 18,
+      "maximum_Jacobian_condition": 3963.4993408501978,
+      "source_skin_weights_and_native_rig_unchanged": true,
+      "production_or_installed_game_changed": false,
+      "in_game_tested": false
+    },
+    "rejected_before_bundle_or_runtime": true
+  },
+  "gradual_field": {
+    "method": "64-step RK4 continuous cubic landmark velocity flow",
+    "affine_point_and_Jacobian_test_passed": true,
+    "static_checks": [
+      {
+        "method": "64-step RK4 continuous cubic landmark velocity flow",
+        "landmarks": 50,
+        "maximum_landmark_error": 3.759789574299499e-14,
+        "vertices": 4704,
+        "minimum_Jacobian_determinant": 0.49934189888765695,
+        "maximum_Jacobian_condition": 11.312602628802683,
+        "opposed_nondegenerate_triangles": 0,
+        "source_skin_weights_UV_topology_and_native_rig_unchanged": true,
+        "production_or_installed_game_changed": false,
+        "in_game_tested": false
+      },
+      {
+        "method": "64-step RK4 continuous cubic landmark velocity flow",
+        "landmarks": 50,
+        "maximum_landmark_error": 5.022541473817946e-14,
+        "vertices": 4704,
+        "minimum_Jacobian_determinant": 0.5035626480476111,
+        "maximum_Jacobian_condition": 12.25718133837542,
+        "opposed_nondegenerate_triangles": 0,
+        "source_skin_weights_UV_topology_and_native_rig_unchanged": true,
+        "production_or_installed_game_changed": false,
+        "in_game_tested": false
+      }
+    ],
+    "bundle_sha256": "b5d4503114d544a08afae73d07f794919ca00d036fc2b8b74e602c25450837c0",
+    "bundle_verification": {
+      "all_other_original_objects_byte_exact": 144988,
+      "renderer_field_whitelist": [
+        "m_Mesh",
+        "m_Materials",
+        "m_AABB"
+      ],
+      "geometry_uv_skin_exact_roundtrip": true,
+      "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+      "all_new_local_references_resolve": true
+    },
+    "native_game_exit": 0,
+    "compositor_teardown_exit": 139,
+    "captures_personally_reviewed": true,
+    "captures": [
+      {
+        "path": "screenshots/fish-rejected-continuous-flow-ads-nov6.png",
+        "sha256": "47d9a330a316d820531e5dba1b85822725c15ed8495d8719ebca526283b19f6e"
+      },
+      {
+        "path": "screenshots/fish-rejected-continuous-flow-hipfire-return-nov6.png",
+        "sha256": "35158c915144e64e8aa99f624d3d87718f4c3610eb856acc5aa62926f3bc03bc"
+      }
+    ],
+    "observed": "Severe forearm spikes remain in both stationary ADS and hipfire; rejected. Static Jacobian/triangle guards did not predict the animated result.",
+    "accepted_or_installed": false
+  },
+  "gradual_field_plus_anatomical_skin": {
+    "rejected_before_bundle_or_runtime": true,
+    "exact_error": "ValueError: Anatomical native field exceeds four-influence guard",
+    "guard_relaxed": false
+  },
+  "host_profile_unchanged": true,
+  "production_fitter_or_installed_game_changed": false,
+  "next_constraint": "A positive static rest deformation is insufficient; any further fitting work must demonstrate native animated skin compatibility before integration."
+}

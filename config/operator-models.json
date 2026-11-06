@@ -60,24 +60,24 @@
     {
       "id": "shrek",
       "name": "Shrek + rust shooting glasses",
-      "status": "File-verified offline prototype. In-game test pending.",
+      "status": "Menu and lenses checked; grip, animation, helicopter pending.",
       "thumbnail": "assets/operators/shrek.png"
     },
     {
       "id": "titanfall_pilot",
       "name": "Titanfall 2 / Stim pilot",
-      "status": "Local rig fitting and file verification passed; in-game test pending.",
+      "status": "Native menu checked. Full animation and grip tests pending.",
       "thumbnail": "assets/operators/titanfall_pilot.png"
     },
     {
       "id": "titanfall_grapple",
       "name": "Titanfall 2 / Armored human Grapple pilot",
-      "status": "Prepared local Titanfall 2 import required. Native animation test pending."
+      "status": "Local Titanfall 2 import required. Native front/back and stationary arms checked; full animations pending."
     },
     {
       "id": "titanfall_pulseblade_female",
       "name": "Titanfall 2 / Female Pulse Blade pilot",
-      "status": "Prepared local Titanfall 2 import required. Native animation test pending."
+      "status": "Local Titanfall 2 import required. Native front/back checked; full animation and grip tests pending."
     },
     {
       "id": "mario",
@@ -88,7 +88,7 @@
     {
       "id": "minecraft_steve",
       "name": "Minecraft Steve",
-      "status": "File-verified offline prototype. In-game test pending.",
+      "status": "Native menu checked. Framing, grip, full animations and helicopter test pending.",
       "thumbnail": "assets/operators/minecraft_steve.png"
     }
   ]

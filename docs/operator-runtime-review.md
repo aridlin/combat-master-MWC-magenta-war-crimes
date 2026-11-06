@@ -6,6 +6,21 @@ optional. The stretched Fishguy seal is intentional. See the [new native pilot
 workflow and testing scope](titanfall-native-import.md); the earlier review below
 records the November 3 roster and material work.
 
+A fresh [November 6 Dozer showcase review](shrek-showcase-verification-nov6.json)
+checks the installed Shrek from front, rear and both oblique sides. His eyes
+remain visible through the rust lens, and the rear vest, tunic and green head
+are textured in these views. World-hand grip and sleeve/neck intersections
+still need refinement; this is not helicopter or full-animation acceptance.
+
+![Shrek rear material coverage in the native showcase](screenshots/shrek-showcase-rear-angle-nov6.png)
+
+Source installer descriptions now distinguish these limited native preview
+checks from pending animation/grip tests, including the previously reviewed
+pilots and Steve. Both frontends compile with the corrected descriptions and
+the Linux operator tab was rendered with disposable choices. These description
+updates are newer than the published v0.1.8 frontend; no personal installer,
+operator selection or game asset was changed by this review.
+
 The [current gallery](screenshots/README.md) includes real native game captures.
 The Linux game ran at 1280×720 through a private headless NVIDIA/Vulkan display,
 with a copied profile, read-only game mounts and a separate network namespace.
