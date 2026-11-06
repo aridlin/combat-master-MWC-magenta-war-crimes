@@ -1,6 +1,28 @@
 # Nine TF2 first-person options — native range review
 
-## Source update: Medic fingertips, November 6
+## Source update: fingertip fitting for all nine classes
+
+All nine genuine TF2 viewmodels now use the full 3D native fingertip surface for
+their distal segments. Paired native MP.V before/after aiming checks for the eight
+remaining classes show less finger protrusion beside the gun. Each was also
+reviewed after returning to hipfire. Source geometry, UVs, topology and skin
+remain authored; native bones and animations remain unchanged. Some fingertips
+are still visible and existing wrist/cuff transitions need further work. This is
+a localized improvement, not full grip or animation acceptance.
+
+[The all-class evidence index](tf2-fingertip-native-verification.json) contains
+before/after captures, exact hashes and the source integration checks. Both
+meshes for each of the eight new paths exactly match their native-reviewed
+candidate. Sixteen games exited 0 and retained the host profile; Gamescope
+teardown returned 139 separately. The source suite passes 168 tests with one
+existing skip. The separate Medic/Fishguy review is retained below.
+
+**Distribution status:** public v0.1.7-preview and the current personal installers
+include the fingertip correction for Fishguy and Medic. This later all-class
+extension is in source and has not yet been packaged into a new release. No new
+selection or bundle was applied to the actual game during these tests.
+
+## Earlier two-model fingertip correction, November 6
 
 A fresh native ADS check exposed fingers sticking out beside the MP.V on the
 released Medic fitting. The source fitter now uses the actual native fingertip

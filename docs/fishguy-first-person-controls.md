@@ -87,3 +87,21 @@ The integrated bundles are byte-identical to the native-reviewed prototypes.
 are recorded separately. Axis-only endpoints were insufficient; native tips bend
 in three dimensions. The third projected-topology control still opposed 164 of
 3,163 faces and was rejected without relaxing the fold guard.
+
+## Separate authored FPS-arm controls
+
+WRAD ARMS by wriks is a proper 1,196-triangle, 50-joint FPS arm asset with a
+CC0-1.0 license recorded in its downloaded README and license file. The GLB was
+imported as data with automatic scripts disabled; the author's Blender file was
+not loaded. [Author source](https://wriks.itch.io/wrad-arms).
+
+Two private native controls retained the existing 80 native bones and used joint
+fitting or additional palm fitting. The first still bunches at the wrist; the
+second visibly folds more severely. Neither is accepted or integrated, and the
+Fishguy world model remains unchanged. These results suggest a different asset
+alone is insufficient, without establishing one cause.
+
+![Rejected authored FPS-arm palm fit](screenshots/wrad-palm-hipfire-return-nov6.png)
+
+[Capture hashes, licensing provenance and limits](wrad-arm-control-verification.json)
+record both controls. No new model is silently substituted.

@@ -92,5 +92,6 @@
     "first_person.py": "17fbc3a33120ea88e9bf8d12258758668a790d9f1cfad0a463ae5c83f46f2082",
     "retarget.py": "131967bb872303e31653bdcbd2fb834c1a18a0a5be37d5119abec97020ddfd54",
     "leaf_tips.py": "31fef4d702062f30e731d8353400446da9a6f7e94db5d0831e4da1826e22a433"
-  }
+  },
+  "scope": "v0.1.7-preview packages at fc102b810a6aa64af18c566ceee51835a152edd2; predates the later all-class fingertip source extension"
 }

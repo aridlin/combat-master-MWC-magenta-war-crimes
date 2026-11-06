@@ -1,0 +1,510 @@
+{
+  "date": "2026-11-06",
+  "scope": "Eight additional genuine TF2 viewmodels; native stationary MP.V before/after ADS and return to hipfire, 1280x720 / deliberate 30 FPS cap",
+  "controls": [
+    {
+      "model": "tf2_scout",
+      "observation": "Protruding fingers curl much closer around the MP.V in ADS; two fingertips remain visible. Authored wraps and forearm look intact after return to hipfire. Center stays clear; full grip and animation remain open.",
+      "stationary_MP_V_fingertip_improvement_reviewed": true,
+      "full_grip_or_animation_acceptance": false,
+      "source_enablement_changed": true,
+      "installed_game_changed": false,
+      "integration": {
+        "model": "tf2_scout",
+        "reviewed_bundle_sha256": "38b905b0c70fde76bdc2e12787f5f778e05967200e49454552bb25e72c227402",
+        "renderers": [
+          {
+            "renderer": "-6446956547449719539",
+            "geometry_normals_UV_triangles_and_skin_exact": true,
+            "fitted_tips": 10,
+            "native_bones": 80
+          },
+          {
+            "renderer": "2264244255083033869",
+            "geometry_normals_UV_triangles_and_skin_exact": true,
+            "fitted_tips": 10,
+            "native_bones": 80
+          }
+        ],
+        "source_fitter_matches_native_reviewed_stage": true
+      },
+      "controls": [
+        {
+          "mode": "before",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "captures": [
+            {
+              "screenshot": "screenshots/tf2-scout-fingertip-before-ads-nov6.png",
+              "sha256": "665a11d2ba1e3a42157920961af5c1d15c6f474c1421e68f489cff1510d67bcc",
+              "visually_reviewed": true
+            }
+          ]
+        },
+        {
+          "mode": "caps",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "captures": [
+            {
+              "screenshot": "screenshots/tf2-scout-fingertip-caps-ads-nov6.png",
+              "sha256": "a31c9c353d73eb44429aa70fbc8ea7d20347241fdb4b5e0c1f26d7a900bfde20",
+              "visually_reviewed": true
+            },
+            {
+              "screenshot": "screenshots/tf2-scout-fingertip-caps-hipfire-nov6.png",
+              "sha256": "91b4afec3b618f515a62ce9d71c9f574fa23b076f77f534996125e5b5f18aefc",
+              "visually_reviewed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model": "tf2_soldier",
+      "observation": "Distal fingers curl toward the MP.V and protrude less in ADS. Authored red sleeve and bare hand remain intact in the return-to-hipfire capture; the existing bulky wrist transition remains. Center stays clear; full grip and animation acceptance remain open.",
+      "stationary_MP_V_fingertip_improvement_reviewed": true,
+      "full_grip_or_animation_acceptance": false,
+      "source_enablement_changed": true,
+      "installed_game_changed": false,
+      "integration": {
+        "model": "tf2_soldier",
+        "reviewed_bundle_sha256": "6f98565513ccf7a7c6f87aef58e961a96bd984de704d36c7d5eefb0aa6add99f",
+        "renderers": [
+          {
+            "renderer": "-6446956547449719539",
+            "geometry_normals_UV_triangles_and_skin_exact": true,
+            "fitted_tips": 10,
+            "native_bones": 80
+          },
+          {
+            "renderer": "2264244255083033869",
+            "geometry_normals_UV_triangles_and_skin_exact": true,
+            "fitted_tips": 10,
+            "native_bones": 80
+          }
+        ],
+        "source_fitter_matches_native_reviewed_stage": true
+      },
+      "controls": [
+        {
+          "mode": "before",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "captures": [
+            {
+              "screenshot": "screenshots/tf2-soldier-fingertip-before-ads-nov6.png",
+              "sha256": "545ba51c799c774e1f14a43ee7b670fc5766e6472b893cbc228144287d515e64",
+              "visually_reviewed": true
+            }
+          ]
+        },
+        {
+          "mode": "caps",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "captures": [
+            {
+              "screenshot": "screenshots/tf2-soldier-fingertip-caps-ads-nov6.png",
+              "sha256": "a7a1ceb577d4a965adb860af35193773c694526589e5cb97103ede14d224cdd9",
+              "visually_reviewed": true
+            },
+            {
+              "screenshot": "screenshots/tf2-soldier-fingertip-caps-hipfire-nov6.png",
+              "sha256": "fd988cfc35349d049476e1420636779b7e79f9eda0fae1f0c5e962ef15a2770c",
+              "visually_reviewed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model": "tf2_pyro",
+      "observation": "Large glove fingers formerly protruded beside the optic; the corrected distal segments curl closer around the MP.V. The authored glove, cuff and red sleeve look intact in return-to-hipfire. Center stays clear; full grip across weapons and animation remain unaccepted.",
+      "stationary_MP_V_fingertip_improvement_reviewed": true,
+      "full_grip_or_animation_acceptance": false,
+      "source_enablement_changed": true,
+      "installed_game_changed": false,
+      "integration": {
+        "model": "tf2_pyro",
+        "reviewed_bundle_sha256": "8ab53374b1c17fac295b547e1291fd7ab80a1123bba24d0de1ed1381354ed6ab",
+        "renderers": [
+          {
+            "renderer": "-6446956547449719539",
+            "geometry_normals_UV_triangles_and_skin_exact": true,
+            "fitted_tips": 10,
+            "native_bones": 80
+          },
+          {
+            "renderer": "2264244255083033869",
+            "geometry_normals_UV_triangles_and_skin_exact": true,
+            "fitted_tips": 10,
+            "native_bones": 80
+          }
+        ],
+        "source_fitter_matches_native_reviewed_stage": true
+      },
+      "controls": [
+        {
+          "mode": "before",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "captures": [
+            {
+              "screenshot": "screenshots/tf2-pyro-fingertip-before-ads-nov6.png",
+              "sha256": "1689e9595abc6cf3d4384529f097f0e50917c5afa1e74f19deadc0e6241b9350",
+              "visually_reviewed": true
+            }
+          ]
+        },
+        {
+          "mode": "caps",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "captures": [
+            {
+              "screenshot": "screenshots/tf2-pyro-fingertip-caps-ads-nov6.png",
+              "sha256": "fcf0c2fd631e2ccef6907eb6fc0eb3f5daa17b5a1a9949f6ab5b629a9e7ad102",
+              "visually_reviewed": true
+            },
+            {
+              "screenshot": "screenshots/tf2-pyro-fingertip-caps-hipfire-nov6.png",
+              "sha256": "9850e733fd85080dc7e1de1666a9bbe3e0b255ff45a51f274fe0b382566ec15b",
+              "visually_reviewed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model": "tf2_demoman",
+      "observation": "Distal fingers now curl closely around the MP.V in ADS instead of protruding. The white sleeve and dark hand remain visible in return-to-hipfire; the bulky wrist transition remains. Center stays clear; full grip and animation acceptance remain open.",
+      "stationary_MP_V_fingertip_improvement_reviewed": true,
+      "full_grip_or_animation_acceptance": false,
+      "source_enablement_changed": true,
+      "installed_game_changed": false,
+      "integration": {
+        "model": "tf2_demoman",
+        "reviewed_bundle_sha256": "f057907b574a621cca74fdc5b8d5b15a20a44a086c6511528c2066f7266eb112",
+        "renderers": [
+          {
+            "renderer": "-6446956547449719539",
+            "geometry_normals_UV_triangles_and_skin_exact": true,
+            "fitted_tips": 10,
+            "native_bones": 80
+          },
+          {
+            "renderer": "2264244255083033869",
+            "geometry_normals_UV_triangles_and_skin_exact": true,
+            "fitted_tips": 10,
+            "native_bones": 80
+          }
+        ],
+        "source_fitter_matches_native_reviewed_stage": true
+      },
+      "controls": [
+        {
+          "mode": "before",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "captures": [
+            {
+              "screenshot": "screenshots/tf2-demoman-fingertip-before-ads-nov6.png",
+              "sha256": "43e234ab1d0feb6bca369479bcd82a635b1e6168ec77599abe984ef8ef2ada0b",
+              "visually_reviewed": true
+            }
+          ]
+        },
+        {
+          "mode": "caps",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "captures": [
+            {
+              "screenshot": "screenshots/tf2-demoman-fingertip-caps-ads-nov6.png",
+              "sha256": "8a6b079cdeb9f356d738eefc57a355437f72f8eca22e51f79b15281263f96938",
+              "visually_reviewed": true
+            },
+            {
+              "screenshot": "screenshots/tf2-demoman-fingertip-caps-hipfire-nov6.png",
+              "sha256": "2f8b37ecf6656a52958313784069e1d70d26b3198e06a4c5ede4ea8052806d7f",
+              "visually_reviewed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model": "tf2_heavy",
+      "observation": "Distal fingers protrude substantially less in ADS. The authored bare forearm and dark glove/cuff remain in return-to-hipfire; cuff placement still needs broader weapon/motion review. Center stays clear; full grip and animation acceptance remain open.",
+      "stationary_MP_V_fingertip_improvement_reviewed": true,
+      "full_grip_or_animation_acceptance": false,
+      "source_enablement_changed": true,
+      "installed_game_changed": false,
+      "integration": {
+        "model": "tf2_heavy",
+        "reviewed_bundle_sha256": "cec9a9861202dc66c7da5a6fa7f8f2cec7ed4e245b1b5de2c5ffc614c27c56b1",
+        "renderers": [
+          {
+            "renderer": "-6446956547449719539",
+            "geometry_normals_UV_triangles_and_skin_exact": true,
+            "fitted_tips": 10,
+            "native_bones": 80
+          },
+          {
+            "renderer": "2264244255083033869",
+            "geometry_normals_UV_triangles_and_skin_exact": true,
+            "fitted_tips": 10,
+            "native_bones": 80
+          }
+        ],
+        "source_fitter_matches_native_reviewed_stage": true
+      },
+      "controls": [
+        {
+          "mode": "before",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "captures": [
+            {
+              "screenshot": "screenshots/tf2-heavy-fingertip-before-ads-nov6.png",
+              "sha256": "78f1a29fc20e500c22130d65e124f68654e095bef82f94a16abbe9a157b95b66",
+              "visually_reviewed": true
+            }
+          ]
+        },
+        {
+          "mode": "caps",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "captures": [
+            {
+              "screenshot": "screenshots/tf2-heavy-fingertip-caps-ads-nov6.png",
+              "sha256": "6801e3d7248df90343cc97f92ed6b49facb348c2df9bb7a747c2ce55099dcde0",
+              "visually_reviewed": true
+            },
+            {
+              "screenshot": "screenshots/tf2-heavy-fingertip-caps-hipfire-nov6.png",
+              "sha256": "a6070d3c4b12a9015fab588043fe803038277ff7be68b8cbc196c075c0004185",
+              "visually_reviewed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model": "tf2_engineer",
+      "observation": "Distal fingers curl closer around the MP.V in ADS. The bare forearm remains visible after returning to hipfire. The existing wrist slit/transition remains visible in the aiming comparison and is not solved by the fingertip change. Center stays clear; full grip and animation acceptance remain open.",
+      "stationary_MP_V_fingertip_improvement_reviewed": true,
+      "full_grip_or_animation_acceptance": false,
+      "source_enablement_changed": true,
+      "installed_game_changed": false,
+      "integration": {
+        "model": "tf2_engineer",
+        "reviewed_bundle_sha256": "402bbe20bff568f1b360e6f0da7cb86125156b2423e7c37bf808a02c4ee55145",
+        "renderers": [
+          {
+            "renderer": "-6446956547449719539",
+            "geometry_normals_UV_triangles_and_skin_exact": true,
+            "fitted_tips": 10,
+            "native_bones": 80
+          },
+          {
+            "renderer": "2264244255083033869",
+            "geometry_normals_UV_triangles_and_skin_exact": true,
+            "fitted_tips": 10,
+            "native_bones": 80
+          }
+        ],
+        "source_fitter_matches_native_reviewed_stage": true
+      },
+      "controls": [
+        {
+          "mode": "before",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "captures": [
+            {
+              "screenshot": "screenshots/tf2-engineer-fingertip-before-ads-nov6.png",
+              "sha256": "00135f7c3cfc3f1c6bcc5d06fd61367f52e7a7fe00608e7c8e04eb0c36cd68ca",
+              "visually_reviewed": true
+            }
+          ]
+        },
+        {
+          "mode": "caps",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "captures": [
+            {
+              "screenshot": "screenshots/tf2-engineer-fingertip-caps-ads-nov6.png",
+              "sha256": "18f559e8b7b09f08eb213bb6a8018aa7b33321d8904e69a8bd5f088c5a34a01a",
+              "visually_reviewed": true
+            },
+            {
+              "screenshot": "screenshots/tf2-engineer-fingertip-caps-hipfire-nov6.png",
+              "sha256": "5d92d835fc8ec2ba3d1a53f12771bbe4e5610eabab8fd56025d37cad46fc0996",
+              "visually_reviewed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model": "tf2_sniper",
+      "observation": "Distal fingers now curl much closer to the MP.V in ADS. The authored brown glove and bare forearm remain intact in return-to-hipfire, with a clear center. Full grip across weapons, wrist motion and reload acceptance remain open.",
+      "stationary_MP_V_fingertip_improvement_reviewed": true,
+      "full_grip_or_animation_acceptance": false,
+      "source_enablement_changed": true,
+      "installed_game_changed": false,
+      "integration": {
+        "model": "tf2_sniper",
+        "reviewed_bundle_sha256": "08ba47e4535ca209028491b0a71a42804f24378ff9f9b745042c665a59415c9f",
+        "renderers": [
+          {
+            "renderer": "-6446956547449719539",
+            "geometry_normals_UV_triangles_and_skin_exact": true,
+            "fitted_tips": 10,
+            "native_bones": 80
+          },
+          {
+            "renderer": "2264244255083033869",
+            "geometry_normals_UV_triangles_and_skin_exact": true,
+            "fitted_tips": 10,
+            "native_bones": 80
+          }
+        ],
+        "source_fitter_matches_native_reviewed_stage": true
+      },
+      "controls": [
+        {
+          "mode": "before",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "captures": [
+            {
+              "screenshot": "screenshots/tf2-sniper-fingertip-before-ads-nov6.png",
+              "sha256": "7182d80527c1404f69a9d287be6df8ac9422c5a119c1e1c99c50fa2b8bc5e77d",
+              "visually_reviewed": true
+            }
+          ]
+        },
+        {
+          "mode": "caps",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "captures": [
+            {
+              "screenshot": "screenshots/tf2-sniper-fingertip-caps-ads-nov6.png",
+              "sha256": "7541f2d06ae0abc9a3c7cac9f63c694c99ece59d97c0867529f602693077e44d",
+              "visually_reviewed": true
+            },
+            {
+              "screenshot": "screenshots/tf2-sniper-fingertip-caps-hipfire-nov6.png",
+              "sha256": "bb0bd93a75262b3919f79d5d486827802da43fc4b180108bb7af41e0aa81a68e",
+              "visually_reviewed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model": "tf2_spy",
+      "observation": "The black glove fingers protrude less beside the MP.V in ADS. The pinstripe sleeve and white cuff remain intact after returning to hipfire. Center stays clear; full grip across weapons, motion and reloads remain unaccepted.",
+      "stationary_MP_V_fingertip_improvement_reviewed": true,
+      "full_grip_or_animation_acceptance": false,
+      "source_enablement_changed": true,
+      "installed_game_changed": false,
+      "integration": {
+        "model": "tf2_spy",
+        "reviewed_bundle_sha256": "f3b9fe538603b10a5417280cc068e836d92b0f6ddd420bed2282ad5e9692dab7",
+        "renderers": [
+          {
+            "renderer": "-6446956547449719539",
+            "geometry_normals_UV_triangles_and_skin_exact": true,
+            "fitted_tips": 10,
+            "native_bones": 80
+          },
+          {
+            "renderer": "2264244255083033869",
+            "geometry_normals_UV_triangles_and_skin_exact": true,
+            "fitted_tips": 10,
+            "native_bones": 80
+          }
+        ],
+        "source_fitter_matches_native_reviewed_stage": true
+      },
+      "controls": [
+        {
+          "mode": "before",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "captures": [
+            {
+              "screenshot": "screenshots/tf2-spy-fingertip-before-ads-nov6.png",
+              "sha256": "08be9ac40f687dea0f2d41de396160f6933ff908fb727e2036e1fdadaa93e4fa",
+              "visually_reviewed": true
+            }
+          ]
+        },
+        {
+          "mode": "caps",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_unchanged": true,
+          "captures": [
+            {
+              "screenshot": "screenshots/tf2-spy-fingertip-caps-ads-nov6.png",
+              "sha256": "37eb17e8a3edd9f9fad99cb39ee0b847ee67ac16366efea975aa21d4c847a077",
+              "visually_reviewed": true
+            },
+            {
+              "screenshot": "screenshots/tf2-spy-fingertip-caps-hipfire-nov6.png",
+              "sha256": "85a02100fb6719fa36500fe6c37f20b02ee4db9aa22420a9377713d94ec67ebb",
+              "visually_reviewed": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "medic_and_fishguy_previous_review": "finger-tip-native-verification.json",
+  "production_enabled_models": [
+    "fishguy",
+    "tf2_scout",
+    "tf2_soldier",
+    "tf2_pyro",
+    "tf2_demoman",
+    "tf2_heavy",
+    "tf2_engineer",
+    "tf2_sniper",
+    "tf2_spy",
+    "tf2_medic"
+  ],
+  "source_tests": {
+    "run": 169,
+    "passed": 168,
+    "existing_skip": 1
+  },
+  "source_geometry_matches_all_16_reviewed_meshes": true,
+  "native_games_exited_zero": 16,
+  "host_profiles_unchanged": true,
+  "game_installation_changed": false,
+  "public_v017_contains_only_fishguy_and_medic_tip_fix": true,
+  "full_grip_animation_and_performance_acceptance": false
+}

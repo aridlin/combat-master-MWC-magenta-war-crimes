@@ -1,0 +1,58 @@
+{
+  "source": "https://wriks.itch.io/wrad-arms",
+  "author": "wriks",
+  "license": "CC0-1.0",
+  "source_archive_sha256": "d5f91fdc9bd6465dc59b54265ca2aefe2dc881c00b6c7a9c76bd0b80fa498093",
+  "source_triangles": 1196,
+  "source_bones": 50,
+  "native_bones_preserved": 80,
+  "authored_asset_used": true,
+  "unknown_asset_scripts_executed": false,
+  "controls": [
+    {
+      "control": "wrad-joint",
+      "observed": "Thin forearm with bunched/overbright wrist/hand; not accepted as a wrist fix",
+      "accepted_as_fix": false,
+      "captures": [
+        {
+          "screenshot": "screenshots/wrad-joint-ads-nov6.png",
+          "sha256": "c97ff71a7aabf1af12601eca1e4bb9fd95ce2afb683ac839c641c7ad4c7efd3a",
+          "visually_reviewed": true
+        },
+        {
+          "screenshot": "screenshots/wrad-joint-hipfire-return-nov6.png",
+          "sha256": "ba006ee42bb7456e2df5dc7357403a4fe5cb36d250fe10a7038c3c9791737ca3",
+          "visually_reviewed": true
+        }
+      ],
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "installed_or_world_fishguy_model_changed": false
+    },
+    {
+      "control": "wrad-palm",
+      "observed": "Pronounced wrist/palm folding and poor grip; rejected",
+      "accepted_as_fix": false,
+      "captures": [
+        {
+          "screenshot": "screenshots/wrad-palm-ads-nov6.png",
+          "sha256": "659fcc1f9ab70c88ab6975a6d5363333c0e5334d18992ea006a128d187473292",
+          "visually_reviewed": true
+        },
+        {
+          "screenshot": "screenshots/wrad-palm-hipfire-return-nov6.png",
+          "sha256": "56469701e7ed42545541b5730b55c11f72887d83a891b73852c206de32d87d9c",
+          "visually_reviewed": true
+        }
+      ],
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true,
+      "installed_or_world_fishguy_model_changed": false
+    }
+  ],
+  "inference": "A different authored FPS mesh still folds under the current fitting; asset choice alone has not solved the problem. These controls do not establish a single cause.",
+  "production_integration": false,
+  "asset_binaries_bundled": false
+}

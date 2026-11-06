@@ -9,7 +9,10 @@ import numpy as np
 from UnityPy.helpers.MeshHelper import MeshHandler
 from .native_weights import read
 
-REVIEWED_MODELS = frozenset({'fishguy', 'tf2_medic'})
+REVIEWED_MODELS = frozenset({
+    'fishguy', 'tf2_scout', 'tf2_soldier', 'tf2_pyro', 'tf2_demoman',
+    'tf2_heavy', 'tf2_engineer', 'tf2_medic', 'tf2_sniper', 'tf2_spy',
+})
 FINGERS = ('Thumb', 'Index', 'Middle', 'Ring', 'Pinky')
 
 
