@@ -83,5 +83,7 @@
     "installed_game_modified": false,
     "personal_installer_replaced": false
   },
-  "release_published": false
+  "release_published": true,
+  "release_url": "https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.5-preview",
+  "release_assets_verified": true
 }

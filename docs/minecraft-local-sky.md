@@ -55,8 +55,8 @@ and bounded camera-look inputs. The tested Parvis bundle used original map
 surfaces, rather than the installed halftone terrain, so this is not yet a native
 coexistence check of every installed layer. Day/night cycling, nighttime, native
 six-sided orientation/seams, full map coverage and 4K performance remain
-unaccepted. Tests and previews are not full in-game acceptance. These changes
-are newer than the frontend-only v0.1.4-preview release.
+unaccepted. Tests and previews are not full in-game acceptance. This importer is included in
+[v0.1.5-preview](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.5-preview).
 
 Separate Linux and Windows installer candidates were built from source commit
 `5a9373d`. The [package hashes and runtime checks](minecraft-local-sky-installer-verification.json)

@@ -20,9 +20,9 @@ preview or serialized mesh check is not full animation acceptance.
 | Sonic impact grenade | Authored curled Sonic mesh, three held LODs and thrown visual. Private composition/removal checks preserve original physics/damage components. | Native held/thrown appearance; optional Sonic audio has not been implemented |
 | Minecraft-style sky | Generated mode preserved; optional local classic client importer implemented. Eight bundles/11 materials file-verified; native Parvis shows bright blue sky, square clouds and sun using the local source. | [Local importer limits](minecraft-local-sky.md): native six-sided orientation/seams, nighttime, all installed layers and 4K performance |
 | Magenta, gold attachments, crates, menu, sights and helicopter glass | Existing independent controls and layers retained. Each module's file/reference checks are recorded. | Outstanding game-visible checks are listed in the linked feature documents |
-| Mod manager | Per-operator assignment, explicit shared-prefab conflicts, per-model Magenta and separate native-operator color control, verified backups, recovery journal and restoration. New pilot import and save controls tested in the packaged Linux GUI. | New pilot Windows GUI/import verification is in progress; Windows game editing remains untested |
+| Mod manager | Per-operator assignment, explicit shared-prefab conflicts, per-model Magenta and separate native-operator color control, verified backups, recovery journal and restoration. New pilot import and save controls tested in the packaged Linux GUI. | Packaged GUI/runtime checks distinguish Linux from Wine; native Windows game editing remains untested |
 
-The newer native pilot/sky source is ahead of **v0.1.2-preview**. The local installation now assigns Ranger → magenta armored human Grapple and
+The [v0.1.5-preview installers](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.5-preview) include local classic sky import, genuine Medic viewmodel arms and optional Audiojungle excerpts. The local installation now assigns Ranger → magenta armored human Grapple and
 Dozer → Shrek. Its six-bundle update was installed through the existing journaled
 transaction engine; all 81 installed/original backup hashes and six undo copies
 were verified. The other 75 bundles, including Lynx/weapon bundles and cat audio,
@@ -30,7 +30,7 @@ remain byte-exact. All 17 selected mods are retained. Private preview slot
 assignments never become user choices automatically. The intentionally stretched
 Fishguy seal is retained.
 
-The current source suite ran **132 tests: 131 passed and one existing skip**.
+The current source suite ran **157 tests: 156 passed and one existing skip**.
 Native checks used a copied profile, read-only game overrides, an isolated
 network namespace and a private 1280x720 NVIDIA/Vulkan display capped at 30 FPS.
 No movement or firing inputs were sent. The host profile was unchanged and the
