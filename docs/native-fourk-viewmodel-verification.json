@@ -1,0 +1,103 @@
+{
+  "date": "2026-11-06",
+  "session": "headless-tf2-nativefourk-fp-v89",
+  "scope": "Installed magenta armored Grapple viewmodel with MP.V and gold attachments at 3840x2160 output: stationary hipfire, ADS and return",
+  "platform": "Native Linux Unity IL2CPP / NVIDIA Vulkan",
+  "gpu_confirmed_in_game_log": "NVIDIA GeForce RTX 4060 Ti",
+  "output_resolution": [
+    3840,
+    2160
+  ],
+  "game_settings_observed_not_changed": {
+    "render_quality": "Ultra",
+    "display_resolution": "3840 x 2160",
+    "world_FOV": 60,
+    "hands_FOV": 60,
+    "vsync": "On"
+  },
+  "internal_scene_render_scale_independently_measured": false,
+  "frame_rate_cap": 30,
+  "performance_benchmark": false,
+  "observation": "Grapple armor/glove, magenta material, gold weapon/sights and native reticle render in the reviewed stationary poses; ADS center is clear. Does not establish every grip or animation.",
+  "captures_personally_reviewed": true,
+  "captures": [
+    {
+      "path": "screenshots/fourk-graphics-settings-nov6.png",
+      "size": [
+        3840,
+        2160
+      ],
+      "bytes": 1762839,
+      "sha256": "2257c5f5ffd06521b7cac8211ef06b309997cb0efecde3335dee3117b202f04f",
+      "native_capture_not_resized": true
+    },
+    {
+      "path": "screenshots/fourk-graphics-bottom-nov6.png",
+      "size": [
+        3840,
+        2160
+      ],
+      "bytes": 1811273,
+      "sha256": "3ccb269bde3c0af4e65413e1d671565325fe6642e1e746a1dce61846688a4b94",
+      "native_capture_not_resized": true
+    },
+    {
+      "path": "screenshots/fourk-installed-ads-nov6.png",
+      "size": [
+        3840,
+        2160
+      ],
+      "bytes": 2621495,
+      "sha256": "18940943d681c892181f26f92aaa520cf51fdc80e73a3396787f39bfd34d6ad4",
+      "native_capture_not_resized": true
+    },
+    {
+      "path": "screenshots/fourk-installed-hipfire-return-nov6.png",
+      "size": [
+        3840,
+        2160
+      ],
+      "bytes": 3786804,
+      "sha256": "c2062bf73bd77237959ba9753111a8bcb006dc5633130aa055090a5f5163f246",
+      "native_capture_not_resized": true
+    }
+  ],
+  "range_image_gate": {
+    "reference": "headless-native-ads-control-v51/range-stationary.png",
+    "capture_size": [
+      3840,
+      2160
+    ],
+    "comparison_size": [
+      1280,
+      720
+    ],
+    "comparison_filter": "LANCZOS; recognition only, originals retained at 4K",
+    "scores": [
+      0.9928148148148148,
+      0.9995652173913043
+    ],
+    "threshold": 0.98
+  },
+  "native_game_exit": 0,
+  "compositor_teardown_exit": 139,
+  "host_profile_unchanged": true,
+  "installed_assignments": {
+    "operator_0": "titanfall_grapple",
+    "operator_30": "shrek"
+  },
+  "installer_state_sha256_unchanged": "237b7c7dd2d43a6aecd25bcb6917297a9c401eb02e1bd0c66c79f81ac3924432",
+  "selected_mod_count": 17,
+  "network_isolated": true,
+  "host_audio_or_physical_output_used": false,
+  "movement_or_firing_inputs_sent": false,
+  "host_settings_or_game_assets_changed": false,
+  "limits": [
+    "Only installed Grapple arms with MP.V in an empty range; not all models/weapons/maps",
+    "No firing, reload, movement, throw or helicopter tests",
+    "30 FPS output cap, VSync and active desktop/recorder prevent FPS/performance conclusions",
+    "Output resolution is confirmed; internal scene render scale not independently measured",
+    "Native Windows game compatibility remains untested",
+    "Gamescope teardown returned 139 separately from native game exit 0"
+  ]
+}

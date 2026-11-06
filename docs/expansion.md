@@ -37,6 +37,15 @@ No movement or firing inputs were sent. The host profile was unchanged and the
 game exited with code 0; Gamescope returned 139 during shutdown. This does not
 prove broad stability or 4K performance.
 
+A subsequent [3840×2160 native Linux output check](native-fourk-viewmodel-verification.json)
+reviewed the installed magenta Grapple arms, MP.V and gold sights in stationary
+hipfire, ADS and return. The settings UI confirmed that output resolution and
+the copied profile's Ultra preset, without changing settings. Full-resolution
+captures are retained. The reticle center is clear in these views. The 30 FPS
+cap, VSync and active recorder prevent performance conclusions; internal scene
+render scale was not independently measured. Other models, weapons, animations
+and maps are not covered by this check.
+
 ## Sources and detailed evidence
 
 - [Native operator review and material/rig corrections](operator-runtime-review.md)
