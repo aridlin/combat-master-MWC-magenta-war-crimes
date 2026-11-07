@@ -136,5 +136,26 @@
     "accepted": false,
     "bundled": false,
     "reason": "Native palm-driver weight transfer at the exact implicated majority-hand corner did not remove any of the three reload contact failures"
+  },
+  "full_native_wrist_contour_followup": {
+    "method": "Full original 16-vertex native wrist contour with authored hand-edge subdivision; no joining strip",
+    "owned_repeated_boundary_subdivision_control": true,
+    "vertices": 3666,
+    "triangles": 1748,
+    "all_native_forearm_geometry_and_skin_exact": true,
+    "remaining_boundary_loops": 2,
+    "native_bones_bind_or_animations_changed": false,
+    "texture_not_baked": true,
+    "all_34_poses_no_hand_forearm_contacts": false,
+    "no_new_authored_hand_crossings": false,
+    "accepted": false,
+    "bundled": false,
+    "installed": false,
+    "native_game_tested": false,
+    "poses": 34,
+    "poses_with_hand_forearm_contacts": 7,
+    "hand_forearm_contact_occurrences": 24,
+    "poses_with_new_authored_hand_pairs": 6,
+    "new_authored_parent_pair_occurrences": 8
   }
 }

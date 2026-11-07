@@ -333,3 +333,14 @@ but retained both contacts in every failing reload sample. It therefore did
 not proceed to a full-pose gate or bundle. This rules out that specific local
 weight-only correction; the contour correspondence and adjacent palm geometry
 still need work.
+
+A second geometry control subdivided the authored eight-edge hand boundary
+to the full original 16-vertex wrist contour, retaining every original bare
+forearm triangle and its original skin weights. It used no joining strip.
+An owned repeated-edge-splitting control checked orientation, total area and
+boundary continuity before the actual mesh test. The resulting 1,748-triangle
+mesh retained only the two proximal arm openings, but seven of 34 isolated
+poses still contained hand/forearm contacts (24 pair occurrences). Six poses
+introduced new authored parent-face crossing pairs. This alternative was not
+textured, bundled or tested in-game. Increasing the contour resolution alone
+does not repair the adjacent authored palm geometry and its pose response.
