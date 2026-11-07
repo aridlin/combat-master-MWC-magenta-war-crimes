@@ -1,0 +1,1678 @@
+{
+  "source_sha256": "2db4ea936380543d32232a1f5250c2a2984f5473b5c8ce177584dd9a3d4c5c14",
+  "operator": "operator_30",
+  "editor_version": "6000.6.5f1",
+  "game_version": "6000.3.19f1",
+  "isolated_pose_samples": 21,
+  "native_LOD_rigs": 3,
+  "renderer_pose_comparisons": 63,
+  "bone_matrices_compared": 5229,
+  "owned_Unity_Mathematics_EulerZYX_control_error": 7.135091872889632e-08,
+  "maximum_position_error_m": 5.632546909450675e-07,
+  "maximum_matrix_error": 5.120396725621923e-06,
+  "rows": [
+    {
+      "clip": "MP5_Idle",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.830659661,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 4.5043053579933856e-07,
+      "maximum_matrix_error": 5.063161448215503e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Idle",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.830659661,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 4.5043053579933856e-07,
+      "maximum_matrix_error": 5.063161448215503e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Idle",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.830659661,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 4.5043053579933856e-07,
+      "maximum_matrix_error": 5.063161448215503e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Idle",
+      "frame": 51,
+      "seconds": 1.7,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.831228018,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 5.260321719808332e-07,
+      "maximum_matrix_error": 5.120396725621923e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Idle",
+      "frame": 51,
+      "seconds": 1.7,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.831228018,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 5.260321719808332e-07,
+      "maximum_matrix_error": 5.120396725621923e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Idle",
+      "frame": 51,
+      "seconds": 1.7,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.831228018,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 5.260321719808332e-07,
+      "maximum_matrix_error": 5.120396725621923e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Idle",
+      "frame": 102,
+      "seconds": 3.4,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.830693901,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 4.178159860702395e-07,
+      "maximum_matrix_error": 5.06644563380565e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Idle",
+      "frame": 102,
+      "seconds": 3.4,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.830693901,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 4.178159860702395e-07,
+      "maximum_matrix_error": 5.06644563380565e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Idle",
+      "frame": 102,
+      "seconds": 3.4,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.830693901,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 4.178159860702395e-07,
+      "maximum_matrix_error": 5.06644563380565e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Run",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 54,
+      "native_matrix_delta_from_rest": 1.718621561,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.5421727604133364e-07,
+      "maximum_matrix_error": 4.315878927019234e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Run",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 54,
+      "native_matrix_delta_from_rest": 1.718621561,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.5421727604133364e-07,
+      "maximum_matrix_error": 4.315878927019234e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Run",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 54,
+      "native_matrix_delta_from_rest": 1.718621561,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.5421727604133364e-07,
+      "maximum_matrix_error": 4.315878927019234e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Run",
+      "frame": 9,
+      "seconds": 0.3,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.6746171109999999,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 2.5284222139484e-07,
+      "maximum_matrix_error": 4.328602173919727e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Run",
+      "frame": 9,
+      "seconds": 0.3,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.6746171109999999,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 2.5284222139484e-07,
+      "maximum_matrix_error": 4.328602173919727e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Run",
+      "frame": 9,
+      "seconds": 0.3,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.6746171109999999,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 2.5284222139484e-07,
+      "maximum_matrix_error": 4.328602173919727e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Run",
+      "frame": 18,
+      "seconds": 0.6,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 54,
+      "native_matrix_delta_from_rest": 1.704069793,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.667149226500118e-07,
+      "maximum_matrix_error": 4.581881570819846e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Run",
+      "frame": 18,
+      "seconds": 0.6,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 54,
+      "native_matrix_delta_from_rest": 1.704069793,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.667149226500118e-07,
+      "maximum_matrix_error": 4.581881570819846e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Run",
+      "frame": 18,
+      "seconds": 0.6,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 54,
+      "native_matrix_delta_from_rest": 1.704069793,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.667149226500118e-07,
+      "maximum_matrix_error": 4.581881570819846e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Jump",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 18,
+      "native_matrix_delta_from_rest": 0.8277549978446,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.5427606865246027e-07,
+      "maximum_matrix_error": 4.722808526258504e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Jump",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 18,
+      "native_matrix_delta_from_rest": 0.8277549978446,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.5427606865246027e-07,
+      "maximum_matrix_error": 4.722808526258504e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Jump",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 18,
+      "native_matrix_delta_from_rest": 0.8277549978446,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.5427606865246027e-07,
+      "maximum_matrix_error": 4.722808526258504e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Jump",
+      "frame": 9,
+      "seconds": 0.3,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 18,
+      "native_matrix_delta_from_rest": 0.9720414959,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.49491461562504e-07,
+      "maximum_matrix_error": 4.837496335396985e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Jump",
+      "frame": 9,
+      "seconds": 0.3,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 18,
+      "native_matrix_delta_from_rest": 0.9720414959,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.49491461562504e-07,
+      "maximum_matrix_error": 4.837496335396985e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Jump",
+      "frame": 9,
+      "seconds": 0.3,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 18,
+      "native_matrix_delta_from_rest": 0.9720414959,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.49491461562504e-07,
+      "maximum_matrix_error": 4.837496335396985e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Jump",
+      "frame": 19,
+      "seconds": 0.6333333333333333,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 17,
+      "native_matrix_delta_from_rest": 0.6445558220000001,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.048082159370839e-07,
+      "maximum_matrix_error": 4.67795309655461e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Jump",
+      "frame": 19,
+      "seconds": 0.6333333333333333,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 17,
+      "native_matrix_delta_from_rest": 0.6445558220000001,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.048082159370839e-07,
+      "maximum_matrix_error": 4.67795309655461e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Jump",
+      "frame": 19,
+      "seconds": 0.6333333333333333,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 17,
+      "native_matrix_delta_from_rest": 0.6445558220000001,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.048082159370839e-07,
+      "maximum_matrix_error": 4.67795309655461e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Slide_Start",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 29,
+      "native_matrix_delta_from_rest": 1.0223833870999999,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 2.5940202326959083e-07,
+      "maximum_matrix_error": 4.78161837369484e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Slide_Start",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 29,
+      "native_matrix_delta_from_rest": 1.0223833870999999,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 2.5940202326959083e-07,
+      "maximum_matrix_error": 4.78161837369484e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Slide_Start",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 29,
+      "native_matrix_delta_from_rest": 1.0223833870999999,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 2.5940202326959083e-07,
+      "maximum_matrix_error": 4.78161837369484e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Slide_Start",
+      "frame": 13,
+      "seconds": 0.43333333333333335,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 29,
+      "native_matrix_delta_from_rest": 1.43684606,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 2.571022667804371e-07,
+      "maximum_matrix_error": 4.724164833880273e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Slide_Start",
+      "frame": 13,
+      "seconds": 0.43333333333333335,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 29,
+      "native_matrix_delta_from_rest": 1.43684606,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 2.571022667804371e-07,
+      "maximum_matrix_error": 4.724164833880273e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Slide_Start",
+      "frame": 13,
+      "seconds": 0.43333333333333335,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 29,
+      "native_matrix_delta_from_rest": 1.43684606,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 2.571022667804371e-07,
+      "maximum_matrix_error": 4.724164833880273e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Slide_Start",
+      "frame": 26,
+      "seconds": 0.8666666666666667,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 29,
+      "native_matrix_delta_from_rest": 1.5526559,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.1533384513762536e-07,
+      "maximum_matrix_error": 4.724164833880273e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Slide_Start",
+      "frame": 26,
+      "seconds": 0.8666666666666667,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 29,
+      "native_matrix_delta_from_rest": 1.5526559,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.1533384513762536e-07,
+      "maximum_matrix_error": 4.724164833880273e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Slide_Start",
+      "frame": 26,
+      "seconds": 0.8666666666666667,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 29,
+      "native_matrix_delta_from_rest": 1.5526559,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.1533384513762536e-07,
+      "maximum_matrix_error": 4.724164833880273e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Slide_Loop",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 29,
+      "native_matrix_delta_from_rest": 1.436048073,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.152249516274408e-07,
+      "maximum_matrix_error": 4.802441788687162e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Slide_Loop",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 29,
+      "native_matrix_delta_from_rest": 1.436048073,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.152249516274408e-07,
+      "maximum_matrix_error": 4.802441788687162e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Slide_Loop",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 29,
+      "native_matrix_delta_from_rest": 1.436048073,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.152249516274408e-07,
+      "maximum_matrix_error": 4.802441788687162e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Slide_Loop",
+      "frame": 8,
+      "seconds": 0.26666666666666666,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 29,
+      "native_matrix_delta_from_rest": 1.4453293,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.359037798573269e-07,
+      "maximum_matrix_error": 4.724164834102318e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Slide_Loop",
+      "frame": 8,
+      "seconds": 0.26666666666666666,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 29,
+      "native_matrix_delta_from_rest": 1.4453293,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.359037798573269e-07,
+      "maximum_matrix_error": 4.724164834102318e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Slide_Loop",
+      "frame": 8,
+      "seconds": 0.26666666666666666,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 29,
+      "native_matrix_delta_from_rest": 1.4453293,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.359037798573269e-07,
+      "maximum_matrix_error": 4.724164834102318e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Slide_Loop",
+      "frame": 16,
+      "seconds": 0.5333333333333333,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 29,
+      "native_matrix_delta_from_rest": 1.5526559,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.229079952502157e-07,
+      "maximum_matrix_error": 4.7241648343243625e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Slide_Loop",
+      "frame": 16,
+      "seconds": 0.5333333333333333,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 29,
+      "native_matrix_delta_from_rest": 1.5526559,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.229079952502157e-07,
+      "maximum_matrix_error": 4.7241648343243625e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Slide_Loop",
+      "frame": 16,
+      "seconds": 0.5333333333333333,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 29,
+      "native_matrix_delta_from_rest": 1.5526559,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.229079952502157e-07,
+      "maximum_matrix_error": 4.7241648343243625e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Reload",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.830659861,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 5.632546909450675e-07,
+      "maximum_matrix_error": 5.055864413128219e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Reload",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.830659861,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 5.632546909450675e-07,
+      "maximum_matrix_error": 5.055864413128219e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Reload",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.830659861,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 5.632546909450675e-07,
+      "maximum_matrix_error": 5.055864413128219e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Reload",
+      "frame": 28,
+      "seconds": 0.9333333333333333,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.5259041,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 5.536051475587026e-07,
+      "maximum_matrix_error": 4.4181359981632085e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Reload",
+      "frame": 28,
+      "seconds": 0.9333333333333333,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.5259041,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 5.536051475587026e-07,
+      "maximum_matrix_error": 4.4181359981632085e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Reload",
+      "frame": 28,
+      "seconds": 0.9333333333333333,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.5259041,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 5.536051475587026e-07,
+      "maximum_matrix_error": 4.4181359981632085e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Reload",
+      "frame": 57,
+      "seconds": 1.9,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.788679561,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 5.130451710253025e-07,
+      "maximum_matrix_error": 4.925219375673251e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Reload",
+      "frame": 57,
+      "seconds": 1.9,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.788679561,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 5.130451710253025e-07,
+      "maximum_matrix_error": 4.925219375673251e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "MP5_Reload",
+      "frame": 57,
+      "seconds": 1.9,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.788679561,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 5.130451710253025e-07,
+      "maximum_matrix_error": 4.925219375673251e-06,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "Lobby_MP5_Idle",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.7142982,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.07850774806902e-07,
+      "maximum_matrix_error": 5.997384606715173e-07,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "Lobby_MP5_Idle",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.7142982,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.07850774806902e-07,
+      "maximum_matrix_error": 5.997384606715173e-07,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "Lobby_MP5_Idle",
+      "frame": 0,
+      "seconds": 0.0,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.7142982,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.07850774806902e-07,
+      "maximum_matrix_error": 5.997384606715173e-07,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "Lobby_MP5_Idle",
+      "frame": 154,
+      "seconds": 5.133333333333334,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 56,
+      "native_matrix_delta_from_rest": 1.7288557,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 4.309002492871583e-07,
+      "maximum_matrix_error": 5.682677503837663e-07,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "Lobby_MP5_Idle",
+      "frame": 154,
+      "seconds": 5.133333333333334,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 56,
+      "native_matrix_delta_from_rest": 1.7288557,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 4.309002492871583e-07,
+      "maximum_matrix_error": 5.682677503837663e-07,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "Lobby_MP5_Idle",
+      "frame": 154,
+      "seconds": 5.133333333333334,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 56,
+      "native_matrix_delta_from_rest": 1.7288557,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 4.309002492871583e-07,
+      "maximum_matrix_error": 5.682677503837663e-07,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "Lobby_MP5_Idle",
+      "frame": 309,
+      "seconds": 10.3,
+      "renderer": "-7898010807744904092",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.7142984,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.019372106100555e-07,
+      "maximum_matrix_error": 4.659161414455326e-07,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "Lobby_MP5_Idle",
+      "frame": 309,
+      "seconds": 10.3,
+      "renderer": "-5243856873084271516",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.7142984,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.019372106100555e-07,
+      "maximum_matrix_error": 4.659161414455326e-07,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    },
+    {
+      "clip": "Lobby_MP5_Idle",
+      "frame": 309,
+      "seconds": 10.3,
+      "renderer": "8263359496491058276",
+      "bone_matrices": 83,
+      "native_changed_transforms": 55,
+      "native_matrix_delta_from_rest": 1.7142984,
+      "native_mesh_units_per_m": 1.0,
+      "maximum_position_error_m": 3.019372106100555e-07,
+      "maximum_matrix_error": 4.659161414455326e-07,
+      "euler_binding_custom_types": {
+        "5": 8,
+        "0": 1
+      }
+    }
+  ],
+  "original_bundle_unchanged": true,
+  "native_matrices_and_hierarchy_remain_private": true,
+  "game_scripts_events_IK_controller_or_root_motion_executed": false,
+  "native_game_or_helicopter_acceptance": false,
+  "world_rig_cli": "--rig third_person",
+  "default_rig_unchanged": "first_person",
+  "source_first_person_regression_arrays_byte_exact": 4,
+  "actual_world_CLI": {
+    "default_first_person_regression_arrays_byte_exact": 4,
+    "actual_public_third_person_CLI_export_renderer_rigs": 3,
+    "native_matrices_compared": 249,
+    "maximum_matrix_error": 4.328602173919727e-06,
+    "source_unchanged": true,
+    "events_invoked": false,
+    "game_or_profile_modified": false
+  },
+  "SOLDIERAvatar_control": {
+    "samples": 21,
+    "renderer_rigs": 3,
+    "maximum_matrix_delta_from_null_Avatar_control": 0.0,
+    "runtime_Avatar_assignment_established": false
+  },
+  "original_controller_control": {
+    "original_controller": "ThirdPersonAnimatorMP5",
+    "scenarios": [
+      {
+        "scenario": "idle",
+        "requested_speed": 0.0,
+        "seconds": 0.3,
+        "changed_transforms": 55,
+        "maximum_matrix_delta_from_rest": 1.8325960359092712,
+        "layers": [
+          {
+            "name": "Legs",
+            "fullPathHash": -1112168139,
+            "normalizedTime": 0.08737864,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Idle"
+            ],
+            "clipWeights": [
+              1.0
+            ]
+          },
+          {
+            "name": "OvverideAction",
+            "fullPathHash": -460668202,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "OvverideActionLegsMask",
+            "fullPathHash": 1269280908,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "Body",
+            "fullPathHash": 1082698506,
+            "normalizedTime": 8.999993,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Rotation_Front",
+              "MP5_Rotation_Front"
+            ],
+            "clipWeights": [
+              0.2857143,
+              0.714285731
+            ]
+          },
+          {
+            "name": "OvverideActionsBody",
+            "fullPathHash": 1391121288,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "AdditiveActionsBody",
+            "fullPathHash": 732383027,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "OvverideActionFullPerson",
+            "fullPathHash": 594473700,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          }
+        ]
+      },
+      {
+        "scenario": "run",
+        "requested_speed": 0.73,
+        "seconds": 0.3,
+        "changed_transforms": 55,
+        "maximum_matrix_delta_from_rest": 1.7821060237571715,
+        "layers": [
+          {
+            "name": "Legs",
+            "fullPathHash": -1112168139,
+            "normalizedTime": 0.473684222,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Run"
+            ],
+            "clipWeights": [
+              1.0
+            ]
+          },
+          {
+            "name": "OvverideAction",
+            "fullPathHash": -460668202,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "OvverideActionLegsMask",
+            "fullPathHash": 1269280908,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "Body",
+            "fullPathHash": 1082698506,
+            "normalizedTime": 0.473684222,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Run"
+            ],
+            "clipWeights": [
+              1.0
+            ]
+          },
+          {
+            "name": "OvverideActionsBody",
+            "fullPathHash": 1391121288,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "AdditiveActionsBody",
+            "fullPathHash": 732383027,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "OvverideActionFullPerson",
+            "fullPathHash": 594473700,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          }
+        ]
+      },
+      {
+        "scenario": "sprint",
+        "requested_speed": 1.0,
+        "seconds": 0.3,
+        "changed_transforms": 53,
+        "maximum_matrix_delta_from_rest": 1.970208260987854,
+        "layers": [
+          {
+            "name": "Legs",
+            "fullPathHash": -1112168139,
+            "normalizedTime": 0.6428572,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Sprint_Front"
+            ],
+            "clipWeights": [
+              1.0
+            ]
+          },
+          {
+            "name": "OvverideAction",
+            "fullPathHash": -460668202,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "OvverideActionLegsMask",
+            "fullPathHash": 1269280908,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "Body",
+            "fullPathHash": 1082698506,
+            "normalizedTime": 0.6428572,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Sprint_Front"
+            ],
+            "clipWeights": [
+              1.0
+            ]
+          },
+          {
+            "name": "OvverideActionsBody",
+            "fullPathHash": 1391121288,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "AdditiveActionsBody",
+            "fullPathHash": 732383027,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "OvverideActionFullPerson",
+            "fullPathHash": 594473700,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          }
+        ]
+      },
+      {
+        "scenario": "jump",
+        "requested_speed": 0.73,
+        "seconds": 0.3,
+        "changed_transforms": 55,
+        "maximum_matrix_delta_from_rest": 1.984830498566986,
+        "layers": [
+          {
+            "name": "Legs",
+            "fullPathHash": -1112168139,
+            "normalizedTime": 0.473684222,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Run"
+            ],
+            "clipWeights": [
+              1.0
+            ]
+          },
+          {
+            "name": "OvverideAction",
+            "fullPathHash": 959506248,
+            "normalizedTime": 0.450000018,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Jump"
+            ],
+            "clipWeights": [
+              1.0
+            ]
+          },
+          {
+            "name": "OvverideActionLegsMask",
+            "fullPathHash": 1269280908,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "Body",
+            "fullPathHash": 1082698506,
+            "normalizedTime": 0.473684222,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Run"
+            ],
+            "clipWeights": [
+              1.0
+            ]
+          },
+          {
+            "name": "OvverideActionsBody",
+            "fullPathHash": 1391121288,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "AdditiveActionsBody",
+            "fullPathHash": 732383027,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "OvverideActionFullPerson",
+            "fullPathHash": 594473700,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          }
+        ]
+      },
+      {
+        "scenario": "slide_start",
+        "requested_speed": 0.73,
+        "seconds": 0.3,
+        "changed_transforms": 54,
+        "maximum_matrix_delta_from_rest": 1.9996241927571716,
+        "layers": [
+          {
+            "name": "Legs",
+            "fullPathHash": -1112168139,
+            "normalizedTime": 0.473684222,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Run"
+            ],
+            "clipWeights": [
+              1.0
+            ]
+          },
+          {
+            "name": "OvverideAction",
+            "fullPathHash": -85731464,
+            "normalizedTime": 0.50000006,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Slide_Start"
+            ],
+            "clipWeights": [
+              1.0
+            ]
+          },
+          {
+            "name": "OvverideActionLegsMask",
+            "fullPathHash": 1269280908,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "Body",
+            "fullPathHash": 1082698506,
+            "normalizedTime": 0.473684222,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Run"
+            ],
+            "clipWeights": [
+              1.0
+            ]
+          },
+          {
+            "name": "OvverideActionsBody",
+            "fullPathHash": 1391121288,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "AdditiveActionsBody",
+            "fullPathHash": 732383027,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "OvverideActionFullPerson",
+            "fullPathHash": 594473700,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          }
+        ]
+      },
+      {
+        "scenario": "slide_loop",
+        "requested_speed": 0.73,
+        "seconds": 0.3,
+        "changed_transforms": 54,
+        "maximum_matrix_delta_from_rest": 1.9995918867571716,
+        "layers": [
+          {
+            "name": "Legs",
+            "fullPathHash": -1112168139,
+            "normalizedTime": 0.473684222,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Run"
+            ],
+            "clipWeights": [
+              1.0
+            ]
+          },
+          {
+            "name": "OvverideAction",
+            "fullPathHash": -22933136,
+            "normalizedTime": 1.58823562,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Slide_Loop"
+            ],
+            "clipWeights": [
+              1.0
+            ]
+          },
+          {
+            "name": "OvverideActionLegsMask",
+            "fullPathHash": 1269280908,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "Body",
+            "fullPathHash": 1082698506,
+            "normalizedTime": 0.473684222,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Run"
+            ],
+            "clipWeights": [
+              1.0
+            ]
+          },
+          {
+            "name": "OvverideActionsBody",
+            "fullPathHash": 1391121288,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "AdditiveActionsBody",
+            "fullPathHash": 732383027,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "OvverideActionFullPerson",
+            "fullPathHash": 594473700,
+            "normalizedTime": 0.3,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          }
+        ]
+      },
+      {
+        "scenario": "reload",
+        "requested_speed": 0.0,
+        "seconds": 0.9,
+        "changed_transforms": 55,
+        "maximum_matrix_delta_from_rest": 1.7666030811505127,
+        "layers": [
+          {
+            "name": "Legs",
+            "fullPathHash": -1112168139,
+            "normalizedTime": 0.262135923,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Idle"
+            ],
+            "clipWeights": [
+              1.0
+            ]
+          },
+          {
+            "name": "OvverideAction",
+            "fullPathHash": -460668202,
+            "normalizedTime": 0.9,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "OvverideActionLegsMask",
+            "fullPathHash": 1269280908,
+            "normalizedTime": 0.9,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "Body",
+            "fullPathHash": 1082698506,
+            "normalizedTime": 26.9999771,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Rotation_Front",
+              "MP5_Rotation_Front"
+            ],
+            "clipWeights": [
+              0.2857143,
+              0.714285731
+            ]
+          },
+          {
+            "name": "OvverideActionsBody",
+            "fullPathHash": -571937280,
+            "normalizedTime": 0.465517253,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Reload"
+            ],
+            "clipWeights": [
+              1.0
+            ]
+          },
+          {
+            "name": "AdditiveActionsBody",
+            "fullPathHash": 732383027,
+            "normalizedTime": 0.9,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "OvverideActionFullPerson",
+            "fullPathHash": 594473700,
+            "normalizedTime": 0.9,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          }
+        ]
+      },
+      {
+        "scenario": "copter_pilot",
+        "requested_speed": 0.0,
+        "seconds": 0.0,
+        "changed_transforms": 58,
+        "maximum_matrix_delta_from_rest": 2.0724974038170276,
+        "layers": [
+          {
+            "name": "Legs",
+            "fullPathHash": -1112168139,
+            "normalizedTime": 0.0,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Idle"
+            ],
+            "clipWeights": [
+              1.0
+            ]
+          },
+          {
+            "name": "OvverideAction",
+            "fullPathHash": -460668202,
+            "normalizedTime": 0.0,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "OvverideActionLegsMask",
+            "fullPathHash": 1269280908,
+            "normalizedTime": 0.0,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "Body",
+            "fullPathHash": 1082698506,
+            "normalizedTime": 0.0,
+            "weight": 1.0,
+            "clips": [
+              "MP5_Rotation_Front",
+              "MP5_Rotation_Front"
+            ],
+            "clipWeights": [
+              0.2857143,
+              0.714285731
+            ]
+          },
+          {
+            "name": "OvverideActionsBody",
+            "fullPathHash": 1391121288,
+            "normalizedTime": 0.0,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "AdditiveActionsBody",
+            "fullPathHash": 732383027,
+            "normalizedTime": 0.0,
+            "weight": 1.0,
+            "clips": [],
+            "clipWeights": []
+          },
+          {
+            "name": "OvverideActionFullPerson",
+            "fullPathHash": 919333050,
+            "normalizedTime": 0.0,
+            "weight": 1.0,
+            "clips": [
+              "Pilot"
+            ],
+            "clipWeights": [
+              1.0
+            ]
+          }
+        ]
+      }
+    ],
+    "original_controller_has_state_machine_behaviours": false,
+    "original_controller_IK_passes": false,
+    "game_scripts_events_IK_root_motion_or_game_process": false,
+    "runtime_parameter_values_inferred": false,
+    "parameters_and_states_explicitly_chosen_for_diagnostic": true,
+    "gameplay_or_helicopter_scene_acceptance": false
+  },
+  "private_evidence_sha256": {
+    "hierarchy.json": "30aeda7784abfd5b5627405710266530316ca2b63c3de9151240540c77bf1e02",
+    "EditorWorldOperatorPoses.json": "8ba974f64f1a067d42229b9155ef2d9c85930dbc6837c98d0e4ccac9a854386b",
+    "EditorWorldNativeAvatarControlPoses.json": "8ba974f64f1a067d42229b9155ef2d9c85930dbc6837c98d0e4ccac9a854386b",
+    "EditorWorldControllerControlPoses.json": "2247af3476be0616e3ace2802dbe73e2f7d1ecdd680522a9c9cee646795ad59b"
+  },
+  "full_source_suite": {
+    "tests": 191,
+    "passed": 190,
+    "skipped": 1
+  },
+  "first_person_fitter_installer_and_installed_game_changed": false
+}

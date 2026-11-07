@@ -8,7 +8,12 @@ p=argparse.ArgumentParser();p.add_argument('source');p.add_argument('output');p.
 source=Path(a.source).resolve();out=Path(a.output).resolve();out.parent.mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.read_factory_settings(use_empty=True)
 if source.is_dir():
- meta=json.loads((source/'source.json').read_text());d=np.load(source/('source.npz' if (source/'source.npz').exists() else 'mesh.npz'),allow_pickle=False);label=meta.get('id','Fitted character')
+ meta=json.loads((source/'source.json').read_text())
+ # NpzFile decompresses an array on every lookup. Cache once before the UV
+ # and normal loops, which otherwise unpack the full array for every corner.
+ with np.load(source/('source.npz' if (source/'source.npz').exists() else 'mesh.npz'),allow_pickle=False) as archive:
+  d={name:archive[name] for name in archive.files}
+ label=meta.get('id','Fitted character')
  mesh=bpy.data.meshes.new(label);mesh.from_pydata(d['positions'].tolist(),[],d['faces'].tolist());mesh.update();obj=bpy.data.objects.new(label,mesh)
  if meta.get('coordinate_system')!='z_up':obj.rotation_euler[0]=math.pi/2
  bpy.context.collection.objects.link(obj)

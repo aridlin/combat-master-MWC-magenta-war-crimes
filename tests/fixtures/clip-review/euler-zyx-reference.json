@@ -1,0 +1,27 @@
+{
+  "angles": [
+    31,
+    -47,
+    62
+  ],
+  "method": "Unity.Mathematics.quaternion.EulerZYX with degrees converted to radians, Matrix4x4.Rotate; owned inputs, no native game data",
+  "editor_version": "6000.6.5f1",
+  "matrix": [
+    0.320178866,
+    -0.602168739,
+    -0.7313537,
+    0.0,
+    0.5799956,
+    0.735,
+    -0.351255119,
+    0.0,
+    0.749059856,
+    -0.311717451,
+    0.5845867,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ]
+}

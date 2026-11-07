@@ -1,7 +1,7 @@
 import copy,json,os,struct,tempfile,unittest,zlib
 from pathlib import Path
 import numpy as np
-from operators.clip_review import sample_channels,sample_world,euler_xyz,quaternion_matrix,export_clip
+from operators.clip_review import sample_channels,sample_world,euler_xyz,euler_zyx,quaternion_matrix,export_clip
 
 
 def binding(path,attribute):
@@ -29,14 +29,22 @@ class NativeClipReview(unittest.TestCase):
             rig.parent.mkdir();clip.parent.mkdir();rig.write_bytes(b'owned rig sentinel');clip.write_bytes(b'owned clip sentinel')
             try:
                 os.chdir(workspace)
-                for source in (rig,clip):
-                    output=source.parent/'forbidden'
-                    with self.subTest(source=source.name),self.assertRaisesRegex(ValueError,'outside the Steam bundle tree'):
-                        export_clip(rig,'operator_0','owned',0,output,clip_bundle=clip)
-                    self.assertFalse(output.exists())
+                for rig_kind in ('first_person','third_person'):
+                    for source in (rig,clip):
+                        output=source.parent/'forbidden'
+                        with self.subTest(source=source.name,rig=rig_kind),self.assertRaisesRegex(ValueError,'outside the Steam bundle tree'):
+                            export_clip(rig,'operator_0','owned',0,output,clip_bundle=clip,rig_kind=rig_kind)
+                        self.assertFalse(output.exists())
             finally:os.chdir(previous)
             self.assertEqual(rig.read_bytes(),b'owned rig sentinel')
             self.assertEqual(clip.read_bytes(),b'owned clip sentinel')
+
+    def test_unknown_rig_does_not_create_output_or_try_reading_a_bundle(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);output=root/'private-output'
+            with self.assertRaisesRegex(ValueError,'Choose first_person or third_person'):
+                export_clip(root/'not-a-bundle','operator_30','owned',0,output,rig_kind='invented')
+            self.assertFalse(output.exists())
 
     def test_streamed_cubic_dense_exact_frame_and_constant_channels(self):
         tree=fixture();channels,report=sample_channels(tree,.5)
@@ -73,6 +81,33 @@ class NativeClipReview(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'absent or ambiguous'):sample_world(tree,0,nodes,names,1)
         tree['m_ClipBindingConstant']['genericBindings'][0]['path']=zlib.crc32(b'a/hand')
         _,report=sample_world(tree,0,nodes,names,1);self.assertGreater(report['unused_ambiguous_path_aliases'],0)
+
+    def test_world_euler_order_uses_independent_native_ZYX_reference(self):
+        reference=json.loads((Path(__file__).parent/'fixtures/clip-review/euler-zyx-reference.json').read_text())
+        rotation=np.asarray(reference['matrix']).reshape(4,4)[:3,:3]
+        np.testing.assert_allclose(euler_zyx(reference['angles']),rotation,atol=3e-7,rtol=0)
+        tree=fixture();tree['m_ClipBindingConstant']['genericBindings'][1]['customType']=5
+        tree['m_MuscleClip']['m_Clip']['data']['m_DenseClip']['m_SampleArray'][3:6]=reference['angles']
+        nodes={1:transform(10,children=[2]),2:transform(20,1)};nodes[2]['m_LocalPosition'].update(x=1,y=.25,z=-.5)
+        world,report=sample_world(tree,.5,nodes,{10:'root',20:'child'},1)
+        np.testing.assert_allclose(world[2][:3,3],rotation@np.array([2.,.25,-.5])+[8,10,0],atol=6e-7,rtol=0)
+        self.assertEqual(report['packed_euler_order'],'ZYX');self.assertEqual(report['euler_binding_custom_types'],{'5':1})
+        # The reviewed custom flag applies only to Euler rotation bindings.
+        tree['m_ClipBindingConstant']['genericBindings'][0]['customType']=5
+        with self.assertRaisesRegex(ValueError,'Unsupported'):sample_channels(tree,.5)
+
+    def test_mixed_XYZ_and_ZYX_bindings_do_not_share_a_global_rotation_order(self):
+        fixture_root=Path(__file__).parent/'fixtures/clip-review'
+        xyz=json.loads((fixture_root/'euler-xyz-reference.json').read_text());zyx=json.loads((fixture_root/'euler-zyx-reference.json').read_text())
+        tree=fixture();tree['m_ClipBindingConstant']['genericBindings'][1]['customType']=5
+        tree['m_MuscleClip']['m_Clip']['data']['m_DenseClip']['m_SampleArray'][3:6]=zyx['angles']
+        tree['m_ClipBindingConstant']['genericBindings'].append(binding('root/child',4))
+        tree['m_MuscleClip']['m_Clip']['data']['m_ConstantClip']['data'].extend(xyz['angles'])
+        nodes={1:transform(10,children=[2]),2:transform(20,1)}
+        world,report=sample_world(tree,.5,nodes,{10:'root',20:'child'},1)
+        expected=np.asarray(zyx['matrix']).reshape(4,4)[:3,:3]@np.diag([2,1,1])@np.asarray(xyz['matrix']).reshape(4,4)[:3,:3]
+        np.testing.assert_allclose(world[2][:3,:3],expected,atol=8e-7,rtol=0)
+        self.assertEqual(report['euler_binding_custom_types'],{'5':1,'0':1})
 
     def test_unimplemented_timing_formats_and_binding_dimensions_rejected(self):
         for time in (-1,.1,float('nan'),2):

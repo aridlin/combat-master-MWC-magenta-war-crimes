@@ -1,9 +1,10 @@
-# Offline review of shipped first-person clips
+# Offline review of shipped operator clips
 
 `operators.clip_review` samples the original game's generic transform curves
 without launching the game or running any animation event, controller, script,
 IK solver or network code. It is a diagnostic for authored model adaptation.
-It does not change any installed asset or first-person animation.
+It does not change any installed asset or animation. First-person arms remain
+the default; `--rig third_person` selects the reviewed world operator index.
 
 Run from a private project workspace using its Python environment and verified
 original backup bundle:
@@ -42,16 +43,36 @@ another source. Both original files are hashed before and after inspection;
 output inside either source directory tree is rejected. Omit `--clip-bundle`
 to retain the original same-bundle behavior.
 
+World operator clips can be inspected through the same reader:
+
+```sh
+PYTHONPATH=public-repo .venv/bin/python -P -m operators.clip_review \
+  --bundle /path/to/verified-original/src/thrid_person \
+  --rig third_person --operator operator_30 --clip MP5_Run --frame 9 \
+  --output experiments/private-dozer-run-pose
+```
+
+`thrid_person` is the shipped filename. The world rig is selected from
+`config/operator-targets.json`, with the same original-renderer fingerprint
+checks as the existing first-person path. The exported matrices stay in each
+renderer's native coordinate system and units; they are not normalized into
+an upright character pose. `review.json` records `rig_kind`. The default API
+and CLI still select `first_person`, including when `--clip-bundle` is used.
+
 The reader supports the reviewed nonlegacy, uncompressed generic clip layout:
 streamed cubic channels, dense samples at their exact sample frames, constant
 channels, transform position/quaternion/Euler/scale bindings, and unique CRC32
-path resolution within the selected native prefab. The reviewed packed Euler
-curves use XYZ order (`Rz @ Ry @ Rx` for column vectors). This differs from
-the ZXY order of the usual `Quaternion.Euler` API; that API's convention must
-not be substituted for the clip format. Missing or ambiguous hashes,
+path resolution within the selected native prefab. Reviewed Transform Euler
+bindings with custom type 0 use XYZ order (`Rz @ Ry @ Rx` for column vectors);
+the separately reviewed custom-type-5 Euler bindings use ZYX (`Rx @ Ry @ Rz`).
+The world samples contain both orders in one clip, so order is selected per
+binding. These differ from the ZXY order of the usual `Quaternion.Euler` API;
+that API's convention must not be substituted for the clip format. Custom
+type 5 is accepted only for the reviewed Euler attribute, not other transform
+attributes. Missing or ambiguous hashes,
 unsupported/discrete/object bindings, malformed channel lengths and
 intermediate dense-frame times fail explicitly. Original renderer hashes are
-checked against the project's reviewed first-person target index.
+checked against the project's reviewed target index for the requested rig.
 
 Seven known Animator root channels are consumed and reported, not applied as
 runtime root motion. Event counts are reported without invoking any event.
@@ -143,6 +164,92 @@ the sampler for these inputs; it does not accept Fishguy's model or reproduce
 the full runtime grip. [Counts, hashes and per-clip errors](mpv-clip-review-verification.json)
 record the scope. Eight focused regression tests pass, including a source-tree
 output guard tested with owned sentinel files.
+
+## World operator comparison, November 7
+
+The reader now supports the reviewed third-person target index as an explicit
+option. Seven original clips were evaluated on the original Dozer hierarchy:
+`MP5_Idle`, `MP5_Run`, `MP5_Jump`, `MP5_Slide_Start`, `MP5_Slide_Loop`,
+`MP5_Reload` and `Lobby_MP5_Idle`. Each was sampled at its beginning, a middle
+dense frame and a frame inside its end. This compares 21 isolated poses across
+all three 83-bone LOD rigs: 63 renderer poses and 5,229 bone matrices. Maximum
+bone-position error against the native evaluator was 0.000000564 m; maximum
+matrix-element error was 0.000005121. No tolerance was relaxed.
+
+These clips exposed mixed Euler orders in one hierarchy. Custom-type-0 Euler
+bindings retained XYZ; the eight custom-type-5 Euler bindings per reviewed
+clip required ZYX. The separately generated owned `EulerZYX` fixture matches
+within 0.000000072 per matrix element. Native pose matrices and hierarchy data
+remain private; the regression fixture contains only owned angles and their
+independent Unity.Mathematics result.
+
+The actual world CLI exported all three Dozer rigs and matched the native
+reference within 0.000004329 per matrix element for `MP5_Run` frame 9. A fresh
+default first-person AK12 export retained byte-identical values in all four
+NPZ arrays compared with the previous same-bundle control. The source suite
+passes 191 tests, including one existing data-dependent skip. The focused
+reader suite has 11 passing tests. [The verification record](world-clip-review-verification.json)
+includes per-clip numerical errors and limitations.
+
+The cooked original Dozer Animator has a null Avatar pointer. Explicitly
+assigning the original `SOLDIERAvatar` in a separate private control changed
+none of the 21 sampled poses. This does not establish how the live game assigns
+its Avatar. Both private Editor runs exited gracefully. The authoring Editor
+was 6000.6.5f1; the game is 6000.3.19f1.
+
+An original Dozer mesh control and the installed Shrek both tilt backward in
+the same isolated run sample. That appearance is not evidence of a Shrek-only
+fitting defect. These raw renderer-local results have not been rotated or
+otherwise adjusted to make an upright character pose. Numerical agreement
+with the evaluator does not reproduce the runtime controller's complete pose.
+
+### Separate original-controller control
+
+A further private evaluation loaded the original seven-layer
+`ThirdPersonAnimatorMP5`, after confirming it has no StateMachineBehaviour
+references or IK-pass layers. Eight explicitly chosen diagnostic scenarios
+covered idle, run, sprint, jump, slide start/loop, reload and its seated
+`Copter_Pilot` state. The resulting state hashes, layer weights and original
+clip contributions were recorded. In the idle case, for example, the leg layer
+uses `MP5_Idle` while the body layer uses `MP5_Rotation_Front`; the isolated idle
+clip alone does not supply that combination.
+
+This control evaluates original controller blending on a transform-only
+hierarchy. It loads no game scripts or prefab components, disables events and
+root motion, and executes no runtime IK. Chosen parameters and forced state
+times are diagnostic inputs, not measurements of live game state. Its output
+is separate from the isolated-clip corpus; it is not a claim that the public
+sampler implements controller evaluation.
+
+Front and rear renders of all eight scenarios were inspected, alongside an
+unchanged Dozer run control. The shared backward tilt remains in this control,
+so it has not been treated as a Shrek-only defect or corrected by rotating the
+replacement geometry. Shrek's rear vest and tunic surfaces are present and
+textured. Front tunic/leg and sleeve/hand intersections remain visible in these
+diagnostic poses. They are unresolved quality findings, not accepted full
+animation behavior. The glasses retain only Head_M influences; their maximum
+head-local drift across the 21 isolated samples and eight controller scenarios
+was below 0.000000003 m. That verifies rigid attachment, not face fit in every
+scene, shader sorting or helicopter visibility.
+
+`HelicopterIdle` in the original `src/src` bundle is a legacy vehicle clip,
+referenced by six helicopter Animation components. It is not the operator's
+helicopter-introduction animation. Likewise, a seated `Copter_Pilot` control
+does not validate the Warzone introduction scene. Neither experiment changes
+the production fitter, installed meshes, animation assets, operator choices or
+game profile.
+
+### Preview loading cost
+
+The Blender diagnostic renderer now loads each NPZ array once before its mesh
+corner loops. Previously each UV and normal lookup decompressed the entire
+array again. A 32,373-vertex original-mesh control retained exactly identical
+RGBA pixels with the same camera, materials, normals, geometry and render
+settings. Approximate launch-log-to-image timings were 356 seconds before and
+10 seconds after in this local control. This is a preview-generation fix, not
+a game-FPS change or a general benchmark. PNG metadata may differ between
+output paths. [Pixel comparison and timing scope](preview-render-cache-verification.json)
+record the check.
 
 Format and convention references:
 

@@ -1,0 +1,26 @@
+{
+  "input_vertices": 32373,
+  "full_size": [
+    600,
+    480,
+    4
+  ],
+  "different_pixel_components": 0,
+  "pixel_arrays_exact": true,
+  "png_files_byte_exact": false,
+  "png_sha256": "798c3bd5016da09f72f50bbc7c13207d1622963cf1b71cdf4df1116e4faa1341",
+  "render_config_unchanged": true,
+  "measured_elapsed_from_file_timestamps": [
+    {
+      "variant": "uncached",
+      "seconds_log_creation_to_PNG_mtime_approximate": 355.80682015419006
+    },
+    {
+      "variant": "cached",
+      "seconds_log_creation_to_PNG_mtime_approximate": 9.994767904281616
+    }
+  ],
+  "game_or_installer_changed": false,
+  "PNG_metadata_may_differ": "File-level identity is not claimed; all RGBA pixel values match.",
+  "timing_scope": "Single local control, approximate filesystem timestamps; not a general performance benchmark."
+}

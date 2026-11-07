@@ -9,7 +9,7 @@ import numpy as np
 
 
 def euler_xyz(degrees):
-    """Reviewed packed generic Euler curves use XYZ, not Quaternion.Euler's ZXY.
+    """Reviewed custom-type-0 Euler curves use XYZ, not Quaternion.Euler's ZXY.
 
     Verified against the original clips and Avatar through Unity's native
     AnimationClipPlayable evaluator; this is not a universal clip convention.
@@ -29,6 +29,11 @@ def quaternion_matrix(value):
     return np.array([[1-2*(y*y+z*z),2*(x*y-z*w),2*(x*z+y*w)],
                      [2*(x*y+z*w),1-2*(x*x+z*z),2*(y*z-x*w)],
                      [2*(x*z-y*w),2*(y*z+x*w),1-2*(x*x+y*y)]])
+
+
+def euler_zyx(degrees):
+    """ZYX composition for the separately reviewed custom-type-5 Euler layout."""
+    return euler_xyz(-np.asarray(degrees,dtype=float)).T
 
 
 def streamed_values(stream,time):
@@ -76,12 +81,14 @@ def sample_channels(tree,time):
     else:dense_values=np.empty(0)
     values=np.r_[streamed_values(clip['m_StreamedClip'],time),dense_values,clip['m_ConstantClip']['data']]
     if not np.isfinite(values).all():raise ValueError('Nonfinite clip sample')
-    output=[];cursor=0;ignored=[]
+    output=[];cursor=0;ignored=[];euler_orders={}
     for binding in tree['m_ClipBindingConstant']['genericBindings']:
         if any(binding.get(k,0) for k in ('isPPtrCurve','isIntCurve','isSerializeReferenceCurve')):raise ValueError('Unsupported discrete/object clip binding')
         kind=binding.get('typeID',binding.get('classID'));attribute=binding['attribute']
-        if kind==4 and binding.get('customType',0)==0 and attribute in (1,2,3,4):
+        custom=binding.get('customType',0)
+        if kind==4 and attribute in (1,2,3,4) and (custom==0 or custom==5 and attribute==4):
             width=4 if attribute==2 else 3
+            if attribute==4:euler_orders[str(custom)]=euler_orders.get(str(custom),0)+1
         elif kind==95 and binding['path']==0 and binding.get('customType')==8 and 7<=attribute<=13:
             width=1;ignored.append({'type':'Animator root channel','attribute':attribute})
         else:raise ValueError('Unsupported clip binding type or transform attribute')
@@ -89,7 +96,8 @@ def sample_channels(tree,time):
         if len(value)!=width:raise ValueError('Binding exceeds packed clip channels')
         if kind==4:output.append((int(binding['path']),attribute,value.copy()))
     if cursor!=len(values):raise ValueError('Packed clip channels exceed declared bindings')
-    return output,{'clip':tree['m_Name'],'time':float(time),'transform_bindings':len(output),'packed_euler_order':'XYZ','ignored_root_channels':ignored,'runtime_IK_blending_events_and_root_motion_not_evaluated':True,'in_game_tested':False}
+    order='mixed XYZ/ZYX' if len(euler_orders)>1 else 'ZYX' if '5' in euler_orders else 'XYZ'
+    return output,{'clip':tree['m_Name'],'time':float(time),'transform_bindings':len(output),'packed_euler_order':order,'euler_binding_custom_types':euler_orders,'ignored_root_channels':ignored,'runtime_IK_blending_events_and_root_motion_not_evaluated':True,'in_game_tested':False}
 
 
 def hierarchy(transforms,names,root):
@@ -112,19 +120,24 @@ def hierarchy(transforms,names,root):
 
 
 def sample_world(tree,time,transforms,names,root):
-    channels,report=sample_channels(tree,time);owned,hashes=hierarchy(transforms,names,root);overrides={}
+    channels,report=sample_channels(tree,time);owned,hashes=hierarchy(transforms,names,root);overrides={};node_euler_orders={}
+    rotation_orders={int(b['path']):b.get('customType',0) for b in tree['m_ClipBindingConstant']['genericBindings'] if b.get('typeID',b.get('classID'))==4 and b['attribute']==4}
     for path,attribute,value in channels:
         candidates=hashes.get(path,set())
         if len(candidates)!=1:raise ValueError('Clip path hash is absent or ambiguous: '+str(path))
         node=next(iter(candidates));attrs=overrides.setdefault(node,{})
         if attribute in attrs or attribute in (2,4) and any(a in attrs for a in (2,4)):raise ValueError('Duplicate or mixed clip rotation binding')
         attrs[attribute]=value
+        if attribute==4:node_euler_orders[node]=rotation_orders[path]
     world={}
     for node in owned:
         native=transforms[node];attrs=overrides.get(node,{})
         position=attrs.get(1,[native['m_LocalPosition'][k] for k in 'xyz'])
         scale=attrs.get(3,[native['m_LocalScale'][k] for k in 'xyz'])
-        rotation=euler_xyz(attrs[4]) if 4 in attrs else quaternion_matrix(attrs.get(2,[native['m_LocalRotation'][k] for k in 'xyzw']))
+        if 4 in attrs:
+            order=node_euler_orders[node]
+            rotation=(euler_zyx if order==5 else euler_xyz)(attrs[4])
+        else:rotation=quaternion_matrix(attrs.get(2,[native['m_LocalRotation'][k] for k in 'xyzw']))
         local=np.eye(4);local[:3,:3]=rotation@np.diag(scale);local[:3,3]=position
         if not np.isfinite(local).all():raise ValueError('Nonfinite clip transform')
         parent=native['m_Father']['m_PathID'];world[node]=world[parent]@local if parent in world else local
@@ -132,7 +145,7 @@ def sample_world(tree,time,transforms,names,root):
     return world,report
 
 
-def export_clip(bundle,operator,clip_name,frame,output,*,clip_bundle=None):
+def export_clip(bundle,operator,clip_name,frame,output,*,clip_bundle=None,rig_kind='first_person'):
     """Export a private pose; the original clip may live outside the rig bundle."""
     from pathlib import Path
     import json,UnityPy
@@ -140,17 +153,19 @@ def export_clip(bundle,operator,clip_name,frame,output,*,clip_bundle=None):
     from halftone.pipeline import safe_output
     from .native import native_rig
     project=Path(__file__).resolve().parents[1];bundle=Path(bundle).resolve();requested=Path(output).resolve()
+    if rig_kind not in ('first_person','third_person'):raise ValueError('Choose first_person or third_person rig')
     if requested==project or project in requested.parents:raise ValueError('Native pose exports must be outside the public source/package directory')
     clip_source=bundle if clip_bundle is None else Path(clip_bundle).resolve()
     output=safe_output(output,{'bundle_root':str(bundle.parent)})
     safe_output(output,{'bundle_root':str(clip_source.parent)})
     if output.exists():raise ValueError('Choose a fresh private pose output directory')
     if type(frame) is not int or frame<0:raise ValueError('Choose a nonnegative integer clip frame')
-    targets=json.loads((project/'config/operator-first-person-targets.json').read_text())['operators']
+    target_file='operator-first-person-targets.json' if rig_kind=='first_person' else 'operator-targets.json'
+    targets=json.loads((project/'config'/target_file).read_text())['operators']
     matches=[t for t in targets if t['id']==operator]
-    if len(matches)!=1:raise ValueError('Unknown first-person operator identity')
+    if len(matches)!=1:raise ValueError('Unknown '+rig_kind+' operator identity')
     before=digest(bundle);clip_before=before if clip_source==bundle else digest(clip_source)
-    env=UnityPy.load(str(bundle));rig=native_rig(env,matches[0],first_person=True)
+    env=UnityPy.load(str(bundle));rig=native_rig(env,matches[0],first_person=rig_kind=='first_person')
     clip_env=env if clip_source==bundle else UnityPy.load(str(clip_source))
     clips=[o for o in clip_env.objects if o.type.name=='AnimationClip' and o.peek_name()==clip_name]
     if len(clips)!=1:raise ValueError('Native clip is absent or ambiguous')
@@ -168,7 +183,7 @@ def export_clip(bundle,operator,clip_name,frame,output,*,clip_bundle=None):
         renderers.append({'renderer':str(rid),'bones':len(ids),'bone_names':native['bone_names'],'pose_array':prefix+'_pose','inverse_bind_array':prefix+'_inverse_bind'})
     if digest(bundle)!=before:raise ValueError('Native source bundle changed during inspection')
     if clip_source!=bundle and digest(clip_source)!=clip_before:raise ValueError('Native clip source bundle changed during inspection')
-    report.update(operator=operator,frame=frame,sample_rate=rate,source_bundle_sha256=before,
+    report.update(operator=operator,rig_kind=rig_kind,frame=frame,sample_rate=rate,source_bundle_sha256=before,
                   clip_source_bundle_sha256=clip_before,clip_source_is_rig_bundle=clip_source==bundle,
                   clip_id=str(clips[0].path_id),renderers=renderers,source_unchanged=True,
                   clip_source_unchanged=True,private_native_game_data=True,
@@ -180,10 +195,11 @@ def export_clip(bundle,operator,clip_name,frame,output,*,clip_bundle=None):
 def main():
     import argparse,json
     p=argparse.ArgumentParser(description='Read-only native generic-clip pose review; exported native data remains private')
-    p.add_argument('--bundle',required=True,help='Verified original src/first_person bundle')
+    p.add_argument('--bundle',required=True,help='Verified original bundle for the chosen rig')
+    p.add_argument('--rig',choices=('first_person','third_person'),default='first_person',help='First-person arms or world operator; defaults to first_person')
     p.add_argument('--clip-bundle',help='Original bundle containing the clip; defaults to --bundle')
     p.add_argument('--operator',default='operator_0');p.add_argument('--clip',required=True);p.add_argument('--frame',type=int,default=0);p.add_argument('--output',required=True)
-    a=p.parse_args();report=export_clip(a.bundle,a.operator,a.clip,a.frame,a.output,clip_bundle=a.clip_bundle)
+    a=p.parse_args();report=export_clip(a.bundle,a.operator,a.clip,a.frame,a.output,clip_bundle=a.clip_bundle,rig_kind=a.rig)
     print(json.dumps({k:v for k,v in report.items() if k!='renderers'},indent=2))
 
 
