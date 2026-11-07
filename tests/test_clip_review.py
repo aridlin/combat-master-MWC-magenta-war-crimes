@@ -1,7 +1,7 @@
-import copy,json,struct,unittest,zlib
+import copy,json,os,struct,tempfile,unittest,zlib
 from pathlib import Path
 import numpy as np
-from operators.clip_review import sample_channels,sample_world,euler_xyz,quaternion_matrix
+from operators.clip_review import sample_channels,sample_world,euler_xyz,quaternion_matrix,export_clip
 
 
 def binding(path,attribute):
@@ -22,6 +22,22 @@ def transform(go,parent=0,children=()):
 
 
 class NativeClipReview(unittest.TestCase):
+    def test_cross_bundle_output_cannot_write_into_either_original_source_tree(self):
+        previous=Path.cwd()
+        with tempfile.TemporaryDirectory() as directory:
+            workspace=Path(directory);rig=workspace/'rig'/'first_person';clip=workspace/'clips'/'src'
+            rig.parent.mkdir();clip.parent.mkdir();rig.write_bytes(b'owned rig sentinel');clip.write_bytes(b'owned clip sentinel')
+            try:
+                os.chdir(workspace)
+                for source in (rig,clip):
+                    output=source.parent/'forbidden'
+                    with self.subTest(source=source.name),self.assertRaisesRegex(ValueError,'outside the Steam bundle tree'):
+                        export_clip(rig,'operator_0','owned',0,output,clip_bundle=clip)
+                    self.assertFalse(output.exists())
+            finally:os.chdir(previous)
+            self.assertEqual(rig.read_bytes(),b'owned rig sentinel')
+            self.assertEqual(clip.read_bytes(),b'owned clip sentinel')
+
     def test_streamed_cubic_dense_exact_frame_and_constant_channels(self):
         tree=fixture();channels,report=sample_channels(tree,.5)
         np.testing.assert_allclose(channels[0][2],[8,10,0])

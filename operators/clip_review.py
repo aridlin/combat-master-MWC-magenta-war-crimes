@@ -132,8 +132,8 @@ def sample_world(tree,time,transforms,names,root):
     return world,report
 
 
-def export_clip(bundle,operator,clip_name,frame,output):
-    """Export a private pose fixture from a verified original first-person bundle."""
+def export_clip(bundle,operator,clip_name,frame,output,*,clip_bundle=None):
+    """Export a private pose; the original clip may live outside the rig bundle."""
     from pathlib import Path
     import json,UnityPy
     from bundle_utils import digest
@@ -141,14 +141,18 @@ def export_clip(bundle,operator,clip_name,frame,output):
     from .native import native_rig
     project=Path(__file__).resolve().parents[1];bundle=Path(bundle).resolve();requested=Path(output).resolve()
     if requested==project or project in requested.parents:raise ValueError('Native pose exports must be outside the public source/package directory')
+    clip_source=bundle if clip_bundle is None else Path(clip_bundle).resolve()
     output=safe_output(output,{'bundle_root':str(bundle.parent)})
+    safe_output(output,{'bundle_root':str(clip_source.parent)})
     if output.exists():raise ValueError('Choose a fresh private pose output directory')
     if type(frame) is not int or frame<0:raise ValueError('Choose a nonnegative integer clip frame')
     targets=json.loads((project/'config/operator-first-person-targets.json').read_text())['operators']
     matches=[t for t in targets if t['id']==operator]
     if len(matches)!=1:raise ValueError('Unknown first-person operator identity')
-    before=digest(bundle);env=UnityPy.load(str(bundle));rig=native_rig(env,matches[0],first_person=True)
-    clips=[o for o in env.objects if o.type.name=='AnimationClip' and o.peek_name()==clip_name]
+    before=digest(bundle);clip_before=before if clip_source==bundle else digest(clip_source)
+    env=UnityPy.load(str(bundle));rig=native_rig(env,matches[0],first_person=True)
+    clip_env=env if clip_source==bundle else UnityPy.load(str(clip_source))
+    clips=[o for o in clip_env.objects if o.type.name=='AnimationClip' and o.peek_name()==clip_name]
     if len(clips)!=1:raise ValueError('Native clip is absent or ambiguous')
     tree=clips[0].read_typetree();dense=tree['m_MuscleClip']['m_Clip']['data']['m_DenseClip'];rate=float(dense['m_SampleRate'])
     if not np.isfinite(rate) or rate<=0:raise ValueError('Clip does not expose a reviewed dense frame rate')
@@ -163,7 +167,12 @@ def export_clip(bundle,operator,clip_name,frame,output):
         arrays[prefix+'_pose']=pose;arrays[prefix+'_inverse_bind']=native['inverse_bind']
         renderers.append({'renderer':str(rid),'bones':len(ids),'bone_names':native['bone_names'],'pose_array':prefix+'_pose','inverse_bind_array':prefix+'_inverse_bind'})
     if digest(bundle)!=before:raise ValueError('Native source bundle changed during inspection')
-    report.update(operator=operator,frame=frame,sample_rate=rate,source_bundle_sha256=before,clip_id=str(clips[0].path_id),renderers=renderers,source_unchanged=True,private_native_game_data=True,game_or_profile_modified=False,events_not_invoked=len(tree.get('m_Events',[])))
+    if clip_source!=bundle and digest(clip_source)!=clip_before:raise ValueError('Native clip source bundle changed during inspection')
+    report.update(operator=operator,frame=frame,sample_rate=rate,source_bundle_sha256=before,
+                  clip_source_bundle_sha256=clip_before,clip_source_is_rig_bundle=clip_source==bundle,
+                  clip_id=str(clips[0].path_id),renderers=renderers,source_unchanged=True,
+                  clip_source_unchanged=True,private_native_game_data=True,
+                  game_or_profile_modified=False,events_not_invoked=len(tree.get('m_Events',[])))
     output.mkdir(parents=True);np.savez_compressed(output/'pose.npz',**arrays);(output/'review.json').write_text(json.dumps(report,indent=2)+'\n')
     return report
 
@@ -172,8 +181,9 @@ def main():
     import argparse,json
     p=argparse.ArgumentParser(description='Read-only native generic-clip pose review; exported native data remains private')
     p.add_argument('--bundle',required=True,help='Verified original src/first_person bundle')
+    p.add_argument('--clip-bundle',help='Original bundle containing the clip; defaults to --bundle')
     p.add_argument('--operator',default='operator_0');p.add_argument('--clip',required=True);p.add_argument('--frame',type=int,default=0);p.add_argument('--output',required=True)
-    a=p.parse_args();report=export_clip(a.bundle,a.operator,a.clip,a.frame,a.output)
+    a=p.parse_args();report=export_clip(a.bundle,a.operator,a.clip,a.frame,a.output,clip_bundle=a.clip_bundle)
     print(json.dumps({k:v for k,v in report.items() if k!='renderers'},indent=2))
 
 

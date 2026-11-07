@@ -9,11 +9,14 @@ Run from a private project workspace using its Python environment and verified
 original backup bundle:
 
 ```sh
-PYTHONPATH=public-repo .venv/bin/python -m operators.clip_review \
+PYTHONPATH=public-repo .venv/bin/python -P -m operators.clip_review \
   --bundle /path/to/verified-original/src/first_person \
   --operator operator_0 --clip AK12_Arms_Idle --frame 0 \
   --output experiments/private-ak-idle-pose
 ```
+
+`-P` prevents an older same-named package in the review workspace from
+shadowing the checkout selected by `PYTHONPATH`.
 
 The output must be fresh, outside the public source/package tree, and inside
 the review workspace or an explicitly registered workspace-storage alias.
@@ -21,6 +24,23 @@ the review workspace or an explicitly registered workspace-storage alias.
 matrices; `review.json` records the original bundle hash, clip, frame, resolved
 binding counts and limitations. These exports contain private native game data;
 do not redistribute them or add them to an installer/repository.
+
+Some arm clips live in a different original bundle. For the reviewed MP.V
+idle and ADS clips, supply the original `src/src` bundle separately:
+
+```sh
+PYTHONPATH=public-repo .venv/bin/python -P -m operators.clip_review \
+  --bundle /path/to/verified-original/src/first_person \
+  --clip-bundle /path/to/verified-original/src/src \
+  --operator operator_0 --clip Mp5_arms_ADS_Loop --frame 0 \
+  --output experiments/private-mpv-ads-pose
+```
+
+The rig still comes from the verified first-person target. The reader selects
+the clip only from the requested clip bundle and never silently falls back to
+another source. Both original files are hashed before and after inspection;
+output inside either source directory tree is rejected. Omit `--clip-bundle`
+to retain the original same-bundle behavior.
 
 The reader supports the reviewed nonlegacy, uncompressed generic clip layout:
 streamed cubic channels, dense samples at their exact sample frames, constant
@@ -98,6 +118,31 @@ compressed native glove skin. The project's checked five-bit reader already
 handles the implicit fourth influence; the UnityPy fallback in the inspected
 version can produce negative fourth weights. No third-party package or game
 binary is patched for this diagnostic.
+
+## MP.V cross-bundle comparison, November 7
+
+Read-only inspection found 52 MP5-named arm clips in the original `src/src`
+bundle. The original weapon bundle instead contains weapon-only MP5 clips.
+The `ArmsMP5Weapon_Animator` controller points to `Mp5_Arms_Idle1` and
+`Mp5_arms_ADS_Loop` in its base and ADS layers. These are static asset
+relationships; they do not establish the runtime active state or blending.
+
+The public sampler was compared with a fresh data-only native Avatar
+evaluation of five MP5 arm clips at exact dense frames 0, 15 and 30: idle,
+ADS, reload, empty reload and ADS reload. An AK12 idle sample retained the
+same-bundle control. Across both original renderer rigs this compared 2,560
+bone matrices, including 2,400 MP5 matrices. Maximum bone-position error was
+0.000002289 m and maximum matrix-element error was 0.000002715. Both source
+hashes stayed unchanged. The private Editor exited gracefully after the run.
+
+The Editor version was 6000.6.5f1; the game is 6000.3.19f1. Only isolated
+clips on an owned transform hierarchy were evaluated. Game scripts, animation
+events, controller layers, IK and root motion were disabled or not executed.
+Native matrices and hierarchy data remain private. This comparison validates
+the sampler for these inputs; it does not accept Fishguy's model or reproduce
+the full runtime grip. [Counts, hashes and per-clip errors](mpv-clip-review-verification.json)
+record the scope. Eight focused regression tests pass, including a source-tree
+output guard tested with owned sentinel files.
 
 Format and convention references:
 

@@ -1,0 +1,149 @@
+{
+  "public_sampler_without_monkeypatch": true,
+  "editor_version": "6000.6.5f1",
+  "game_version": "6000.3.19f1",
+  "source_bundle_sha256": {
+    "first_person": "f29aacd79b4483e4232d77a1b24c50f9c15f3629c86f14b443fac9b26348ffc9",
+    "src": "c2b3a48295a4002ffde8988ce94dc529774b50fcb9f933ae00bdd3ca4fcf845e"
+  },
+  "isolated_pose_samples": 16,
+  "renderer_pose_comparisons": 32,
+  "bone_matrices_compared": 2560,
+  "new_MPV_bone_matrices_compared": 2400,
+  "maximum_position_error_m": 2.2882173698429123e-06,
+  "maximum_matrix_error": 2.714229357159148e-06,
+  "original_bundles_unchanged": true,
+  "game_scripts_or_animation_events_executed": false,
+  "runtime_IK_layering_root_motion_or_native_game_acceptance": false,
+  "native_matrices_and_hierarchy_remain_private": true,
+  "per_clip": [
+    {
+      "clip": "Mp5_Arms_Idle1",
+      "sample_frames": [
+        0,
+        15,
+        30
+      ],
+      "sample_seconds": [
+        0.0,
+        0.5005000023229281,
+        1.0010000046458563
+      ],
+      "renderer_pose_comparisons": 6,
+      "bone_matrices": 480,
+      "maximum_position_error_m": 3.742605016113341e-07,
+      "maximum_matrix_error": 1.14377378945818e-06
+    },
+    {
+      "clip": "Mp5_arms_ADS_Loop",
+      "sample_frames": [
+        0,
+        15,
+        30
+      ],
+      "sample_seconds": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "renderer_pose_comparisons": 6,
+      "bone_matrices": 480,
+      "maximum_position_error_m": 2.2882173698429123e-06,
+      "maximum_matrix_error": 2.0713307891939703e-06
+    },
+    {
+      "clip": "Mp5_Arms_Reload",
+      "sample_frames": [
+        0,
+        15,
+        30
+      ],
+      "sample_seconds": [
+        0.0,
+        0.5005000023229281,
+        1.0010000046458563
+      ],
+      "renderer_pose_comparisons": 6,
+      "bone_matrices": 480,
+      "maximum_position_error_m": 4.239769115436143e-07,
+      "maximum_matrix_error": 2.026628590390267e-06
+    },
+    {
+      "clip": "Mp5_Arms_ReloadEmpty",
+      "sample_frames": [
+        0,
+        15,
+        30
+      ],
+      "sample_seconds": [
+        0.0,
+        0.5005000023229281,
+        1.0010000046458563
+      ],
+      "renderer_pose_comparisons": 6,
+      "bone_matrices": 480,
+      "maximum_position_error_m": 7.410224239790905e-07,
+      "maximum_matrix_error": 1.8891680125809884e-06
+    },
+    {
+      "clip": "Mp5_Arms_ReloadADS",
+      "sample_frames": [
+        0,
+        15,
+        30
+      ],
+      "sample_seconds": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "renderer_pose_comparisons": 6,
+      "bone_matrices": 480,
+      "maximum_position_error_m": 1.7074836991164401e-06,
+      "maximum_matrix_error": 2.714229357159148e-06
+    },
+    {
+      "clip": "AK12_Arms_Idle",
+      "sample_frames": [
+        0
+      ],
+      "sample_seconds": [
+        0.0
+      ],
+      "renderer_pose_comparisons": 2,
+      "bone_matrices": 160,
+      "maximum_position_error_m": 4.718654109183403e-07,
+      "maximum_matrix_error": 1.466686108800297e-06
+    }
+  ],
+  "cross_bundle_export_cases": [
+    {
+      "case": "idle0",
+      "clip": "Mp5_Arms_Idle1",
+      "source_unchanged": true,
+      "clip_source_unchanged": true,
+      "separate_clip_bundle": true,
+      "renderer_count": 2
+    },
+    {
+      "case": "ads0",
+      "clip": "Mp5_arms_ADS_Loop",
+      "source_unchanged": true,
+      "clip_source_unchanged": true,
+      "separate_clip_bundle": true,
+      "renderer_count": 2
+    },
+    {
+      "case": "same-bundle-control",
+      "clip": "AK12_Arms_Idle",
+      "source_unchanged": true,
+      "clip_source_unchanged": true,
+      "separate_clip_bundle": false,
+      "renderer_count": 2
+    }
+  ],
+  "clip_source_directory_output_rejected": true,
+  "focused_regression_tests": 8,
+  "private_editor_exit": "graceful",
+  "installed_game_or_manager_changed": false
+}
