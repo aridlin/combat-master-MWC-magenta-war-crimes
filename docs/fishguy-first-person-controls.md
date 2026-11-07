@@ -242,3 +242,40 @@ failed. No bundle was written or native game launched for this candidate.
 [Its per-pose rejection](fish-multi-pose-fit-verification.json) keeps the solver's
 math checks separate from model acceptance. The remaining work includes
 motion-aware skin/shape fitting; a rest-shape pass alone is insufficient.
+
+## Fixed-rest weight fitting, November 7
+
+A new private experiment minimizes the symmetric
+[ARAP edge objective](https://igl.ethz.ch/projects/ARAP/) across the same 18
+original poses. It alternates proper local rotations with sparse, nonnegative
+affine weight coordinates. Rest vertices, normals, UVs, topology, inverse bind
+matrices, native bones and animations stay fixed. This is a weights-only
+experiment, not full SSDR. Owned rigid-motion, common-translation, protected
+weight-mass and independent full-energy/quadratic checks passed.
+
+The unrestricted and stronger-prior fits reduced edge strain but created new
+crossings. One failure gave palm vertices large influences from neighboring
+finger bones. Preserving every authored finger/metacarpal weight and then
+restricting fitting to the actual forearm still failed the crossing regression
+gate at full strength. None of these full-strength candidates was bundled.
+
+A float32-tested one-eighth step on 60 forearm vertices removed eight existing
+crossing occurrences and introduced none across the 18 poses. These are summed
+occurrences under the existing strict-interior diagnostic, not proof of a clean
+surface. A private LOD0 bundle changed only 360 duplicated vertices' skin weights;
+the other LOD stayed unchanged. Six fresh native hipfire/ADS/return captures
+were manually reviewed against a newly built baseline. The wrist seam remains
+visible, so this candidate is also rejected and is not an installer option.
+
+![Rejected bounded weight fit in native hipfire](screenshots/fish-weight-after-range-return-nov7.png)
+
+Both native games exited 0 and preserved host profile hashes. Gamescope returned
+139 during teardown in both cases; that is recorded separately from the game
+exit. Tests used the isolated offline range with two stationary ADS toggles per
+case and no movement, firing or reload inputs. Installed bundles and installer
+selections retain their verified hashes. The numerical and native results are
+recorded in [the weight-fit verification](fish-weight-fit-verification.json).
+The production fitter, character assignments and released installers are
+unchanged by this experiment. Pose-aware anatomical fitting and the game's
+runtime grip/blending remain open; lower sampled edge strain alone is
+insufficient.

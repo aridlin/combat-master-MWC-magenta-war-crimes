@@ -1,0 +1,177 @@
+{
+  "status": "Rejected native wrist diagnostic; production fitter and installed mods unchanged",
+  "method_reference": "https://igl.ethz.ch/projects/ARAP/",
+  "method": "Symmetric ARAP local rotations and sparse nonnegative affine weight coordinates; native transforms and rest mesh fixed",
+  "is_full_SSDR": false,
+  "poses": 18,
+  "owned_controls": {
+    "owned_bent_strip_initial_objective": 0.017888788633591533,
+    "owned_bent_strip_final_objective": 0.009403726098956875,
+    "rigid_poses_preserve_weights": true,
+    "full_energy_quadratic_difference_max_error": 1.734723475976807e-18,
+    "common_trajectory_translation_max_weight_difference": 3.219646771412954e-15,
+    "fixed_rest_and_transforms_exact": true,
+    "boundary_weights_exact": true,
+    "fixed_anatomical_weight_mass_exact": true,
+    "partial_mass_full_energy_quadratic_difference_error": 0.0,
+    "nonnegative_affine_at_most_four_influences": true,
+    "native_game_tested": false
+  },
+  "unbounded_trials": [
+    {
+      "variant": "low-prior",
+      "initial_objective": 0.12490859563149813,
+      "final_objective": 0.0977417342673275,
+      "free_unique_vertices": 155,
+      "new_crossing_occurrences": 11,
+      "removed_crossing_occurrences": 71,
+      "accepted": false,
+      "bundled": false
+    },
+    {
+      "variant": "strong-prior",
+      "initial_objective": 0.12806610740661314,
+      "final_objective": 0.10278372602425805,
+      "free_unique_vertices": 155,
+      "new_crossing_occurrences": 15,
+      "removed_crossing_occurrences": 68,
+      "accepted": false,
+      "bundled": false
+    },
+    {
+      "variant": "anatomy-low",
+      "initial_objective": 0.12490859558489702,
+      "final_objective": 0.10061122667725171,
+      "free_unique_vertices": 155,
+      "new_crossing_occurrences": 7,
+      "removed_crossing_occurrences": 50,
+      "accepted": false,
+      "bundled": false
+    },
+    {
+      "variant": "forearm-low",
+      "initial_objective": 0.12490859281429736,
+      "final_objective": 0.10511046410488416,
+      "free_unique_vertices": 60,
+      "new_crossing_occurrences": 12,
+      "removed_crossing_occurrences": 23,
+      "accepted": false,
+      "bundled": false
+    }
+  ],
+  "bounded_candidate": {
+    "alpha": 0.125,
+    "new_crossing_occurrences": 0,
+    "removed_crossing_occurrences": 8,
+    "maximum_posed_displacement_m": 0.0069134197794137086,
+    "LOD0_raw_vertices_reweighted": 360,
+    "LOD0_unique_vertices_reweighted": 60,
+    "other_LOD_unchanged": true,
+    "all_authored_finger_weights_exact": true,
+    "maximum_influences": 4,
+    "rest_geometry_normals_UV_topology_bind_and_animations_fixed": true
+  },
+  "crossing_scope": "Occurrences summed over 18 poses, strict noncoplanar interior pairs only, excluding welded-adjacent faces; no coplanar/boundary-only coverage",
+  "native_cases": [
+    {
+      "variant": "before",
+      "native_game_exit": 0,
+      "compositor_exit": 139,
+      "host_profile_exact": true,
+      "installed_assets_read_only": true,
+      "network_isolated": true,
+      "physical_output_or_host_audio_used": false,
+      "movement_firing_or_reload_inputs_sent": false,
+      "stationary_ADS_toggles": 2,
+      "captures": [
+        {
+          "pose": "range-stationary",
+          "sha256": "754678a3f5bdb1fa34bf3a88e4a12eabbf6806ffb4abc6c3c46478e17762ac87",
+          "manually_reviewed": true,
+          "observation": "Wrist transition/slit remains visible; no complete fix established"
+        },
+        {
+          "pose": "range-ads",
+          "sha256": "8cdb04a5d98992719d209ebd369f521ab5d4fec85961f468fbc2a8637fda4c19",
+          "manually_reviewed": true,
+          "observation": "Wrist transition/slit remains visible; no complete fix established",
+          "published_capture": "screenshots/fish-weight-before-range-ads-nov7.png"
+        },
+        {
+          "pose": "range-return",
+          "sha256": "ef9f7b34634f6f0b030d748554d265ac3747d720b1a016254e783b24e97455fe",
+          "manually_reviewed": true,
+          "observation": "Wrist transition/slit remains visible; no complete fix established",
+          "published_capture": "screenshots/fish-weight-before-range-return-nov7.png"
+        }
+      ]
+    },
+    {
+      "variant": "after",
+      "native_game_exit": 0,
+      "compositor_exit": 139,
+      "host_profile_exact": true,
+      "installed_assets_read_only": true,
+      "network_isolated": true,
+      "physical_output_or_host_audio_used": false,
+      "movement_firing_or_reload_inputs_sent": false,
+      "stationary_ADS_toggles": 2,
+      "captures": [
+        {
+          "pose": "range-stationary",
+          "sha256": "a43397f927429f8b3c5acbdc01a487355d95d454d8cbbbea7cca5d986fd5c527",
+          "manually_reviewed": true,
+          "observation": "Wrist transition/slit remains visible; no complete fix established"
+        },
+        {
+          "pose": "range-ads",
+          "sha256": "732470bcc8ab71e11a2ec23a698aa41ec40c35c3f97f9d9321f79e2bcabfc4b6",
+          "manually_reviewed": true,
+          "observation": "Wrist transition/slit remains visible; no complete fix established",
+          "published_capture": "screenshots/fish-weight-after-range-ads-nov7.png"
+        },
+        {
+          "pose": "range-return",
+          "sha256": "3371cebdeba37c631c66e55788d900ccbbb96511d3eb345a5d12a793e955cc4a",
+          "manually_reviewed": true,
+          "observation": "Wrist transition/slit remains visible; no complete fix established",
+          "published_capture": "screenshots/fish-weight-after-range-return-nov7.png"
+        }
+      ]
+    }
+  ],
+  "private_bundle_sha256": {
+    "before": "7f28ab4352d156c9ec1a39c6adb330be82a67407f3f1d08043d806fc4aebdcbc",
+    "after": "7621401b1fe8d2f43e79928dac2dbae5e9a873b07e9f7acffaae58187ebf0464"
+  },
+  "native_bone_matrices_and_mesh_data_published": false,
+  "accepted": false,
+  "installed": false,
+  "preserved_installed_files_and_selection": [
+    {
+      "name": "state.json",
+      "sha256": "237b7c7dd2d43a6aecd25bcb6917297a9c401eb02e1bd0c66c79f81ac3924432"
+    },
+    {
+      "name": "audio",
+      "sha256": "552fa9b28d9381886672e5f9aa2fc32ff6235496baf7364a480f1061368b3053"
+    },
+    {
+      "name": "first_person",
+      "sha256": "8bb80a441849206689fce9be5048e48393f48552e70bdc5b3876b0f9277712cf"
+    },
+    {
+      "name": "thrid_person",
+      "sha256": "94d280d31fa266c46165484ff892627c2fa9e6be5c81bb90ef266b93b97f511c"
+    },
+    {
+      "name": "weapons",
+      "sha256": "1d15a27a4a22970ed33de8b1ab986d601848323bb021c4ebc7a87f62dd0345f5"
+    },
+    {
+      "name": "data.unity3d",
+      "sha256": "5168ea31c82558c80bd4795fd073e513e9223c8aa098b54a5862839f22e7f692"
+    }
+  ],
+  "remaining_work": "Pose-aware anatomical fitting and runtime grip/IK investigation; lower edge strain and fewer scoped crossings did not eliminate the native wrist seam"
+}
