@@ -1,0 +1,726 @@
+{
+  "date": "2026-11-07",
+  "original_bundle_sha256": "2db4ea936380543d32232a1f5250c2a2984f5473b5c8ce177584dd9a3d4c5c14",
+  "private_stage_sha256": "f14efa0bd85aebe5c7b18f90ade63e97c6add91c172bd7e947eea20ce055756c",
+  "models": [
+    {
+      "operator": "operator_10",
+      "model": "tf2_medic",
+      "style": "magenta"
+    },
+    {
+      "operator": "operator_11",
+      "model": "tf2_sniper",
+      "style": "magenta"
+    },
+    {
+      "operator": "operator_12",
+      "model": "tf2_spy",
+      "style": "magenta"
+    },
+    {
+      "operator": "operator_4",
+      "model": "tf2_scout",
+      "style": "magenta"
+    },
+    {
+      "operator": "operator_5",
+      "model": "tf2_soldier",
+      "style": "magenta"
+    },
+    {
+      "operator": "operator_6",
+      "model": "tf2_pyro",
+      "style": "magenta"
+    },
+    {
+      "operator": "operator_7",
+      "model": "tf2_demoman",
+      "style": "magenta"
+    },
+    {
+      "operator": "operator_8",
+      "model": "tf2_heavy",
+      "style": "magenta"
+    },
+    {
+      "operator": "operator_9",
+      "model": "tf2_engineer",
+      "style": "magenta"
+    }
+  ],
+  "build_verification": {
+    "all_other_original_objects_byte_exact": 34504,
+    "renderer_field_whitelist": [
+      "m_Mesh",
+      "m_Materials",
+      "m_AABB"
+    ],
+    "geometry_uv_skin_exact_roundtrip": true,
+    "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+    "all_new_local_references_resolve": true
+  },
+  "isolated_clip_samples": 27,
+  "rendered_views": 36,
+  "render_processes_all_exited_zero": true,
+  "exact_original_rig_bind_and_source_hash_checks": true,
+  "samples": [
+    {
+      "operator": "operator_10",
+      "model": "tf2_medic",
+      "clip": "MP5_Run",
+      "frame": 9,
+      "seconds": 2.916714813996805,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "7e0feadacadeaa68770e07422a0dacf7eed57955e6ce83d7fba334bd18f838b6",
+      "pose_data_sha256": "878f462bb54b741184f57afcb1398dac09cc65785be1a2b7e54b1a43630e3d21",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "-6118496052891890698",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front",
+        "rear"
+      ],
+      "export_seconds": 1.4994158100016648
+    },
+    {
+      "operator": "operator_10",
+      "model": "tf2_medic",
+      "clip": "MP5_Slide_Loop",
+      "frame": 8,
+      "seconds": 2.8135820040042745,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "d763a49818f901248b445396b63d644d8c506e82241b0ecca27edf28a6fffce7",
+      "pose_data_sha256": "8417f8d3045fc1c486233c7a09a26ad8e6737729516655f84cf359d9a23bf564",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "-6118496052891890698",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front"
+      ],
+      "export_seconds": 1.408480990998214
+    },
+    {
+      "operator": "operator_10",
+      "model": "tf2_medic",
+      "clip": "MP5_Reload",
+      "frame": 28,
+      "seconds": 2.878811927002971,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "fb6c5c71b319312e01f3c267103f7226198716606024e61c8e3f15e909c1c10c",
+      "pose_data_sha256": "c514c14d3024506cafa3039c38ebcc5934ecb20a6bca408fbc337ef0c0341f40",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "-6118496052891890698",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front"
+      ],
+      "export_seconds": 1.3762922620007885
+    },
+    {
+      "operator": "operator_11",
+      "model": "tf2_sniper",
+      "clip": "MP5_Run",
+      "frame": 9,
+      "seconds": 2.805006347000017,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "fc43e92288d115eccfe8d8ba3c0ff9e9a192ebf7a6436e1832c660d56005b589",
+      "pose_data_sha256": "89c3df85835170a1e47aa27be539fbff70ba1a34b6b6ddeef0086b59afd7fa75",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "-4091356463460560741",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front",
+        "rear"
+      ],
+      "export_seconds": 1.2969318049945286
+    },
+    {
+      "operator": "operator_11",
+      "model": "tf2_sniper",
+      "clip": "MP5_Slide_Loop",
+      "frame": 8,
+      "seconds": 2.8346636739952373,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "7a4cf641f2d3e28daaa01ddead7cbbce134c4f91ea78c7aaa20dca8f9d57cf47",
+      "pose_data_sha256": "6b58e8cfc670fe97fd12620a0697ad5bf4827fd8c56cd1201fdd27d16030aa4c",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "-4091356463460560741",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front"
+      ],
+      "export_seconds": 1.4156212189991493
+    },
+    {
+      "operator": "operator_11",
+      "model": "tf2_sniper",
+      "clip": "MP5_Reload",
+      "frame": 28,
+      "seconds": 2.776658154994948,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "f8305303f944c2a65d6c688097ccb9742031eeb747dcb114802c63b7a8373246",
+      "pose_data_sha256": "69c848c3d9d6950b61eb62a47023990a3d381d707be155091e626d161d8f7a6c",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "-4091356463460560741",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front"
+      ],
+      "export_seconds": 1.4019443400029559
+    },
+    {
+      "operator": "operator_12",
+      "model": "tf2_spy",
+      "clip": "MP5_Run",
+      "frame": 9,
+      "seconds": 2.752481274001184,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "7c90dc96d78bfa7188f431948c1bb94694d660803b7ea35d98ab928664741d50",
+      "pose_data_sha256": "a9b34c91b5e930666a47155c0f87b706c38f2537b7abf4ca8b1532a66af9305f",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "7238907187414771559",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front",
+        "rear"
+      ],
+      "export_seconds": 1.3649875729970518
+    },
+    {
+      "operator": "operator_12",
+      "model": "tf2_spy",
+      "clip": "MP5_Slide_Loop",
+      "frame": 8,
+      "seconds": 2.7555098309967434,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "23f8d529f9715ed6c54c41f99e707e87112b1e8977c1635c2780f73cc97576ee",
+      "pose_data_sha256": "0c1de3f67168282e6f8f61c6c0dbb3d5e54bf274be7fe523116684684e06a9f3",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "7238907187414771559",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front"
+      ],
+      "export_seconds": 1.3623958220050554
+    },
+    {
+      "operator": "operator_12",
+      "model": "tf2_spy",
+      "clip": "MP5_Reload",
+      "frame": 28,
+      "seconds": 2.80382434099738,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "6247204552ec435f5e50c8a5bfdcd1022f8318d9a9fe13cc8d9ee48cd4ef55ff",
+      "pose_data_sha256": "2510d15254bf7da0181c4dbd431a9c86bcaae21c7a8cf899eacc6e4dac02e236",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "7238907187414771559",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front"
+      ],
+      "export_seconds": 1.3141882210038602
+    },
+    {
+      "operator": "operator_4",
+      "model": "tf2_scout",
+      "clip": "MP5_Run",
+      "frame": 9,
+      "seconds": 0.0009529820017633028,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "a00d462680872541fb8aa082fc8537dda3f0a2489f0c61d2a625238ab2b7beb8",
+      "pose_data_sha256": "848219b387815396f0c009ba25503900410dfb3a33ca500ade4b5aa553110f9c",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "-7266098946933841407",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front",
+        "rear"
+      ],
+      "export_seconds": 1.3310839410041808
+    },
+    {
+      "operator": "operator_4",
+      "model": "tf2_scout",
+      "clip": "MP5_Slide_Loop",
+      "frame": 8,
+      "seconds": 2.860723589998088,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "569a7b0b4b6448b746881035dff302706647d351b4283a382200729ff408c1a5",
+      "pose_data_sha256": "1ff9016e0cb6fea2c44c79b78f3f5be361b54c312e9273230f373ec2f5191ef5",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "-7266098946933841407",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front"
+      ],
+      "export_seconds": 1.329888342996128
+    },
+    {
+      "operator": "operator_4",
+      "model": "tf2_scout",
+      "clip": "MP5_Reload",
+      "frame": 28,
+      "seconds": 2.7315731510025216,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "c3f0e38874371bf536a06cdb913ee53702c52fab2939763a7f9624be828894da",
+      "pose_data_sha256": "98aa979a14dce6372c90c1ef21fb687cdc3d182f575e24cd1fc7a785f4f62a6e",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "-7266098946933841407",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front"
+      ],
+      "export_seconds": 1.3929853750014445
+    },
+    {
+      "operator": "operator_5",
+      "model": "tf2_soldier",
+      "clip": "MP5_Run",
+      "frame": 9,
+      "seconds": 2.760309489996871,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "d39f746e6667ffb8cebcc4beb8030654c146c55d935c67f30ef88b245d2feb79",
+      "pose_data_sha256": "8c5969352567b0d35a838093dbe9452f83a9f24a312547b6898f701ca83b8854",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "5663760178520817148",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front",
+        "rear"
+      ],
+      "export_seconds": 1.3987893700032146
+    },
+    {
+      "operator": "operator_5",
+      "model": "tf2_soldier",
+      "clip": "MP5_Slide_Loop",
+      "frame": 8,
+      "seconds": 2.7381999019999057,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "d7e32b55264c4852d0170e4f9197e845e132541f2184948e78b422d28fed7996",
+      "pose_data_sha256": "740fe30d6e7d29640a867e1f5d25d2edc82d127cbef2854e2b47c690f77340e1",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "5663760178520817148",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front"
+      ],
+      "export_seconds": 1.2534570249990793
+    },
+    {
+      "operator": "operator_5",
+      "model": "tf2_soldier",
+      "clip": "MP5_Reload",
+      "frame": 28,
+      "seconds": 2.797964735000278,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "f918e54c8b716e689bb926bf39d018aab46cc8f60dd87113f33501da54de7e16",
+      "pose_data_sha256": "c109a023d2a14b9dd5acf63b0b83c05250259be1a6c618ec2018c44d74c8d6c7",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "5663760178520817148",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front"
+      ],
+      "export_seconds": 1.3544699199992465
+    },
+    {
+      "operator": "operator_6",
+      "model": "tf2_pyro",
+      "clip": "MP5_Run",
+      "frame": 9,
+      "seconds": 2.752874902005715,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "22b2da21efee2d13baaf010ac30865ac04e5b5b3e728a8c07e25a6ef60ba8f5a",
+      "pose_data_sha256": "59ca0ee4efea21fd286153ee67d1101cbceb92eb3c1fe1d24a2c10a3ea2414c7",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "-3807554716910610080",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front",
+        "rear"
+      ],
+      "export_seconds": 1.3359632630017586
+    },
+    {
+      "operator": "operator_6",
+      "model": "tf2_pyro",
+      "clip": "MP5_Slide_Loop",
+      "frame": 8,
+      "seconds": 2.8277523220021976,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "ca6cb7df33dcccca14f900f95056346eb04ff8f0c7f6e4b16e99700082089a70",
+      "pose_data_sha256": "3f76053e20d58ea517abb76949c41547c6163a35a355f6eb3451a1008f8908b2",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "-3807554716910610080",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front"
+      ],
+      "export_seconds": 1.2895331539984909
+    },
+    {
+      "operator": "operator_6",
+      "model": "tf2_pyro",
+      "clip": "MP5_Reload",
+      "frame": 28,
+      "seconds": 2.764083758003835,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "e0bbccdefbb3d32d66feb882a881a41ef1e95caa33d3078c36ec8480e6487e91",
+      "pose_data_sha256": "3db62e874ca9410619d8cc96bda02a31f368423b5cf122e0dae43a43470423aa",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "-3807554716910610080",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front"
+      ],
+      "export_seconds": 1.300744273001328
+    },
+    {
+      "operator": "operator_7",
+      "model": "tf2_demoman",
+      "clip": "MP5_Run",
+      "frame": 9,
+      "seconds": 2.7980779339995934,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "e2412f6ca6cf18bcd07a262e853260a8514f5f6f8349ef68deb9fca398e08f8a",
+      "pose_data_sha256": "c9e5b167edef8b7770d189749173a81594b16ddeb99a025ac7e3a018c10e0ec4",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "4690066034295022219",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front",
+        "rear"
+      ],
+      "export_seconds": 1.3551766489981674
+    },
+    {
+      "operator": "operator_7",
+      "model": "tf2_demoman",
+      "clip": "MP5_Slide_Loop",
+      "frame": 8,
+      "seconds": 2.8545848180001485,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "d5588f43c5f1d371ff445eeb2a89d546ddcd07aa92cbb9b1fa19069af68dadf3",
+      "pose_data_sha256": "577aa33eb25a7efdc26738ac7383ca93b060fa33cadcff23861280c2d33fa5e5",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "4690066034295022219",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front"
+      ],
+      "export_seconds": 1.3864484750010888
+    },
+    {
+      "operator": "operator_7",
+      "model": "tf2_demoman",
+      "clip": "MP5_Reload",
+      "frame": 28,
+      "seconds": 2.7453539429989178,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "fd70bd4ebabaa04f5035a4f67ff0a249c5c8ed072cfed9f20968d037551a7a8b",
+      "pose_data_sha256": "903bf674cb8bf6f576d0363e8f2f9abe1b72fde0f95ba1741175d6d27c67fc47",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "4690066034295022219",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front"
+      ],
+      "export_seconds": 1.3611649809972732
+    },
+    {
+      "operator": "operator_8",
+      "model": "tf2_heavy",
+      "clip": "MP5_Run",
+      "frame": 9,
+      "seconds": 2.7559461720011313,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "63c617e1ccec67a035b17be8cd2b7cf15250f199ccf8af993bd279ad76027b5a",
+      "pose_data_sha256": "a0a31dc3d9783a14971fb3bc7842adb3eaa4982d931fa809a2e7d70147041b95",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "-4379894716537273690",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front",
+        "rear"
+      ],
+      "export_seconds": 1.379960869999195
+    },
+    {
+      "operator": "operator_8",
+      "model": "tf2_heavy",
+      "clip": "MP5_Slide_Loop",
+      "frame": 8,
+      "seconds": 2.8266341100024874,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "05e0d2749a1ea5acfa06ff80ba96d9b842da585c702bdd03997b3741e8ded13c",
+      "pose_data_sha256": "6060811d656801264f5d793e4c95c170e5dc58ad6af4c6fd8625fa1e27346ce7",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "-4379894716537273690",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front"
+      ],
+      "export_seconds": 1.4244246919988655
+    },
+    {
+      "operator": "operator_8",
+      "model": "tf2_heavy",
+      "clip": "MP5_Reload",
+      "frame": 28,
+      "seconds": 2.7899229120012023,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "884c1fb928b1b1e897e8e6062a2c52d3e8a8dd9f238ba9895fa9315326cb59a4",
+      "pose_data_sha256": "80e07b801dbb6187c8250d94c547d36908f6a4e1cff351d7acca17e56ff79076",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "-4379894716537273690",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front"
+      ],
+      "export_seconds": 1.3125080739991972
+    },
+    {
+      "operator": "operator_9",
+      "model": "tf2_engineer",
+      "clip": "MP5_Run",
+      "frame": 9,
+      "seconds": 2.7989084560031188,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "cd97c2beb88074a2345eb7de4b4fec245c65ea4fb15e14e1fd7ef1c7aefa0886",
+      "pose_data_sha256": "487c463458345341dceafc846848809d3b240bda802edf734f81d955bb31522b",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "2501254363991970462",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front",
+        "rear"
+      ],
+      "export_seconds": 1.3561691779977991
+    },
+    {
+      "operator": "operator_9",
+      "model": "tf2_engineer",
+      "clip": "MP5_Slide_Loop",
+      "frame": 8,
+      "seconds": 2.7932464469995466,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "a42900f1ece2b3c1eae921e210d6658c1a75a54476c024c22c784da1200eb38c",
+      "pose_data_sha256": "dcf3d488982c4fab3537aa29c2434f79821bdde1f00c4d24e37be1fc76f460ab",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "2501254363991970462",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front"
+      ],
+      "export_seconds": 1.3090445969937718
+    },
+    {
+      "operator": "operator_9",
+      "model": "tf2_engineer",
+      "clip": "MP5_Reload",
+      "frame": 28,
+      "seconds": 2.7601562989948434,
+      "exact_rig_and_bind_match": true,
+      "serialized_geometry_sha256": "e6666e3d8134ecbba1f3e3afef67d8b8f24674c481fc1a11e1d8cdabe0152228",
+      "pose_data_sha256": "22d68b638da4850d24d2a8b5614af49b44e57083ac949366b1c914f9d441cf40",
+      "no_game_process_or_events": true,
+      "reviewed_renderer": "2501254363991970462",
+      "reviewed_LOD": 0,
+      "prior_review_array_and_material_bytes_exact": true,
+      "prior_render_views_reused_after_byte_comparison": [
+        "front"
+      ],
+      "export_seconds": 1.3362111579990597
+    }
+  ],
+  "default_bind_regression": {
+    "baseline_source_commit": "e4def6854e9fa3c2252a5459d5016b62d756ca05",
+    "rows": [
+      {
+        "model": "tf2_demoman",
+        "default_bind_arrays_byte_exact": 8,
+        "metadata_and_material_texture_byte_exact": true
+      },
+      {
+        "model": "tf2_engineer",
+        "default_bind_arrays_byte_exact": 8,
+        "metadata_and_material_texture_byte_exact": true
+      },
+      {
+        "model": "tf2_heavy",
+        "default_bind_arrays_byte_exact": 8,
+        "metadata_and_material_texture_byte_exact": true
+      },
+      {
+        "model": "tf2_medic",
+        "default_bind_arrays_byte_exact": 8,
+        "metadata_and_material_texture_byte_exact": true
+      },
+      {
+        "model": "tf2_pyro",
+        "default_bind_arrays_byte_exact": 8,
+        "metadata_and_material_texture_byte_exact": true
+      },
+      {
+        "model": "tf2_scout",
+        "default_bind_arrays_byte_exact": 8,
+        "metadata_and_material_texture_byte_exact": true
+      },
+      {
+        "model": "tf2_sniper",
+        "default_bind_arrays_byte_exact": 8,
+        "metadata_and_material_texture_byte_exact": true
+      },
+      {
+        "model": "tf2_soldier",
+        "default_bind_arrays_byte_exact": 8,
+        "metadata_and_material_texture_byte_exact": true
+      },
+      {
+        "model": "tf2_spy",
+        "default_bind_arrays_byte_exact": 8,
+        "metadata_and_material_texture_byte_exact": true
+      }
+    ],
+    "old_default_behavior_preserved": true,
+    "actual_game_modified": false,
+    "array_dtype_shape_and_raw_bytes_verified": 72,
+    "current_source_checked_after_LOD_selection_fix": true
+  },
+  "rejection_controls": {
+    "rows": [
+      {
+        "control": "data-hash",
+        "error": "Clip pose data changed or lacks a recorded hash; export it again",
+        "no_output_created": true
+      },
+      {
+        "control": "operator",
+        "error": "Clip operator is absent or ambiguous in the staged build",
+        "no_output_created": true
+      }
+    ],
+    "installed_game_or_state_modified": false
+  },
+  "source_tests": {
+    "tests": 205,
+    "passed": 204,
+    "existing_data_dependent_skip": 1,
+    "focused_pose_input_and_space_tests_passed": 10
+  },
+  "native_game_scripts_events_controller_IK_or_network_used": false,
+  "native_game_animation_shader_grip_or_performance_acceptance": false,
+  "game_installation_profile_or_operator_assignments_changed": false,
+  "new_diagnostic_source_not_in_v012_packages": true,
+  "screenshots": [
+    {
+      "path": "screenshots/tf2-world-run-front-nov7.png",
+      "sha256": "f9b3cf1d770657afdd795ae79c1ac2915a2446aa714e023c6fa6e8f1c70b9937",
+      "offline_studio_not_native_game_screenshot": true
+    },
+    {
+      "path": "screenshots/tf2-world-run-rear-nov7.png",
+      "sha256": "a5a17bd63c2db6f3831e7db1ff2d2c041ad85d4449b72adee0298d57aab5f4e2",
+      "offline_studio_not_native_game_screenshot": true
+    },
+    {
+      "path": "screenshots/tf2-world-slide-front-nov7.png",
+      "sha256": "732b407ee78214fdf8202a4418bce00fcf87e1e9ce0b619be82fce3cbe9b2c3f",
+      "offline_studio_not_native_game_screenshot": true
+    },
+    {
+      "path": "screenshots/tf2-world-reload-front-nov7.png",
+      "sha256": "532298e72eb46e6e9c7468e93497b764266ee2af4940dfc211a3890f6f027a46",
+      "offline_studio_not_native_game_screenshot": true
+    }
+  ],
+  "reviewed_renderers": [
+    {
+      "model": "tf2_medic",
+      "operator": "operator_10",
+      "renderer": "-6118496052891890698",
+      "native_renderer_name": "soldier:Solder_LOD0"
+    },
+    {
+      "model": "tf2_sniper",
+      "operator": "operator_11",
+      "renderer": "-4091356463460560741",
+      "native_renderer_name": "soldier:Solder_LOD0"
+    },
+    {
+      "model": "tf2_spy",
+      "operator": "operator_12",
+      "renderer": "7238907187414771559",
+      "native_renderer_name": "soldier:Solder_LOD0"
+    },
+    {
+      "model": "tf2_scout",
+      "operator": "operator_4",
+      "renderer": "-7266098946933841407",
+      "native_renderer_name": "soldier:Solder_LOD0"
+    },
+    {
+      "model": "tf2_soldier",
+      "operator": "operator_5",
+      "renderer": "5663760178520817148",
+      "native_renderer_name": "soldier:Solder_LOD0"
+    },
+    {
+      "model": "tf2_pyro",
+      "operator": "operator_6",
+      "renderer": "-3807554716910610080",
+      "native_renderer_name": "soldier:Solder_LOD0"
+    },
+    {
+      "model": "tf2_demoman",
+      "operator": "operator_7",
+      "renderer": "4690066034295022219",
+      "native_renderer_name": "soldier:Solder_LOD0"
+    },
+    {
+      "model": "tf2_heavy",
+      "operator": "operator_8",
+      "renderer": "-4379894716537273690",
+      "native_renderer_name": "soldier:Solder_LOD0"
+    },
+    {
+      "model": "tf2_engineer",
+      "operator": "operator_9",
+      "renderer": "2501254363991970462",
+      "native_renderer_name": "soldier:Solder_LOD0"
+    }
+  ],
+  "other_LODs_not_visually_reviewed_in_this_phase": true,
+  "original_render_runs": 36,
+  "new_render_runs_needed_for_LOD0_followup": 0,
+  "views_reused_after_exact_arrays_and_material_checks": 36,
+  "prior_first_renderer_choice_rejected_for_main_LOD_review": true
+}

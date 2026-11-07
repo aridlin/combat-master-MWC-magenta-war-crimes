@@ -1,0 +1,248 @@
+{
+  "baseline_bundle_sha256": "94d280d31fa266c46165484ff892627c2fa9e6be5c81bb90ef266b93b97f511c",
+  "source_bind_fit_matches_actual_serialized_body": true,
+  "focus_triangles": 879,
+  "crossing_scope": "Strict noncoplanar interior crossings only; excludes welded adjacency; not a complete collision proof",
+  "variants": [
+    {
+      "radial_expansion": 0.06,
+      "changed_vertices": 287,
+      "maximum_rest_displacement_m": 0.013749669159350492,
+      "poses": [
+        {
+          "pose": "controller_idle",
+          "baseline_crossings": 134,
+          "candidate_crossings": 133,
+          "new_pairs": 5,
+          "removed_pairs": 6,
+          "max_displacement_m": 0.013691697985603143
+        },
+        {
+          "pose": "controller_run",
+          "baseline_crossings": 138,
+          "candidate_crossings": 143,
+          "new_pairs": 8,
+          "removed_pairs": 3,
+          "max_displacement_m": 0.01346775212522583
+        },
+        {
+          "pose": "controller_sprint",
+          "baseline_crossings": 132,
+          "candidate_crossings": 144,
+          "new_pairs": 19,
+          "removed_pairs": 7,
+          "max_displacement_m": 0.013668952139227255
+        },
+        {
+          "pose": "controller_jump",
+          "baseline_crossings": 402,
+          "candidate_crossings": 415,
+          "new_pairs": 39,
+          "removed_pairs": 26,
+          "max_displacement_m": 0.01360002306053623
+        },
+        {
+          "pose": "controller_slide_start",
+          "baseline_crossings": 380,
+          "candidate_crossings": 366,
+          "new_pairs": 22,
+          "removed_pairs": 36,
+          "max_displacement_m": 0.013161011418419334
+        },
+        {
+          "pose": "controller_slide_loop",
+          "baseline_crossings": 397,
+          "candidate_crossings": 388,
+          "new_pairs": 25,
+          "removed_pairs": 34,
+          "max_displacement_m": 0.013162029614433234
+        },
+        {
+          "pose": "controller_reload",
+          "baseline_crossings": 144,
+          "candidate_crossings": 153,
+          "new_pairs": 12,
+          "removed_pairs": 3,
+          "max_displacement_m": 0.013687940900920115
+        },
+        {
+          "pose": "controller_copter_pilot",
+          "baseline_crossings": 227,
+          "candidate_crossings": 233,
+          "new_pairs": 13,
+          "removed_pairs": 7,
+          "max_displacement_m": 0.013191009774827867
+        }
+      ],
+      "new_crossings": 143,
+      "removed_crossings": 122,
+      "all_original_skin_weights_exact": true,
+      "accepted": false,
+      "installed": false
+    },
+    {
+      "radial_expansion": 0.12,
+      "changed_vertices": 287,
+      "maximum_rest_displacement_m": 0.027499338318701043,
+      "poses": [
+        {
+          "pose": "controller_idle",
+          "baseline_crossings": 134,
+          "candidate_crossings": 133,
+          "new_pairs": 9,
+          "removed_pairs": 10,
+          "max_displacement_m": 0.02738339597120636
+        },
+        {
+          "pose": "controller_run",
+          "baseline_crossings": 138,
+          "candidate_crossings": 145,
+          "new_pairs": 12,
+          "removed_pairs": 5,
+          "max_displacement_m": 0.026935504250451783
+        },
+        {
+          "pose": "controller_sprint",
+          "baseline_crossings": 132,
+          "candidate_crossings": 135,
+          "new_pairs": 13,
+          "removed_pairs": 10,
+          "max_displacement_m": 0.027337904278454606
+        },
+        {
+          "pose": "controller_jump",
+          "baseline_crossings": 402,
+          "candidate_crossings": 408,
+          "new_pairs": 68,
+          "removed_pairs": 62,
+          "max_displacement_m": 0.027200046121072508
+        },
+        {
+          "pose": "controller_slide_start",
+          "baseline_crossings": 380,
+          "candidate_crossings": 356,
+          "new_pairs": 39,
+          "removed_pairs": 63,
+          "max_displacement_m": 0.02632202283683872
+        },
+        {
+          "pose": "controller_slide_loop",
+          "baseline_crossings": 397,
+          "candidate_crossings": 368,
+          "new_pairs": 35,
+          "removed_pairs": 64,
+          "max_displacement_m": 0.026324059228866548
+        },
+        {
+          "pose": "controller_reload",
+          "baseline_crossings": 144,
+          "candidate_crossings": 154,
+          "new_pairs": 15,
+          "removed_pairs": 5,
+          "max_displacement_m": 0.027375881801840335
+        },
+        {
+          "pose": "controller_copter_pilot",
+          "baseline_crossings": 227,
+          "candidate_crossings": 227,
+          "new_pairs": 11,
+          "removed_pairs": 11,
+          "max_displacement_m": 0.026382019549655734
+        }
+      ],
+      "new_crossings": 202,
+      "removed_crossings": 230,
+      "all_original_skin_weights_exact": true,
+      "accepted": false,
+      "installed": false
+    },
+    {
+      "radial_expansion": 0.18,
+      "changed_vertices": 287,
+      "maximum_rest_displacement_m": 0.041249007478051616,
+      "poses": [
+        {
+          "pose": "controller_idle",
+          "baseline_crossings": 134,
+          "candidate_crossings": 134,
+          "new_pairs": 14,
+          "removed_pairs": 14,
+          "max_displacement_m": 0.04107509395680964
+        },
+        {
+          "pose": "controller_run",
+          "baseline_crossings": 138,
+          "candidate_crossings": 147,
+          "new_pairs": 16,
+          "removed_pairs": 7,
+          "max_displacement_m": 0.04040325637567761
+        },
+        {
+          "pose": "controller_sprint",
+          "baseline_crossings": 132,
+          "candidate_crossings": 139,
+          "new_pairs": 19,
+          "removed_pairs": 12,
+          "max_displacement_m": 0.04100685641768199
+        },
+        {
+          "pose": "controller_jump",
+          "baseline_crossings": 402,
+          "candidate_crossings": 405,
+          "new_pairs": 94,
+          "removed_pairs": 91,
+          "max_displacement_m": 0.04080006918160886
+        },
+        {
+          "pose": "controller_slide_start",
+          "baseline_crossings": 380,
+          "candidate_crossings": 348,
+          "new_pairs": 42,
+          "removed_pairs": 74,
+          "max_displacement_m": 0.03948303425525816
+        },
+        {
+          "pose": "controller_slide_loop",
+          "baseline_crossings": 397,
+          "candidate_crossings": 364,
+          "new_pairs": 43,
+          "removed_pairs": 76,
+          "max_displacement_m": 0.039486088843299835
+        },
+        {
+          "pose": "controller_reload",
+          "baseline_crossings": 144,
+          "candidate_crossings": 161,
+          "new_pairs": 22,
+          "removed_pairs": 5,
+          "max_displacement_m": 0.04106382270276064
+        },
+        {
+          "pose": "controller_copter_pilot",
+          "baseline_crossings": 227,
+          "candidate_crossings": 225,
+          "new_pairs": 15,
+          "removed_pairs": 17,
+          "max_displacement_m": 0.03957302932448351
+        }
+      ],
+      "new_crossings": 265,
+      "removed_crossings": 296,
+      "all_original_skin_weights_exact": true,
+      "accepted": false,
+      "installed": false
+    }
+  ],
+  "only_lower_tunic_rest_positions_and_normals_changed": true,
+  "all_skin_weights_topology_UV_materials_accessories_native_rig_animation_gameplay_unchanged": true,
+  "native_game_tested": false,
+  "installed_game_unchanged": true,
+  "decision": "Rejected: pose-specific improvements did not remove the visible tears and worsened other sampled poses",
+  "views_inspected": [
+    "idle front/rear",
+    "slide loop front/rear",
+    "reload front/rear",
+    "copter pilot front/rear"
+  ],
+  "strongest_candidate_radial_expansion": 0.18
+}

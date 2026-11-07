@@ -193,7 +193,9 @@ def export_clip(bundle,operator,clip_name,frame,output,*,clip_bundle=None,rig_ki
                   clip_id=str(clips[0].path_id),renderers=renderers,source_unchanged=True,
                   clip_source_unchanged=True,private_native_game_data=True,
                   game_or_profile_modified=False,events_not_invoked=len(tree.get('m_Events',[])))
-    output.mkdir(parents=True);np.savez_compressed(output/'pose.npz',**arrays);(output/'review.json').write_text(json.dumps(report,indent=2)+'\n')
+    output.mkdir(parents=True);np.savez_compressed(output/'pose.npz',**arrays)
+    report['pose_data_sha256']=digest(output/'pose.npz')
+    (output/'review.json').write_text(json.dumps(report,indent=2)+'\n')
     return report
 
 

@@ -62,6 +62,43 @@ world previews; the original inverse bind matrices do not describe the posed
 mesh's up axis. `review.json` records `rig_kind`. The default API
 and CLI still select `first_person`, including when `--clip-bundle` is used.
 
+### Review the actual serialized replacement
+
+A freshly built world-operator stage can now be reviewed under an original
+clip export. The reader selects the exact operator recorded in that export:
+
+```sh
+PYTHONPATH=public-repo .venv/bin/python -P -m operators.review \
+  /path/to/private-verified-stage \
+  experiments/private-scout-run-review \
+  --pose clip --clip-pose experiments/private-scout-run-pose
+```
+
+Here `private-scout-run-pose` must be a fresh `operators.clip_review` export for
+the staged Scout's operator identity, using the same immutable original bundle
+as the stage. For the diagnostic roster below that was `operator_4`,
+`MP5_Run`, frame 9; this is a private test assignment, not a new user default.
+The clip option selects the reviewed LOD0 body renderer explicitly. The
+output contains the staged model's serialized positions, UVs, materials
+and weights, deformed by the original transform clip and converted with the
+evaluated renderer frame. The pose arrays receive a recorded SHA-256 hash.
+A changed/missing hash, different source, operator, renderer, bone order,
+inverse bind matrix or coordinate-space description fails explicitly. There
+is no fallback to another rig or a synthetic pose. Older pose exports without
+hashes/world frames need to be regenerated.
+
+The new option supports world operators only and requires a fresh private
+output outside the public source/package tree. Run it from the private parent
+workspace as shown above. The existing `bind` and `articulated` modes remain
+available; default bind exports for all nine actual serialized TF2 models
+retained byte-identical raw values, dtypes and shapes in 72 arrays, with exact
+metadata and material PNGs. The CLI does not install a model, change an
+assignment, invoke animation events, or run any game code.
+
+The current-source TF2 build and 36-view review are documented in
+[the serialized world-model review](world-serialized-clip-review.md), with
+[verification details](world-serialized-clip-review-verification.json).
+
 The reader supports the reviewed nonlegacy, uncompressed generic clip layout:
 streamed cubic channels, dense samples at their exact sample frames, constant
 channels, transform position/quaternion/Euler/scale bindings, and unique CRC32
@@ -289,6 +326,20 @@ the lower overall crossing total is not acceptance. The checker excludes
 coplanar and boundary-only contact and is not a full collision proof.
 [Rejected-experiment record](shrek-tunic-experiment-verification.json) preserves
 the result for subsequent fitting work.
+
+Three further geometry-only candidates expanded the existing lower tunic by
+6%, 12% or 18% with smooth height/side falloffs, moving at most about 1.4–4.1 cm
+in the rest mesh. All skin weights, topology, UVs, materials, accessories and
+native animation data stayed exact. All eight controller poses were measured;
+front/rear comparisons of idle, slide, reload and seated poses were inspected
+for the strongest candidate. Slide crossings decreased, but run/reload and
+other poses regressed, and visible hem tears remained. All three are rejected
+and uninstalled. This is not a production clothing fix.
+[Geometry-experiment details](shrek-tunic-volume-verification.json) record the
+scope; [front](screenshots/shrek-tunic-volume-front-nov7.png) and
+[rear](screenshots/shrek-tunic-volume-rear-nov7.png) comparisons show current
+above candidate.
+
 
 ![Offline Shrek controller poses, corrected front views](screenshots/shrek-world-poses-front-nov7.png)
 

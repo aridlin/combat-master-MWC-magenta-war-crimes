@@ -149,3 +149,13 @@ not establish first-person alignment or animation quality.
 empty-range ADS inspection path. [Fishguy and Medic before/after evidence](../finger-tip-native-verification.json) records the reviewed fingertip improvement;
 full grip, reload and motion remain pending. [The Medigun artwork control](../weapon-models.md#medigun-artwork-control-november-6) is a private MP.V alias and does not prove
 actual Minigun placement.
+
+
+## Offline world-model diagnostics
+
+The [TF2 world-model sheets](../world-serialized-clip-review.md) show serialized
+magenta replacements under isolated original clip frames in Blender. They are
+offline studio renders, not gameplay captures or native shader acceptance. The
+[Shrek frame review](../native-clip-review.md) and its rejected tunic comparisons
+are likewise offline diagnostics. Their source credits and remaining issues
+are recorded with each report.

@@ -1,0 +1,258 @@
+{
+  "date": "2026-11-07",
+  "full_side_helper_mapping": {
+    "model": "tf2_medic",
+    "source_stage_sha256": "f14efa0bd85aebe5c7b18f90ade63e97c6add91c172bd7e947eea20ce055756c",
+    "changed_coat_helpers": {
+      "prp_coat_front_1_L": "Hip_L",
+      "prp_coat_front_1_R": "Hip_R",
+      "prp_coat_front_2_L": "Hip_L",
+      "prp_coat_front_2_R": "Hip_R",
+      "prp_coat_back_1_L": "Hip_L",
+      "prp_coat_back_1_R": "Hip_R",
+      "prp_coat_back_2_L": "Hip_L",
+      "prp_coat_back_2_R": "Hip_R"
+    },
+    "changed_vertices": 629,
+    "maximum_active_influences": 3,
+    "rest_geometry_normals_UV_materials_skeleton_native_animation_and_noncoat_weights_unchanged": true,
+    "zero_influence_mass_discarded": true,
+    "rows": [
+      {
+        "pose": "run",
+        "max_posed_displacement_native_units": 0.8567782842247021
+      },
+      {
+        "pose": "slide",
+        "max_posed_displacement_native_units": 1.2575442826598107
+      },
+      {
+        "pose": "reload",
+        "max_posed_displacement_native_units": 0.7636950329682964
+      }
+    ],
+    "accepted": false,
+    "installed": false,
+    "native_game_tested": false
+  },
+  "side_helper_blends": {
+    "focus_triangles": 698,
+    "strict_crossing_scope_not_full_collision_proof": true,
+    "variants": [
+      {
+        "hip_blend": 0.25,
+        "changed_vertices": 629,
+        "all_original_rest_geometry_materials_and_noncoat_weights_unchanged": true,
+        "influence_mass_discarded": 0,
+        "maximum_influences": 3,
+        "checks": [
+          {
+            "pose": "run",
+            "baseline_crossings": 83,
+            "candidate_crossings": 89,
+            "new_pairs": 24,
+            "removed_pairs": 18,
+            "maximum_displacement_m": 0.21419460352491115,
+            "native_bind_units_not_used_for_pose_distance": true
+          },
+          {
+            "pose": "slide",
+            "baseline_crossings": 69,
+            "candidate_crossings": 73,
+            "new_pairs": 6,
+            "removed_pairs": 2,
+            "maximum_displacement_m": 0.3143860792009345,
+            "native_bind_units_not_used_for_pose_distance": true
+          },
+          {
+            "pose": "reload",
+            "baseline_crossings": 63,
+            "candidate_crossings": 59,
+            "new_pairs": 16,
+            "removed_pairs": 20,
+            "maximum_displacement_m": 0.19092378508801136,
+            "native_bind_units_not_used_for_pose_distance": true
+          }
+        ],
+        "accepted": false,
+        "installed": false
+      },
+      {
+        "hip_blend": 0.5,
+        "changed_vertices": 629,
+        "all_original_rest_geometry_materials_and_noncoat_weights_unchanged": true,
+        "influence_mass_discarded": 0,
+        "maximum_influences": 3,
+        "checks": [
+          {
+            "pose": "run",
+            "baseline_crossings": 83,
+            "candidate_crossings": 92,
+            "new_pairs": 49,
+            "removed_pairs": 40,
+            "maximum_displacement_m": 0.4283891659858701,
+            "native_bind_units_not_used_for_pose_distance": true
+          },
+          {
+            "pose": "slide",
+            "baseline_crossings": 69,
+            "candidate_crossings": 101,
+            "new_pairs": 36,
+            "removed_pairs": 4,
+            "maximum_displacement_m": 0.6287721463426738,
+            "native_bind_units_not_used_for_pose_distance": true
+          },
+          {
+            "pose": "reload",
+            "baseline_crossings": 63,
+            "candidate_crossings": 49,
+            "new_pairs": 24,
+            "removed_pairs": 38,
+            "maximum_displacement_m": 0.38184753703699686,
+            "native_bind_units_not_used_for_pose_distance": true
+          }
+        ],
+        "accepted": false,
+        "installed": false
+      }
+    ],
+    "native_game_tested": false,
+    "game_files_modified": false,
+    "distance_metric": "Euclidean distance of stored world-to-studio metre coordinates; the earlier bind-unit-divided metric is rejected"
+  },
+  "front_only_helper_blends": {
+    "focus_triangles": 606,
+    "strict_crossing_scope_not_full_collision_proof": true,
+    "variants": [
+      {
+        "hip_blend": 0.25,
+        "changed_vertices": 369,
+        "all_original_rest_geometry_materials_and_noncoat_weights_unchanged": true,
+        "influence_mass_discarded": 0,
+        "maximum_influences": 3,
+        "checks": [
+          {
+            "pose": "run",
+            "baseline_crossings": 17,
+            "candidate_crossings": 22,
+            "new_pairs": 6,
+            "removed_pairs": 1,
+            "maximum_displacement_renderer_units": 0.21419456969376047,
+            "maximum_displacement_m": 0.2141945696937605,
+            "native_bind_units_not_used_for_pose_distance": true
+          },
+          {
+            "pose": "slide",
+            "baseline_crossings": 69,
+            "candidate_crossings": 69,
+            "new_pairs": 0,
+            "removed_pairs": 0,
+            "maximum_displacement_renderer_units": 0.30008203908757725,
+            "maximum_displacement_m": 0.3000820390875773,
+            "native_bind_units_not_used_for_pose_distance": true
+          },
+          {
+            "pose": "reload",
+            "baseline_crossings": 63,
+            "candidate_crossings": 59,
+            "new_pairs": 15,
+            "removed_pairs": 19,
+            "maximum_displacement_renderer_units": 0.1909237578168564,
+            "maximum_displacement_m": 0.19092375781685644,
+            "native_bind_units_not_used_for_pose_distance": true
+          }
+        ],
+        "accepted": false,
+        "installed": false
+      },
+      {
+        "hip_blend": 0.5,
+        "changed_vertices": 369,
+        "all_original_rest_geometry_materials_and_noncoat_weights_unchanged": true,
+        "influence_mass_discarded": 0,
+        "maximum_influences": 3,
+        "checks": [
+          {
+            "pose": "run",
+            "baseline_crossings": 17,
+            "candidate_crossings": 24,
+            "new_pairs": 9,
+            "removed_pairs": 2,
+            "maximum_displacement_renderer_units": 0.428389139387521,
+            "maximum_displacement_m": 0.428389139387521,
+            "native_bind_units_not_used_for_pose_distance": true
+          },
+          {
+            "pose": "slide",
+            "baseline_crossings": 69,
+            "candidate_crossings": 70,
+            "new_pairs": 4,
+            "removed_pairs": 3,
+            "maximum_displacement_renderer_units": 0.6001640781751546,
+            "maximum_displacement_m": 0.6001640781751546,
+            "native_bind_units_not_used_for_pose_distance": true
+          },
+          {
+            "pose": "reload",
+            "baseline_crossings": 63,
+            "candidate_crossings": 41,
+            "new_pairs": 19,
+            "removed_pairs": 41,
+            "maximum_displacement_renderer_units": 0.3818475156337128,
+            "maximum_displacement_m": 0.38184751563371283,
+            "native_bind_units_not_used_for_pose_distance": true
+          }
+        ],
+        "accepted": false,
+        "installed": false
+      },
+      {
+        "hip_blend": 1.0,
+        "changed_vertices": 369,
+        "all_original_rest_geometry_materials_and_noncoat_weights_unchanged": true,
+        "influence_mass_discarded": 0,
+        "maximum_influences": 3,
+        "checks": [
+          {
+            "pose": "run",
+            "baseline_crossings": 17,
+            "candidate_crossings": 63,
+            "new_pairs": 53,
+            "removed_pairs": 7,
+            "maximum_displacement_renderer_units": 0.856778278775042,
+            "maximum_displacement_m": 0.856778278775042,
+            "native_bind_units_not_used_for_pose_distance": true
+          },
+          {
+            "pose": "slide",
+            "baseline_crossings": 69,
+            "candidate_crossings": 141,
+            "new_pairs": 77,
+            "removed_pairs": 5,
+            "maximum_displacement_renderer_units": 1.2003281563503092,
+            "maximum_displacement_m": 1.2003281563503092,
+            "native_bind_units_not_used_for_pose_distance": true
+          },
+          {
+            "pose": "reload",
+            "baseline_crossings": 63,
+            "candidate_crossings": 42,
+            "new_pairs": 31,
+            "removed_pairs": 52,
+            "maximum_displacement_renderer_units": 0.7636950312674256,
+            "maximum_displacement_m": 0.7636950312674256,
+            "native_bind_units_not_used_for_pose_distance": true
+          }
+        ],
+        "accepted": false,
+        "installed": false
+      }
+    ],
+    "native_game_tested": false,
+    "game_files_modified": false
+  },
+  "decision": "No candidate accepted or installed. Side/front hip mapping produces pose-specific clearance tradeoffs and the full mapping visibly folds the coat too aggressively.",
+  "crossing_counts_compare_only_within_each_fixed_focus_mesh": true,
+  "native_game_tested": false,
+  "installed_game_or_saved_assignments_changed": false
+}
