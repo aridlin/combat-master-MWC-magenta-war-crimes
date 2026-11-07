@@ -16,13 +16,33 @@ ROOT=Path(__file__).resolve().parent
 BUNDLE='root/audio'
 
 
-def build(config,settings,tf2=''):
+def source_reader(config,tf2=''):
     spec=json.loads((ROOT/'config/tf2-audio-map.json').read_text())
     local=discover_tf2(config,tf2);vpk=VPK(local/'tf2_sound_misc_dir.vpk')
     def read_source(path):
         data=vpk.read(path)
         return data,{'source_vpk_entry':path,'source_sha256':hashlib.sha256(data).hexdigest()}
+    return spec,read_source
+
+
+def build(config,settings,tf2=''):
+    spec,read_source=source_reader(config,tf2)
     return build_slots(config,settings,spec,read_source,{'Valve_audio_bundled':False})
+
+
+def processed_slot(obj,row,read_source,cache):
+    """The same checked PCM excerpt for installation and read-only previews."""
+    if obj.type.name!='AudioClip' or obj.peek_name()!=row['name']:raise ValueError('Mapped native audio slot changed: '+row['name'])
+    clip=obj.read();r=clip.m_Resource;template=get_resource_data(r.m_Source,obj.assets_file,r.m_Offset,r.m_Size)
+    if clip.m_CompressionFormat!=0 or clip.m_Channels!=1 or clip.m_Frequency not in (22050,44100):raise ValueError('Unreviewed native PCM slot format')
+    if len(template)<96:raise ValueError('Truncated native PCM slot')
+    mode=struct.unpack_from('<Q',template,60)[0];count=mode>>34
+    if template[:4]!=b'FSB5' or struct.unpack_from('<4I',template,4)!=(1,1,36,0) or struct.unpack_from('<I',template,24)[0]!=2 or mode&((1<<34)-1)!={22050:10,44100:16}[clip.m_Frequency]:raise ValueError('Unreviewed native PCM container')
+    if count<1 or len(template)<96+count*2 or abs(count/clip.m_Frequency-clip.m_Length)>1/clip.m_Frequency:raise ValueError('Native PCM frame count/duration mismatch')
+    path=row['source']
+    if path not in cache:cache[path]=read_source(path)
+    pcm,analysis=fit(cache[path][0],count,clip.m_Frequency,template[96:96+count*2],row['offset_seconds'])
+    return clip,template,pcm,analysis,cache[path][1]
 
 
 def build_slots(config,settings,spec,read_source,source_verification):
@@ -42,15 +62,9 @@ def build_slots(config,settings,spec,read_source,source_verification):
     resource=resources[0];original_resource=env.file.files[resource].bytes;blob=bytearray(original_resource);changes={};cache={}
     for row in spec['clips']:
         obj=byid[int(row['id'])]
-        if obj.type.name!='AudioClip' or obj.peek_name()!=row['name']:raise ValueError('Mapped native audio slot changed: '+row['name'])
-        clip=obj.read();tree=obj.read_typetree();r=clip.m_Resource;template=get_resource_data(r.m_Source,obj.assets_file,r.m_Offset,r.m_Size)
-        if clip.m_CompressionFormat!=0 or clip.m_Channels!=1 or clip.m_Frequency not in (22050,44100):raise ValueError('Unreviewed native PCM slot format')
-        count=struct.unpack_from('<Q',template,60)[0]>>34
-        if abs(count/clip.m_Frequency-clip.m_Length)>1/clip.m_Frequency:raise ValueError('Native PCM frame count/duration mismatch')
-        path=row['source']
-        if path not in cache:cache[path]=read_source(path)
-        pcm,analysis=fit(cache[path][0],count,clip.m_Frequency,template[96:96+count*2],row['offset_seconds']);encoded=replace_fsb(template,pcm,clip.m_Frequency);blob.extend(b'\0'*((-len(blob))%16));offset=len(blob);blob.extend(encoded);tree['m_Resource']['m_Offset']=offset;tree['m_Resource']['m_Size']=len(encoded);obj.save_typetree(tree)
-        changes[key(obj.assets_file.name,obj.path_id)]={'name':row['name'],'resource':tree['m_Resource'],**cache[path][1],'fsb_sha256':hashlib.sha256(encoded).hexdigest(),'analysis':analysis}
+        clip,template,pcm,analysis,source_info=processed_slot(obj,row,read_source,cache)
+        tree=obj.read_typetree();encoded=replace_fsb(template,pcm,clip.m_Frequency);blob.extend(b'\0'*((-len(blob))%16));offset=len(blob);blob.extend(encoded);tree['m_Resource']['m_Offset']=offset;tree['m_Resource']['m_Size']=len(encoded);obj.save_typetree(tree)
+        changes[key(obj.assets_file.name,obj.path_id)]={'name':row['name'],'resource':tree['m_Resource'],**source_info,'fsb_sha256':hashlib.sha256(encoded).hexdigest(),'analysis':analysis}
         with wave.open(str(output/(row['name']+'.wav')),'wb') as w:w.setnchannels(1);w.setsampwidth(2);w.setframerate(clip.m_Frequency);w.writeframes(pcm)
     reader=EndianBinaryReader(bytes(blob));reader.flags=env.file.files[resource].flags;env.file.files[resource]=reader;target=output/BUNDLE;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(env.file.save(packer='lz4'));del env;gc.collect();checked=UnityPy.load(str(target));new={key(o.assets_file.name,o.path_id):o for o in checked.objects};old=UnityPy.load(str(backup));before={key(o.assets_file.name,o.path_id):o for o in old.objects}
     if set(new)!=set(before):raise ValueError('Audio object identities changed')

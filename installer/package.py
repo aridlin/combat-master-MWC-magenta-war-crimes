@@ -2,7 +2,7 @@
 import argparse,hashlib,json,shutil,struct,subprocess,sys,tarfile,zipfile
 from pathlib import Path
 R=Path(__file__).resolve().parents[1];I=R/'installer';DIST=I/'dist'
-SOURCES=['bundle_utils.py','configure.py','deploy_halftone.py','menu_background.py','sight_customization.py','helicopter_windows.py','crate_colors.py','cat_audio.py','audio_pcm.py','tf2_audio.py','audiojungle.py','sonic_impact.py','catgun','weapon_models','skybox','operators','model_import','halftone','installer/mwc_installer','installer/__init__.py','config','assets/branding','assets/authored-weapons','assets/operator-sources']
+SOURCES=['bundle_utils.py','configure.py','deploy_halftone.py','menu_background.py','sight_customization.py','helicopter_windows.py','crate_colors.py','cat_audio.py','audio_pcm.py','audio_preview.py','tf2_audio.py','audiojungle.py','sonic_impact.py','catgun','weapon_models','skybox','operators','model_import','halftone','installer/mwc_installer','installer/__init__.py','config','assets/branding','assets/authored-weapons','assets/operator-sources']
 def copy_sources(dest):
     for name in SOURCES:
         p=R/name;target=dest/name

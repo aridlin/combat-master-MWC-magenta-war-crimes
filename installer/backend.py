@@ -66,6 +66,9 @@ def main():
         games=discover();a.status.parent.mkdir(parents=True,exist_ok=True);a.status.write_text(games[0] if len(games)==1 else '',encoding='utf8');return
     if not a.request:p.error('--request or --status required')
     request=json.loads(a.request.read_text(encoding='utf8'))
+    if request.get('action') in ('preview_tf2_audio','preview_audiojungle'):
+        from audio_preview import request_preview
+        request_preview(request);return
     if request.get('action')=='import_pilots':
         from operators.local_pilots import register
         from operators.previews import generate_native_pilots

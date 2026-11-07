@@ -5,6 +5,10 @@
 It is an independent Extras option. It can accompany the Medigun visual or be
 used with the original Minigun. It does not change any Lynx sound.
 
+Development source adds **Preview sounds** to the card. It opens a private
+audition of the four processed clips without selecting or installing the mod.
+See [audio previews](audio-previews.md) for sequence, exact PCM files and limits.
+
 Extract the original TF2 `AudioJungle.7z` with a trusted archive utility. In
 Extras, enter the extracted `audiojungle` directory that contains `sound/`.
 Select **Audiojungle excerpts / Minigun**, then apply in an offline or expressly

@@ -8,6 +8,9 @@
 #include <vector>
 #include <chrono>
 #include <algorithm>
+#ifdef _WIN32
+#include <shellapi.h>
+#endif
 #ifndef _WIN32
 #include <sys/wait.h>
 #include <unistd.h>
@@ -32,6 +35,14 @@ static int run(const std::vector<std::string>&args,const fs::path&log){
 #endif
 }
 static std::string read(const fs::path&p){std::ifstream f(p,std::ios::binary);std::string text{std::istreambuf_iterator<char>(f),{}};text.erase(std::remove(text.begin(),text.end(),'\r'),text.end());return text;}
+static bool audio_preview_action(const std::string&action){return action=="preview_tf2_audio"||action=="preview_audiojungle";}
+static int open_audio(const fs::path&path,const fs::path&log){
+#ifdef _WIN32
+ return reinterpret_cast<intptr_t>(ShellExecuteW(nullptr,L"open",path.c_str(),nullptr,nullptr,SW_SHOWNORMAL))>32?0:2;
+#else
+ return run({"xdg-open",path.u8string()},log)==0?0:2;
+#endif
+}
 int main(int argc,char**argv){
  fs::path home=fs::absolute(fs::u8path(argv[0])).parent_path();
 #ifdef _WIN32
@@ -85,10 +96,20 @@ int main(int argc,char**argv){
    for(auto&m:operator_models){if(m.image)ft::free_image(m.image);m.image=nullptr;}
   }
   std::ofstream f(state/"request.json");f<<"{\"action\":\""<<action<<"\",\"game\":\""<<escape(game)<<"\",\"addon\":\""<<escape(addon)<<"\",\"state\":\""<<escape(state.u8string())<<"\",\"tf2\":\""<<escape(tf2)<<"\",\"pilot_sources\":\""<<escape(pilot_sources)<<"\",\"audiojungle_source\":\""<<escape(audiojungle_source)<<"\",\"minecraft_source\":\""<<escape(minecraft_source)<<"\",\"offline_authorized\":"<<(authorized?"true":"false")<<",\"selected\":[";bool first=true;for(auto&m:mods)if(m.selected){if(!first)f<<',';first=false;f<<'"'<<m.id<<'"';}f<<"],\"supported_mods\":[";first=true;for(auto&m:mods){if(!first)f<<',';first=false;f<<'"'<<m.id<<'"';}f<<"],\"supported_operator_models\":[";first=true;for(auto&m:operator_models){if(!first)f<<',';first=false;f<<'"'<<m.id<<'"';}f<<"],\"operator_assignments\":{";first=true;for(auto&t:operator_targets)if(t.choice){if(!first)f<<',';first=false;f<<'"'<<t.id<<"\":\""<<operator_models[t.choice].id<<'"';}f<<"}";write_appearance(f);f<<"}";f.close();
-  auto args=backend;args.insert(args.end(),{"--request",(state/"request.json").u8string()});busy=true;result=-1;notice=job_action=="import_pilots"?"Importing local pilot sources and previews. Game files stay unchanged.":job_action=="save_operators"?"Saving operator choices. Game files stay unchanged.":"Working. Building and verifying bundles before installation...";worker=std::thread([&,args]{result=run(args,state/"install.log");busy=false;});
+  auto args=backend;args.insert(args.end(),{"--request",(state/"request.json").u8string()});busy=true;result=-1;notice=audio_preview_action(job_action)?"Preparing audio preview...":job_action=="import_pilots"?"Importing local pilot sources and previews. Game files stay unchanged.":job_action=="save_operators"?"Saving operator choices. Game files stay unchanged.":"Working. Building and verifying bundles before installation...";worker=std::thread([&,args]{
+   int code=run(args,state/"install.log");
+   if(code==0&&audio_preview_action(job_action)){
+    try{
+     auto path=fs::u8path(read(state/"audio-preview.txt"));auto relative=path.lexically_relative(state/"audio-previews");
+     if(relative.empty()||*relative.begin()==".."||path.filename()!="preview.wav"||!fs::is_regular_file(path))throw std::runtime_error("Audio preview WAV is missing");
+     code=open_audio(path,state/"preview-player.log");
+    }catch(const std::exception&e){std::ofstream(state/"install.log",std::ios::app)<<"\nERROR: "<<e.what()<<'\n';code=1;}
+   }
+   result=code;busy=false;
+  });
  };
  while(ft::pump()){
-  if(!busy&&result>=0){if(job_action=="preview_tf2"||job_action=="import_pilots")reload_previews();notice=result==0?(job_action=="import_pilots"?"Pilot sources imported. Choose operator slots and Apply to install.":job_action=="preview_tf2"?"Local TF2 previews imported. Game files unchanged.":job_action=="save_operators"?"Operator choices saved. Use Apply selected mods to build and install available models.":job_action=="restore"?"Complete. Original bundles restored and hashes verified.":"Complete. Selected mods installed and hashes verified."):"Could not finish. Read the log below; previous installed state was preserved or recovered.";result=-1;}
+  if(!busy&&result>=0){if(job_action=="preview_tf2"||job_action=="import_pilots")reload_previews();notice=audio_preview_action(job_action)?(result==0?"Audio preview opened. Game files unchanged.":result==2?"Preview created, but no audio player could be opened. The WAV path is in the log.":"Could not create audio preview. Read the log below; game files are unchanged."):result==0?(job_action=="import_pilots"?"Pilot sources imported. Choose operator slots and Apply to install.":job_action=="preview_tf2"?"Local TF2 previews imported. Game files unchanged.":job_action=="save_operators"?"Operator choices saved. Use Apply selected mods to build and install available models.":job_action=="restore"?"Complete. Original bundles restored and hashes verified.":"Complete. Selected mods installed and hashes verified."):"Could not finish. Read the log below; previous installed state was preserved or recovered.";result=-1;}
   const bool ui_busy=busy.load();
   ft::begin();
   ft::row({.13f,.87f},[&]{ft::content([&]{if(seal)ft::image(seal,128,128);});ft::content([&]{ft::text("COMBAT MASTER  /  MWC");ft::text("Magenta War Crimes - choose your own chaos");ft::text("Individual mods | verified backups | restore originals");});});
@@ -98,6 +119,7 @@ int main(int argc,char**argv){
   const char*tabs[]={"Weapon models","Textures","Extras","Operators"};ft::tabs(tabs,4,&tab);
   if(tab==2){
    if(ui_busy)ft::begin_disabled();
+   ft::input("Local TF2 folder for sounds (blank = Steam detection)",tf2,sizeof(tf2));
    ft::input("Extracted Audiojungle folder (contains sound/)",audiojungle_source,sizeof(audiojungle_source));
    ft::input("Classic Minecraft .jar (blank = generated sky)",minecraft_source,sizeof(minecraft_source));
    if(ft::button("Choose Minecraft client jar")){auto p=ft::open_file_dialog("Minecraft client jar",nullptr,0);if(!p.empty())snprintf(minecraft_source,sizeof(minecraft_source),"%s",p.c_str());}
@@ -112,7 +134,7 @@ int main(int argc,char**argv){
    for(auto&m:mods)if(m.id=="operator_arms"){if(ui_busy)ft::begin_disabled();ft::checkbox("Matching first-person arms (grip testing pending)",&m.selected);if(ui_busy)ft::end_disabled();}
    ft::scroll_area("Operator assignments",460,[&]{for(auto&t:operator_targets){ft::row({.22f,.48f,.30f},[&]{ft::content([&]{ft::text(t.title.c_str());});ft::content([&]{if(ui_busy)ft::begin_disabled();ft::dropdown(("Model##"+t.id).c_str(),operator_labels.data(),int(operator_labels.size()),&t.choice);ft::text_wrapped(operator_models[t.choice].status.c_str());if(ui_busy)ft::end_disabled();});ft::content([&]{auto&m=operator_models[t.choice];if(t.choice){if(ui_busy)ft::begin_disabled();ft::checkbox(("Magenta##color_"+t.id).c_str(),&m.magenta);if(ui_busy)ft::end_disabled();}if(m.image){float fit=std::min(225.f/m.thumb_w,145.f/m.thumb_h);ft::image(m.image,m.thumb_w*fit,m.thumb_h*fit);}});});ft::separator();}});
    if(ui_busy)ft::begin_disabled();ft::row(2,[&]{if(ft::button("Save operator choices and colors"))start("save_operators");if(ft::button("Use game models for all operators"))for(auto&t:operator_targets)t.choice=0;});if(ui_busy)ft::end_disabled();
-  }else ft::scroll_area("Mod catalogue",600,[&]{std::vector<Mod*>shown;for(auto&m:mods)if(m.group==std::string(tab==0?"Models":tab==1?"Textures":"Extras"))shown.push_back(&m);for(size_t n=0;n<shown.size();n+=3){ft::row(3,[&]{for(size_t i=n;i<std::min(n+3,shown.size());++i){auto&m=*shown[i];ft::content([&]{if(ui_busy)ft::begin_disabled();ft::checkbox(m.title.c_str(),&m.selected);if(m.image){float fit=std::min(290.f/m.thumb_w,203.f/m.thumb_h);ft::image(m.image,m.thumb_w*fit,m.thumb_h*fit);}ft::text_wrapped(m.kind.c_str());ft::text_wrapped(m.description.c_str());ft::separator();if(ui_busy)ft::end_disabled();});}});}});
+  }else ft::scroll_area("Mod catalogue",600,[&]{std::vector<Mod*>shown;for(auto&m:mods)if(m.group==std::string(tab==0?"Models":tab==1?"Textures":"Extras"))shown.push_back(&m);for(size_t n=0;n<shown.size();n+=3){ft::row(3,[&]{for(size_t i=n;i<std::min(n+3,shown.size());++i){auto&m=*shown[i];ft::content([&]{if(ui_busy)ft::begin_disabled();ft::checkbox(m.title.c_str(),&m.selected);if(m.image){float fit=std::min(290.f/m.thumb_w,203.f/m.thumb_h);ft::image(m.image,m.thumb_w*fit,m.thumb_h*fit);}ft::text_wrapped(m.kind.c_str());ft::text_wrapped(m.description.c_str());if(m.id=="tf2_medigun_audio"||m.id=="audiojungle_medigun")if(ft::button(("Preview sounds##"+m.id).c_str()))start(m.id=="audiojungle_medigun"?"preview_audiojungle":"preview_tf2_audio");ft::separator();if(ui_busy)ft::end_disabled();});}});}});
   if(ui_busy)ft::begin_disabled();ft::checkbox("I will use these mods offline or in an explicitly authorized environment",&authorized);
   ft::row(2,[&]{if(!authorized)ft::begin_disabled();if(ft::button("Apply selected mods",ft::ColorRole::Accent))start("apply");if(!authorized)ft::end_disabled();if(ft::button("Restore all originals"))start("restore");});if(ui_busy)ft::end_disabled();
   ft::text_wrapped(notice.c_str());auto logs=read(state/"install.log");if(logs.size()>5000)logs=logs.substr(logs.size()-5000);ft::code_view("Build / install log",logs.c_str(),5);if(busy)ft::request_redraw();ft::end();

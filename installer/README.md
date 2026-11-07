@@ -75,6 +75,11 @@ The installer fits its startup window to the monitor under the pointer, reservin
 
 The optional **Audiojungle excerpts / Minigun** Extras card reads an extracted local Audiojungle folder containing `sound/`. It preserves native slot durations and Lynx sounds; selecting it together with vanilla TF2 Medigun audio produces an explicit conflict. Source audio is not bundled. See [local import and verification](../docs/audiojungle-local-import.md). In-game audition remains pending.
 
+**Preview sounds** on either audio card opens a private audition in the default
+audio player. It uses the same processed clips as installation, leaves selections
+and game files unchanged, and does not require closing the game. The local TF2
+source field is also available on Extras. See [audio preview details](../docs/audio-previews.md).
+
 Development source adds a **Classic Minecraft .jar** field on Extras. Enable the
 existing sky mod and choose your local Java client jar to use its clouds, sun,
 first moon phase and plains sky palette. Leave the field blank for MWC's original

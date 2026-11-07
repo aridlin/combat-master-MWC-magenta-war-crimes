@@ -5,6 +5,10 @@ The independent `tf2_medigun_audio` Extras choice reads `medigun_heal.wav` and
 only three Minigun firing clips and the barrel-spin clip in `root/audio`.
 The Medigun visual and this audio option can be selected independently.
 
+Development source adds **Preview sounds** on the Extras card. It exports
+and opens a private audition without applying the mod or closing the game.
+See [audio previews](audio-previews.md).
+
 These are Valve game assets, not MWC MIT content. No Valve WAV, VPK, model or
 compiled replacement game bundle is distributed. A local TF2 installation is
 required; Steam discovery or the installer's TF2 folder field supplies it.
