@@ -5,7 +5,7 @@
 It is an independent Extras option. It can accompany the Medigun visual or be
 used with the original Minigun. It does not change any Lynx sound.
 
-Development source adds **Preview sounds** to the card. It opens a private
+v0.1.11-preview adds **Preview sounds** to the card. It opens a private
 audition of the four processed clips without selecting or installing the mod.
 See [audio previews](audio-previews.md) for sequence, exact PCM files and limits.
 

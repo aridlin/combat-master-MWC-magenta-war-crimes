@@ -38,5 +38,19 @@ If the OS cannot open a player, the WAV remains available; the installer log
 contains its path. Choose an audio player manually or configure the system's
 WAV file association.
 
-Validation and platform status are recorded in the preview verification report
-once packaged client checks finish. Native in-game audition remains pending.
+The [verification report](audio-preview-verification.json) records 188 source
+tests (187 pass, one skip), both actual packaged runtime exports, 15 passing
+Windows-runtime tests under Wine, and Linux GUI clicks on both cards using
+a WAV-validating player stub. Eight individual preview clips matched the
+prior built bundles' FMOD-decoded PCM. Rebuilding both packs remained
+byte-identical to their earlier verified bundles, including existing Lynx data.
+
+No host audio was played during these tests. Audible default-player listening,
+native Windows player associations and in-game repeated-fire sound/performance
+remain unverified. The Windows runtime tests used original Linux audio data
+as a read-only format fixture; they do not establish Windows game editing.
+
+The [v0.1.11-preview complete installers](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.11-preview)
+pair the new frontend with its required backend. Upgrade the complete portable
+folder and retain your existing state/backups, rather than replacing only the
+executable.

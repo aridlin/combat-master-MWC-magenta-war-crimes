@@ -1,0 +1,232 @@
+{
+  "release": "v0.1.11-preview",
+  "feature_source_commit": "49005eecfa7cb137419a5eb2a25efeb45d098e21",
+  "feature": "Read-only TF2 and Audiojungle audio previews in the existing installer",
+  "source_tests": {
+    "run": 188,
+    "passed": 187,
+    "skipped": 1
+  },
+  "Windows_runtime_tests_under_Wine": {
+    "run": 15,
+    "passed": 15,
+    "includes_player_lock_cache_cleanup_retry_control": true
+  },
+  "actual_Linux_GUI": {
+    "platform": "Actual FT Linux GUI on isolated Xvfb; default player replaced with WAV-validating no-sound test stub",
+    "both_card_buttons_clicked": true,
+    "both_default_player_handoffs_passed": true,
+    "preview_PCM_read_by_player_stub": true,
+    "card_selection_required": false,
+    "offline_checkbox_required": false,
+    "private_state_and_selection_files_byte_exact": true,
+    "no_apply_or_restore_route_available_in_QA_wrapper": true,
+    "host_audio_played": false,
+    "host_display_used": false,
+    "tested_frontend_sha256": "1547be8d71707d70da836fcd9b81088705e6cf0160e89ec93ca209a05d5cf514",
+    "packaged_frontend_sha256": "1547be8d71707d70da836fcd9b81088705e6cf0160e89ec93ca209a05d5cf514",
+    "same_frontend_binary": true,
+    "native_Windows_player_tested": false
+  },
+  "packaged_runtime_exports": [
+    {
+      "platform": "Linux-frozen",
+      "pack": "tf2_medigun_audio",
+      "actual_packaged_backend_request_passed": true,
+      "samples": [
+        {
+          "name": "Maxim Minigun Fire 1",
+          "rate": 44100,
+          "frames": 21871,
+          "maximum_PCM16_difference_from_Linux_source_preview": 0
+        },
+        {
+          "name": "Maxim Minigun Fire 2",
+          "rate": 44100,
+          "frames": 22095,
+          "maximum_PCM16_difference_from_Linux_source_preview": 0
+        },
+        {
+          "name": "Maxim Minigun Fire 3",
+          "rate": 44100,
+          "frames": 22095,
+          "maximum_PCM16_difference_from_Linux_source_preview": 0
+        },
+        {
+          "name": "MinigunBarrelSpin",
+          "rate": 22050,
+          "frames": 18230,
+          "maximum_PCM16_difference_from_Linux_source_preview": 0
+        }
+      ],
+      "state_and_original_backup_unchanged": true,
+      "no_player_or_game_started": true,
+      "Windows_native_game_tested": false
+    },
+    {
+      "platform": "Linux-frozen",
+      "pack": "audiojungle_medigun",
+      "actual_packaged_backend_request_passed": true,
+      "samples": [
+        {
+          "name": "Maxim Minigun Fire 1",
+          "rate": 44100,
+          "frames": 21871,
+          "maximum_PCM16_difference_from_Linux_source_preview": 0
+        },
+        {
+          "name": "Maxim Minigun Fire 2",
+          "rate": 44100,
+          "frames": 22095,
+          "maximum_PCM16_difference_from_Linux_source_preview": 0
+        },
+        {
+          "name": "Maxim Minigun Fire 3",
+          "rate": 44100,
+          "frames": 22095,
+          "maximum_PCM16_difference_from_Linux_source_preview": 0
+        },
+        {
+          "name": "MinigunBarrelSpin",
+          "rate": 22050,
+          "frames": 18230,
+          "maximum_PCM16_difference_from_Linux_source_preview": 0
+        }
+      ],
+      "state_and_original_backup_unchanged": true,
+      "no_player_or_game_started": true,
+      "Windows_native_game_tested": false
+    },
+    {
+      "platform": "Windows-Wine",
+      "pack": "tf2_medigun_audio",
+      "actual_packaged_backend_request_passed": true,
+      "samples": [
+        {
+          "name": "Maxim Minigun Fire 1",
+          "rate": 44100,
+          "frames": 21871,
+          "maximum_PCM16_difference_from_Linux_source_preview": 0
+        },
+        {
+          "name": "Maxim Minigun Fire 2",
+          "rate": 44100,
+          "frames": 22095,
+          "maximum_PCM16_difference_from_Linux_source_preview": 0
+        },
+        {
+          "name": "Maxim Minigun Fire 3",
+          "rate": 44100,
+          "frames": 22095,
+          "maximum_PCM16_difference_from_Linux_source_preview": 0
+        },
+        {
+          "name": "MinigunBarrelSpin",
+          "rate": 22050,
+          "frames": 18230,
+          "maximum_PCM16_difference_from_Linux_source_preview": 0
+        }
+      ],
+      "state_and_original_backup_unchanged": true,
+      "no_player_or_game_started": true,
+      "Windows_native_game_tested": false
+    },
+    {
+      "platform": "Windows-Wine",
+      "pack": "audiojungle_medigun",
+      "actual_packaged_backend_request_passed": true,
+      "samples": [
+        {
+          "name": "Maxim Minigun Fire 1",
+          "rate": 44100,
+          "frames": 21871,
+          "maximum_PCM16_difference_from_Linux_source_preview": 1
+        },
+        {
+          "name": "Maxim Minigun Fire 2",
+          "rate": 44100,
+          "frames": 22095,
+          "maximum_PCM16_difference_from_Linux_source_preview": 1
+        },
+        {
+          "name": "Maxim Minigun Fire 3",
+          "rate": 44100,
+          "frames": 22095,
+          "maximum_PCM16_difference_from_Linux_source_preview": 1
+        },
+        {
+          "name": "MinigunBarrelSpin",
+          "rate": 22050,
+          "frames": 18230,
+          "maximum_PCM16_difference_from_Linux_source_preview": 0
+        }
+      ],
+      "state_and_original_backup_unchanged": true,
+      "no_player_or_game_started": true,
+      "Windows_native_game_tested": false
+    }
+  ],
+  "Windows_test_fixture": "Original Linux game audio bundle, format-compatible read-only data; not a Windows game installation",
+  "prior_install_build_equivalence": [
+    {
+      "pack": "tf2_medigun_audio",
+      "processed_slots_compared": 4,
+      "all_preview_PCM_matches_prior_FMOD_decoded_FSB": true,
+      "install_bundle_byte_exact_to_previous_verified_build": true,
+      "existing_sample_resource_prefix_unchanged": true
+    },
+    {
+      "pack": "audiojungle_medigun",
+      "processed_slots_compared": 4,
+      "all_preview_PCM_matches_prior_FMOD_decoded_FSB": true,
+      "install_bundle_byte_exact_to_previous_verified_build": true,
+      "existing_sample_resource_prefix_unchanged": true
+    }
+  ],
+  "packages": [
+    {
+      "platform": "Linux",
+      "archive": "MWC-Linux-x64.tar.gz",
+      "sha256": "0aa04d9e844ea02b83094232f684740b8373611ea6568e5b3a92987855c77fe5",
+      "bytes": 85085831,
+      "frontend_sha256": "1547be8d71707d70da836fcd9b81088705e6cf0160e89ec93ca209a05d5cf514",
+      "verified_source_modules": {
+        "audio_preview.py": "08693d94f01050f361e10dbb4ceb3d980cb54d26a13606dc86ad6283528042f9",
+        "tf2_audio.py": "24f30858fed30195a35f23c2732e711baacf0db0b969a62d30506783fdf5eb92",
+        "cat_audio.py": "84868ff5cff584861a09345140b07e0eeff866af0d1377df1bc407f6aa574007",
+        "operators/first_person.py": "241aa181ce56c16a00f80ed1498e143eff7ec478773cb5d242b6b08a49c1221f",
+        "operators/viewmodel.py": "d88c815b86e43bccfdb74cbd8a1e52cff629e30786f08abcf57cf128e76a73b3",
+        "operators/leaf_tips.py": "a52e2243c68ff7a8ce61ca7e53cc2ced6e5fcac1199baa716548af23bef7b7ca"
+      },
+      "no_native_game_bundles_or_local_audio_distributed": true,
+      "existing_cat_audio_and_operator_fitter_sources_unchanged": true
+    },
+    {
+      "platform": "Windows",
+      "archive": "MWC-Windows-x64.zip",
+      "sha256": "87be699c400d00a64fbbb633262d25c3231fe60f229d86a145f665abf4e2fdff",
+      "bytes": 71876473,
+      "frontend_sha256": "44492639644e30b3d0a20e454749dfb53e9eaaada71edadde06dd12a68368d9e",
+      "verified_source_modules": {
+        "audio_preview.py": "08693d94f01050f361e10dbb4ceb3d980cb54d26a13606dc86ad6283528042f9",
+        "tf2_audio.py": "24f30858fed30195a35f23c2732e711baacf0db0b969a62d30506783fdf5eb92",
+        "cat_audio.py": "84868ff5cff584861a09345140b07e0eeff866af0d1377df1bc407f6aa574007",
+        "operators/first_person.py": "241aa181ce56c16a00f80ed1498e143eff7ec478773cb5d242b6b08a49c1221f",
+        "operators/viewmodel.py": "d88c815b86e43bccfdb74cbd8a1e52cff629e30786f08abcf57cf128e76a73b3",
+        "operators/leaf_tips.py": "a52e2243c68ff7a8ce61ca7e53cc2ced6e5fcac1199baa716548af23bef7b7ca"
+      },
+      "no_native_game_bundles_or_local_audio_distributed": true,
+      "existing_cat_audio_and_operator_fitter_sources_unchanged": true
+    }
+  ],
+  "source_audio_distributed": false,
+  "unaccepted_wrist_candidates_included": false,
+  "actual_installed_audio_and_state_unchanged": true,
+  "native_in_game_audio_auditioned": false,
+  "native_Windows_player_or_game_tested": false,
+  "limits": [
+    "Linux GUI player handoff used a WAV-validating no-sound stub, not an audible default-player listening test",
+    "Windows front end compiled; Windows runtime exports and 15 tests passed under Wine, not native Windows",
+    "The audition has fixed inter-clip silence and does not reproduce runtime firing events, spatial mix, repeated-fire timing or gameplay performance"
+  ]
+}
