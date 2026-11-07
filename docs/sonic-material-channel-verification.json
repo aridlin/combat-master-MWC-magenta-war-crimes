@@ -115,7 +115,7 @@
     ],
     "expected_branch_metalness_after_control": 0.0,
     "GLSL_scope": "Eight desktop GLCore variants inspected; not an assertion of the exact active Vulkan variant",
-    "Vulkan_control_pending": true,
+    "Vulkan_control_pending": false,
     "native_shader_source_remains_private": true,
     "original_assets_modified": false,
     "table_segment_reference": "https://github.com/Perfare/AssetStudio/blob/master/AssetStudioUtility/ShaderConverter.cs",
@@ -191,5 +191,6 @@
       "path": "screenshots/sonic-impact-blue-corrected-rotated-nov7.png",
       "sha256": "38e5604b713ed8736a3568331c1957aef7b924a9b45f0584d17b3028f96b44ae"
     }
-  ]
+  ],
+  "packaged_verification": "sonic-material-package-verification.json"
 }

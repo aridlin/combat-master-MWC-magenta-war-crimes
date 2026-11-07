@@ -1,0 +1,138 @@
+{
+  "release": "v0.1.12-preview",
+  "date": "2026-11-07",
+  "feature_source_commit": "be4a8b9aa1314ce8c2558d646c97d360bb6611f5",
+  "changes": [
+    "Sonic uses the weapon shader metalness channel; existing character data-map defaults unchanged",
+    "World operator clip review supports tested per-binding Euler orders",
+    "Blender preview caches NPZ arrays while preserving control-image pixels"
+  ],
+  "source_tests": {
+    "total": 195,
+    "passed": 194,
+    "existing_data_dependent_skips": 1
+  },
+  "package_audit": {
+    "feature_source_commit": "be4a8b9aa1314ce8c2558d646c97d360bb6611f5",
+    "packages": [
+      {
+        "platform": "Linux",
+        "archive": "MWC-Linux-x64.tar.gz",
+        "sha256": "24bbe343c0733b64c75b4f92258b7cd6df1d2ef2a47cc70deff9b6f1a1764fcc",
+        "bytes": 85088903,
+        "frontend_sha256": "4fa8f6a5f6b763db27c225db87c188a842ffd1d0408db553256f46e7e550f25d",
+        "verified_source_modules": {
+          "operators/material_data.py": "fb34410345ea8a93fdc541b5b1b0aed5ea43e8fd59ea5b5473345d444f71201a",
+          "sonic_impact.py": "174985a6ae8662d8edaf1ac576edb6fb57d68d3fbd06e6f08aa45df92283fbf6",
+          "operators/clip_review.py": "b449d6207e1174ce10f8d8ccbc7933c8a7282e5c784e7bf5a91b9897cdc9fefc",
+          "model_import/preview_blender.py": "265a73eb0595651a606b6bf99d7e7a0095a17ed72d57d6e1d5200b84683ebc16",
+          "audio_preview.py": "08693d94f01050f361e10dbb4ceb3d980cb54d26a13606dc86ad6283528042f9",
+          "tf2_audio.py": "24f30858fed30195a35f23c2732e711baacf0db0b969a62d30506783fdf5eb92",
+          "cat_audio.py": "84868ff5cff584861a09345140b07e0eeff866af0d1377df1bc407f6aa574007",
+          "operators/first_person.py": "241aa181ce56c16a00f80ed1498e143eff7ec478773cb5d242b6b08a49c1221f",
+          "operators/viewmodel.py": "d88c815b86e43bccfdb74cbd8a1e52cff629e30786f08abcf57cf128e76a73b3",
+          "operators/leaf_tips.py": "a52e2243c68ff7a8ce61ca7e53cc2ced6e5fcac1199baa716548af23bef7b7ca"
+        },
+        "no_private_native_bundles_shader_code_or_local_source_audio_distributed": true,
+        "Lynx_audio_operator_fitter_and_window_code_unchanged_from_v011": true,
+        "public_edition": true
+      },
+      {
+        "platform": "Windows",
+        "archive": "MWC-Windows-x64.zip",
+        "sha256": "56c21886442b8c64fda7982cf5a7b436a7b7fef66a254a20a5c7728012ec2091",
+        "bytes": 71877175,
+        "frontend_sha256": "eacb0e1babf0ba83a3e74d1d794c3ccc6adacbaa76afbd08aad36760871f1bff",
+        "verified_source_modules": {
+          "operators/material_data.py": "fb34410345ea8a93fdc541b5b1b0aed5ea43e8fd59ea5b5473345d444f71201a",
+          "sonic_impact.py": "174985a6ae8662d8edaf1ac576edb6fb57d68d3fbd06e6f08aa45df92283fbf6",
+          "operators/clip_review.py": "b449d6207e1174ce10f8d8ccbc7933c8a7282e5c784e7bf5a91b9897cdc9fefc",
+          "model_import/preview_blender.py": "265a73eb0595651a606b6bf99d7e7a0095a17ed72d57d6e1d5200b84683ebc16",
+          "audio_preview.py": "08693d94f01050f361e10dbb4ceb3d980cb54d26a13606dc86ad6283528042f9",
+          "tf2_audio.py": "24f30858fed30195a35f23c2732e711baacf0db0b969a62d30506783fdf5eb92",
+          "cat_audio.py": "84868ff5cff584861a09345140b07e0eeff866af0d1377df1bc407f6aa574007",
+          "operators/first_person.py": "241aa181ce56c16a00f80ed1498e143eff7ec478773cb5d242b6b08a49c1221f",
+          "operators/viewmodel.py": "d88c815b86e43bccfdb74cbd8a1e52cff629e30786f08abcf57cf128e76a73b3",
+          "operators/leaf_tips.py": "a52e2243c68ff7a8ce61ca7e53cc2ced6e5fcac1199baa716548af23bef7b7ca"
+        },
+        "no_private_native_bundles_shader_code_or_local_source_audio_distributed": true,
+        "Lynx_audio_operator_fitter_and_window_code_unchanged_from_v011": true,
+        "public_edition": true
+      }
+    ],
+    "installed_game_changed": false,
+    "native_Windows_game_tested": false
+  },
+  "packaged_transactions": {
+    "rows": [
+      {
+        "platform": "Linux-frozen",
+        "apply_exit": 0,
+        "deselect_exit": 0,
+        "reapply_exit": 0,
+        "restore_exit": 0,
+        "applied_sha256": "da82a0cb2bc75a1e5b012256f91ca7b1e573dac01c7aede9f172b558f45e4e98",
+        "source_build_sha256": "da82a0cb2bc75a1e5b012256f91ca7b1e573dac01c7aede9f172b558f45e4e98",
+        "byte_exact_to_source_build": true,
+        "actual_packaged_recipe_has_weapon_blue_zero": true,
+        "original_and_backup_hashes_restored_exactly": true,
+        "deselection_removes_Sonic": true,
+        "reapply_reproducible": true,
+        "restore_without_source_addon": true,
+        "pending_transaction": false,
+        "game_installation_or_profile_modified": false,
+        "fixture": "Disposable copy of real Linux weapon bundle; no game executable"
+      },
+      {
+        "platform": "Windows-Wine",
+        "apply_exit": 0,
+        "deselect_exit": 0,
+        "reapply_exit": 0,
+        "restore_exit": 0,
+        "applied_sha256": "da82a0cb2bc75a1e5b012256f91ca7b1e573dac01c7aede9f172b558f45e4e98",
+        "source_build_sha256": "da82a0cb2bc75a1e5b012256f91ca7b1e573dac01c7aede9f172b558f45e4e98",
+        "byte_exact_to_source_build": true,
+        "actual_packaged_recipe_has_weapon_blue_zero": true,
+        "original_and_backup_hashes_restored_exactly": true,
+        "deselection_removes_Sonic": true,
+        "reapply_reproducible": true,
+        "restore_without_source_addon": true,
+        "pending_transaction": false,
+        "game_installation_or_profile_modified": false,
+        "fixture": "Disposable copy of real Linux weapon bundle; no game executable"
+      }
+    ],
+    "Windows_packaged_focused_tests": 25,
+    "Windows_unit_exit": 0,
+    "Wine_prefix_on_Linux_filesystem": true,
+    "native_Windows_game_tested": false,
+    "native_Sonic_held_thrown_audio_or_performance_acceptance": false,
+    "actual_game_installation_modified": false,
+    "source_bundle_unchanged": true
+  },
+  "native_scope": {
+    "platform": "Native Linux NVIDIA/Vulkan",
+    "resolution": [
+      1280,
+      720
+    ],
+    "tested": "Locked Impact Grenade equipment catalogue and official rotating showcase; read-only private bundle override and copied profile",
+    "observed": "Blue surface present; brighter blue after correction; white studio hotspot remains at one rotated angle",
+    "full_source_build_directly_mounted": false,
+    "source_vs_mounted_control": "All other serialized objects byte-identical; new Sonic material differs only in float-property ordering with identical unique named values",
+    "installed_game_or_host_profile_changed": false,
+    "native_Windows_game_tested": false,
+    "held_thrown_animation_audio_full_lighting_or_performance_accepted": false
+  },
+  "preserved": {
+    "Lynx_audio_operator_fitter_window_sources_byte_exact_to_v011": true,
+    "public_package_contains_game_bundles_native_shader_code_Valve_audio_or_M1A0_archive": false,
+    "personal_game_selection_changed": false
+  },
+  "limits": [
+    "Windows packaged Python/backend tested under Wine against a Linux-format original bundle; native Windows game compatibility unverified",
+    "Shrek tunic/leg and sleeve/hand intersections remain in diagnostic world poses",
+    "Shared Dozer/Shrek tilt unresolved; not corrected by rotating Shrek geometry",
+    "Held/thrown Sonic, full animations, helicopter introduction and broad performance acceptance remain open"
+  ]
+}

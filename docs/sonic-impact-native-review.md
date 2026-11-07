@@ -81,8 +81,14 @@ material properties match. The two whole bundles are not byte-identical and
 the fresh full-build file was not the file directly mounted by this session.
 The source suite passes 195 tests: 194 passed and one existing data-dependent
 skip. [Channel evidence, build comparison and exact limits](sonic-material-channel-verification.json)
-record the scope. The source fix is newer than the published v0.1.11 packages;
-updated packaged backends and cross-platform apply/restoration remain pending.
+record the scope. The v0.1.12-preview candidate packages contain this fix. The frozen Linux backend and
+packaged Windows backend under Wine each passed apply, deselect, reapply and
+restoration on disposable copies of the clean original Linux weapon bundle.
+Both applied bundles are byte-identical to the clean source build. All original
+and backup hashes restored exactly; reapplying was reproducible. The packaged
+Windows Python also passed 25 focused tests. These are Linux-format asset
+fixtures, not native Windows game acceptance. [Package and transaction evidence](sonic-material-package-verification.json)
+records hashes and limits.
 
 ## Scope and reversibility
 

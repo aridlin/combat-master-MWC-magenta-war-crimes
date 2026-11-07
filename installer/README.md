@@ -10,7 +10,7 @@ Public releases import a locally owned M1A0 archive through the file chooser. Th
 
 Extract the entire distribution. On Linux run `./MWC-Installer`; on Windows run `MWC-Installer.exe`. Keep all adjacent runtime/assets folders. No Python installation is needed for the packaged distributions. Linux requires Cairo and X11 libraries and runs through Xwayland on KDE Wayland. The GUI is forced to native mode; it does not start FT's web server.
 
-The default window is 1180 x 1400 with a 128-pixel seal. Game detection reads Steam library records (including Windows registry Steam roots). You can enter the Combat Master game directory manually. Current build guard: 24397779, Unity 6000.3.19f1. Windows game-bundle compatibility remains experimental and has not been validated against a Windows game installation.
+The preferred window is 1180 x 1400 with a 128-pixel seal. It fits the monitor under the pointer and maximizes when that size cannot fit, keeping native window controls accessible. Game detection reads Steam library records (including Windows registry Steam roots). You can enter the Combat Master game directory manually. Current build guard: 24397779, Unity 6000.3.19f1. Windows game-bundle compatibility remains experimental and has not been validated against a Windows game installation.
 
 Persistent backups, selections and logs are under `~/.local/share/combat-master-mwc` (or `$XDG_DATA_HOME/combat-master-mwc`) on Linux, and `%LOCALAPPDATA%\CombatMasterMWC` on Windows. `--state DIRECTORY` selects another directory. Do not delete backups before restoration. Previously installed legacy MWC layers need their verified original snapshots imported first; they must not be treated as pristine game files.
 
@@ -45,7 +45,7 @@ Use `--output DIRECTORY` when packaging to keep an already running distribution 
 
 First-person volume is configurable independently in `config/operator-viewmodels.json` (portable Linux: `backend/_internal/config/`; Windows: `source/config/`). The scales reduce arm/hand radius around native joint axes while retaining reach. Rebuild/apply after editing. Third-person geometry stays unchanged.
 
-Sonic spin ball is an independent weapon-model card for the impact grenade. Held and thrown visual bindings are isolated; original shared launcher meshes, projectile/physics/damage and all audio remain unchanged. This option has passed private shared-bundle composition and removal tests, with in-game testing pending. See WEAPON-ASSET-CREDITS.md and weapon-licenses/.
+Sonic spin ball is an independent weapon-model card for the impact grenade. Held and thrown visual bindings are isolated; original shared launcher meshes, projectile/physics/damage and all audio remain unchanged. This option has passed private shared-bundle composition/removal and packaged apply/restoration tests. Native Linux equipment catalogue and rotating showcase checks show the spin-ball model; held/thrown gameplay remains untested. The v0.1.12-preview packages correct its weapon metalness map; a rotated studio highlight still needs review. See WEAPON-ASSET-CREDITS.md and weapon-licenses/.
 
 Public release builds use `python installer/package.py --without-addon` (add `--windows` for Windows). This edition excludes the M1A0 archive because MWC has no recorded redistribution grant; local import remains supported. The default local build retains the requested bundled edition.
 
@@ -80,7 +80,7 @@ audio player. It uses the same processed clips as installation, leaves selection
 and game files unchanged, and does not require closing the game. The local TF2
 source field is also available on Extras. See [audio preview details](../docs/audio-previews.md).
 
-Development source adds a **Classic Minecraft .jar** field on Extras. Enable the
+The installer includes a **Classic Minecraft .jar** field on Extras. Enable the
 existing sky mod and choose your local Java client jar to use its clouds, sun,
 first moon phase and plains sky palette. Leave the field blank for MWC's original
 generated sky. The jar is read as an archive and is never executed. This option

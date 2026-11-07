@@ -40,7 +40,7 @@ bypass. Use these experiments offline or in an explicitly authorized setup.
 
 The v0.1.3 preview supports separately imported armored Grapple and female Pulse Blade pilots; see [native pilot import and test status](docs/titanfall-native-import.md). Public packages require prepared local pilot sources; the direct Steam decoder remains a separate development tool.
 
-Current [Linux and Windows preview installers](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases) are available in Releases. Read the [native operator review](docs/operator-runtime-review.md) for material/headwear fixes, Fishguy wrist fitting and remaining deformation limits; each release identifies its source revision.
+The [v0.1.12-preview Linux and Windows installers](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.12-preview) include the Sonic metalness-map correction and small-screen window fix. [Package validation](docs/sonic-material-package-verification.json) separates packaged backend checks from native game acceptance. Read the [native operator review](docs/operator-runtime-review.md) for material/headwear fixes, Fishguy wrist fitting and remaining deformation limits; each release identifies its source revision.
 
 ## Setup
 
