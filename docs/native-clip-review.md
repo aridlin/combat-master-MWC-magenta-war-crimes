@@ -56,7 +56,10 @@ PYTHONPATH=public-repo .venv/bin/python -P -m operators.clip_review \
 `config/operator-targets.json`, with the same original-renderer fingerprint
 checks as the existing first-person path. The exported matrices stay in each
 renderer's native coordinate system and units; they are not normalized into
-an upright character pose. `review.json` records `rig_kind`. The default API
+an upright character pose. World exports additionally include each evaluated
+renderer-to-world matrix and explicit space labels. Use that frame for posed
+world previews; the original inverse bind matrices do not describe the posed
+mesh's up axis. `review.json` records `rig_kind`. The default API
 and CLI still select `first_person`, including when `--clip-bundle` is used.
 
 The reader supports the reviewed nonlegacy, uncompressed generic clip layout:
@@ -197,10 +200,10 @@ none of the 21 sampled poses. This does not establish how the live game assigns
 its Avatar. Both private Editor runs exited gracefully. The authoring Editor
 was 6000.6.5f1; the game is 6000.3.19f1.
 
-An original Dozer mesh control and the installed Shrek both tilt backward in
-the same isolated run sample. That appearance is not evidence of a Shrek-only
-fitting defect. These raw renderer-local results have not been rotated or
-otherwise adjusted to make an upright character pose. Numerical agreement
+The initial studio images of the original Dozer and installed Shrek both
+appeared to tilt backward. A later renderer-frame control traced that shared
+appearance to an error in the preview coordinate conversion, described below.
+It was not corrected by rotating replacement geometry. Numerical agreement
 with the evaluator does not reproduce the runtime controller's complete pose.
 
 ### Separate original-controller control
@@ -222,12 +225,12 @@ is separate from the isolated-clip corpus; it is not a claim that the public
 sampler implements controller evaluation.
 
 Front and rear renders of all eight scenarios were inspected, alongside an
-unchanged Dozer run control. The shared backward tilt remains in this control,
-so it has not been treated as a Shrek-only defect or corrected by rotating the
-replacement geometry. Shrek's rear vest and tunic surfaces are present and
-textured. Front tunic/leg and sleeve/hand intersections remain visible in these
-diagnostic poses. They are unresolved quality findings, not accepted full
-animation behavior. The glasses retain only Head_M influences; their maximum
+unchanged Dozer run control. Their initial orientation was misleading because
+the preview used the bind-mesh axes for evaluated renderer coordinates. The
+corrected views below replace that orientation evidence. Shrek's rear vest and
+tunic surfaces are present and textured. Tunic/leg and sleeve/hand
+intersections remain unresolved quality findings, not accepted full animation
+behavior. The glasses retain only Head_M influences; their maximum
 head-local drift across the 21 isolated samples and eight controller scenarios
 was below 0.000000003 m. That verifies rigid attachment, not face fit in every
 scene, shader sorting or helicopter visibility.
@@ -238,6 +241,66 @@ helicopter-introduction animation. Likewise, a seated `Copter_Pilot` control
 does not validate the Warzone introduction scene. Neither experiment changes
 the production fitter, installed meshes, animation assets, operator choices or
 game profile.
+
+### Evaluated pose coordinates: correction
+
+The original Dozer mesh's inverse bind pose is Z-up, while its actual transform
+hierarchy and evaluated world animation are Y-up. The old studio export used
+`native_frame(inverse_bind)` after skinning. For this mesh that returned an
+identity matrix, which mislabeled the Y-up posed vertices as Z-up. Both the
+original Dozer and Shrek consequently appeared to fall backward in Blender.
+That was a diagnostic conversion error, not a game model orientation fix.
+
+A fresh private Editor control captured the renderer's actual local-to-world
+matrix for the rest pose and all eight controller scenarios. All 27 bone-matrix
+sets remained exactly identical to the earlier native capture. The corrected
+preview applies the evaluated renderer frame, followed by one explicit Unity
+world Y-up to studio Z-up conversion. Normals use the inverse transpose;
+posed bone frames follow the same coordinate conversion. Neither animation
+channels nor replacement bind geometry are changed.
+
+`operators.pose_space` provides that explicit conversion for private review.
+It takes evaluated renderer coordinates and posed inverse bone frames; do not
+pass a bind-pose axis guess. The world clip exporter now saves evaluated
+renderer frames, while retaining all six prior world pose/bind arrays and all
+four first-person arrays byte-for-byte. Three owned tests cover axes,
+translation, nonuniform scale, unit conversion, normal direction, coordinate
+round trips and invalid inputs. The current source suite passes 198 tests:
+197 passed and one existing data-dependent skip.
+
+Corrected front/rear views of all eight Shrek scenarios and the original Dozer
+run control were rendered and inspected. Both run controls are upright.
+Shrek's vest/back remains present; sleeve/hand and lower-tunic intersections
+still require fitting work, especially in bent-leg poses. These are offline
+studio renders with diagnostic controller parameters, no weapon mesh, no game
+scripts and no runtime IK. They do not validate actual grip, locomotion, live
+materials, the helicopter introduction or game performance. The private Editor
+closed gracefully. [Frame, export and render evidence](world-pose-space-verification.json)
+records the scope. This source-only diagnostic addition is newer than the
+v0.1.12 portable packages; their production model builders are unaffected.
+
+Two private lower-tunic weight experiments blended 35% or 65% hip influence
+into 287 vertices while retaining rest geometry, topology, UVs, accessories,
+all other skin weights and native animation data. They removed some strict
+crossing pairs but introduced 273 and 370 new pairs, respectively, across the
+eight diagnostic poses. Their four-influence truncation also discarded up to
+5.4% mass at affected vertices. Both candidates are rejected and uninstalled;
+the lower overall crossing total is not acceptance. The checker excludes
+coplanar and boundary-only contact and is not a full collision proof.
+[Rejected-experiment record](shrek-tunic-experiment-verification.json) preserves
+the result for subsequent fitting work.
+
+![Offline Shrek controller poses, corrected front views](screenshots/shrek-world-poses-front-nov7.png)
+
+![Offline Shrek controller poses, corrected rear views](screenshots/shrek-world-poses-rear-nov7.png)
+
+The Shrek mesh is HarrisonHag1's CC BY 4.0 source, credited in
+[operator attribution](../assets/operator-sources/ATTRIBUTION.md); the glasses
+are MWC-authored. These images show the current installed model with corrected
+preview axes, not a newly installed deformation fix. Unity documents
+[local-to-world conversion](https://docs.unity.com/en-us/engine/6000.6/script-reference/unityengine/transform/localtoworldmatrix)
+and [world up](https://docs.unity.com/6000.3/Documentation/ScriptReference/Vector3-up.html)
+separately from mesh bind poses.
 
 ### Preview loading cost
 

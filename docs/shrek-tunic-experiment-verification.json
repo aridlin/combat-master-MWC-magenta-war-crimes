@@ -1,0 +1,164 @@
+{
+  "baseline_bundle_sha256": "94d280d31fa266c46165484ff892627c2fa9e6be5c81bb90ef266b93b97f511c",
+  "source_bind_fit_matches_actual_serialized_body": true,
+  "focus_triangles": 879,
+  "crossing_scope": "Strict noncoplanar interior crossings only; excludes welded adjacency; not a complete collision proof",
+  "variants": [
+    {
+      "maximum_hip_mix": 0.35,
+      "changed_vertices": 287,
+      "maximum_discarded_influence_mass": 0.05201992966079583,
+      "poses": [
+        {
+          "pose": "controller_idle",
+          "baseline_crossings": 134,
+          "candidate_crossings": 129,
+          "new_pairs": 3,
+          "removed_pairs": 8,
+          "max_displacement_m": 0.058827930752838126
+        },
+        {
+          "pose": "controller_run",
+          "baseline_crossings": 138,
+          "candidate_crossings": 136,
+          "new_pairs": 8,
+          "removed_pairs": 10,
+          "max_displacement_m": 0.07233007264498546
+        },
+        {
+          "pose": "controller_sprint",
+          "baseline_crossings": 132,
+          "candidate_crossings": 131,
+          "new_pairs": 8,
+          "removed_pairs": 9,
+          "max_displacement_m": 0.03909991353142811
+        },
+        {
+          "pose": "controller_jump",
+          "baseline_crossings": 402,
+          "candidate_crossings": 361,
+          "new_pairs": 92,
+          "removed_pairs": 133,
+          "max_displacement_m": 0.06924655968283971
+        },
+        {
+          "pose": "controller_slide_start",
+          "baseline_crossings": 380,
+          "candidate_crossings": 319,
+          "new_pairs": 43,
+          "removed_pairs": 104,
+          "max_displacement_m": 0.10029642654360613
+        },
+        {
+          "pose": "controller_slide_loop",
+          "baseline_crossings": 397,
+          "candidate_crossings": 341,
+          "new_pairs": 50,
+          "removed_pairs": 106,
+          "max_displacement_m": 0.10021109374982602
+        },
+        {
+          "pose": "controller_reload",
+          "baseline_crossings": 144,
+          "candidate_crossings": 140,
+          "new_pairs": 7,
+          "removed_pairs": 11,
+          "max_displacement_m": 0.061784139946149376
+        },
+        {
+          "pose": "controller_copter_pilot",
+          "baseline_crossings": 227,
+          "candidate_crossings": 267,
+          "new_pairs": 62,
+          "removed_pairs": 22,
+          "max_displacement_m": 0.10751204735780297
+        }
+      ],
+      "new_crossings": 273,
+      "removed_crossings": 403,
+      "accepted": false,
+      "installed": false
+    },
+    {
+      "maximum_hip_mix": 0.65,
+      "changed_vertices": 287,
+      "maximum_discarded_influence_mass": 0.0541388943721951,
+      "poses": [
+        {
+          "pose": "controller_idle",
+          "baseline_crossings": 134,
+          "candidate_crossings": 119,
+          "new_pairs": 4,
+          "removed_pairs": 19,
+          "max_displacement_m": 0.1092518893089258
+        },
+        {
+          "pose": "controller_run",
+          "baseline_crossings": 138,
+          "candidate_crossings": 138,
+          "new_pairs": 17,
+          "removed_pairs": 17,
+          "max_displacement_m": 0.1343272952055061
+        },
+        {
+          "pose": "controller_sprint",
+          "baseline_crossings": 132,
+          "candidate_crossings": 128,
+          "new_pairs": 10,
+          "removed_pairs": 14,
+          "max_displacement_m": 0.0726141457850923
+        },
+        {
+          "pose": "controller_jump",
+          "baseline_crossings": 402,
+          "candidate_crossings": 332,
+          "new_pairs": 97,
+          "removed_pairs": 167,
+          "max_displacement_m": 0.1286007619518033
+        },
+        {
+          "pose": "controller_slide_start",
+          "baseline_crossings": 380,
+          "candidate_crossings": 331,
+          "new_pairs": 74,
+          "removed_pairs": 123,
+          "max_displacement_m": 0.18626479438067772
+        },
+        {
+          "pose": "controller_slide_loop",
+          "baseline_crossings": 397,
+          "candidate_crossings": 341,
+          "new_pairs": 75,
+          "removed_pairs": 131,
+          "max_displacement_m": 0.18610631919675263
+        },
+        {
+          "pose": "controller_reload",
+          "baseline_crossings": 144,
+          "candidate_crossings": 135,
+          "new_pairs": 4,
+          "removed_pairs": 13,
+          "max_displacement_m": 0.11474199114552182
+        },
+        {
+          "pose": "controller_copter_pilot",
+          "baseline_crossings": 227,
+          "candidate_crossings": 282,
+          "new_pairs": 89,
+          "removed_pairs": 34,
+          "max_displacement_m": 0.1996651955585892
+        }
+      ],
+      "new_crossings": 370,
+      "removed_crossings": 518,
+      "accepted": false,
+      "installed": false
+    }
+  ],
+  "only_lower_tunic_skin_weights_changed": true,
+  "all_other_weights_rest_positions_normals_topology_UV_materials_accessories_native_rig_animation_gameplay_unchanged": true,
+  "native_game_tested": false,
+  "installed_game_unchanged": true,
+  "decision": "Both candidates rejected: new strict crossing pairs in sampled poses and up to 5.4% influence mass dropped by the four-influence limit",
+  "native_game_or_animation_quality_accepted": false
+}

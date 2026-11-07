@@ -1674,5 +1674,7 @@
     "passed": 190,
     "skipped": 1
   },
-  "first_person_fitter_installer_and_installed_game_changed": false
+  "first_person_fitter_installer_and_installed_game_changed": false,
+  "pose_space_followup": "world-pose-space-verification.json",
+  "previous_raw_world_preview_orientation_rejected": true
 }

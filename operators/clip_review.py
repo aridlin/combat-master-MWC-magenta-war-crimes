@@ -181,6 +181,11 @@ def export_clip(bundle,operator,clip_name,frame,output,*,clip_bundle=None,rig_ki
         pose=np.stack([model_inv@world[i] for i in ids]);prefix='renderer_'+str(rid).replace('-','minus_')
         arrays[prefix+'_pose']=pose;arrays[prefix+'_inverse_bind']=native['inverse_bind']
         renderers.append({'renderer':str(rid),'bones':len(ids),'bone_names':native['bone_names'],'pose_array':prefix+'_pose','inverse_bind_array':prefix+'_inverse_bind'})
+        if rig_kind=='third_person':
+            # Posed renderer coordinates need not share the bind mesh's up
+            # axis. Preserve the evaluated frame for private studio review.
+            arrays[prefix+'_renderer_to_world']=world[mesh]
+            renderers[-1].update(pose_space='renderer_local',world_space='Unity Y-up',renderer_to_world_array=prefix+'_renderer_to_world')
     if digest(bundle)!=before:raise ValueError('Native source bundle changed during inspection')
     if clip_source!=bundle and digest(clip_source)!=clip_before:raise ValueError('Native clip source bundle changed during inspection')
     report.update(operator=operator,rig_kind=rig_kind,frame=frame,sample_rate=rate,source_bundle_sha256=before,

@@ -1,0 +1,116 @@
+{
+  "date": "2026-11-07",
+  "diagnosis": "Previous world-pose renders treated evaluated renderer Y-up coordinates as bind-mesh Z-up coordinates",
+  "native_Editor_version": "6000.6.5f1",
+  "controller_scenarios": 8,
+  "renderer_comparisons": 27,
+  "maximum_matrix_delta_from_prior_native_oracle": 0.0,
+  "corrected_reviews": [
+    {
+      "model": "shrek",
+      "pose": "controller_copter_pilot",
+      "coordinate_roundtrip_max_error": 4.440892098500626e-16,
+      "topology_UV_material_indices_skin_weights_unchanged": true,
+      "renderer_world_max_delta_from_rest": 2.2204460799999997e-16
+    },
+    {
+      "model": "shrek",
+      "pose": "controller_idle",
+      "coordinate_roundtrip_max_error": 4.440892098500626e-16,
+      "topology_UV_material_indices_skin_weights_unchanged": true,
+      "renderer_world_max_delta_from_rest": 0.0
+    },
+    {
+      "model": "shrek",
+      "pose": "controller_jump",
+      "coordinate_roundtrip_max_error": 4.440892098500626e-16,
+      "topology_UV_material_indices_skin_weights_unchanged": true,
+      "renderer_world_max_delta_from_rest": 0.0
+    },
+    {
+      "model": "shrek",
+      "pose": "controller_reload",
+      "coordinate_roundtrip_max_error": 4.440892098500626e-16,
+      "topology_UV_material_indices_skin_weights_unchanged": true,
+      "renderer_world_max_delta_from_rest": 0.0
+    },
+    {
+      "model": "shrek",
+      "pose": "controller_run",
+      "coordinate_roundtrip_max_error": 4.440892098500626e-16,
+      "topology_UV_material_indices_skin_weights_unchanged": true,
+      "renderer_world_max_delta_from_rest": 0.0
+    },
+    {
+      "model": "shrek",
+      "pose": "controller_slide_loop",
+      "coordinate_roundtrip_max_error": 2.220446049250313e-16,
+      "topology_UV_material_indices_skin_weights_unchanged": true,
+      "renderer_world_max_delta_from_rest": 0.0
+    },
+    {
+      "model": "shrek",
+      "pose": "controller_slide_start",
+      "coordinate_roundtrip_max_error": 2.220446049250313e-16,
+      "topology_UV_material_indices_skin_weights_unchanged": true,
+      "renderer_world_max_delta_from_rest": 0.0
+    },
+    {
+      "model": "shrek",
+      "pose": "controller_sprint",
+      "coordinate_roundtrip_max_error": 4.440892098500626e-16,
+      "topology_UV_material_indices_skin_weights_unchanged": true,
+      "renderer_world_max_delta_from_rest": 0.0
+    },
+    {
+      "model": "original_dozer",
+      "pose": "controller_run",
+      "coordinate_roundtrip_max_error": 4.440892098500626e-16,
+      "topology_UV_material_indices_skin_weights_unchanged": true,
+      "renderer_world_max_delta_from_rest": 0.0
+    }
+  ],
+  "game_geometry_rigs_animations_materials_or_profile_modified": false,
+  "native_game_or_helicopter_acceptance": false,
+  "full_source_suite": {
+    "tests": 198,
+    "passed": 197,
+    "existing_data_dependent_skips": 1
+  },
+  "focused_pose_space_tests": 3,
+  "export_regression": {
+    "rows": [
+      {
+        "rig": "first_person",
+        "prior_export_arrays_byte_exact": 4,
+        "added_renderer_frames": 0,
+        "source_unchanged": true,
+        "native_game_data_stays_private": true
+      },
+      {
+        "rig": "third_person",
+        "prior_export_arrays_byte_exact": 6,
+        "added_renderer_frames": 3,
+        "source_unchanged": true,
+        "native_game_data_stays_private": true
+      }
+    ],
+    "game_or_profile_modified": false
+  },
+  "native_Editor_closed_gracefully": true,
+  "exact_active_game_Unity_version": "6000.3.19f1",
+  "first_person_fitter_and_all_game_builders_unchanged": true,
+  "new_source_diagnostic_not_in_v012_packages": true,
+  "screenshots": [
+    {
+      "path": "screenshots/shrek-world-poses-front-nov7.png",
+      "sha256": "42d1ac8f0f89f71a6b7177bae5aabb293547e9912ce78bdacd8862122c3792bb",
+      "offline_studio_render_not_game_screenshot": true
+    },
+    {
+      "path": "screenshots/shrek-world-poses-rear-nov7.png",
+      "sha256": "20d6aead32d7a428f465b5e32de2e2d500eb372cd72082f35af370dd41a14e41",
+      "offline_studio_render_not_game_screenshot": true
+    }
+  ]
+}
