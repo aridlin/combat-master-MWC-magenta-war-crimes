@@ -2,7 +2,7 @@ import copy,json,tempfile,unittest
 from pathlib import Path
 import numpy as np
 from bundle_utils import digest
-from operators.pose_input import read_world_pose,main_world_renderer
+from operators.pose_input import read_world_pose,main_world_renderer,world_renderer
 from operators.pose_space import transform_pose
 from operators.skinning import cpu_skin
 
@@ -79,6 +79,21 @@ class PrivateWorldPoseInput(unittest.TestCase):
         record={'operator':'owned','renderers':[{'renderer':'-5'},{'renderer':'7'}]}
         for targets in ([],[{'id':'owned','renderers':[{'path_id':-5,'name':'body_LOD1'}]}],[{'id':'owned','renderers':[{'path_id':-5,'name':'body_LOD0'},{'path_id':7,'name':'other_LOD0'}]}]):
             with self.subTest(targets=targets),self.assertRaises(ValueError):main_world_renderer(record,targets)
+
+    def test_explicit_lower_lod_uses_its_exact_renderer(self):
+        record={'operator':'owned','renderers':[{'renderer':'2'},{'renderer':'7'}]};targets=[{'id':'owned','renderers':[{'path_id':2,'name':'body_LOD1'},{'path_id':7,'name':'body_LOD0'}]}]
+        self.assertEqual(world_renderer(record,targets,1),2)
+        with self.assertRaisesRegex(ValueError,'LOD2'):world_renderer(record,targets,2)
+        with self.assertRaises(ValueError):world_renderer(record,targets,True)
+
+    def test_shared_renderer_uses_recorded_native_lod_group_membership(self):
+        record={'operator':'owned','renderers':[{'renderer':'7','native_lod_levels':[0,1]},{'renderer':'2','native_lod_levels':[2]}]};targets=[{'id':'owned','renderers':[{'path_id':2,'name':'body_low'},{'path_id':7,'name':'body_main'}]}]
+        self.assertEqual(world_renderer(record,targets,1),7)
+        self.assertEqual(world_renderer(record,targets,2),2)
+
+    def test_invalid_recorded_native_levels_do_not_use_a_name_fallback(self):
+        record={'operator':'owned','renderers':[{'renderer':'7','native_lod_levels':[True]}]};targets=[{'id':'owned','renderers':[{'path_id':7,'name':'body_LOD0'}]}]
+        with self.assertRaises(ValueError):world_renderer(record,targets,0)
 
 
 if __name__=='__main__':unittest.main()

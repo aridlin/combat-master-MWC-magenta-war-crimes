@@ -20,10 +20,11 @@ class TF2ArmSelection(unittest.TestCase):
             models=['tf2_'+n for n in CLASSES];result=self.run_prepare(work,models,True)
             self.assertEqual(set(result),set(models));discover.assert_called_once()
             names=sorted(CLASSES)
-            self.assertEqual(importer.call_args_list,[call(Path('/local/tf'),Path(work)/'tf2-local',names),call(Path('/local/tf'),Path(work)/'tf2-local-arms',names,first_person=True)])
+            self.assertEqual(importer.call_args_list,[call(Path('/local/tf'),Path(work)/'tf2-local',names),call(Path('/local/tf'),Path(work)/'tf2-local-lod1',names,lod=1),call(Path('/local/tf'),Path(work)/'tf2-local-lod2',names,lod=2),call(Path('/local/tf'),Path(work)/'tf2-local-arms',names,first_person=True)])
             for model in models:
                 self.assertEqual(result[model]['first_person_source'],str(Path(work)/'operator-arm-sources'/model))
                 self.assertEqual(result[model]['source'],str(Path(work)/'operator-sources'/model))
+                self.assertEqual(result[model]['lod_sources'],{str(level):str(Path(work)/'operator-lod-sources'/model/('lod'+str(level))) for level in (1,2)})
             self.assertEqual(landmarks.call_args_list,[call(Path(work)/'operator-arm-sources'/m,expected_model=m) for m in sorted(models)])
 
     def test_disabling_matching_arms_never_imports_viewmodels(self):
@@ -34,7 +35,7 @@ class TF2ArmSelection(unittest.TestCase):
              patch('operators.tf2_arms.add_virtual_landmarks') as landmarks, \
              patch('operators.local_pilots.sources',return_value={}):
             result=self.run_prepare(work,['tf2_scout'],False)
-            importer.assert_called_once_with(Path('/local/tf'),Path(work)/'tf2-local',['scout'])
+            self.assertEqual(importer.call_args_list,[call(Path('/local/tf'),Path(work)/'tf2-local',['scout']),call(Path('/local/tf'),Path(work)/'tf2-local-lod1',['scout'],lod=1),call(Path('/local/tf'),Path(work)/'tf2-local-lod2',['scout'],lod=2)])
             landmarks.assert_not_called();self.assertNotIn('first_person_source',result['tf2_scout'])
 
     def test_unselected_classes_are_not_imported_and_failure_is_explicit(self):

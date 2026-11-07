@@ -1,4 +1,4 @@
-"""Source MDL48 and embedded Titanfall 2 MDL53 LOD0 visual reader.
+"""Source MDL48 authored LODs and embedded Titanfall 2 MDL53 LOD0 visuals.
 
 Read data only. Includes authored materials and skin influences; no Lua/MEL,
 animation events, hitboxes, physics, gameplay scripts, or process access.
@@ -22,16 +22,18 @@ class Binary:
         return self.data[offset:end].decode('utf8')
 
 
-def load(mdl_data, vvd_data=None, vtx_data=None):
+def load(mdl_data, vvd_data=None, vtx_data=None,*,lod=0):
     """Read MDL48 triplets or a self-contained Titanfall 2 MDL53.
 
     MDL53 layout facts were checked against r-ex/rsx studio_r2.h and
     optimize.h (18cd364421c883d475a78643e3796caf19204355). No exporter
-    implementation is embedded here. Only LOD0 visual geometry is read.
+    implementation is embedded here. Nonzero LODs currently support MDL48 only.
     """
+    if type(lod) is not int or not 0<=lod<8:raise ValueError('Choose an integer Source LOD from 0 through 7')
     version = Binary(mdl_data).ints(4)[0]
     respawn = version == 53
     if respawn:
+        if lod:raise ValueError('MDL53 authored lower LODs need separate format verification')
         if vvd_data is not None or vtx_data is not None:
             raise ValueError('MDL53 requires its embedded vertex data')
         header = Binary(mdl_data)
@@ -62,6 +64,12 @@ def load(mdl_data, vvd_data=None, vtx_data=None):
         raise ValueError('Expected MDL with VVD4/VTX7')
     if mdl.ints(8) != vvd.ints(8) or mdl.ints(8) != vtx.ints(16):
         raise ValueError('Source model checksums disagree')
+    if lod:
+        vlods,xlods=vvd.ints(12)[0],vtx.ints(20)[0]
+        if not 1<=vlods<=8 or not 1<=xlods<=8 or lod>=min(vlods,xlods):raise ValueError('Requested Source LOD is unavailable')
+        replacements=vtx.ints(24)[0]
+        if replacements<0 or replacements and vtx.ints(replacements+lod*8)[0]:
+            raise ValueError('Source LOD material replacements require explicit import support')
     count = vvd.ints(16)[0]
     fix_count, fix_offset, vertex_offset, _ = vvd.ints(48, 4)
     if not 0 < count < 1000000: raise ValueError('Invalid Source vertex count')
@@ -92,14 +100,17 @@ def load(mdl_data, vvd_data=None, vtx_data=None):
         xm = xb + xm_offset
         nl, lo = vtx.ints(xm, 2)
         if not 1 <= nl <= 8: raise ValueError('Invalid Source LOD count')
-        lod = xm + lo
-        nxm, mxo = vtx.ints(lod, 2)
+        if lod>=nl:raise ValueError('Requested Source LOD is unavailable in a bodygroup')
+        lod_header = xm + lo + lod*12
+        nxm, mxo = vtx.ints(lod_header, 2)
         if nxm != nm or not 0 < nm < 1024: raise ValueError('MDL/VTX mesh mismatch')
         first = len(faces)
         for m in range(nm):
             mesh = model + mo + m * 116
             material, _, mesh_nv, mesh_vo = mdl.ints(mesh, 4)
-            xmsh = lod + mxo + m * 9
+            lod_vertices=mdl.ints(mesh+52+lod*4)[0] if lod else mesh_nv
+            if not 0<=lod_vertices<=mesh_nv:raise ValueError('Invalid Source mesh LOD vertex count')
+            xmsh = lod_header + mxo + m * 9
             ng, go = vtx.ints(xmsh, 2)
             if not 0 <= ng <= 1024: raise ValueError('Invalid strip group count')
             for g in range(ng):
@@ -107,7 +118,11 @@ def load(mdl_data, vvd_data=None, vtx_data=None):
                 gn, gv, ni, io, ns, so = vtx.ints(group, 6)
                 if not 0 < gn <= 65536 or not 0 <= ni <= 1000000 or not 0 <= ns <= 65536: raise ValueError('Invalid strip group sizes')
                 mapping = np.array([vtx.unpack('H', group + gv + j * 9 + 4)[0] for j in range(gn)])
-                if np.any(mapping >= mesh_nv): raise ValueError('VTX vertex outside MDL mesh')
+                if np.any(mapping >= lod_vertices): raise ValueError('VTX vertex outside MDL mesh LOD')
+                # Keep the full LOD0-reordered vertex bank. VTX mesh-local
+                # IDs refer to its low-detail-first prefixes, so original MDL
+                # bases remain valid. Compact only the vertices actually used.
+                # This avoids mutating MDL offsets or filtering VVD fixups.
                 mapping += vi // 48 + mesh_vo
                 if np.any(mapping >= count): raise ValueError('VTX vertex outside VVD')
                 indices = vtx.unpack('H' * ni, group + io)

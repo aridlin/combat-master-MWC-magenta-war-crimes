@@ -27,6 +27,15 @@ ROOT=Path(__file__).resolve().parents[1]
 BUNDLE='src/thrid_person'
 
 
+def texture(template,objects,label,image,*,nearest=False):
+    obj=new_object(template,label,objects);tex=obj.read();raw,_=image_to_texture2d(image,4)
+    tex.m_Name=label;tex.m_Width,tex.m_Height=image.size;tex.image_data=raw;tex.m_TextureFormat=4;tex.m_CompleteImageSize=len(raw);tex.m_MipCount=1
+    if tex.m_MipMap is not None:tex.m_MipMap=False
+    tex.m_ColorSpace=1;tex.m_StreamData.path='';tex.m_StreamData.offset=tex.m_StreamData.size=0
+    tex.m_TextureSettings.m_FilterMode=0 if nearest else 1;tex.m_TextureSettings.m_WrapU=tex.m_TextureSettings.m_WrapV=1;tex.save()
+    return obj
+
+
 def material(template,objects,label,texture,rgba=(1.,1.,1.,1.),alpha_clip=False,transparent=False,data_maps=None):
     obj=new_object(template,label,objects);m=obj.read();m.m_Name=label
     for slot,value in m.m_SavedProperties.m_TexEnvs:
@@ -99,18 +108,21 @@ def build(config,settings):
     texture_template=next(o for o in original if o.type.name=='Texture2D')
     from .material_data import create as neutral_maps
     data_maps=neutral_maps(texture_template,objects);added.extend(key(o.assets_file.name,o.path_id) for o in data_maps.values())
+    from .lods import select_source,load_lod
+    def prepared(model,spec,directory,reference=None):
+        model_key=(model,spec['profile'],spec.get('style','original'),str(directory.resolve()),str(reference.resolve()) if reference else None)
+        if model_key not in cached:
+            base,image,si,sw,meta=(load_lod(directory,reference,spec.get('style','original'),config) if reference else load(directory,spec.get('style','original'),config))
+            data=np.load(directory/'source.npz',allow_pickle=False);options=profile(spec['profile'],meta);cached[model_key]=(base,image,si,sw,meta,data,options)
+        return cached[model_key]
     for identifier,model in assignments.items():
         if model not in settings['library']:raise ValueError('Model source is not available locally: '+model)
         spec=settings['library'][model];directory=Path(spec.get('first_person_source',spec['source']) if first_person else spec['source']);target=targets[identifier]
         if first_person and target['prefab_guid'] in completed_prefabs:
             record=copy.deepcopy(completed_prefabs[target['prefab_guid']]);record.update(operator=identifier,name=target['name'],shared_prefab=True);records.append(record);continue
-        rig=native_rig(env,target,first_person=first_person);model_key=(model,spec.get('style','original'))
-        if model_key not in cached:
-            base,image,si,sw,meta=load(directory,spec.get('style','original'),config);data=np.load(directory/'source.npz',allow_pickle=False);options=profile(spec['profile'],meta);cached[model_key]=(base,image,si,sw,meta,data,options)
-        base,image,si,sw,meta,data,options=cached[model_key]
-        tex_obj=new_object(texture_template,'MWC_OperatorTexture_'+identifier,objects);tex=tex_obj.read();raw,_=image_to_texture2d(image,4);tex.m_Name='MWC_OperatorTexture_'+identifier;tex.m_Width,tex.m_Height=image.size;tex.image_data=raw;tex.m_TextureFormat=4;tex.m_CompleteImageSize=len(raw);tex.m_MipCount=1
-        if tex.m_MipMap is not None:tex.m_MipMap=False
-        tex.m_ColorSpace=1;tex.m_StreamData.path='';tex.m_StreamData.offset=tex.m_StreamData.size=0;tex.m_TextureSettings.m_FilterMode=0 if meta.get('texture_filter')=='nearest' else 1;tex.m_TextureSettings.m_WrapU=tex.m_TextureSettings.m_WrapV=1;tex.save();added.append(key(tex_obj.assets_file.name,tex_obj.path_id))
+        rig=native_rig(env,target,first_person=first_person)
+        base,image,si,sw,meta,data,options=prepared(model,spec,directory)
+        tex_obj=texture(texture_template,objects,'MWC_OperatorTexture_'+identifier,image,nearest=meta.get('texture_filter')=='nearest');added.append(key(tex_obj.assets_file.name,tex_obj.path_id))
         primary=set(rig['primary'].values());donor=rig['snapshots'][rig['primary'][min(rig['primary'])]];pointer=donor['renderer']['m_Materials'][0]
         from .body_material import template as body_template
         material_template,material_record=body_template(rig['objects'],pointer,first_person=first_person)
@@ -118,19 +130,31 @@ def build(config,settings):
         if spec.get('glasses') and not first_person:
             from .lenses import template as lens_template,configure as configure_lens
             frame_mat=material(material_template,objects,'MWC_OperatorFrame_'+identifier,0,(.012,.016,.020,1.),data_maps=data_maps);lens_mat=configure_lens(material(lens_template(rig['objects']),objects,'MWC_OperatorRustShield_'+identifier,0,(.32,.095,.035,.40),transparent=True,data_maps=data_maps));added.extend(key(o.assets_file.name,o.path_id) for o in (frame_mat,lens_mat))
-        model_records=[]
+        model_records=[];lod_materials={}
         for rid,tree in rig['renderers'].items():
             template=rig['meshes'][rid];new_mesh=new_object(template,'MWC_OperatorMesh_'+identifier+'_'+str(rid),objects)
             fields={}
             if rid in primary:
-                native=rig['snapshots'][rid]
+                native=rig['snapshots'][rid];lod_record={};part_material=body_mat.path_id
                 if first_person:
                     from .first_person import fit as fit_arms
                     mesh,bi,bw,fit_report=fit_arms(base,si,sw,meta,data['inverse_bind'],native,options,model=model)
                 else:
-                    v,n,bi,bw,fit_report=adapt(np.asarray(base.vertices),np.asarray(base.normals),meta['bone_names'],data['inverse_bind'],si,sw,native['bone_names'],native['inverse_bind'],source_faces=base.faces,**options);mesh=copy.deepcopy(base);mesh.vertices=v.tolist();mesh.normals=n.tolist()
-                    if np.linalg.det(options.get('source_basis',[[-1,0,0],[0,0,-1],[0,1,0]]))<0:mesh.faces=np.asarray(mesh.faces)[:,[0,2,1]].tolist()
-                parts=[(mesh,bi,bw)];mats=[body_mat.path_id]
+                    levels=sorted(level for level,renderer in rig['primary'].items() if renderer==rid)
+                    part_directory,source_lod,reference=select_source(spec,levels)
+                    part,part_image,psi,psw,pm,pd,po=prepared(model,spec,part_directory,reference)
+                    if reference and pm.get('source_lod')!=source_lod:raise ValueError('Authored LOD identity does not match the selected level')
+                    shared=part_image.size==image.size and part_image.tobytes()==image.tobytes()
+                    if not shared:
+                        if not reference or pm.get('shared_lod0_atlas') is not False or pm.get('independent_lod_atlas_reason')!='authored_uv_extent':raise ValueError('Unexpected operator LOD material atlas difference')
+                        if source_lod not in lod_materials:
+                            lod_tex_obj=texture(texture_template,objects,'MWC_OperatorLODTexture_'+identifier+'_'+str(source_lod),part_image,nearest=pm.get('texture_filter')=='nearest');added.append(key(lod_tex_obj.assets_file.name,lod_tex_obj.path_id))
+                            lod_mat=material(material_template,objects,'MWC_OperatorMaterial_'+identifier+'_LOD'+str(source_lod),lod_tex_obj.path_id,alpha_clip=pm['alpha_clip_required'],data_maps=data_maps);added.append(key(lod_mat.assets_file.name,lod_mat.path_id));lod_materials[source_lod]=lod_mat.path_id
+                        part_material=lod_materials[source_lod]
+                    v,n,bi,bw,fit_report=adapt(np.asarray(part.vertices),np.asarray(part.normals),pm['bone_names'],pd['inverse_bind'],psi,psw,native['bone_names'],native['inverse_bind'],source_faces=part.faces,**po);mesh=copy.deepcopy(part);mesh.vertices=v.tolist();mesh.normals=n.tolist()
+                    if np.linalg.det(po.get('source_basis',[[-1,0,0],[0,0,-1],[0,1,0]]))<0:mesh.faces=np.asarray(mesh.faces)[:,[0,2,1]].tolist()
+                    if spec.get('lod_sources'):lod_record={'native_lod_levels':levels,'source_lod':source_lod,'source_geometry_sha256':digest(part_directory/'source.npz'),'shared_lod0_material_atlas':shared,'material_atlas':'shared_lod0' if shared else 'independent_authored_lod','missing_authored_normals_reconstructed':pm.get('missing_authored_normals_reconstructed',0)}
+                parts=[(mesh,bi,bw)];mats=[part_material]
                 if spec.get('glasses') and not first_person:
                     from .glasses import create
                     head_index=next(i for i,k in enumerate(native['bone_names']) if k.endswith('Head_M'));head=np.linalg.inv(native['inverse_bind'])[head_index,:3,3];coordinate_frame,units=native_frame(native['bone_names'],native['inverse_bind']);frame,shield,glass_meta=create(coordinate_frame.T@head/units)
@@ -139,7 +163,7 @@ def build(config,settings):
                         idx=np.zeros((len(part.vertices),4),dtype='u1');idx[:,0]=head_index;weight=np.zeros((len(part.vertices),4),dtype='<f4');weight[:,0]=1;parts.append((part,idx,weight))
                     mats.extend([frame_mat.path_id,lens_mat.path_id])
                 combined,bi,bw,submeshes=combine(parts);validate_weights(bi,bw,len(combined.vertices),len(native['bone_names']));md=skinned_tree(native['mesh_tree'],combined,'MWC_OperatorMesh_'+identifier,bi,bw,len(native['bone_names']));md['m_SubMeshes']=submeshes;new_mesh.save_typetree(md);fields.update(m_Materials=[{'m_FileID':0,'m_PathID':i} for i in mats],m_AABB=root_bounds(combined.vertices,native['inverse_bind'],native['root_bone_index'],tree['m_AABB']));expected_geometry[new_mesh.path_id]=(combined,bi,bw)
-                model_records.append({'renderer':str(rid),'vertices':len(combined.vertices),'triangles':len(combined.faces),'submeshes':len(submeshes),'bones':len(native['bone_names']),'fit':fit_report})
+                model_records.append({'renderer':str(rid),'vertices':len(combined.vertices),'triangles':len(combined.faces),'submeshes':len(submeshes),'bones':len(native['bone_names']),'fit':fit_report,**lod_record})
             else:new_mesh.save_typetree(empty_visual(template.read_typetree()))
             fields['m_Mesh']={'m_FileID':0,'m_PathID':new_mesh.path_id};changed=copy.deepcopy(tree);changed.update(fields);obj=rig['objects'][rid];obj.save_typetree(changed);allowed[key(obj.assets_file.name,rid)]=fields;added.append(key(new_mesh.assets_file.name,new_mesh.path_id))
         records.append({'operator':identifier,'name':target['name'],'model':model,'prefab_guid':target['prefab_guid'],'source_geometry_sha256':digest(directory/'source.npz'),'source_variant':meta.get('source_variant','packaged_or_world'),'first_person_source_override':bool(first_person and spec.get('first_person_source')),'style':spec.get('style','original'),'glasses':bool(spec.get('glasses')),'material_template':material_record,'renderers':model_records,'original_renderers_changed':len(rig['renderers']),'skeleton_changed':False,'in_game_tested':False})

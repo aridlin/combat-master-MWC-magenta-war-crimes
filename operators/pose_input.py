@@ -11,11 +11,21 @@ from bundle_utils import digest
 
 def main_world_renderer(record,targets):
     """Select the reviewed LOD0 body, not the first path-ID-sorted renderer."""
+    return world_renderer(record,targets,0)
+
+
+def world_renderer(record,targets,lod=0):
+    if type(lod) is not int or not 0<=lod<8:raise ValueError('Choose a native world LOD from 0 through 7')
     targets=[target for target in targets if target.get('id')==record['operator']]
     if len(targets)!=1:raise ValueError('World operator target is absent or ambiguous')
     owned={str(row['renderer']) for row in record['renderers']}
-    matches=[str(row['path_id']) for row in targets[0]['renderers'] if str(row['path_id']) in owned and row['name'].endswith('LOD0')]
-    if len(matches)!=1:raise ValueError('World LOD0 renderer is absent or ambiguous')
+    if all('native_lod_levels' in row for row in record['renderers']):
+        for row in record['renderers']:
+            if any(type(level) is not int or not 0<=level<8 for level in row['native_lod_levels']):raise ValueError('Invalid native world LOD mapping')
+        wanted={str(row['renderer']) for row in record['renderers'] if lod in row['native_lod_levels']}
+        matches=[str(row['path_id']) for row in targets[0]['renderers'] if str(row['path_id']) in wanted]
+    else:matches=[str(row['path_id']) for row in targets[0]['renderers'] if str(row['path_id']) in owned and row['name'].endswith('LOD'+str(lod))]
+    if len(matches)!=1:raise ValueError('World LOD'+str(lod)+' renderer is absent or ambiguous')
     return int(matches[0])
 
 

@@ -1,5 +1,7 @@
 # Operator and model expansion — 3 November 2026
 
+Development source: [authored TF2 distance meshes and current verification scope](tf2-authored-lods.md). This later work is separate from the historical checks below.
+
 ## Applied shooting-lens correction
 
 Shrek's rust shield now uses the game's shipped **URP Lit** shader with real

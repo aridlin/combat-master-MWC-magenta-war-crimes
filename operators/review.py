@@ -44,11 +44,12 @@ def articulated_pose(bind,parents,names,rotations):
     return pose
 
 
-def export(stage,output,pose_name='bind',*,clip_pose=None):
+def export(stage,output,pose_name='bind',*,clip_pose=None,lod=0):
     stage,output=Path(stage),Path(output);manifest=json.loads((stage/'manifest.json').read_text());row=manifest['files'][0];bundle=Path(row['output'])
     if hashlib.sha256(bundle.read_bytes()).hexdigest()!=row['output_sha256']:raise ValueError('Review input changed after verification')
     if pose_name not in ('bind','articulated','clip') or (pose_name=='clip')!=(clip_pose is not None):
         raise ValueError('Use --pose clip with --clip-pose, or choose bind/articulated without a clip')
+    if type(lod) is not int or not 0<=lod<8 or clip_pose is None and lod:raise ValueError('Use an explicit native LOD only with a world clip review')
     records=manifest['operators']
     if clip_pose is not None:
         if manifest.get('first_person'):raise ValueError('Clip input currently supports world operators only')
@@ -65,9 +66,9 @@ def export(stage,output,pose_name='bind',*,clip_pose=None):
     for record in records:
         if clip_pose is None:rid=int(record['renderers'][0]['renderer'])
         else:
-            from .pose_input import main_world_renderer
+            from .pose_input import world_renderer
             targets=json.loads((Path(__file__).resolve().parents[1]/'config/operator-targets.json').read_text())['operators']
-            rid=main_world_renderer(record,targets)
+            rid=world_renderer(record,targets,lod)
         renderer=objects[rid].read_typetree();obj=objects[renderer['m_Mesh']['m_PathID']];tree=obj.read_typetree();h=MeshHandler(obj.read());h.process();triangles=h.get_triangles();faces=np.concatenate([np.asarray(t,dtype='<u4').reshape(-1,3) for t in triangles])
         # MeshHandler returns triangle lists, whose shape can be either (n,3) or flat.
         fm=np.concatenate([np.full(np.asarray(t).size//3,i,dtype='<i4') for i,t in enumerate(triangles)])
@@ -113,10 +114,13 @@ def export(stage,output,pose_name='bind',*,clip_pose=None):
             materials.append(m)
         np.savez_compressed(out/'source.npz',positions=v,normals=n,uv=np.asarray(h.m_UV0,dtype='<f4')[:,:2],faces=faces,face_materials=fm,bone_indices=bi,bone_weights=bw,inverse_bind=review_bind)
         meta={'id':record['model'],'coordinate_system':'z_up','materials':materials,'bone_names':names,'bone_parents':parents,'review_pose':pose_name,'source_bundle_sha256':row['output_sha256'],'private_native_rig_data':True,'in_game_tested':False}
-        if clip_info is not None:meta.update(original_clip=clip_info,review_renderer=str(rid),review_LOD=0)
+        if clip_info is not None:
+            meta.update(original_clip=clip_info,review_renderer=str(rid),review_LOD=lod)
+            renderer_record=next(r for r in record['renderers'] if r['renderer']==str(rid))
+            if 'source_lod' in renderer_record:meta['review_source_lod']=renderer_record['source_lod']
         (out/'source.json').write_text(json.dumps(meta,indent=2)+'\n');reports.append({'model':record['model'],'operator':record['operator'],'vertices':len(v),'pose':pose_name,'finite':True,'bind_identity_checked':pose_name=='bind',**({'original_clip':clip_info} if clip_info is not None else {})})
     (output/'review.json').write_text(json.dumps(reports,indent=2)+'\n');return reports
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('stage');p.add_argument('output');p.add_argument('--pose',choices=['bind','articulated','clip'],default='bind');p.add_argument('--clip-pose',help='Private operators.clip_review world export; selects its exact staged operator');a=p.parse_args();print(json.dumps(export(a.stage,a.output,a.pose,clip_pose=a.clip_pose),indent=2))
+    p=argparse.ArgumentParser();p.add_argument('stage');p.add_argument('output');p.add_argument('--pose',choices=['bind','articulated','clip'],default='bind');p.add_argument('--clip-pose',help='Private operators.clip_review world export; selects its exact staged operator');p.add_argument('--lod',type=int,default=0,help='Native world LOD for clip review; defaults to 0');a=p.parse_args();print(json.dumps(export(a.stage,a.output,a.pose,clip_pose=a.clip_pose,lod=a.lod),indent=2))

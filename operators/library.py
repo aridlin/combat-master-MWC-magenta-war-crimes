@@ -38,6 +38,11 @@ def prepare(config,assignments,work,tf2='',appearance=None,*,matching_arms=False
         raw=Path(work)/'tf2-local';names=sorted(name.removeprefix('tf2_') for name in tf_models);local_tf=discover_tf2(config,tf2);import_models(local_tf,raw,names)
         for model in sorted(tf_models):
             source=flatten(raw/model.removeprefix('tf2_'),Path(work)/'operator-sources'/model);result[model]={'source':str(source),'profile':model,'style':'magenta'}
+        for lod in (1,2):
+            lower_raw=Path(work)/('tf2-local-lod'+str(lod));import_models(local_tf,lower_raw,names,lod=lod)
+            for model in sorted(tf_models):
+                lower=flatten(lower_raw/model.removeprefix('tf2_'),Path(work)/'operator-lod-sources'/model/('lod'+str(lod)))
+                result[model].setdefault('lod_sources',{})[str(lod)]=str(lower)
         # Genuine class-specific viewmodels retain their authored hand detail.
         # Arm-only bind poses need no assumed match to the class's world pose.
         # Missing/invalid sources fail explicitly; never substitute body arms.

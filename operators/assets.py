@@ -7,6 +7,9 @@ from PIL import Image
 from catgun.geometry import Mesh
 from model_import.convert import linear,srgb
 
+ATLAS_TILE=512
+ATLAS_GUTTER=4
+
 
 def load(source,style='original',pattern_config=None):
     source=Path(source);meta=json.loads((source/'source.json').read_text());a=np.load(source/'source.npz',allow_pickle=False)
@@ -23,7 +26,7 @@ def load(source,style='original',pattern_config=None):
         elif style!='original':raise ValueError('Unknown operator material style')
         mesh=Mesh();mesh.vertices=v.tolist();mesh.normals=n.tolist();mesh.uv=uv.tolist();mesh.faces=faces.tolist()
         return mesh,atlas,a['bone_indices'].copy() if 'bone_indices' in a else None,a['bone_weights'].copy() if 'bone_weights' in a else None,{**meta,'style':style}
-    count=len(meta['materials']);cols=math.ceil(math.sqrt(count));rows=math.ceil(count/cols);tile=512;gutter=4;stride=tile+2*gutter;atlas=Image.new('RGBA',(cols*stride,rows*stride),(255,255,255,0));mapped=uv.copy();assigned=np.full(len(v),-1);alpha_used=False
+    count=len(meta['materials']);cols=math.ceil(math.sqrt(count));rows=math.ceil(count/cols);tile=ATLAS_TILE;gutter=ATLAS_GUTTER;stride=tile+2*gutter;atlas=Image.new('RGBA',(cols*stride,rows*stride),(255,255,255,0));mapped=uv.copy();assigned=np.full(len(v),-1);alpha_used=False
     for mi,mat in enumerate(meta['materials']):
         ids=np.unique(faces[fm==mi].ravel())
         if not len(ids):continue

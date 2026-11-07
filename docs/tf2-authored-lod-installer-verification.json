@@ -1,0 +1,237 @@
+{
+  "release": "v0.1.13-preview",
+  "source_tests": {
+    "run": 222,
+    "passed": 221,
+    "existing_skip": 1
+  },
+  "packages": [
+    {
+      "platform": "Linux",
+      "archive": "MWC-Linux-x64.tar.gz",
+      "bytes": 85124888,
+      "sha256": "48977900f6c378c8369667b7d37d782081699b04b22c135de7f605b79a28bfa4",
+      "frontend_sha256": "4fa8f6a5f6b763db27c225db87c188a842ffd1d0408db553256f46e7e550f25d",
+      "actual_archive_modules_exact_to_source": {
+        "model_import/source.py": "48cd7d439a531e0c183208f5547d32e766f34ee0c89e74656096aa22ef8cbe09",
+        "model_import/tf2.py": "0d2e92495c07b2f12df3f6934d3ab0d6a71c3904385d6f3b70fe47201fccbf7f",
+        "operators/lods.py": "e06dc4682043c6b811c9b2ee81f2e538bda513340a7d3e04f5add2b4c257a2ba",
+        "operators/assets.py": "fe1164efb088d7adc67cb7b1c6dc0fc865b864252c1c840dc68ec536b0a2ef32",
+        "operators/bundles.py": "99d69d00814259a9a19315893ad4463173048ef845b866b063416ffa546b75d4",
+        "operators/library.py": "d8f5ba91c258fbf0bd4514ded52db9a3873cf681517d6062e1f3b18c982cbb83",
+        "operators/review.py": "64e8a2d45fe9dfbcc578c793429b5b5c06c7207197521a01d79d89f5c7f11c0b",
+        "operators/pose_input.py": "4b2c036b926f13c3629bddd9925116b46a5a2d2f4f4912fc6b109559b7b99807",
+        "operators/first_person.py": "241aa181ce56c16a00f80ed1498e143eff7ec478773cb5d242b6b08a49c1221f",
+        "operators/viewmodel.py": "d88c815b86e43bccfdb74cbd8a1e52cff629e30786f08abcf57cf128e76a73b3",
+        "operators/leaf_tips.py": "a52e2243c68ff7a8ce61ca7e53cc2ced6e5fcac1199baa716548af23bef7b7ca",
+        "cat_audio.py": "84868ff5cff584861a09345140b07e0eeff866af0d1377df1bc407f6aa574007"
+      },
+      "no_game_or_local_proprietary_assets_distributed": true
+    },
+    {
+      "platform": "Windows",
+      "archive": "MWC-Windows-x64.zip",
+      "bytes": 71884674,
+      "sha256": "2add675a74f8e542631b0c52cca6d84212b4ae4be100cc5538122ea67c819273",
+      "frontend_sha256": "c0680999633d818650ca015edd35fec371367920d6f998629e84ae79de204318",
+      "actual_archive_modules_exact_to_source": {
+        "model_import/source.py": "48cd7d439a531e0c183208f5547d32e766f34ee0c89e74656096aa22ef8cbe09",
+        "model_import/tf2.py": "0d2e92495c07b2f12df3f6934d3ab0d6a71c3904385d6f3b70fe47201fccbf7f",
+        "operators/lods.py": "e06dc4682043c6b811c9b2ee81f2e538bda513340a7d3e04f5add2b4c257a2ba",
+        "operators/assets.py": "fe1164efb088d7adc67cb7b1c6dc0fc865b864252c1c840dc68ec536b0a2ef32",
+        "operators/bundles.py": "99d69d00814259a9a19315893ad4463173048ef845b866b063416ffa546b75d4",
+        "operators/library.py": "d8f5ba91c258fbf0bd4514ded52db9a3873cf681517d6062e1f3b18c982cbb83",
+        "operators/review.py": "64e8a2d45fe9dfbcc578c793429b5b5c06c7207197521a01d79d89f5c7f11c0b",
+        "operators/pose_input.py": "4b2c036b926f13c3629bddd9925116b46a5a2d2f4f4912fc6b109559b7b99807",
+        "operators/first_person.py": "241aa181ce56c16a00f80ed1498e143eff7ec478773cb5d242b6b08a49c1221f",
+        "operators/viewmodel.py": "d88c815b86e43bccfdb74cbd8a1e52cff629e30786f08abcf57cf128e76a73b3",
+        "operators/leaf_tips.py": "a52e2243c68ff7a8ce61ca7e53cc2ced6e5fcac1199baa716548af23bef7b7ca",
+        "cat_audio.py": "84868ff5cff584861a09345140b07e0eeff866af0d1377df1bc407f6aa574007"
+      },
+      "no_game_or_local_proprietary_assets_distributed": true
+    }
+  ],
+  "packaged_transactions": [
+    {
+      "runtime": "Frozen Linux backend",
+      "fixture": "Disposable copies of real Linux-format game bundles; no game executable",
+      "models": [
+        {
+          "operator": "operator_0",
+          "model": "tf2_scout",
+          "triangles": [
+            7814,
+            5939,
+            4335
+          ],
+          "repaired_normals": [
+            0,
+            0,
+            0
+          ],
+          "atlases": [
+            "shared_lod0",
+            "shared_lod0",
+            "shared_lod0"
+          ]
+        },
+        {
+          "operator": "operator_30",
+          "model": "tf2_demoman",
+          "triangles": [
+            8442,
+            4898,
+            3053
+          ],
+          "repaired_normals": [
+            0,
+            0,
+            12
+          ],
+          "atlases": [
+            "shared_lod0",
+            "shared_lod0",
+            "shared_lod0"
+          ]
+        }
+      ],
+      "lower_palette_checks": [
+        {
+          "model": "tf2_scout",
+          "lod": 2,
+          "UV_and_palette_exact": true,
+          "authored_UV_requires_own_layout": false,
+          "identical_pixels_shared": true
+        },
+        {
+          "model": "tf2_scout",
+          "lod": 1,
+          "UV_and_palette_exact": true,
+          "authored_UV_requires_own_layout": false,
+          "identical_pixels_shared": true
+        },
+        {
+          "model": "tf2_demoman",
+          "lod": 1,
+          "UV_and_palette_exact": true,
+          "authored_UV_requires_own_layout": true,
+          "identical_pixels_shared": true
+        },
+        {
+          "model": "tf2_demoman",
+          "lod": 2,
+          "UV_and_palette_exact": true,
+          "authored_UV_requires_own_layout": true,
+          "identical_pixels_shared": true
+        }
+      ],
+      "matching_authored_arms_built_for_both_models": true,
+      "arms_never_use_world_lods": true,
+      "apply_exit": 0,
+      "restore_exit": 0,
+      "original_backups_verified": true,
+      "both_originals_restored_byte_exactly": true,
+      "restore_without_TF2_source": true,
+      "applied_bundle_sha256": {
+        "src/first_person": "7e9bf04dd72e07ea24fff8cd8d9484db743c10af4f38b0b639200b0c5c44a04c",
+        "src/thrid_person": "5b3d75c23c55cabd8acd6f491e50dd418f6e1266ac945b55aad6bef9060602ed"
+      },
+      "installed_game_or_personal_state_modified": false,
+      "native_Windows_game_tested": false,
+      "native_LOD_switching_FPS_or_animation_acceptance": false
+    },
+    {
+      "runtime": "Packaged Windows embedded CPython/backend under Wine",
+      "fixture": "Disposable copies of real Linux-format game bundles; no game executable",
+      "models": [
+        {
+          "operator": "operator_0",
+          "model": "tf2_scout",
+          "triangles": [
+            7814,
+            5939,
+            4335
+          ],
+          "repaired_normals": [
+            0,
+            0,
+            0
+          ],
+          "atlases": [
+            "shared_lod0",
+            "shared_lod0",
+            "shared_lod0"
+          ]
+        },
+        {
+          "operator": "operator_30",
+          "model": "tf2_demoman",
+          "triangles": [
+            8442,
+            4898,
+            3053
+          ],
+          "repaired_normals": [
+            0,
+            0,
+            12
+          ],
+          "atlases": [
+            "shared_lod0",
+            "shared_lod0",
+            "shared_lod0"
+          ]
+        }
+      ],
+      "lower_palette_checks": [
+        {
+          "model": "tf2_scout",
+          "lod": 2,
+          "UV_and_palette_exact": true,
+          "authored_UV_requires_own_layout": false,
+          "identical_pixels_shared": true
+        },
+        {
+          "model": "tf2_scout",
+          "lod": 1,
+          "UV_and_palette_exact": true,
+          "authored_UV_requires_own_layout": false,
+          "identical_pixels_shared": true
+        },
+        {
+          "model": "tf2_demoman",
+          "lod": 1,
+          "UV_and_palette_exact": true,
+          "authored_UV_requires_own_layout": true,
+          "identical_pixels_shared": true
+        },
+        {
+          "model": "tf2_demoman",
+          "lod": 2,
+          "UV_and_palette_exact": true,
+          "authored_UV_requires_own_layout": true,
+          "identical_pixels_shared": true
+        }
+      ],
+      "matching_authored_arms_built_for_both_models": true,
+      "arms_never_use_world_lods": true,
+      "apply_exit": 0,
+      "restore_exit": 0,
+      "original_backups_verified": true,
+      "both_originals_restored_byte_exactly": true,
+      "restore_without_TF2_source": true,
+      "applied_bundle_sha256": {
+        "src/first_person": "7e9bf04dd72e07ea24fff8cd8d9484db743c10af4f38b0b639200b0c5c44a04c",
+        "src/thrid_person": "5b3d75c23c55cabd8acd6f491e50dd418f6e1266ac945b55aad6bef9060602ed"
+      },
+      "installed_game_or_personal_state_modified": false,
+      "native_Windows_game_tested": false,
+      "native_LOD_switching_FPS_or_animation_acceptance": false
+    }
+  ],
+  "packaged_Linux_and_Windows_outputs_byte_identical": true,
+  "existing_first_person_fitter_Lynx_audio_and_window_sources_unchanged": true,
+  "installed_game_changed": false,
+  "native_Windows_game_tested": false,
+  "native_LOD_switching_performance_and_full_animation_acceptance": false
+}
