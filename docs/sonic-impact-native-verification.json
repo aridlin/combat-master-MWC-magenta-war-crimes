@@ -1,0 +1,118 @@
+{
+  "date": "2026-11-07",
+  "scope": "Native Linux official Impact Grenade catalogue and showcase; no held/thrown gameplay acceptance",
+  "game_build": "24397779",
+  "game_engine": "6000.3.19f1",
+  "output_resolution": [
+    1280,
+    720
+  ],
+  "frame_cap": 30,
+  "native_editor_used": false,
+  "private_baseline_bundle_sha256": "5740b44b65c7e2bd675a6641665311d1da07325d5bad57798fc82e6cd54a4f4a",
+  "all_three_held_LODs_and_thrown_geometry_match_current_public_model": true,
+  "original_target_visual_whitelist": {
+    "exact_visual_objects_changed": 5,
+    "all_other_original_objects_byte_exact": 25758,
+    "geometry_skin_material_texture_roundtrip": true,
+    "shared_launcher_mesh_unchanged": true,
+    "all_new_local_references_resolve": true,
+    "transforms_scripts_collision_physics_animation_stats_unchanged": true
+  },
+  "target_identity_confirmed_from_displayed_name": "IMPACT GRENADE",
+  "original_unlock_requirement_preserved": "Unlocks at Lv. 5 in copied level-1 profile",
+  "model_seen": "Authored Sonic spin ball with blue curled-quill texture",
+  "native_preview_reviewed": true,
+  "source_texture_present_and_coverage_reviewed": true,
+  "quality_findings": [
+    "Blue spin-ball mesh appears at the intended Impact Grenade catalogue entry.",
+    "Blue curled-quill texture and silhouette are present in equipment and showcase views.",
+    "A bright blue-white hotspot obscures surface detail in a rotated showcase view. Material appearance is not fully accepted.",
+    "Source is a spin-ball model, not a Sonic character standing upright."
+  ],
+  "single_property_control": {
+    "property": "_IsWeapon",
+    "baseline": 1,
+    "candidate": 0,
+    "candidate_sha256": "60022935bbb4be2510f6afeba25d77e6dc049faa4068fa829107c8bd221011aa",
+    "other_objects_byte_exact": 25770,
+    "all_other_material_fields_geometry_and_textures_unchanged": true,
+    "native_rotated_hotspot_persists": true,
+    "accepted": false,
+    "installed": false,
+    "production_material_unchanged": true
+  },
+  "sessions": [
+    {
+      "name": "headless-sonic-equipment-preview-v1",
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true
+    },
+    {
+      "name": "headless-sonic-material-control-v2",
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true
+    },
+    {
+      "name": "headless-sonic-metallic-alpha-control-v3",
+      "native_game_exit": 0,
+      "compositor_teardown_exit": 139,
+      "host_profile_unchanged": true
+    }
+  ],
+  "network_isolated": true,
+  "host_display_or_audio_used": false,
+  "movement_firing_throwing_unlock_purchase_equip_or_reward_claim_inputs": false,
+  "held_thrown_animations_collision_damage_audio_FPS_and_4K_not_accepted": true,
+  "installed_game_and_operator_assignments_changed": false,
+  "screenshots": [
+    {
+      "path": "screenshots/sonic-impact-native-equipment-nov7.png",
+      "sha256": "ec5be5666d702c97191ed4e049ed34df35b8271dfafa121d3d7a59a7a6050dee"
+    },
+    {
+      "path": "screenshots/sonic-impact-native-showcase-nov7.png",
+      "sha256": "008a5117ce071101716f8cc5be03b1e8e31b746995c11b2c80b1228945b7d9fd"
+    },
+    {
+      "path": "screenshots/sonic-impact-native-rotated-nov7.png",
+      "sha256": "15b549237800794e4019b49d60b82707579669897cbe3c1cda84fce0e0c49ab5"
+    },
+    {
+      "path": "screenshots/sonic-impact-rejected-weapon-mode-nov7.png",
+      "sha256": "faea4b455e60dea2946cd9bf4959f9a7beaf5bd3ac8d4811573a09116ca09a00"
+    },
+    {
+      "path": "screenshots/sonic-impact-unaccepted-metallic-alpha-nov7.png",
+      "sha256": "b37d98150c354c83bdafd4237c991d698b18055721cd52f5067c73600bf3f2a9"
+    }
+  ],
+  "updated_status_frontends_compile": {
+    "Linux": true,
+    "Windows_MinGW": true
+  },
+  "updated_frontend_binaries_not_installed_or_released": true,
+  "metallic_texture_alpha_control": {
+    "before_RGBA": [
+      0,
+      255,
+      255,
+      255
+    ],
+    "after_RGBA": [
+      0,
+      255,
+      255,
+      0
+    ],
+    "candidate_sha256": "13089ac60d30c4a88716e831eb14d30730761300117bc7794f85805872a9f51d",
+    "all_other_objects_byte_exact": 25770,
+    "all_material_properties_and_RGB_channels_unchanged": true,
+    "native_rotated_bright_patch_persists": true,
+    "accepted_for_production": false,
+    "installed": false,
+    "channel_interpretation_not_established": true
+  }
+}

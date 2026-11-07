@@ -178,10 +178,10 @@
     "group": "Models",
     "description": "Swenzy / CC BY 4.0. Held and thrown visuals; native grenade physics and damage retained.",
     "thumbnail": "assets/sonic_impact.png",
-    "preview_kind": "Authored Sonic model; in-game test pending",
+    "preview_kind": "Native equipment preview checked; held/thrown test pending",
     "default": false,
     "target": "Resolved impact ContactGrenade and its thrown projectile only",
-    "status": "built and file-verified; in-game untested"
+    "status": "built and file-verified; native menu checked; rotated highlight and held/thrown appearance pending"
   },
   {
     "id": "tf2_medigun_audio",
