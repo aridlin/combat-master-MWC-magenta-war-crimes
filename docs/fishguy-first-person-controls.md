@@ -279,3 +279,57 @@ The production fitter, character assignments and released installers are
 unchanged by this experiment. Pose-aware anatomical fitting and the game's
 runtime grip/blending remain open; lower sampled edge strain alone is
 insufficient.
+
+## Genuine native forearm and authored hand join, November 7
+
+A separate private prototype retains Fishguy's authored hand and finger
+surfaces while taking the bare forearm from the user's verified original
+first-person mesh. Its existing forearm topology and skin weights are retained;
+48 joining triangles connect the existing wrist contours. This changes only
+the private first-person LOD0 diagnostic, not Fishguy's body or any installed
+operator assignment. Original native geometry remains local and is not bundled
+in this repository.
+
+The first texture transfer interpolated between unrelated source UV islands,
+creating an unwanted dark patch. A subsequent per-texel nearest-surface bake
+selects one source triangle at each texel and samples inside that triangle.
+Only forearm/join triangles receive new UV tiles; original hand texels retain
+their atlas region. Exact duplicates provide the UV seams. All triangle
+positions and skin influences remain identical to the geometric prototype
+across 34 bind/isolated clip checks. Local wrist normals were recomputed where
+the source hand boundary had moved. This is not a complete surface-quality
+gate: three MP.V reload samples still contain two right palm-to-strip strict
+crossings each, and normal-opposition diagnostics also remain.
+
+Fresh native stationary hipfire, ADS and return captures show a narrower
+forearm and a substantially reduced wrist pinch compared with baseline case
+126. The forearm/hand colour and shading discontinuity remains visible. This
+is useful visual progress, **not accepted full grip/animation quality**.
+
+![Private joined forearm in native hipfire](screenshots/fish-native-forearm-join-range-return-nov7.png)
+
+![Private joined forearm in native ADS](screenshots/fish-native-forearm-join-range-ads-nov7.png)
+
+The bundle round-tripped its geometry, normals, UVs and skin exactly and
+preserved 144,988 unrelated original objects. The isolated native game exited
+0; Gamescope returned 139 during teardown. The copied host profile was
+unchanged. All six installed bundle/state hashes also remained unchanged.
+No movement, firing or reload input was sent, and this test supplies no native
+reload, world-model, other-weapon, LOD-switching or platform acceptance.
+
+The prototype remains private, uninstalled and absent from installer choices.
+The production fitter and released installer are unchanged. The next required
+work is the right-palm/wrist relationship under the actual MP.V reload clips,
+the colour/shading transition, and complete LOD/animation validation.
+[The build, pose and native evidence](fish-native-forearm-join-verification.json)
+records these limits.
+
+A targeted follow-up inspected the exact majority-hand right-palm corner
+involved in the reload contacts. The original native mesh assigns no skin
+mass to `j_hand_R`; its nearby palm uses metacarpal controls. Transferring that
+nearest native palm field at four blend strengths to the eight coincident
+corner vertices preserved actual finger vertices and the anchored boundary,
+but retained both contacts in every failing reload sample. It therefore did
+not proceed to a full-pose gate or bundle. This rules out that specific local
+weight-only correction; the contour correspondence and adjacent palm geometry
+still need work.

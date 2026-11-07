@@ -1,0 +1,140 @@
+{
+  "status": "Private native stationary comparison only; incomplete, unaccepted, not installed",
+  "source_meshes": "Locally derived original bare forearms joined to existing authored Fishguy hands; native geometry remains private",
+  "world_model_or_assignments_changed": false,
+  "prototype_LOD0_only": true,
+  "mesh": {
+    "vertices": 5488,
+    "triangles": 1716,
+    "new_join_faces": 48,
+    "baked_surface_faces": 624,
+    "atlas_size": [
+      1560,
+      1896
+    ]
+  },
+  "bundle_verification": {
+    "all_other_original_objects_byte_exact": 144988,
+    "renderer_field_whitelist": [
+      "m_Mesh",
+      "m_Materials",
+      "m_AABB"
+    ],
+    "geometry_uv_skin_exact_roundtrip": true,
+    "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+    "all_new_local_references_resolve": true
+  },
+  "private_bundle_sha256": "6934b061be334b13ec47d462b32614a5e4eaebf3acb3c3e612ee40bd0c0824ed",
+  "offline_pose_checks": {
+    "count": 34,
+    "all_posed_corners_exact_across_texture_repair": true,
+    "known_MPV_reload_cases_with_contacts": 3,
+    "bridge_contacts_per_failing_case": 2,
+    "coplanar_and_boundary_only_contacts_tested": false,
+    "normal_diagnostic_not_a_complete_surface_gate": true
+  },
+  "native_comparison": {
+    "baseline_case": 126,
+    "prototype_case": 128,
+    "manual_review": [
+      "hipfire",
+      "ADS",
+      "return from ADS"
+    ],
+    "observation": "Narrower native forearm and substantially reduced wrist pinch in captured views; forearm/hand color and shading discontinuity remains visible",
+    "full_grip_animation_or_model_acceptance": false,
+    "reload_animation_executed_in_game": false,
+    "movement_or_firing_inputs_sent": false,
+    "stationary_ADS_inspections": 2,
+    "range_route_scores": [
+      1.0,
+      1.0
+    ],
+    "game_exit": 0,
+    "gamescope_exit": 139,
+    "host_profile_unchanged": true,
+    "network_isolated": true,
+    "no_host_audio": true,
+    "quality_bundle_overridden": false
+  },
+  "installed_invariants": [
+    {
+      "role": "installer_state",
+      "sha256": "237b7c7dd2d43a6aecd25bcb6917297a9c401eb02e1bd0c66c79f81ac3924432",
+      "unchanged": true
+    },
+    {
+      "role": "audio",
+      "sha256": "552fa9b28d9381886672e5f9aa2fc32ff6235496baf7364a480f1061368b3053",
+      "unchanged": true
+    },
+    {
+      "role": "first_person",
+      "sha256": "8bb80a441849206689fce9be5048e48393f48552e70bdc5b3876b0f9277712cf",
+      "unchanged": true
+    },
+    {
+      "role": "thrid_person",
+      "sha256": "94d280d31fa266c46165484ff892627c2fa9e6be5c81bb90ef266b93b97f511c",
+      "unchanged": true
+    },
+    {
+      "role": "weapons",
+      "sha256": "1d15a27a4a22970ed33de8b1ab986d601848323bb021c4ebc7a87f62dd0345f5",
+      "unchanged": true
+    },
+    {
+      "role": "data.unity3d",
+      "sha256": "5168ea31c82558c80bd4795fd073e513e9223c8aa098b54a5862839f22e7f692",
+      "unchanged": true
+    }
+  ],
+  "production_fitter_changed": false,
+  "installer_or_release_changed": false,
+  "accepted": false,
+  "installed": false,
+  "remaining": [
+    "Three isolated MPV reload samples retain right palm-to-wrist-strip intersections",
+    "Forearm and authored hand color/shading transition",
+    "Full LOD coverage and native animation/grip acceptance",
+    "Other operators, world models, viewmodel magenta integration and platform compatibility are not accepted by this comparison"
+  ],
+  "targeted_right_palm_skin_probe": {
+    "native_palm_guide_uses_actual_metacarpal_controls": true,
+    "inspected_original_mesh_j_hand_R_skin_mass": 0.0,
+    "nearest_native_palm_surface_distance_m": 0.006754224131615572,
+    "changed_coincident_palm_vertices": 8,
+    "blend_alphas": [
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "reload_contact_counts": [
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        2,
+        2,
+        2
+      ]
+    ],
+    "full_pose_gate_run": false,
+    "accepted": false,
+    "bundled": false,
+    "reason": "Native palm-driver weight transfer at the exact implicated majority-hand corner did not remove any of the three reload contact failures"
+  }
+}
