@@ -698,15 +698,21 @@
     "data.unity3d": "5168ea31c82558c80bd4795fd073e513e9223c8aa098b54a5862839f22e7f692"
   },
   "game_installation_changed": false,
-  "public_binary_updated": false,
-  "personal_binary_updated": false,
+  "personal_binary_updated": true,
   "remaining": [
-    "Seven TF2 native radius reviews",
-    "Heavy crossing changes need review",
-    "Package apply/restoration checks for this change",
+    "Heavy surface crossings and full animation QA remain",
     "Other weapons and attachments",
     "Movement, reload, helicopter, 4K performance",
     "Native Windows game acceptance",
     "Fishguy wrist deformation"
-  ]
+  ],
+  "additional_all_class_review": "fingertip-radius-all-class-native-verification.json",
+  "installer_package_review": "fingertip-radius-installer-verification.json",
+  "last_review_update": "2026-11-07",
+  "initial_review_distribution": {
+    "date": "2026-11-06",
+    "public_binary_updated": false,
+    "personal_binary_updated": false
+  },
+  "package_release": "v0.1.10-preview"
 }

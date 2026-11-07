@@ -1,0 +1,281 @@
+{
+  "date": "2026-11-07",
+  "source_commit": "ec8a0a3d392aa1366bbdb7815ce68ddb591486ba",
+  "packages": [
+    {
+      "platform": "Linux",
+      "archive": "MWC-Linux-x64.tar.gz",
+      "sha256": "6a5151a6ea45687c8330a229f6c39d852b66dfe6f0dbe3cb2916e173b779ced0",
+      "bytes": 85080364,
+      "source_module_sha256": {
+        "first_person.py": "241aa181ce56c16a00f80ed1498e143eff7ec478773cb5d242b6b08a49c1221f",
+        "viewmodel.py": "d88c815b86e43bccfdb74cbd8a1e52cff629e30786f08abcf57cf128e76a73b3",
+        "retarget.py": "131967bb872303e31653bdcbd2fb834c1a18a0a5be37d5119abec97020ddfd54",
+        "leaf_tips.py": "a52e2243c68ff7a8ce61ca7e53cc2ced6e5fcac1199baa716548af23bef7b7ca",
+        "clip_review.py": "0e5ff381a279db4753d651852ed1579735237e092daf3f7f18707b47d996d38f"
+      },
+      "local_proprietary_archives_bundled": false,
+      "config_files_exact": 15,
+      "untracked_config_bundled": false,
+      "frontend_sha256": "3d93425922b45602b644c51b6336a242a003a3c430dd0312f4d210e911538647"
+    },
+    {
+      "platform": "Windows",
+      "archive": "MWC-Windows-x64.zip",
+      "sha256": "65accd2ca786b61e36531cb279a8444260d3eb1f45d2d9b88e73a25f5d1331d8",
+      "bytes": 71868038,
+      "source_module_sha256": {
+        "first_person.py": "241aa181ce56c16a00f80ed1498e143eff7ec478773cb5d242b6b08a49c1221f",
+        "viewmodel.py": "d88c815b86e43bccfdb74cbd8a1e52cff629e30786f08abcf57cf128e76a73b3",
+        "retarget.py": "131967bb872303e31653bdcbd2fb834c1a18a0a5be37d5119abec97020ddfd54",
+        "leaf_tips.py": "a52e2243c68ff7a8ce61ca7e53cc2ced6e5fcac1199baa716548af23bef7b7ca",
+        "clip_review.py": "0e5ff381a279db4753d651852ed1579735237e092daf3f7f18707b47d996d38f"
+      },
+      "local_proprietary_archives_bundled": false,
+      "config_files_exact": 15,
+      "untracked_config_bundled": false,
+      "frontend_sha256": "85d662980953a80912d9656dd56860986f31fac8ed6294359233d31ebc23c209"
+    }
+  ],
+  "source_tests": {
+    "run": 181,
+    "passed": 180,
+    "existing_skip": 1
+  },
+  "native_all_class_review": "fingertip-radius-all-class-native-verification.json",
+  "frozen_linux": {
+    "runtime": "Actual frozen Linux backend",
+    "host_fmod_and_pythonpath_overrides_removed": true,
+    "apply_exit": 0,
+    "restore_exit": 0,
+    "real_original_bundles": 2,
+    "selected_model": "tf2_heavy",
+    "frozen_integrated_arm_bundle_byte_identical_to_native_reviewed_stage": true,
+    "expected_first_person_sha256": "9ef6dab5358c7dcdc4de534edfcafc9d1f6aea12800e94b806a0c373ce3ce21b",
+    "world_and_first_person_originals_restored_exactly": true,
+    "all_original_backups_verified": true,
+    "restore_works_without_tf2_source": true,
+    "pending_transaction": false,
+    "real_game_installation_modified": false
+  },
+  "windows_embedded_runtime": {
+    "runtime": "Packaged Windows embedded CPython 3.12.10 under Wine; not native Windows game",
+    "packaged_library_used": true,
+    "focused_tests": 21,
+    "exit_code": 0,
+    "fixture_outside_distribution": true,
+    "real_game_installation_modified": false,
+    "test_result": {
+      "tests_run": 21,
+      "success": true
+    }
+  },
+  "windows_transaction_on_linux_asset_fixture": {
+    "runtime": "Packaged Windows CPython/backend under Wine",
+    "wine_prefix_on_linux_filesystem": true,
+    "earlier_NTFS_prefix_failed_before_Python_started": true,
+    "fixture_assets": "Disposable copies of real native Linux game bundles; not native Windows game assets",
+    "apply_exit": 0,
+    "restore_exit": 0,
+    "operator": "fishguy",
+    "real_original_bundles": 2,
+    "originals_and_backups_verified": true,
+    "both_original_bundles_restored_byte_exactly": true,
+    "pending_transaction": false,
+    "first_person_bundle_byte_identical_to_linux_native_reviewed_stage": true,
+    "first_person_geometry_comparison": [
+      {
+        "renderer": "-6446956547449719539",
+        "positions_maximum_absolute_difference": 0.0,
+        "normals_maximum_absolute_difference": 0.0,
+        "weights_maximum_absolute_difference": 0.0
+      },
+      {
+        "renderer": "2264244255083033869",
+        "positions_maximum_absolute_difference": 0.0,
+        "normals_maximum_absolute_difference": 0.0,
+        "weights_maximum_absolute_difference": 0.0
+      }
+    ],
+    "native_windows_game_tested": false,
+    "real_game_installation_modified": false
+  },
+  "window_fit": {
+    "linux": [
+      {
+        "screen": [
+          1024,
+          600
+        ],
+        "client": [
+          0,
+          21,
+          1024,
+          579
+        ],
+        "frame_extents": [
+          0,
+          0,
+          21,
+          0
+        ],
+        "outer_frame": [
+          0,
+          0,
+          1024,
+          600
+        ],
+        "maximized": true,
+        "actual_window_manager": "Openbox on isolated Xvfb with native decorations",
+        "game_or_installer_state_changed": false
+      },
+      {
+        "screen": [
+          1280,
+          720
+        ],
+        "client": [
+          0,
+          21,
+          1280,
+          699
+        ],
+        "frame_extents": [
+          0,
+          0,
+          21,
+          0
+        ],
+        "outer_frame": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "maximized": true,
+        "actual_window_manager": "Openbox on isolated Xvfb with native decorations",
+        "game_or_installer_state_changed": false
+      }
+    ],
+    "windows_wine": [
+      {
+        "screen": [
+          1280,
+          720
+        ],
+        "window": [
+          -4,
+          -4,
+          1284,
+          724
+        ],
+        "workarea": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "dpi": 96,
+        "passed": true,
+        "platform": "Windows executable under Wine, not native Windows"
+      },
+      {
+        "screen": [
+          1024,
+          600
+        ],
+        "window": [
+          -4,
+          -4,
+          1028,
+          604
+        ],
+        "workarea": [
+          0,
+          0,
+          1024,
+          600
+        ],
+        "dpi": 96,
+        "passed": true,
+        "platform": "Windows executable under Wine, not native Windows"
+      }
+    ],
+    "native_windows_tested": false,
+    "evidence": "Results recovered exactly from durable test stdout logs; temporary screenshots were previously reviewed and have since been cleared."
+  },
+  "audio_sources_exact": [
+    {
+      "platform": "Linux",
+      "module": "cat_audio.py",
+      "sha256": "84868ff5cff584861a09345140b07e0eeff866af0d1377df1bc407f6aa574007"
+    },
+    {
+      "platform": "Linux",
+      "module": "tf2_audio.py",
+      "sha256": "20b73a71e3e2756c101d2bff90c4418ad8a27def66d67eb566bd1218fe3f428f"
+    },
+    {
+      "platform": "Linux",
+      "module": "audiojungle.py",
+      "sha256": "03cd781f48e44c1dc7666ce69e6d8cc8ef0509574e3fffdef086486aaacf40a1"
+    },
+    {
+      "platform": "Linux",
+      "module": "sonic_impact.py",
+      "sha256": "3083232a4fb9f5126422bf7b928ea8986212203e322f760f2b4766b6d031339f"
+    },
+    {
+      "platform": "Windows",
+      "module": "cat_audio.py",
+      "sha256": "84868ff5cff584861a09345140b07e0eeff866af0d1377df1bc407f6aa574007"
+    },
+    {
+      "platform": "Windows",
+      "module": "tf2_audio.py",
+      "sha256": "20b73a71e3e2756c101d2bff90c4418ad8a27def66d67eb566bd1218fe3f428f"
+    },
+    {
+      "platform": "Windows",
+      "module": "audiojungle.py",
+      "sha256": "03cd781f48e44c1dc7666ce69e6d8cc8ef0509574e3fffdef086486aaacf40a1"
+    },
+    {
+      "platform": "Windows",
+      "module": "sonic_impact.py",
+      "sha256": "3083232a4fb9f5126422bf7b928ea8986212203e322f760f2b4766b6d031339f"
+    }
+  ],
+  "installed_critical_bundles_preserved": {
+    "root/audio": "552fa9b28d9381886672e5f9aa2fc32ff6235496baf7364a480f1061368b3053",
+    "src/first_person": "8bb80a441849206689fce9be5048e48393f48552e70bdc5b3876b0f9277712cf",
+    "src/thrid_person": "94d280d31fa266c46165484ff892627c2fa9e6be5c81bb90ef266b93b97f511c",
+    "src/weapons/weapons": "1d15a27a4a22970ed33de8b1ab986d601848323bb021c4ebc7a87f62dd0345f5",
+    "src/weapons/attachments": "9d214fea2b9580eebfdcadd986dece8d38b762eddf390092f0b8fd521870bc17"
+  },
+  "installer_state_sha256_preserved": "237b7c7dd2d43a6aecd25bcb6917297a9c401eb02e1bd0c66c79f81ac3924432",
+  "operator_assignments_preserved": {
+    "operator_0": "titanfall_grapple",
+    "operator_30": "shrek"
+  },
+  "native_windows_game_tested": false,
+  "full_grip_animation_acceptance": false,
+  "game_installation_changed": false,
+  "target_release": "v0.1.10-preview",
+  "personal_installers_updated": true,
+  "personal_installer_rollback_suffix": ".before-radius-v1",
+  "personal_local_archive_preserved": [
+    {
+      "platform": "Linux",
+      "local_m1a0_sha256_preserved": "4a3d94105272c184e0a39ebc84a5c73fa5b5b8b1a1c6e82a41dbd784955309c4",
+      "previous_package_all_files_verified": 1713,
+      "frontend_sha256": "3d93425922b45602b644c51b6336a242a003a3c430dd0312f4d210e911538647"
+    },
+    {
+      "platform": "Windows",
+      "local_m1a0_sha256_preserved": "4a3d94105272c184e0a39ebc84a5c73fa5b5b8b1a1c6e82a41dbd784955309c4",
+      "previous_package_all_files_verified": 2025,
+      "frontend_sha256": "85d662980953a80912d9656dd56860986f31fac8ed6294359233d31ebc23c209"
+    }
+  ]
+}

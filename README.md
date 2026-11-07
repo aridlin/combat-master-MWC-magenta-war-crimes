@@ -18,7 +18,7 @@ retexture work, not the cat prototype. More captures are in
 | Minecraft-style sky | Independent sky-only module; v0.1.3 includes expanded coverage. Installed native Parvis check shows square clouds alongside the existing halftone terrain. Six-sided maps, sun/moon and broader exposure review remain pending. |
 | Operator expansion | Dozer/Shrek retained; magenta Ranger now uses the armored human Grapple. Female Pulse Blade and legacy Stim remain independent choices. Matching slimmer arms and matte materials are installed. Fishguy, all nine TF2 mercenaries, Mario and Steve are optional per-operator choices. Native menus and stationary Grapple arms checked; full animation, ADS/reload and helicopter acceptance pending. |
 | FT mod manager | Individual cards, previews, per-operator assignments and independent magenta controls; verified backups/transactions. Linux UI tested; Windows VM UI/preferences/runtime checked; Windows game edits untested. |
-| Optional Minigun audio | Local vanilla TF2 and Audiojungle excerpts have explicit slot conflict handling and private build/removal checks. Audiojungle development packages pass Linux and Windows-runtime checks; not installed or auditioned and excluded from v0.1.4-preview downloads. |
+| Optional Minigun audio | Local vanilla TF2 and Audiojungle excerpts have explicit slot conflict handling and private build/removal checks. Included as optional local-source modules in v0.1.10-preview; native in-game audition remains pending. |
 | Shared albedo separation | Implemented with category-specific copies and verified material bindings |
 | Map texture arrays | Implemented for the four inspected BC7 albedo arrays, 50 layers |
 | Lynx cat geometry | Actual M1A0 ginger cat imported locally; original tail and full body preserved |
@@ -265,7 +265,7 @@ Authored Scorpion, fishing rod, P90 toaster and MP7 nailer models replace the ea
 
 Current operator sources, credits and acceptance limits are in [the operator expansion report](docs/operator-expansion.md). The source test suite has 181 tests: 180 pass and one existing data-dependent test is skipped. Color controls distinguish replacement models from unmodified in-game operator models. Matching first-person arms remain independently selectable; full grip/ADS/reload acceptance is pending.
 
-Portable preview downloads: [v0.1.9 Linux and Windows installers](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.9-preview). Extract the whole archive. Public builds import local M1A0, TF2, prepared Titanfall and Minecraft sources where required.
+Portable preview downloads: [v0.1.10 Linux and Windows installers](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.10-preview). Extract the whole archive and retain your existing state/backups. Public builds import local M1A0, TF2, prepared Titanfall and Minecraft sources where required.
 
 This preview includes actual local [viewmodel arms for all nine TF2 classes](docs/tf2-first-person-review.md), optional [TF2 Medigun audio](docs/tf2-audio.md) and [Audiojungle excerpts](docs/audiojungle-local-import.md). The two Minigun audio packs conflict explicitly. Native stationary arm captures, packaged Linux apply/restoration and Windows runtime checks pass; full animations and native audio audition remain pending.
 
@@ -273,4 +273,4 @@ The independent sky toggle now supports [local classic Minecraft artwork](docs/m
 
 Source extends the [native-reviewed fingertip correction to all nine TF2 classes](docs/tf2-fingertip-native-verification.json), alongside Fishguy. Fingers protrude less beside the MP.V in stationary ADS; wrist/cuff issues and full grip/animation acceptance remain open. [v0.1.8-preview installers](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.8-preview) include the all-class correction, with native capture and packaged apply/restoration checks.
 
-The later [fingertip radius correction](docs/fingertip-radius-review.md) preserves the cap direction during slimming. Its native review is separate; released installer payloads do not yet include it.
+The later [fingertip radius correction](docs/fingertip-radius-review.md) preserves the cap direction during slimming. [v0.1.10-preview installers](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.10-preview) include it after paired stationary native checks for all nine TF2 classes, with Linux and Windows-runtime apply/restore checks. Full grip/animation and native Windows game acceptance remain open.

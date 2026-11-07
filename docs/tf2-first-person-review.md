@@ -3,11 +3,12 @@
 ## Current source: preserve the cap through radius reduction
 
 The source includes a later [fingertip radius correction](fingertip-radius-review.md).
-It prevents the slimming pass from shifting the fitted distal cap. Its native
-review and distribution status are recorded separately; the released installer
-still contains the earlier all-class fitting described below.
+It prevents the slimming pass from shifting the fitted distal cap. All nine
+classes have paired stationary native MP.V hipfire/ADS/return checks. The
+[v0.1.10-preview packages](https://github.com/aridlin/combat-master-MWC-magenta-war-crimes/releases/tag/v0.1.10-preview)
+contain the correction; full grip and animation acceptance remains open.
 
-## Source update: fingertip fitting for all nine classes
+## Earlier all-class fingertip fitting (v0.1.8-preview)
 
 All nine genuine TF2 viewmodels now use the full 3D native fingertip surface for
 their distal segments. Paired native MP.V before/after aiming checks for the eight

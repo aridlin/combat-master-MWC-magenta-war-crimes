@@ -1,0 +1,683 @@
+{
+  "date": "2026-11-07",
+  "source_commit": "ec8a0a3d392aa1366bbdb7815ce68ddb591486ba",
+  "steam_build": "24397779",
+  "pairs": [
+    {
+      "model": "tf2_heavy",
+      "scope": "Native Linux Vulkan stationary MP.V hipfire / ADS / return at 1280x720",
+      "localized_radius_change_reviewed": true,
+      "full_grip_animation_acceptance": false,
+      "variants": [
+        {
+          "variant": "before",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_preserved": true,
+          "quality_bundle_overridden": false,
+          "bundle_sha256": "4babb257ab79e7850dbdb6571410c75a23549c6e3ce3633faa6d8321185d6aa9",
+          "verification": {
+            "all_other_original_objects_byte_exact": 144988,
+            "renderer_field_whitelist": [
+              "m_Mesh",
+              "m_Materials",
+              "m_AABB"
+            ],
+            "geometry_uv_skin_exact_roundtrip": true,
+            "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+            "all_new_local_references_resolve": true
+          },
+          "full_grip_animation_acceptance": false,
+          "captures": [
+            {
+              "pose": "range-stationary",
+              "sha256": "76ec34a4b1b76fe651dfb21e26e97f710dfe06ed775bff68b58034c777857246",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-06T21:45:18.922727+00:00"
+            },
+            {
+              "pose": "range-ads",
+              "sha256": "cd738fbfa7609a3ea5aa3efcfd56b4aebff6d19a25f09ba0ce396952ce276e9d",
+              "visually_reviewed": true,
+              "screenshot": "screenshots/heavy-radius-before-ads-nov7.png",
+              "captured_utc": "2026-11-06T21:46:39.172132+00:00"
+            },
+            {
+              "pose": "range-return",
+              "sha256": "13a8e543b97bcc98ed5f51e2eed60f0599bc71cab1210b0464d43a8f5d35a24e",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-06T21:47:48.025259+00:00"
+            }
+          ]
+        },
+        {
+          "variant": "after",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_preserved": true,
+          "quality_bundle_overridden": false,
+          "bundle_sha256": "9ef6dab5358c7dcdc4de534edfcafc9d1f6aea12800e94b806a0c373ce3ce21b",
+          "verification": {
+            "all_other_original_objects_byte_exact": 144988,
+            "renderer_field_whitelist": [
+              "m_Mesh",
+              "m_Materials",
+              "m_AABB"
+            ],
+            "geometry_uv_skin_exact_roundtrip": true,
+            "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+            "all_new_local_references_resolve": true
+          },
+          "full_grip_animation_acceptance": false,
+          "captures": [
+            {
+              "pose": "range-stationary",
+              "sha256": "534bac55454ba1a10f745588f39eb3f58d5a15369a073f75f8bd7b10dacb49d0",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-06T21:53:01.029474+00:00"
+            },
+            {
+              "pose": "range-ads",
+              "sha256": "7d308fbb1ff39a02801acb6082b05d6ea23c6b0c8b45e6ed95b9abed057d3f7c",
+              "visually_reviewed": true,
+              "screenshot": "screenshots/heavy-radius-after-ads-nov7.png",
+              "captured_utc": "2026-11-06T21:54:31.943918+00:00"
+            },
+            {
+              "pose": "range-return",
+              "sha256": "b760f92669093f5e27c0e0932a9f059d7b5e84bdb28604ed7336064c45f12e2f",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-06T21:55:49.551927+00:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model": "tf2_soldier",
+      "scope": "Native Linux Vulkan stationary MP.V hipfire / ADS / return at 1280x720",
+      "localized_radius_change_reviewed": true,
+      "full_grip_animation_acceptance": false,
+      "variants": [
+        {
+          "variant": "before",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_preserved": true,
+          "quality_bundle_overridden": false,
+          "bundle_sha256": "7a4036111e94384122dc16be6668639d8f80ac94b444b50809e604f876b3e0a0",
+          "verification": {
+            "all_other_original_objects_byte_exact": 144988,
+            "renderer_field_whitelist": [
+              "m_Mesh",
+              "m_Materials",
+              "m_AABB"
+            ],
+            "geometry_uv_skin_exact_roundtrip": true,
+            "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+            "all_new_local_references_resolve": true
+          },
+          "full_grip_animation_acceptance": false,
+          "captures": [
+            {
+              "pose": "range-stationary",
+              "sha256": "2fc996b3503deabc0567d8953189d87f68b4a074521e5663ea32f7187f91553c",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:23:49.419976+00:00"
+            },
+            {
+              "pose": "range-ads",
+              "sha256": "8aeae095e8c62197205cd3197b4f4ea3ceeff48ef94955b164c6a662129f9df5",
+              "visually_reviewed": true,
+              "screenshot": "screenshots/soldier-radius-before-ads-nov7.png",
+              "captured_utc": "2026-11-07T12:24:46.368303+00:00"
+            },
+            {
+              "pose": "range-return",
+              "sha256": "548c8e6d4d6ac853a391b57eb8be1daa0d0dd5362b1b210dcf814494581c2200",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:25:29.437032+00:00"
+            }
+          ]
+        },
+        {
+          "variant": "after",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_preserved": true,
+          "quality_bundle_overridden": false,
+          "bundle_sha256": "71f63aa6916db70e1fae85a1bd0acb17236110e60a8113063c61e815bace1c71",
+          "verification": {
+            "all_other_original_objects_byte_exact": 144988,
+            "renderer_field_whitelist": [
+              "m_Mesh",
+              "m_Materials",
+              "m_AABB"
+            ],
+            "geometry_uv_skin_exact_roundtrip": true,
+            "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+            "all_new_local_references_resolve": true
+          },
+          "full_grip_animation_acceptance": false,
+          "captures": [
+            {
+              "pose": "range-stationary",
+              "sha256": "03254ec9ea5c1d53ca20515b8d52d89653cea0c6e78a958414f79cb00fb90811",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:28:44.482633+00:00"
+            },
+            {
+              "pose": "range-ads",
+              "sha256": "ab86870ab5ea263d1d1ab70e0197277eafd2f07fa7feb3b580aa881a26219cc7",
+              "visually_reviewed": true,
+              "screenshot": "screenshots/soldier-radius-after-ads-nov7.png",
+              "captured_utc": "2026-11-07T12:28:46.348167+00:00"
+            },
+            {
+              "pose": "range-return",
+              "sha256": "43b2142443a3d6cde30231ab9c66fe735fb50c8d4a899af8e0fc0efd22be118b",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:28:48.832451+00:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model": "tf2_pyro",
+      "scope": "Native Linux Vulkan stationary MP.V hipfire / ADS / return at 1280x720",
+      "localized_radius_change_reviewed": true,
+      "full_grip_animation_acceptance": false,
+      "variants": [
+        {
+          "variant": "before",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_preserved": true,
+          "quality_bundle_overridden": false,
+          "bundle_sha256": "fbddae32303774e0f74980a7e6ef77a8ee987b8f6fea546fe2a2cb814d0f7665",
+          "verification": {
+            "all_other_original_objects_byte_exact": 144988,
+            "renderer_field_whitelist": [
+              "m_Mesh",
+              "m_Materials",
+              "m_AABB"
+            ],
+            "geometry_uv_skin_exact_roundtrip": true,
+            "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+            "all_new_local_references_resolve": true
+          },
+          "full_grip_animation_acceptance": false,
+          "captures": [
+            {
+              "pose": "range-stationary",
+              "sha256": "d779dad0b46f308adfe399b9e80f9f987fe5a2fc1cfd06d3460f55c7c22b6cff",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:31:18.333847+00:00"
+            },
+            {
+              "pose": "range-ads",
+              "sha256": "5acf37c49b30848c59d4417ae92762c631457a3f6e3cc1d9e40d3d837394258a",
+              "visually_reviewed": true,
+              "screenshot": "screenshots/pyro-radius-before-ads-nov7.png",
+              "captured_utc": "2026-11-07T12:31:20.115768+00:00"
+            },
+            {
+              "pose": "range-return",
+              "sha256": "f41af828514e03ee89ea06afba03f3f61577e38d84f28cf6878524eae01567d7",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:31:22.603014+00:00"
+            }
+          ]
+        },
+        {
+          "variant": "after",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_preserved": true,
+          "quality_bundle_overridden": false,
+          "bundle_sha256": "a63bf203cfb93b939aab7933e9c8b3b0109217b6c0c31d9a82f3aa5330e107b8",
+          "verification": {
+            "all_other_original_objects_byte_exact": 144988,
+            "renderer_field_whitelist": [
+              "m_Mesh",
+              "m_Materials",
+              "m_AABB"
+            ],
+            "geometry_uv_skin_exact_roundtrip": true,
+            "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+            "all_new_local_references_resolve": true
+          },
+          "full_grip_animation_acceptance": false,
+          "captures": [
+            {
+              "pose": "range-stationary",
+              "sha256": "e1e6159cca2c7d89ab7f10db077dac9d4b885f3ef1b60db84d2d2db117cb4384",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:32:13.925539+00:00"
+            },
+            {
+              "pose": "range-ads",
+              "sha256": "dd80eef8d9554964c6d896493f39b6df567c34d95750d047de753553bc8b5e30",
+              "visually_reviewed": true,
+              "screenshot": "screenshots/pyro-radius-after-ads-nov7.png",
+              "captured_utc": "2026-11-07T12:32:15.566847+00:00"
+            },
+            {
+              "pose": "range-return",
+              "sha256": "422a5394e1dbb338ede3e4af3119aa1a6a646e80fe943b6def1a72c5a507206f",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:32:18.049448+00:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model": "tf2_demoman",
+      "scope": "Native Linux Vulkan stationary MP.V hipfire / ADS / return at 1280x720",
+      "localized_radius_change_reviewed": true,
+      "full_grip_animation_acceptance": false,
+      "variants": [
+        {
+          "variant": "before",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_preserved": true,
+          "quality_bundle_overridden": false,
+          "bundle_sha256": "558661fbcc0e43decbdeb6aab5a4873757104f558eacd4684d8c67100ad1db51",
+          "verification": {
+            "all_other_original_objects_byte_exact": 144988,
+            "renderer_field_whitelist": [
+              "m_Mesh",
+              "m_Materials",
+              "m_AABB"
+            ],
+            "geometry_uv_skin_exact_roundtrip": true,
+            "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+            "all_new_local_references_resolve": true
+          },
+          "full_grip_animation_acceptance": false,
+          "captures": [
+            {
+              "pose": "range-stationary",
+              "sha256": "4ffd2abeb4d52a4d4ce648a174ef5d54ff3a16fb8e90273590049fe8867e08a3",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:33:10.773109+00:00"
+            },
+            {
+              "pose": "range-ads",
+              "sha256": "25c8187277ed8264091317ed1bba801baa343fb3aa14a22786ff0d89ec9c53b5",
+              "visually_reviewed": true,
+              "screenshot": "screenshots/demoman-radius-before-ads-nov7.png",
+              "captured_utc": "2026-11-07T12:33:12.404809+00:00"
+            },
+            {
+              "pose": "range-return",
+              "sha256": "3a92c990a616558717d16b3cbd2a2750745268dffd085bcb6411a0c22b06774b",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:33:14.896408+00:00"
+            }
+          ]
+        },
+        {
+          "variant": "after",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_preserved": true,
+          "quality_bundle_overridden": false,
+          "bundle_sha256": "b0ce56f37ee4813b6c5089fe6c147ef18fa52aa8f6875523b0b0b664bc6a97b2",
+          "verification": {
+            "all_other_original_objects_byte_exact": 144988,
+            "renderer_field_whitelist": [
+              "m_Mesh",
+              "m_Materials",
+              "m_AABB"
+            ],
+            "geometry_uv_skin_exact_roundtrip": true,
+            "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+            "all_new_local_references_resolve": true
+          },
+          "full_grip_animation_acceptance": false,
+          "captures": [
+            {
+              "pose": "range-stationary",
+              "sha256": "8a25e3e6ffa21ed2440bf07131555d9e18fa12900eeea96bb8d63a45e50d23bd",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:34:07.222373+00:00"
+            },
+            {
+              "pose": "range-ads",
+              "sha256": "91c80ff2c8aa00facf40fc6af8fa0e3683f63d2dc5493a50ba86c0a5ea80d097",
+              "visually_reviewed": true,
+              "screenshot": "screenshots/demoman-radius-after-ads-nov7.png",
+              "captured_utc": "2026-11-07T12:34:09.109607+00:00"
+            },
+            {
+              "pose": "range-return",
+              "sha256": "b71f9849a7854fd6f063581a1e28a5491c19e86708ace358f4eede646d9d4c6a",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:34:11.596324+00:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model": "tf2_engineer",
+      "scope": "Native Linux Vulkan stationary MP.V hipfire / ADS / return at 1280x720",
+      "localized_radius_change_reviewed": true,
+      "full_grip_animation_acceptance": false,
+      "variants": [
+        {
+          "variant": "before",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_preserved": true,
+          "quality_bundle_overridden": false,
+          "bundle_sha256": "3c74766f78b664f00f0db5ce2b40d4f1586f6054567413eafe4585bef7cafcae",
+          "verification": {
+            "all_other_original_objects_byte_exact": 144988,
+            "renderer_field_whitelist": [
+              "m_Mesh",
+              "m_Materials",
+              "m_AABB"
+            ],
+            "geometry_uv_skin_exact_roundtrip": true,
+            "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+            "all_new_local_references_resolve": true
+          },
+          "full_grip_animation_acceptance": false,
+          "captures": [
+            {
+              "pose": "range-stationary",
+              "sha256": "e7bb5c6242efe6bd60e9807f737b7ce23358c842032620dbea4ab4a35bab929d",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:35:05.130548+00:00"
+            },
+            {
+              "pose": "range-ads",
+              "sha256": "1c53303a93b00b1145ed36109e40570921aa7b07752994ed27c42a5e42d25550",
+              "visually_reviewed": true,
+              "screenshot": "screenshots/engineer-radius-before-ads-nov7.png",
+              "captured_utc": "2026-11-07T12:35:06.679109+00:00"
+            },
+            {
+              "pose": "range-return",
+              "sha256": "21fe2a000583d82cbacd963ae07a925d0c46234f95baf8fd3265126d00641bb7",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:35:09.164762+00:00"
+            }
+          ]
+        },
+        {
+          "variant": "after",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_preserved": true,
+          "quality_bundle_overridden": false,
+          "bundle_sha256": "2c9103b1605bad1e63d95c5d9bac8844102f6484c19a4c1d241d940c0442e008",
+          "verification": {
+            "all_other_original_objects_byte_exact": 144988,
+            "renderer_field_whitelist": [
+              "m_Mesh",
+              "m_Materials",
+              "m_AABB"
+            ],
+            "geometry_uv_skin_exact_roundtrip": true,
+            "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+            "all_new_local_references_resolve": true
+          },
+          "full_grip_animation_acceptance": false,
+          "captures": [
+            {
+              "pose": "range-stationary",
+              "sha256": "bb24ec5b337e15803b8b342fee321bb12f59658329bc04142103c1c5b55dfff7",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:36:03.256685+00:00"
+            },
+            {
+              "pose": "range-ads",
+              "sha256": "e25ce5b1658e4ed458f60afa97d7f2f8e51be95727e031381d2cc3109b8a5755",
+              "visually_reviewed": true,
+              "screenshot": "screenshots/engineer-radius-after-ads-nov7.png",
+              "captured_utc": "2026-11-07T12:36:05.035983+00:00"
+            },
+            {
+              "pose": "range-return",
+              "sha256": "41540d164770b03606c00c47fa35b615d14db19e901cd4c1fc5fd2055b0091d0",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:36:07.627814+00:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model": "tf2_sniper",
+      "scope": "Native Linux Vulkan stationary MP.V hipfire / ADS / return at 1280x720",
+      "localized_radius_change_reviewed": true,
+      "full_grip_animation_acceptance": false,
+      "variants": [
+        {
+          "variant": "before",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_preserved": true,
+          "quality_bundle_overridden": false,
+          "bundle_sha256": "0ace58b0f7bab2b1e8bb01b8c632ade54e6b84a5a1ee84d816b2ac81c79fbd1f",
+          "verification": {
+            "all_other_original_objects_byte_exact": 144988,
+            "renderer_field_whitelist": [
+              "m_Mesh",
+              "m_Materials",
+              "m_AABB"
+            ],
+            "geometry_uv_skin_exact_roundtrip": true,
+            "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+            "all_new_local_references_resolve": true
+          },
+          "full_grip_animation_acceptance": false,
+          "captures": [
+            {
+              "pose": "range-stationary",
+              "sha256": "6abfc183e0659f656a772624bcbb9e046d15434f3d8fd6cafedc565fd2797b96",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:36:57.831131+00:00"
+            },
+            {
+              "pose": "range-ads",
+              "sha256": "6c0ad5c52690877167f02ea79ecc2f92aa7c5972be579487f4d5f82e72a2e75a",
+              "visually_reviewed": true,
+              "screenshot": "screenshots/sniper-radius-before-ads-nov7.png",
+              "captured_utc": "2026-11-07T12:36:59.452737+00:00"
+            },
+            {
+              "pose": "range-return",
+              "sha256": "b5a0b95e678d600eef1e256a5f5398c9e22607bca2dc488f12a7bc0c86b4d4ac",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:37:01.939704+00:00"
+            }
+          ]
+        },
+        {
+          "variant": "after",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_preserved": true,
+          "quality_bundle_overridden": false,
+          "bundle_sha256": "16642a30c7af26f38b274c40dc9eb5d15c80d71ec67cb88ac9c0e62ba4e2fd91",
+          "verification": {
+            "all_other_original_objects_byte_exact": 144988,
+            "renderer_field_whitelist": [
+              "m_Mesh",
+              "m_Materials",
+              "m_AABB"
+            ],
+            "geometry_uv_skin_exact_roundtrip": true,
+            "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+            "all_new_local_references_resolve": true
+          },
+          "full_grip_animation_acceptance": false,
+          "captures": [
+            {
+              "pose": "range-stationary",
+              "sha256": "2a0e7c4cb3bb9e247a4ec82506ed4cffdbb5f4230534a99adb8ed420010f7f79",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:37:54.641589+00:00"
+            },
+            {
+              "pose": "range-ads",
+              "sha256": "8814b061170d443ce6f356f2db405912fea6ee72deb1ae60eed23159e9d2bd3d",
+              "visually_reviewed": true,
+              "screenshot": "screenshots/sniper-radius-after-ads-nov7.png",
+              "captured_utc": "2026-11-07T12:37:56.508194+00:00"
+            },
+            {
+              "pose": "range-return",
+              "sha256": "35533ecf3502984461e40557bfdf42fe8e3e7f8731a0755440b9f851acfc5d52",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:37:58.990757+00:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model": "tf2_spy",
+      "scope": "Native Linux Vulkan stationary MP.V hipfire / ADS / return at 1280x720",
+      "localized_radius_change_reviewed": true,
+      "full_grip_animation_acceptance": false,
+      "variants": [
+        {
+          "variant": "before",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_preserved": true,
+          "quality_bundle_overridden": false,
+          "bundle_sha256": "c37f0f3c1de61441a448b01d23bd16f4da08f64d0f31f061753c87b4151572e8",
+          "verification": {
+            "all_other_original_objects_byte_exact": 144988,
+            "renderer_field_whitelist": [
+              "m_Mesh",
+              "m_Materials",
+              "m_AABB"
+            ],
+            "geometry_uv_skin_exact_roundtrip": true,
+            "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+            "all_new_local_references_resolve": true
+          },
+          "full_grip_animation_acceptance": false,
+          "captures": [
+            {
+              "pose": "range-stationary",
+              "sha256": "42e6d9dd94f97c748daa73aed74426fe9879275c6687f74a5119d0e07a5e69e9",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:38:50.701429+00:00"
+            },
+            {
+              "pose": "range-ads",
+              "sha256": "32790f9231b801a37b27a9fce8334ad601fb2ec8bd1b58808a4b49fd9053dc76",
+              "visually_reviewed": true,
+              "screenshot": "screenshots/spy-radius-before-ads-nov7.png",
+              "captured_utc": "2026-11-07T12:38:52.251315+00:00"
+            },
+            {
+              "pose": "range-return",
+              "sha256": "87ba532148dc87dc71f8ec708c4fc4aa3fef20fd9759d267ad1e6fe06b147779",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:38:54.736214+00:00"
+            }
+          ]
+        },
+        {
+          "variant": "after",
+          "native_game_exit": 0,
+          "compositor_teardown_exit": 139,
+          "host_profile_preserved": true,
+          "quality_bundle_overridden": false,
+          "bundle_sha256": "ef4d1ce0bc3025a7dd5671fa5efa598a76bc55cf10cf94434a16b7fa6fab6578",
+          "verification": {
+            "all_other_original_objects_byte_exact": 144988,
+            "renderer_field_whitelist": [
+              "m_Mesh",
+              "m_Materials",
+              "m_AABB"
+            ],
+            "geometry_uv_skin_exact_roundtrip": true,
+            "original_meshes_materials_skeletons_animations_scripts_collision_retained": true,
+            "all_new_local_references_resolve": true
+          },
+          "full_grip_animation_acceptance": false,
+          "captures": [
+            {
+              "pose": "range-stationary",
+              "sha256": "97e4e39886b96e8cf2db8d8146399b889e0eddbbf1ae971f44d6ef4789c090e7",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:39:44.637020+00:00"
+            },
+            {
+              "pose": "range-ads",
+              "sha256": "5b9867b911643d979a467389e19e667b86ce582daa99e2d029efd69363d6722f",
+              "visually_reviewed": true,
+              "screenshot": "screenshots/spy-radius-after-ads-nov7.png",
+              "captured_utc": "2026-11-07T12:39:46.191724+00:00"
+            },
+            {
+              "pose": "range-return",
+              "sha256": "670a894d6ac8ffb20ecca1dafed38a9566b9be01fb154a3a8b4b19be19c9da18",
+              "visually_reviewed": true,
+              "private_capture_retained": true,
+              "captured_utc": "2026-11-07T12:39:48.678275+00:00"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "native_games": 14,
+  "previous_medic_and_scout": "fingertip-radius-verification.json",
+  "all_nine_classes_reviewed_with_previous_pairs": true,
+  "quality_player_data_overridden": false,
+  "incomplete_attempt": {
+    "session": "Soldier before v112",
+    "native_game_exit": 0,
+    "ADS_requests": 0,
+    "included_in_acceptance": false,
+    "replacement_pair": "Soldier v124/v125"
+  },
+  "full_grip_animation_acceptance": false,
+  "game_installation_changed": false,
+  "limits": [
+    "Stationary MP.V only",
+    "Existing wrist/cuff issues and surface crossings remain",
+    "Movement, reloads, other weapons, helicopter, 4K performance and native Windows game still unverified"
+  ]
+}
