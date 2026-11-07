@@ -1,6 +1,6 @@
 {
   "date": "2026-11-07",
-  "scope": "Native Linux official Impact Grenade catalogue and showcase; no held/thrown gameplay acceptance",
+  "scope": "Initial three native Linux official Impact Grenade catalogue/showcase sessions; follow-up source correction recorded separately",
   "game_build": "24397779",
   "game_engine": "6000.3.19f1",
   "output_resolution": [
@@ -114,5 +114,6 @@
     "accepted_for_production": false,
     "installed": false,
     "channel_interpretation_not_established": true
-  }
+  },
+  "followup_blue_channel_fix": "sonic-material-channel-verification.json"
 }

@@ -1,0 +1,195 @@
+{
+  "date": "2026-11-07",
+  "source_fix": "Sonic explicitly requests weapon_mode data maps; existing operator callers retain the default character maps",
+  "old_RGBA": [
+    0,
+    255,
+    255,
+    255
+  ],
+  "corrected_RGBA": [
+    0,
+    255,
+    0,
+    255
+  ],
+  "unchanged_channels": [
+    "red",
+    "green",
+    "alpha"
+  ],
+  "material_mode_and_smoothness_unchanged": true,
+  "shader_review": {
+    "source": "Original Shader Graphs/UniversalSkinshader, original root/root bundle",
+    "source_bundle_sha256": "61faef4bdaeef5127e6625863c5f0100aea3e1d3f8e67fa727576f46309baf1b",
+    "reviewed_desktop_GLSL_variants": [
+      {
+        "private_program": "15-40.glsl",
+        "sha256": "128dc336070e92469e0c7c6610bf69b768fd06b58e656bbc69809db9bad35ffb",
+        "weapon_metalness_channel": "B",
+        "character_metalness_channel": "R",
+        "smoothness_channel": "A",
+        "weapon_smoothness_scalar": "Smoothness",
+        "character_smoothness_scalar": "_Smoothness"
+      },
+      {
+        "private_program": "15-41.glsl",
+        "sha256": "128dc336070e92469e0c7c6610bf69b768fd06b58e656bbc69809db9bad35ffb",
+        "weapon_metalness_channel": "B",
+        "character_metalness_channel": "R",
+        "smoothness_channel": "A",
+        "weapon_smoothness_scalar": "Smoothness",
+        "character_smoothness_scalar": "_Smoothness"
+      },
+      {
+        "private_program": "15-42.glsl",
+        "sha256": "45d2e5c7d6fcbd718b228ebad0b03dc53ee5435106f695921907837577b95381",
+        "weapon_metalness_channel": "B",
+        "character_metalness_channel": "R",
+        "smoothness_channel": "A",
+        "weapon_smoothness_scalar": "Smoothness",
+        "character_smoothness_scalar": "_Smoothness"
+      },
+      {
+        "private_program": "15-43.glsl",
+        "sha256": "45d2e5c7d6fcbd718b228ebad0b03dc53ee5435106f695921907837577b95381",
+        "weapon_metalness_channel": "B",
+        "character_metalness_channel": "R",
+        "smoothness_channel": "A",
+        "weapon_smoothness_scalar": "Smoothness",
+        "character_smoothness_scalar": "_Smoothness"
+      },
+      {
+        "private_program": "15-44.glsl",
+        "sha256": "c1fe5a55e59a9e9413a11a62f4a1b7dc61e0da94044444386e61f889b6636b34",
+        "weapon_metalness_channel": "B",
+        "character_metalness_channel": "R",
+        "smoothness_channel": "A",
+        "weapon_smoothness_scalar": "Smoothness",
+        "character_smoothness_scalar": "_Smoothness"
+      },
+      {
+        "private_program": "15-45.glsl",
+        "sha256": "c1fe5a55e59a9e9413a11a62f4a1b7dc61e0da94044444386e61f889b6636b34",
+        "weapon_metalness_channel": "B",
+        "character_metalness_channel": "R",
+        "smoothness_channel": "A",
+        "weapon_smoothness_scalar": "Smoothness",
+        "character_smoothness_scalar": "_Smoothness"
+      },
+      {
+        "private_program": "15-46.glsl",
+        "sha256": "a4b666c0b4517e777070423a607aed5ad2519c3441df934f76cf478d84a93697",
+        "weapon_metalness_channel": "B",
+        "character_metalness_channel": "R",
+        "smoothness_channel": "A",
+        "weapon_smoothness_scalar": "Smoothness",
+        "character_smoothness_scalar": "_Smoothness"
+      },
+      {
+        "private_program": "15-47.glsl",
+        "sha256": "a4b666c0b4517e777070423a607aed5ad2519c3441df934f76cf478d84a93697",
+        "weapon_metalness_channel": "B",
+        "character_metalness_channel": "R",
+        "smoothness_channel": "A",
+        "weapon_smoothness_scalar": "Smoothness",
+        "character_smoothness_scalar": "_Smoothness"
+      }
+    ],
+    "original_inputs_for_Sonic": {
+      "_IsWeapon": 1,
+      "Metallic_RGBA": [
+        0,
+        255,
+        255,
+        255
+      ],
+      "shader_branch_metalness": 1.0,
+      "smoothness_scalar": 0.12
+    },
+    "blue_channel_control_RGBA": [
+      0,
+      255,
+      0,
+      255
+    ],
+    "expected_branch_metalness_after_control": 0.0,
+    "GLSL_scope": "Eight desktop GLCore variants inspected; not an assertion of the exact active Vulkan variant",
+    "Vulkan_control_pending": true,
+    "native_shader_source_remains_private": true,
+    "original_assets_modified": false,
+    "table_segment_reference": "https://github.com/Perfare/AssetStudio/blob/master/AssetStudioUtility/ShaderConverter.cs",
+    "legacy_converter_excluded": "Does not handle this shader segmented table/parameter blobs; apparent parsed objects with invalid keywords are not valid GPU code"
+  },
+  "source_build": {
+    "output_sha256": "37ae46297bf2efa8afbc7a56f24b84021c2fef95599c20c77fbb5c46c24c0f3e",
+    "verification": {
+      "exact_visual_objects_changed": 5,
+      "all_other_original_objects_byte_exact": 25758,
+      "geometry_skin_material_texture_roundtrip": true,
+      "shared_launcher_mesh_unchanged": true,
+      "all_new_local_references_resolve": true,
+      "transforms_scripts_collision_physics_animation_stats_unchanged": true
+    },
+    "source_objects_compared": 25771,
+    "compared_with_native_control_sha256": "90e1c80374c353a04c707a43d0f7a4758a0d70e9d7c5a82da65aa8dd14ad713e",
+    "byte_exact_other_objects": 25770,
+    "only_remaining_object_difference": "New Sonic material float-property ordering; unique named values and all other saved properties are identical",
+    "named_property_differences": [],
+    "full_bundle_byte_identity_claimed": false
+  },
+  "native_control": {
+    "session": "headless-sonic-metallic-blue-control-v4",
+    "actual_native_Linux_Vulkan": true,
+    "scope": "Locked Impact Grenade catalogue and front/rotated/opposite official showcase only",
+    "game_exit": 0,
+    "compositor_teardown_exit": 139,
+    "host_profile_unchanged": true,
+    "network_isolated": true,
+    "no_host_display_audio_movement_firing_throwing_unlock_equip_purchase_or_rewards": true,
+    "source_blue_texture_present": true,
+    "brighter_blue_surface_observed": true,
+    "rotated_studio_hotspot_still_present": true,
+    "all_lighting_or_full_gameplay_accepted": false,
+    "installed": false
+  },
+  "full_source_tests": {
+    "tests": 195,
+    "passed": 194,
+    "existing_data_dependent_skips": 1
+  },
+  "character_default_regression": {
+    "actual_native_template_used": true,
+    "old_function_from_committed_revision": "164d2f50eea444418a735df09e80c3acc3cf3b1e",
+    "default_character_map_objects_byte_exact": 2,
+    "maps": {
+      "metallic": {
+        "id": 46492789829989012,
+        "serialized_sha256": "8e2fdd51da93c8ac91eddf06a7da9d7aeac6104317fae541a9c3f8c5a16525de"
+      },
+      "normal": {
+        "id": 66862486394982568,
+        "serialized_sha256": "e5d4783d9c841bf7b20bb496f1f7ddb9242a1a79e6c2d4bbd612ca91bc377cfc"
+      }
+    },
+    "all_existing_operator_callers_keep_default_profile": true,
+    "game_files_modified": false
+  },
+  "native_shader_and_game_data_remain_private": true,
+  "installed_game_changed": false,
+  "published_v011_packages_contain_this_source_fix": false,
+  "screenshots": [
+    {
+      "path": "screenshots/sonic-impact-blue-corrected-equipment-nov7.png",
+      "sha256": "42ef4945a13034d58303aa4b1c19af1a53061e950c0e01a06c87707f00e7cec0"
+    },
+    {
+      "path": "screenshots/sonic-impact-blue-corrected-showcase-nov7.png",
+      "sha256": "4df5d97a0464e2e3e42424ab5ea8fe243c016a3e3fa1d573400c81fe7fa646b2"
+    },
+    {
+      "path": "screenshots/sonic-impact-blue-corrected-rotated-nov7.png",
+      "sha256": "38e5604b713ed8736a3568331c1957aef7b924a9b45f0584d17b3028f96b44ae"
+    }
+  ]
+}

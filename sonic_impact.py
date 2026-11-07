@@ -42,7 +42,7 @@ def build(config,settings):
     for row in targets['targets']:
         obj=byid[int(row['path_id'])]
         if obj.type.name!=row['type'] or digest_bytes(obj.get_raw_data())!=row['sha256'] or str(obj.read_typetree()['m_GameObject']['m_PathID'])!=row['game_object']:raise ValueError('Impact visual target changed: '+row['path_id'])
-    donor=byid[3810939752448050823].read_typetree();material_template=byid[donor['m_Materials'][0]['m_PathID']];texture_template=next(o for o in original if o.type.name=='Texture2D' and o.assets_file is material_template.assets_file);data_maps=neutral_maps(texture_template,objects)
+    donor=byid[3810939752448050823].read_typetree();material_template=byid[donor['m_Materials'][0]['m_PathID']];texture_template=next(o for o in original if o.type.name=='Texture2D' and o.assets_file is material_template.assets_file);data_maps=neutral_maps(texture_template,objects,weapon_mode=True)
     added.extend(key(o.assets_file.name,o.path_id) for o in data_maps.values());tex_obj=new_object(texture_template,'MWC_SonicImpactAlbedo',objects);tex=tex_obj.read();raw,_=image_to_texture2d(image.convert('RGBA'),4);tex.m_Name='MWC_SonicImpactAlbedo';tex.m_Width,tex.m_Height=image.size;tex.m_TextureFormat=4;tex.image_data=raw;tex.m_CompleteImageSize=len(raw);tex.m_MipCount=1
     if tex.m_MipMap is not None:tex.m_MipMap=False
     tex.m_ColorSpace=1;tex.m_StreamData.path='';tex.m_StreamData.offset=tex.m_StreamData.size=0;tex.m_TextureSettings.m_FilterMode=1;tex.m_TextureSettings.m_WrapU=tex.m_TextureSettings.m_WrapV=1;tex.save();added.append(key(tex_obj.assets_file.name,tex_obj.path_id));mat=material(material_template,objects,'MWC_SonicImpactMaterial',tex_obj.path_id,data_maps=data_maps);added.append(key(mat.assets_file.name,mat.path_id))
@@ -85,7 +85,7 @@ def build(config,settings):
         if bi is None:verify_geometry(local[pid],fitted)
         else:geometry_check(local[pid],fitted,bi,bw)
     if not np.array_equal(np.asarray(local[tex_obj.path_id].read().image.convert('RGB')),np.asarray(image)):raise ValueError('Sonic albedo did not roundtrip')
-    verify_material(local[mat.path_id],local,require_albedo=True)
+    verify_material(local[mat.path_id],local,require_albedo=True,weapon_mode=True)
     report={'build_id':targets['build_id'],'model':'sonic_impact','source':provenance,'files':[{'bundle':BUNDLE,'backup':str(backup.resolve()),'output':str(target.resolve()),'source_sha256':digest(backup),'output_sha256':digest(target),'changes':changes,'added':added}],'verification':{'exact_visual_objects_changed':len(changes),'all_other_original_objects_byte_exact':untouched,'geometry_skin_material_texture_roundtrip':True,'shared_launcher_mesh_unchanged':True,'all_new_local_references_resolve':True,'transforms_scripts_collision_physics_animation_stats_unchanged':True},'in_game_tested':False,'sounds_replaced':False};dump(output/'manifest.json',report);return report
 
 
