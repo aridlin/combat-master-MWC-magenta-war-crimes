@@ -14,7 +14,7 @@
     },
     "nail_gun": {
       "enabled": true,
-      "asset": "legacy_procedural"
+      "asset": "authored"
     },
     "toaster": {
       "enabled": true,

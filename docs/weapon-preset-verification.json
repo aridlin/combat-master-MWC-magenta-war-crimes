@@ -1,0 +1,122 @@
+{
+  "scope": "Standalone authored nailer preset and manifest-pinned verification; existing manager selection already authored",
+  "default_actual_cli_export": {
+    "actual_default_cli_exports_all_four_authored_models": true,
+    "nailgun_author": "Liberi Arcano",
+    "nailgun_triangles": 3462,
+    "nailgun_source_mesh_sha256": "f9f81625d265836ef6f6e0d99a40f4925e249851f407ee7b7469d4bcdef60f65",
+    "nailgun_source_texture_sha256": "49ff3f6a510f591b560bd1302cd4e056fb4c1cbec1a5da831e0f72f4e3167219",
+    "exports": {
+      "scorpion": {
+        "vertices": 4632,
+        "triangles": 1544,
+        "bounds_min": [
+          -0.14773982763290405,
+          -0.1599999964237213,
+          -0.20316006243228912
+        ],
+        "bounds_max": [
+          0.14773982763290405,
+          0.25,
+          0.053160060197114944
+        ],
+        "parts": [],
+        "source": "Authored source: Scorpion (3D) by Guillaume \"GuieA_7\" Englert; CC-BY-SA-4.0"
+      },
+      "fishing_rod": {
+        "vertices": 44580,
+        "triangles": 14860,
+        "bounds_min": [
+          -0.015532733872532845,
+          -0.20000000298023224,
+          -0.06683246791362762
+        ],
+        "bounds_max": [
+          0.015532733872532845,
+          0.8999999761581421,
+          0.016832470893859863
+        ],
+        "parts": [],
+        "source": "Authored source: Fishing rod by Justin Randall; CC-BY-3.0"
+      },
+      "nail_gun": {
+        "vertices": 10386,
+        "triangles": 3462,
+        "bounds_min": [
+          -0.029560212045907974,
+          -0.054999999701976776,
+          -0.14098045229911804
+        ],
+        "bounds_max": [
+          0.029560212045907974,
+          0.24500000476837158,
+          0.024980459362268448
+        ],
+        "parts": [],
+        "source": "Authored source: 3December 2021 Day 3: Power Tool by Liberi Arcano; CC BY 4.0"
+      },
+      "toaster": {
+        "vertices": 1980,
+        "triangles": 660,
+        "bounds_min": [
+          -0.07770081609487534,
+          -0.07000000029802322,
+          -0.14347083866596222
+        ],
+        "bounds_max": [
+          0.07770081609487534,
+          0.20999999344348907,
+          0.023470839485526085
+        ],
+        "parts": [],
+        "source": "Authored source: Toaster by MilkAndBanana; CC0-1.0"
+      }
+    },
+    "game_files_changed": false
+  },
+  "historical_explicit_legacy_manifest": {
+    "recorded_nailgun_kind": "legacy_procedural",
+    "current_preset_nailgun_kind": "authored",
+    "actual_bundle_verification": [
+      {
+        "bundle": "src/weapons/weapons",
+        "masked_visual_objects": {
+          "scorpion": 52,
+          "fishing_rod": 39,
+          "nail_gun": 46,
+          "toaster": 40
+        },
+        "new_objects": 134,
+        "geometry_and_palette_exact_roundtrip": true,
+        "all_new_local_references_resolve": true,
+        "all_other_original_objects_byte_exact": true
+      },
+      {
+        "bundle": "src/weapons/attachments",
+        "masked_visual_objects": {
+          "scorpion": 144,
+          "fishing_rod": 84,
+          "nail_gun": 60,
+          "toaster": 186
+        },
+        "new_objects": 99,
+        "geometry_and_palette_exact_roundtrip": true,
+        "all_new_local_references_resolve": true,
+        "all_other_original_objects_byte_exact": true
+      }
+    ],
+    "geometry_palette_refs_and_unrelated_originals_verified": true
+  },
+  "existing_weapon_export_and_placement_tests": {
+    "passed": 6,
+    "failed": 0,
+    "command": "python -m unittest discover -s tests -p test_weapon*.py -v"
+  },
+  "files_sha256": {
+    "weapon-models.json": "88eeb0a5c966dff2b990c7d2f92124579fae95b89b542fb658e5b8cd57e4cb11",
+    "weapon_models/bundles.py": "10c90e223620188b3503cf1474befd04b252f2abfedbc29752264cfb5a8b8950"
+  },
+  "game_installation_changed": false,
+  "new_native_appearance_claim": false,
+  "released_installer_rebuilt": false
+}

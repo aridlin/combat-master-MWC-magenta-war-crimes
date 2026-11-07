@@ -20,6 +20,17 @@ Each accepted model keeps its original geometry, UVs and material colors through
 
 The manager cards install independently. `config/weapon-asset-selections.json` makes the retained MP7 source explicit. Legacy procedural exports remain available for old manifest verification and rollback; missing imported assets never silently trigger procedural generation.
 
+The standalone `weapon-models.json` preset now also selects the authored Poons
+nailer, matching the manager. Verification uses each build manifest's recorded
+asset kind, so changing a preset cannot reinterpret a previously built legacy
+model as a newer authored mesh. Manifests predating asset-kind records retain
+their legacy interpretation. The actual default CLI exported all four authored
+models; a historical two-bundle build containing the explicit legacy nailer
+also verified against the changed preset. Six existing weapon/export/placement
+tests passed. [Recorded validation](weapon-preset-verification.json) distinguishes
+these source/export checks from native appearance testing. This source fix
+does not change installed game files or the released manager's selection.
+
 For standalone development, configure a local game preset, record the baseline with `weapon_models_cli.py prepare`, then `build`, `verify`, and `install`. Do not install a standalone old stage over other selected mods: use the manager's composition and transaction engine. `restore` returns a standalone layer to its recorded preceding baseline and refuses unknown hashes. It never closes a running game.
 
 November 3 native menu checks confirmed all four authored replacements render, and the existing M1A0 Lynx cat retains its rear body and full tail. The P90 showcase camera mostly sees the toaster's plain side, so this is limited appearance evidence. Source geometry and gold native attachments remain separate. Raised/rolled placement still needs first-person inspection. See [actual capture gallery](screenshots/README.md).

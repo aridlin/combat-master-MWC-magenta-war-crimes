@@ -66,7 +66,9 @@ def verify(settings):
     manifest=json.loads((Path(settings['output'])/'manifest.json').read_text());results=[]
     settings=copy.deepcopy(settings)
     for name,record in manifest['models'].items():
-        if 'asset' not in record:settings.setdefault('models',{}).setdefault(name,{})['asset']='legacy_procedural'
+        # A changed preset must not reinterpret an already-built artifact.
+        # Early manifests predate explicit asset kinds and contain prototypes.
+        settings.setdefault('models',{}).setdefault(name,{})['asset']=record.get('asset','legacy_procedural')
     for b in manifest['files']:
         if digest(Path(b['backup']))!=b['source_sha256'] or digest(Path(b['output']))!=b['output_sha256']:raise ValueError('Model artifact/backup hash mismatch')
         A=UnityPy.load(b['backup']);B=UnityPy.load(b['output']);old={key(o.assets_file.name,o.path_id):o for o in A.objects};new={key(o.assets_file.name,o.path_id):o for o in B.objects}
